@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
-function TemplateFunction(props) {
+// component name DataPage with the name for the new component.
+function DataPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Functional Component');
 
   return (
     <div>
-      <h2>{heading}</h2>
+      <h2>Data Page</h2>
+      <h3>So many charts. My eyes. MY EYES.</h3>
+     
     </div>
   );
 }
 
-export default TemplateFunction;
+export default DataPage;
