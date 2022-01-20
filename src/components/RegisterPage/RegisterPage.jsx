@@ -8,6 +8,10 @@ function RegisterPage() {
 
   return (
     <div>
+
+      <div>
+        <h2>Current users</h2>
+      </div>
       <RegisterForm />
 
       <center>

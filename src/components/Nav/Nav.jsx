@@ -13,13 +13,13 @@ function Nav() {
         <h2 className="nav-title">Prime Solo Project</h2>
       </Link>
       <div>
-        {/* If no user is logged in, show these links */}
+        {/* If no user is logged in, show these links
         {user.id === null &&
           // If there's no user, show login/registration links
           <Link className="navLink" to="/login">
             Login / Register
           </Link>
-        }
+        } */}
 
         {/* If a user is logged in, show these links */}
         {user.id && (
@@ -38,6 +38,10 @@ function Nav() {
 
             <Link className="navLink" to="/datapage">
               Data
+            </Link>
+
+            <Link className="navLink" to="/registration">
+              Users and Registration
             </Link>
           
             <input placeholder="search by alum"></input>

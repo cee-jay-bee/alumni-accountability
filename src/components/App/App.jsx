@@ -54,16 +54,15 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute
+        <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
+          exact
+          path="/user"
           >
-            <UserPage />
-          </ProtectedRoute>
+          <UserPage />
+        </ProtectedRoute>
           
-          <ProtectedRoute 
-          
+        <ProtectedRoute 
           exact
           path="/allevent"
           >
@@ -124,7 +123,14 @@ function App() {
           >
           <EventPage/>
         </ProtectedRoute>
-          
+        
+
+        <ProtectedRoute
+          exact
+          path="/registration"
+          >
+          <RegisterPage/>
+        </ProtectedRoute>
 
           <Route
             exact
