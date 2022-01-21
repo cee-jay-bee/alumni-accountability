@@ -45,7 +45,7 @@ CREATE TABLE "event" (
     "stack_type" VARCHAR (250) NOT NULL,
     "description" VARCHAR (250) NOT NULL,
     "topic" VARCHAR (250) NOT NULL,
-    "confirm_attendance" BOOLEAN
+    "confirm_attendance" BOOLEAN NOT NULL DEFAULT 'false'
 );
 
 CREATE TABLE "event_tag" (
