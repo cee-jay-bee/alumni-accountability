@@ -13,14 +13,24 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
+
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import './App.css';
+import ResultPage from '../ResultPage/ResultPage';
+import EventPage from '../EventPage/EventPage';
+import AllEvent from '../AllEvent/AllEvent';
+import EventDetail from '../EventDetail/EventDetail';
+import CohortPage from '../CohortPage/CohortPage';
+import CohortDetail from '../CohortDetail/CohortDetail';
+import AlumDetail from '../AlumDetail/AlumDetail';
+import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
+import EditEvent from '../EditEvent/EditEvent';
+import Attendance from '../Attendance/Attendance';
+import DataPage from '../DataPage/DataPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,33 +50,111 @@ function App() {
           <Redirect exact from="/" to="/home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route>
+      
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute
+        <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
+          exact
+          path="/user"
           >
-            <UserPage />
-          </ProtectedRoute>
+          <UserPage />
+        </ProtectedRoute>
+          
+        <ProtectedRoute 
+          exact
+          path="/allevent"
+          >
+          <AllEvent/>
+        </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
+
+        <ProtectedRoute 
+          exact
+          path="/cohortpage"
           >
-            <InfoPage />
-          </ProtectedRoute>
+          <CohortPage/>
+        </ProtectedRoute>
+
+
+        <ProtectedRoute 
+          exact
+          path="/datapage"
+          >
+          <DataPage/>
+        </ProtectedRoute>
+
+
+        <ProtectedRoute 
+          exact
+          path="/alumdetail"
+          >
+          <AlumDetail/>
+        </ProtectedRoute>
+
+
+        <ProtectedRoute 
+          exact
+          path="/cohortdetail"
+          >
+          <CohortDetail/>
+        </ProtectedRoute>
+
+
+        <ProtectedRoute 
+          exact
+          path="/eventdetail"
+          >
+          <EventDetail/>
+        </ProtectedRoute>
+
+        <ProtectedRoute 
+          exact
+          path="/attendance"
+          >
+          <Attendance/>
+        </ProtectedRoute>
+
+
+        <ProtectedRoute 
+          exact
+          path="/resultpage"
+          >
+          <ResultPage/>
+        </ProtectedRoute>
+
+        <ProtectedRoute 
+          exact
+          path="/eventpage"
+          >
+          <EventPage/>
+        </ProtectedRoute>
+
+        <ProtectedRoute 
+          exact
+          path="/createnewevent"
+          >
+          <CreateNewEvent/>
+        </ProtectedRoute>
+        
+
+        <ProtectedRoute 
+          exact
+          path="/editevent"
+          >
+          <EditEvent/>
+        </ProtectedRoute>
+
+
+        <ProtectedRoute
+          exact
+          path="/registration"
+          >
+          <RegisterPage/>
+        </ProtectedRoute>
 
           <Route
             exact
@@ -82,7 +170,7 @@ function App() {
             }
           </Route>
 
-          <Route
+          {/* <Route
             exact
             path="/registration"
           >
@@ -94,7 +182,7 @@ function App() {
               // Otherwise, show the registration page
               <RegisterPage />
             }
-          </Route>
+          </Route> */}
 
           <Route
             exact
