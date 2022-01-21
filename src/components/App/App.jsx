@@ -27,7 +27,9 @@ import EventDetail from '../EventDetail/EventDetail';
 import CohortPage from '../CohortPage/CohortPage';
 import CohortDetail from '../CohortDetail/CohortDetail';
 import AlumDetail from '../AlumDetail/AlumDetail';
-
+import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
+import EditEvent from '../EditEvent/EditEvent';
+import Attendance from '../Attendance/Attendance';
 import DataPage from '../DataPage/DataPage';
 
 function App() {
@@ -109,6 +111,13 @@ function App() {
           <EventDetail/>
         </ProtectedRoute>
 
+        <ProtectedRoute 
+          exact
+          path="/attendance"
+          >
+          <Attendance/>
+        </ProtectedRoute>
+
 
         <ProtectedRoute 
           exact
@@ -123,7 +132,22 @@ function App() {
           >
           <EventPage/>
         </ProtectedRoute>
+
+        <ProtectedRoute 
+          exact
+          path="/createnewevent"
+          >
+          <CreateNewEvent/>
+        </ProtectedRoute>
         
+
+        <ProtectedRoute 
+          exact
+          path="/editevent"
+          >
+          <EditEvent/>
+        </ProtectedRoute>
+
 
         <ProtectedRoute
           exact
