@@ -23,6 +23,7 @@ CREATE TABLE "alum" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (80) NOT NULL,
     "placed" boolean DEFAULT 'false',
+    "seeking" boolean DEFAULT 'false',
     "cohort_id" bigint NOT NULL,
     FOREIGN KEY ("cohort_id") REFERENCES "cohort"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -88,8 +89,8 @@ INSERT INTO "cohort" (name, graduation_date)
 VALUES ('ionian', '2/25/2022');
 
 
-INSERT INTO "alum" (name, placed, cohort_id)
-VALUES ('jenny', false, 1);
+INSERT INTO "alum" (name, placed, seeking, cohort_id)
+VALUES ('jenny', false, false, 1);
 
 
 INSERT INTO "alum_note" (alum_id, note, date, reminder)
