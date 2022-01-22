@@ -9,38 +9,43 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL,
     "firstname" VARCHAR (80) NOT NULL,
     "lastname" VARCHAR (80) NOT NULL,
-    "access" integer NOT NULL
+    "role" varchar(255) NOT NULL DEFAULT 'regular'
 );
+
+CREATE TABLE "cohort" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (80) NOT NULL,
+    "start_date" date NOT NULL,
+    "graduation_date" date NOT NULL
+);
+
+
 CREATE TABLE "alum" (
     "id" SERIAL PRIMARY KEY,
-    "name" character varying(80) NOT NULL UNIQUE,
-    "graduation_date" date NOT NULL,
-    "cohort" character varying(250) NOT NULL,
-    "skills" character varying(250) NOT NULL,
-    "notes" boolean DEFAULT 'false',
+    "name" VARCHAR (80) NOT NULL,
     "placed" boolean DEFAULT 'false',
-    "seeking" boolean DEFAULT 'false'
+    "cohort_id" bigint NOT NULL
 );
 
 CREATE TABLE "alum_note" (
-	"id" integer NOT NULL,
-	"alum_id" integer NOT NULL,
-	"note" varchar(100000) NOT NULL,
-	"date" TIMESTAMP,
-	"reminder" BOOLEAN NOT NULL DEFAULT 'false',
-	FOREIGN KEY (alum_id) REFERENCES "alum"(id) ON DELETE CASCADE ON UPDATE CASCADE
+    "id" SERIAL PRIMARY KEY,
+    "alum_id" integer NOT NULL,
+    "note" VARCHAR (100000) NOT NULL,
+    "date" TIMESTAMP,
+    "reminder" BOOLEAN NOT NULL DEFAULT 'false',
+    FOREIGN KEY ("alum_id") REFERENCES "alum"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE "skill" (
-	"id" integer NOT NULL,
-	"alum_id" integer NOT NULL,
-	"skill" varchar(255) NOT NULL,
-	FOREIGN KEY (alum_id) REFERENCES "alum"(id) ON DELETE CASCADE ON UPDATE CASCADE
+    "id" SERIAL PRIMARY KEY,
+    "alum_id" integer NOT NULL,
+    "skill" varchar(255) NOT NULL,
+    FOREIGN KEY ("alum_id") REFERENCES "alum"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE "event" (
     "id" SERIAL PRIMARY KEY,
-    "title" VARCHAR (80) UNIQUE NOT NULL,
+    "title" VARCHAR (80) NOT NULL,
     "date" DATE NOT NULL,
     "stack_type" VARCHAR (250) NOT NULL,
     "description" VARCHAR (250) NOT NULL,
@@ -50,24 +55,24 @@ CREATE TABLE "event" (
 
 CREATE TABLE "event_tag" (
     "id" SERIAL PRIMARY KEY,
-    "event_id" INTEGER,
+    "event_id" integer NOT NULL,
     "skill" VARCHAR (250) NOT NULL,
     FOREIGN KEY ("event_id") REFERENCES "event"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 	
 CREATE TABLE "event_note" (
     "id" SERIAL PRIMARY KEY,
-    "event_id" INTEGER,
+    "event_id" integer NOT NULL,
     "note" VARCHAR(100000) NOT NULL,
     "date" TIMESTAMP,
-    "reminder" BOOLEAN,
+    "reminder"  BOOLEAN NOT NULL DEFAULT 'false',
     FOREIGN KEY ("event_id") REFERENCES "event"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE "event_attendance" (
     "id" SERIAL PRIMARY KEY,
-    "alum_id" INTEGER,
-    "event_id" INTEGER,
+    "alum_id" INTEGER NOT NULL,
+    "event_id" INTEGER NOT NULL,
     FOREIGN KEY ("event_id") REFERENCES "event"(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY ("alum_id") REFERENCES "event"(id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY ("alum_id") REFERENCES "alum"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
