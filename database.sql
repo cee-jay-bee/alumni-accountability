@@ -57,7 +57,7 @@ CREATE TABLE "event" (
 CREATE TABLE "event_tag" (
     "id" SERIAL PRIMARY KEY,
     "event_id" integer NOT NULL,
-    "skill" VARCHAR (250) NOT NULL,
+    "tag" VARCHAR (250) NOT NULL,
     FOREIGN KEY ("event_id") REFERENCES "event"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
     
@@ -104,7 +104,7 @@ INSERT INTO "event" (title, date, stack_type, description, topic, confirm_attend
 VALUES ('Networking', NOW(), 'FSE', 'All alumni are welcomed', 'Networking will be discussed', true);
 
 
-INSERT INTO "event_tag" (event_id, skill)
+INSERT INTO "event_tag" (event_id, tag)
 VALUES (1, 'Javascript');
 
 INSERT INTO "event_note" (event_id, note, date, reminder)
