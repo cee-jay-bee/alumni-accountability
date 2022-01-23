@@ -23,6 +23,7 @@ router.post('/register', (req, res, next) => {
   const firstname = req.body.firstname;
   const lastname = req.body.lastname;
   const role = 'admin';
+  
   const queryText = `INSERT INTO "user" (username, password, firstname, lastname, role)
     VALUES ($1, $2, $3, $4, $5) RETURNING id`;
   pool
