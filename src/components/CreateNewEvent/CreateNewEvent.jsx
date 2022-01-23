@@ -138,7 +138,7 @@ function CreateNewEvent(props) {
       </div>
       <div>
         <select
-          onChange={( event )=>setEventStackType( event )}
+          onChange={( event )=>setEventStackType( event.target.value )}
         >
           <option value={'FSE'}>FSE</option>
           <option value={'UX/UI'}>UX/UI</option>
