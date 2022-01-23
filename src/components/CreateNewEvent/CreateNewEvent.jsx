@@ -137,7 +137,15 @@ function CreateNewEvent(props) {
         />
       </div>
       <div>
-        <FormControl 
+        <select
+          onChange={( event )=>setEventStackType( event )}
+        >
+          <option value={'FSE'}>FSE</option>
+          <option value={'UX/UI'}>UX/UI</option>
+          <option value={'FSE and UX/UI'}>FSE AND UX/UI</option>
+        </select>
+
+        {/* <FormControl 
           className="formClass"
           style={{'minWidth':'380px'}}>
             <InputLabel id="actors-select-label">Which cohort type is applicable?</InputLabel>
@@ -154,12 +162,12 @@ function CreateNewEvent(props) {
                 <MenuItem>
                     <em>Cohort Type</em>
                     {/* this is an empty value. when a user clicks on this, the selector box will go back to displaying the label */}
-                    </MenuItem>
+                    {/* </MenuItem>
                     <MenuItem value={'FSE'}>FSE</MenuItem>
                     <MenuItem value={'UX/UI'}>UX/UI</MenuItem>
                     <MenuItem value={'FSE and UX/UI'}>FSE and UX/UI</MenuItem>
                </Select>
-        </FormControl>
+        </FormControl> */}
       </div>
       <div>
         <Button className="btn" variant="outlined" type="submit" name="submit" value="create event" style={{'background-color':'#177E89', 'color':'white'}} onClick={addNewEvent}>Create Event</Button>
