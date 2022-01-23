@@ -48,9 +48,9 @@ CREATE TABLE "event" (
     "id" SERIAL PRIMARY KEY,
     "title" VARCHAR (80) NOT NULL,
     "date" DATE NOT NULL,
+    "time" TIME NOT NULL,
     "stack_type" VARCHAR (250) NOT NULL,
     "description" VARCHAR (250) NOT NULL,
-    "topic" VARCHAR (250) NOT NULL,
     "confirm_attendance" BOOLEAN NOT NULL DEFAULT 'false'
 );
 
@@ -100,8 +100,8 @@ VALUES (1, 'This is the note', NOW(), true);
 INSERT INTO "skill" (alum_id, skill)
 VALUES (1, 'javascript');
 
-INSERT INTO "event" (title, date, stack_type, description, topic, confirm_attendance)
-VALUES ('Networking', NOW(), 'FSE', 'All alumni are welcomed', 'Networking will be discussed', true);
+INSERT INTO "event" (title, date, "time", stack_type, description, confirm_attendance)
+VALUES ('Networking', NOW(), '9:00', 'FSE', 'All alumni are welcomed', true);
 
 
 INSERT INTO "event_tag" (event_id, tag)

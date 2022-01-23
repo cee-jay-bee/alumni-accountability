@@ -1,9 +1,9 @@
-const eventReducer = (state = {}, action) => {
+const eventReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_EVENT':
       return action.payload;
     case 'UNSET_EVENT':
-      return {};
+      return [];
     default:
       return state;
   }
