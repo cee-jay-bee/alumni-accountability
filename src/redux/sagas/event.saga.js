@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
-function* fetchEvent() {
+function* fetchEvent(action) {
   try {
     const response = yield axios.get(`/api/event`);
     
@@ -12,7 +12,7 @@ function* fetchEvent() {
   }
 }
 
-function* createEvent() {
+function* createEvent(action) {
   try {
     
     const response = yield axios.post('/api/event', action.payload);
