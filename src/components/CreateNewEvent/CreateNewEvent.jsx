@@ -62,8 +62,7 @@ function CreateNewEvent(props) {
           <div className="createNewEventCardHeader">
             <h2>Let's Create a New Event!</h2>
           </div>
-          <div>
-
+          <div className="createNewEventTitleDateTimeDiv">
             {/* EVENT TITLE INPUT */}
             <TextField
               // id="outlined-multiline-static"
@@ -117,7 +116,7 @@ function CreateNewEvent(props) {
           </div>
 
           {/* EVENT TAG INPUT */}
-          <div>
+          <div className="createNewEventTagDiv">
             <TextField
               id="outlined-multiline-static"
               label="event tag"
@@ -137,11 +136,14 @@ function CreateNewEvent(props) {
           {/* EVENT DESCRIPTION INPUT */}
           <div>
             <TextField
+              className="createNewEventDescription"
               id="outlined-multiline-static"
               label="event description"
               variant="outlined"
               autoComplete= "off"
               multiline
+              maxRows={4}
+              rows={5}
               // // variant="filled"
               // // color="warning"
               // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
@@ -153,14 +155,6 @@ function CreateNewEvent(props) {
             />
           </div>
           <div>
-            {/* <select
-              onChange={( event )=>setEventStackType( event.target.value )}
-            >
-              <option value={'FSE'}>FSE</option>
-              <option value={'UX/UI'}>UX/UI</option>
-              <option value={'FSE and UX/UI'}>FSE AND UX/UI</option>
-            </select> */}
-
             <FormControl 
               className="formClass"
               style={{'minWidth':'380px'}}>

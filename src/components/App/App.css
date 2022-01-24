@@ -118,6 +118,7 @@ input {
   padding-bottom: 40px;
   padding-left: 40px;
   padding-top: 10px;
+  margin-bottom: 20px;
 }
 
 .createNewEventCardHeader{
@@ -136,8 +137,26 @@ text-align: center;
 
 .eventTimeInput{
   margin-left: 50px;
+  width: 145px;
 }
 
 .createNewEventTitle{
   width: 400px;
+}
+
+.createNewEventDescription{
+  width: 100%;
+}
+
+.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+}
+
+.createNewEventTagDiv{
+  margin-bottom: 20px;
+}
+
+.createNewEventTitleDateTimeDiv{
+  margin-bottom: 20px;
 }
