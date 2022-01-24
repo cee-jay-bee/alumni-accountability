@@ -63,8 +63,12 @@ function CreateNewEvent(props) {
             <h2>Let's Create a New Event!</h2>
           </div>
           <div>
+
+            {/* EVENT TITLE INPUT */}
             <TextField
-              id="outlined-multiline-static"
+              // id="outlined-multiline-static"
+              className="createNewEventTitle"
+              style={{'margin-right':'30px'}}
               label="event title"
               variant="outlined"
               autoComplete= "off"
@@ -77,7 +81,42 @@ function CreateNewEvent(props) {
               value={eventTitle}
               onChange={(event) => setEventTitle(event.target.value)}
             />
+
+            {/* EVENT DATE INPUT*/}
+            <TextField
+              id="outlined-multiline-static"
+              style={{'margin-right':'30px'}}
+              // label="event date"
+              variant="outlined"
+              autoComplete= "off"
+              // // variant="filled"
+              // // color="warning"
+              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
+              type="date"
+              name="event date"
+              required
+              value={eventDate}
+              onChange={(event) => setEventDate(event.target.value)}
+            />
+
+            {/* EVENT TIME INPUT */}
+            <TextField
+              className="eventTimeInput"
+              // label="event time"
+              variant="outlined"
+              autoComplete= "off"
+              // // variant="filled"
+              // // color="warning"
+              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
+              type="time"
+              name="event time"
+              required
+              value={eventTime}
+              onChange={(event) => setEventTime(event.target.value)}
+            />
           </div>
+
+          {/* EVENT TAG INPUT */}
           <div>
             <TextField
               id="outlined-multiline-static"
@@ -94,39 +133,8 @@ function CreateNewEvent(props) {
               onChange={(event) => setEventTag(event.target.value)}
             />
           </div>
-          {/* EVENT DATE */}
-          <div>
-            <TextField
-              id="outlined-multiline-static"
-              // label="event date"
-              variant="outlined"
-              autoComplete= "off"
-              // // variant="filled"
-              // // color="warning"
-              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-              type="date"
-              name="event date"
-              required
-              value={eventDate}
-              onChange={(event) => setEventDate(event.target.value)}
-            />
-          </div>
-          <div>
-          <TextField
-              id="outlined-multiline-static"
-              // label="event time"
-              variant="outlined"
-              autoComplete= "off"
-              // // variant="filled"
-              // // color="warning"
-              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-              type="time"
-              name="event time"
-              required
-              value={eventTime}
-              onChange={(event) => setEventTime(event.target.value)}
-            />
-          </div>
+
+          {/* EVENT DESCRIPTION INPUT */}
           <div>
             <TextField
               id="outlined-multiline-static"

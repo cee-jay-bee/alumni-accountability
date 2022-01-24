@@ -114,9 +114,9 @@ input {
 /* -----------CREATE NEW EVENT COMPONENT--------- */
 
 .createNewEventCard{
-  padding-right: 30px;
+  padding-right: 40px;
   padding-bottom: 40px;
-  padding-left: 30px;
+  padding-left: 40px;
   padding-top: 10px;
 }
 
@@ -127,4 +127,17 @@ text-align: center;
 .createNewEventBtn{
   margin-top: 20px;
   text-align: center;
+}
+
+/* adjusts the grid width */
+.css-bhp9pd-MuiPaper-root-MuiCard-root{ 
+  width: 800px;
+}
+
+.eventTimeInput{
+  margin-left: 50px;
+}
+
+.createNewEventTitle{
+  width: 400px;
 }
