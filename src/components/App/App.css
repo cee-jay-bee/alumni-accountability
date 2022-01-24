@@ -110,3 +110,72 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+/* -----------CREATE NEW EVENT COMPONENT--------- */
+
+.createNewEventCard{
+  padding-right: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+.createNewEventCardHeader{
+text-align: center;
+margin-bottom: 30px;
+}
+
+.createNewEventBtn{
+  /* margin-top: 20px; */
+  text-align: right;
+}
+
+/* adjusts the grid width */
+.css-bhp9pd-MuiPaper-root-MuiCard-root{ 
+  width: 700px;
+}
+
+.eventTimeInput{
+  margin-left: 50px;
+  width: 145px;
+}
+
+.createNewEventTitle{
+  width: 302px;
+}
+
+.createNewEventDescription{
+  width: 100%;
+}
+
+.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+}
+
+.createNewEventTagDiv{
+  margin-bottom: 20px;
+}
+
+.createNewEventTitleDateTimeDiv{
+  margin-bottom: 20px;
+}
+
+.createNewEventFormClass{
+  width: 300px;
+}
+/* -----------EVENT PAGE ------------ */
+.createNewEventModal{
+  width: 600px;
+}
+
+.createNewEventModalDiv{
+  /* justify-content: center; */
+}
+
+.css-79ws1d-MuiModal-root{
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+}
