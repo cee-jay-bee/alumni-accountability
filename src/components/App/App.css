@@ -123,6 +123,7 @@ input {
 
 .createNewEventCardHeader{
 text-align: center;
+margin-bottom: 30px;
 }
 
 .createNewEventBtn{
@@ -132,7 +133,7 @@ text-align: center;
 
 /* adjusts the grid width */
 .css-bhp9pd-MuiPaper-root-MuiCard-root{ 
-  width: 800px;
+  width: 700px;
 }
 
 .eventTimeInput{
@@ -141,7 +142,7 @@ text-align: center;
 }
 
 .createNewEventTitle{
-  width: 400px;
+  width: 302px;
 }
 
 .createNewEventDescription{
@@ -159,4 +160,8 @@ text-align: center;
 
 .createNewEventTitleDateTimeDiv{
   margin-bottom: 20px;
+}
+
+.createNewEventFormClass{
+  width: 300px;
 }

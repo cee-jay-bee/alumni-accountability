@@ -115,24 +115,6 @@ function CreateNewEvent(props) {
             />
           </div>
 
-          {/* EVENT TAG INPUT */}
-          <div className="createNewEventTagDiv">
-            <TextField
-              id="outlined-multiline-static"
-              label="event tag"
-              variant="outlined"
-              autoComplete= "off"
-              // // variant="filled"
-              // // color="warning"
-              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-              type="text"
-              name="event tag"
-              required
-              value={eventTag}
-              onChange={(event) => setEventTag(event.target.value)}
-            />
-          </div>
-
           {/* EVENT DESCRIPTION INPUT */}
           <div>
             <TextField
@@ -154,11 +136,31 @@ function CreateNewEvent(props) {
               onChange={(event) => setEventDescription(event.target.value)}
             />
           </div>
+
+          {/* EVENT TAG INPUT */}
+          <div className="createNewEventTagDiv">
+            <TextField
+              id="outlined-multiline-static"
+              label="event tag"
+              variant="outlined"
+              autoComplete= "off"
+              // // variant="filled"
+              // // color="warning"
+              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
+              type="text"
+              name="event tag"
+              required
+              value={eventTag}
+              onChange={(event) => setEventTag(event.target.value)}
+            />
+          </div>
+          {/* EVENT COHORT TYPE INPUT */}
           <div>
             <FormControl 
-              className="formClass"
-              style={{'minWidth':'380px'}}>
-                <InputLabel id="actors-select-label">Which cohort type is applicable?</InputLabel>
+              className="createNewEventFormClass"
+              // style={{'minWidth':'380px'}}
+              >
+                <InputLabel id="actors-select-label">cohort type</InputLabel>
                   <Select
                     labelId="stack-type-select"
                     // this ID needs to be the same as the ID of InputLabel ^^
@@ -170,7 +172,7 @@ function CreateNewEvent(props) {
                     onChange={( event )=>setEventStackType( event.target.value )}
                 >
                     <MenuItem>
-                        <em>Cohort Type</em>
+                        <em>--please select from the following--</em>
                         </MenuItem>
                         <MenuItem value={'FSE'}>FSE</MenuItem>
                         <MenuItem value={'UX/UI'}>UX/UI</MenuItem>
@@ -178,6 +180,8 @@ function CreateNewEvent(props) {
                   </Select>
             </FormControl>
           </div>
+
+          {/* SUBMISSION BTN */}
           <div className="createNewEventBtn">
             <Button variant="outlined" type="submit" name="submit" value="create event" style={{'backgroundColor':'#177E89', 'color':'white'}} onClick={addNewEvent}>Create Event</Button>
           </div>
