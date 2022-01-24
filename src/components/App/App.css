@@ -110,3 +110,21 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+/* -----------CREATE NEW EVENT COMPONENT--------- */
+
+.createNewEventCard{
+  padding-right: 30px;
+  padding-bottom: 40px;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+.createNewEventCardHeader{
+text-align: center;
+}
+
+.createNewEventBtn{
+  margin-top: 20px;
+  text-align: center;
+}

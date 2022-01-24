@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { TextField, FormControl, MenuItem, Button, InputLabel, Select } from '@mui/material';
+import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
 
@@ -15,9 +15,7 @@ function CreateNewEvent(props) {
 
   const dispatch = useDispatch();
   // const history = useHistory();
-
   const addNewEvent = (event) => {
-    console.log('in btn click');
         dispatch({
         type: 'CREATE_EVENT',
         payload: {
@@ -52,125 +50,137 @@ function CreateNewEvent(props) {
   
   return (
     <div>
-      <h2>Let's Create a New Event!</h2>
       {/* EVENT NAME INPUT */}
-      <div>
-        <TextField
-          id="outlined-multiline-static"
-          label="event title"
-          variant="outlined"
-          autoComplete= "off"
-          // // variant="filled"
-          // // color="warning"
-          // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-          type="text"
-          name="event title"
-          required
-          value={eventTitle}
-          onChange={(event) => setEventTitle(event.target.value)}
-        />
-      </div>
-      <div>
-        <TextField
-          id="outlined-multiline-static"
-          label="event tag"
-          variant="outlined"
-          autoComplete= "off"
-          // // variant="filled"
-          // // color="warning"
-          // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-          type="text"
-          name="event tag"
-          required
-          value={eventTag}
-          onChange={(event) => setEventTag(event.target.value)}
-        />
-      </div>
-      {/* EVENT DATE */}
-      <div>
-        <TextField
-          id="outlined-multiline-static"
-          // label="event date"
-          variant="outlined"
-          autoComplete= "off"
-          // // variant="filled"
-          // // color="warning"
-          // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-          type="date"
-          name="event date"
-          required
-          value={eventDate}
-          onChange={(event) => setEventDate(event.target.value)}
-        />
-      </div>
-      <div>
-      <TextField
-          id="outlined-multiline-static"
-          // label="event time"
-          variant="outlined"
-          autoComplete= "off"
-          // // variant="filled"
-          // // color="warning"
-          // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-          type="time"
-          name="event time"
-          required
-          value={eventTime}
-          onChange={(event) => setEventTime(event.target.value)}
-        />
-      </div>
-      <div>
-        <TextField
-          id="outlined-multiline-static"
-          label="event description"
-          variant="outlined"
-          autoComplete= "off"
-          multiline
-          // // variant="filled"
-          // // color="warning"
-          // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-          type="text"
-          name="event description"
-          required
-          value={eventDescription}
-          onChange={(event) => setEventDescription(event.target.value)}
-        />
-      </div>
-      <div>
-        {/* <select
-          onChange={( event )=>setEventStackType( event.target.value )}
-        >
-          <option value={'FSE'}>FSE</option>
-          <option value={'UX/UI'}>UX/UI</option>
-          <option value={'FSE and UX/UI'}>FSE AND UX/UI</option>
-        </select> */}
-
-        <FormControl 
-          className="formClass"
-          style={{'minWidth':'380px'}}>
-            <InputLabel id="actors-select-label">Which cohort type is applicable?</InputLabel>
-              <Select
-                labelId="stack-type-select"
-                // this ID needs to be the same as the ID of InputLabel ^^
-                id="actors-select"
-                // but this id needs to be different from the other two above ^^
-                value={eventStackType}
-                required
-                label="eventStackType"
-                onChange={( event )=>setEventStackType( event.target.value )}
+      <Grid
+        container
+        // spacing={0}
+        direction="column"
+        alignItems="center"
+        justify="center"
+      >
+        <Card className="createNewEventCard">
+          <div className="createNewEventCardHeader">
+            <h2>Let's Create a New Event!</h2>
+          </div>
+          <div>
+            <TextField
+              id="outlined-multiline-static"
+              label="event title"
+              variant="outlined"
+              autoComplete= "off"
+              // // variant="filled"
+              // // color="warning"
+              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
+              type="text"
+              name="event title"
+              required
+              value={eventTitle}
+              onChange={(event) => setEventTitle(event.target.value)}
+            />
+          </div>
+          <div>
+            <TextField
+              id="outlined-multiline-static"
+              label="event tag"
+              variant="outlined"
+              autoComplete= "off"
+              // // variant="filled"
+              // // color="warning"
+              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
+              type="text"
+              name="event tag"
+              required
+              value={eventTag}
+              onChange={(event) => setEventTag(event.target.value)}
+            />
+          </div>
+          {/* EVENT DATE */}
+          <div>
+            <TextField
+              id="outlined-multiline-static"
+              // label="event date"
+              variant="outlined"
+              autoComplete= "off"
+              // // variant="filled"
+              // // color="warning"
+              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
+              type="date"
+              name="event date"
+              required
+              value={eventDate}
+              onChange={(event) => setEventDate(event.target.value)}
+            />
+          </div>
+          <div>
+          <TextField
+              id="outlined-multiline-static"
+              // label="event time"
+              variant="outlined"
+              autoComplete= "off"
+              // // variant="filled"
+              // // color="warning"
+              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
+              type="time"
+              name="event time"
+              required
+              value={eventTime}
+              onChange={(event) => setEventTime(event.target.value)}
+            />
+          </div>
+          <div>
+            <TextField
+              id="outlined-multiline-static"
+              label="event description"
+              variant="outlined"
+              autoComplete= "off"
+              multiline
+              // // variant="filled"
+              // // color="warning"
+              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
+              type="text"
+              name="event description"
+              required
+              value={eventDescription}
+              onChange={(event) => setEventDescription(event.target.value)}
+            />
+          </div>
+          <div>
+            {/* <select
+              onChange={( event )=>setEventStackType( event.target.value )}
             >
-                <MenuItem>
-                    <em>Cohort Type</em>
-                    </MenuItem>
-                    <MenuItem value={'FSE'}>FSE</MenuItem>
-                    <MenuItem value={'UX/UI'}>UX/UI</MenuItem>
-                    <MenuItem value={'FSE and UX/UI'}>FSE and UX/UI</MenuItem>
-               </Select>
-        </FormControl>
-      </div>
-      <div>
-        <Button className="btn" variant="outlined" type="submit" name="submit" value="create event" style={{'backgroundColor':'#177E89', 'color':'white'}} onClick={addNewEvent}>Create Event</Button>
-      </div>
+              <option value={'FSE'}>FSE</option>
+              <option value={'UX/UI'}>UX/UI</option>
+              <option value={'FSE and UX/UI'}>FSE AND UX/UI</option>
+            </select> */}
+
+            <FormControl 
+              className="formClass"
+              style={{'minWidth':'380px'}}>
+                <InputLabel id="actors-select-label">Which cohort type is applicable?</InputLabel>
+                  <Select
+                    labelId="stack-type-select"
+                    // this ID needs to be the same as the ID of InputLabel ^^
+                    id="actors-select"
+                    // but this id needs to be different from the other two above ^^
+                    value={eventStackType}
+                    required
+                    label="eventStackType"
+                    onChange={( event )=>setEventStackType( event.target.value )}
+                >
+                    <MenuItem>
+                        <em>Cohort Type</em>
+                        </MenuItem>
+                        <MenuItem value={'FSE'}>FSE</MenuItem>
+                        <MenuItem value={'UX/UI'}>UX/UI</MenuItem>
+                        <MenuItem value={'FSE and UX/UI'}>FSE and UX/UI</MenuItem>
+                  </Select>
+            </FormControl>
+          </div>
+          <div className="createNewEventBtn">
+            <Button variant="outlined" type="submit" name="submit" value="create event" style={{'backgroundColor':'#177E89', 'color':'white'}} onClick={addNewEvent}>Create Event</Button>
+          </div>
+        </Card>
+      </Grid>
     </div>
   );
 }
