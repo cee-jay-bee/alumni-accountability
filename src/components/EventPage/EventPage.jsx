@@ -55,10 +55,10 @@ function EventPage(props) {
        }}
         // boxShadow={3}
         >
-          <Box>
+          {/* <Box> */}
             {/* <p>x</p> */}
             <CreateNewEvent/>  
-          </Box> 
+          {/* </Box>  */}
         </Modal>
       </div>
     </div>
