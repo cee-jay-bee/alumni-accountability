@@ -165,3 +165,21 @@ margin-bottom: 30px;
 .createNewEventFormClass{
   width: 300px;
 }
+/* -----------EVENT PAGE ------------ */
+.createNewEventModal{
+  width: 600px;
+}
+
+.createNewEventModalDiv{
+  /* justify-content: center; */
+}
+
+.css-79ws1d-MuiModal-root{
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+}
+
+.css-79ws1d-MuiModal-root{
+  justify-content: center;
+}
