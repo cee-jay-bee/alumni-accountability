@@ -186,9 +186,33 @@ margin-bottom: 30px;
   background-color: black;
 }
 
+.cheers{
+text-align: center;
+padding-top: 40px;
+font-size: 50px;
+/* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
+}
+
+.neweventmodalbtns{
+  /* justify-content: center;
+  align-items: center; */
+  margin-left: 70px;
+  position: relative;
+  top: -70px;
+}
+
+.beerscheers{
+  position: relative;
+}
+
+.createneweventconfirmcancelbtn:hover{
+  background-color: red;
+}
+
+
 /* -----------EVENT PAGE ------------ */
 .createNewEventModal{
-  width: 50%;
+  width: 40%;
 }
 
 .css-79ws1d-MuiModal-root{
