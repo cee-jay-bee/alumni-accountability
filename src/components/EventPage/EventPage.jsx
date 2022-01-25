@@ -16,10 +16,7 @@ function EventPage(props) {
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
-      setOpen(true);
-  };
-  const handleClose = () => {
-      setOpen(false);
+      setOpen(!open);
   };
   // END HANDLE POP-UP MODAL
 
@@ -40,25 +37,25 @@ function EventPage(props) {
       <div createNewEventModalDiv>
         <Modal
         open={open}
-        onClose={handleClose}
+        onClose={handleClickOpen}
         className="createNewEventModal"
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        style={{alignItems:'center', 
+        style={{alignItems:'center',
         justifyContent:'center', 
-        width: '700px',
+        width: '50%',
         position: 'flexible',
-        top: '10%',
+        top: '5%',
         left: '0',
         marginLeft: '23%',
-        marginRight: '200px'
+        marginRight: '50px'
        }}
-        // boxShadow={3}
         >
-          {/* <Box> */}
-            {/* <p>x</p> */}
+          <Box>
+            {/* Clicking the x will close out of the modal */}
+            <h2 className="eventPageCloseModal" onClick={handleClickOpen}>x</h2> 
             <CreateNewEvent/>  
-          {/* </Box>  */}
+          </Box> 
         </Modal>
       </div>
     </div>

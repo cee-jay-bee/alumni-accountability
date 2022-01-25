@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography } from '@mui/material';
+import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
 import { useDispatch } from 'react-redux';
 // import styled from "styled-components";
 
@@ -13,6 +13,13 @@ function CreateNewEvent(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
+
+    //HANLDE POP-UP MODAL
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(!open);
+    };
+    // END HANDLE POP-UP MODAL
 
   const dispatch = useDispatch();
   // const history = useHistory();
@@ -27,8 +34,14 @@ function CreateNewEvent(props) {
           eventStackType: eventStackType,
           eventTag: eventTag
           },
-    }); 
-      // history.push("/")
+    });
+      handleClickOpen();
+      setEventTitle('');
+      setEventDate('');
+      setEventStackType('');
+      setEventDescription('');
+      setEventTime('');
+      setEventTag('');
       };
 
   //EVENT TITLE HOOK
@@ -188,6 +201,35 @@ function CreateNewEvent(props) {
           </div>
         </Card>
       </Grid>
+      <div createNewEventModalDiv>
+        <Modal
+          open={open}
+          onClose={handleClickOpen}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          style={{alignItems:'center',
+          position: 'absolute',
+          top: '25%',
+          left: '35%',
+          // transform: 'translate(-50%, -50%)',
+          width: '400px',
+          height: '400px',
+          bgcolor: 'background.paper'
+          // boxShadow: 24,
+          }}
+          >
+            <Paper
+             style={{
+              // transform: 'translate(-50%, -50%)',
+              width: '400px',
+              height: '300px',
+             }}
+             >
+               <h4 className="">Would you like to create a new event?</h4>
+              <Button onClick={addNewEvent} style={{'backgroundColor':'purple', 'color':'white'}}>Create another event</Button>
+            </Paper>
+        </Modal>
+      </div>
     </div>
   );
 }

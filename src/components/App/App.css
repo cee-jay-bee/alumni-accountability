@@ -165,13 +165,30 @@ margin-bottom: 30px;
 .createNewEventFormClass{
   width: 300px;
 }
-/* -----------EVENT PAGE ------------ */
-.createNewEventModal{
-  width: 600px;
+
+.eventPageCloseModal{
+  background-color: rgb(23, 126, 137);
+  color: white;
+  border-radius: 30px;
+  width: 30px;
+  padding-bottom: 5px;
+  height: auto;
+  text-align: center;
+  align-items: right;
+  position: relative;
+  top: 55px;
+  left: 740px;
+  font-weight: 100;
+  font-size: 20px;
 }
 
-.createNewEventModalDiv{
-  /* justify-content: center; */
+.eventPageCloseModal:hover{
+  background-color: black;
+}
+
+/* -----------EVENT PAGE ------------ */
+.createNewEventModal{
+  width: 50%;
 }
 
 .css-79ws1d-MuiModal-root{
