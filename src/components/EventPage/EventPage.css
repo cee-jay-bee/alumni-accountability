@@ -1,0 +1,11 @@
+.eventCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.css-15tk2fu-MuiGrid-root{
+    display: inline-flex;
+    flex-flow: row;
+    flex-direction: row;
+    width: 18em;
+}
