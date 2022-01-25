@@ -9,3 +9,17 @@
     flex-direction: row;
     width: 18em;
 }
+
+.stackTypeDisplay{
+    background-color: rgb(23, 126, 137);
+    color: white;
+    border-radius: 30px;
+    width: 55px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 100;
+    font-size: 15px;
+    display: inline-block;
+    align-items: right;
+  }
