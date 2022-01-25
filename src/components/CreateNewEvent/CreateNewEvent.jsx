@@ -230,8 +230,12 @@ function CreateNewEvent(props) {
                 {/* img styled in element + app.css */}
                 <img className="beerscheers" src="/Images/cheers-bottle.gif" alt="beer bottles clicking" height="200px" style={{'top':'-77px', 'left':'123px'}} />
                 <div className="neweventmodalbtns">
-                  <Button className="createneweventconfirmcancelbtn" onClick={addNewEvent} style={{'backgroundColor':'purple', 'color':'white'}}>Cancel</Button>
-                  <Button onClick={addNewEvent} style={{'backgroundColor':'purple', 'color':'white', 'marginLeft':'40px'}}>Create another event</Button>
+                  <Link to="/eventpage">
+                    <button className="createneweventconfirmcancelbtn" onClick={addNewEvent}>Cancel</button>
+                  </Link>
+                  {/* <Button className="createneweventconfirmcancelbtn" onClick={addNewEvent} style={{'backgroundColor':'purple', 'color':'white'}}>Cancel</Button> */}
+                  <button className="createneweventconfirmnewbtn" onClick={addNewEvent}>Create another event</button>
+                  {/* <Button onClick={addNewEvent} style={{'backgroundColor':'purple', 'color':'white', 'marginLeft':'40px'}}>Create another event</Button> */}
                 </div>
               </Paper>
             </Box>
