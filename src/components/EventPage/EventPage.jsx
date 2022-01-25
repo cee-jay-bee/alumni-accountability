@@ -83,25 +83,38 @@ function EventPage(props) {
               alignItems="center">
                 <Card style={{'height': '250px', 'border': '3px solid'}}>
                   <CardContent>
-                    <div style={{display: "flex"}}>
-                      {(event.stack_type === 'FSE') ?
+                    <Typography 
+                      className="eventDate">{eventDate}
+                    </Typography>
+                    <Typography>{event.time.toLocaleString('en-US')}</Typography>
+                      
+                    {(event.stack_type === 'FSE') ?
                         <Typography className="stackTypeDisplay">FSE</Typography> :
                         (event.stack_type === 'UX/UI') ?
                         <Typography className="stackTypeDisplay">UX/UI</Typography> :
-                        <div> <Typography className="stackTypeDisplay">FSE</Typography> <Typography className="stackTypeDisplay">UX/UI</Typography> </div>
+                        <div> <Typography className="stackTypeDualDisplay">FSE</Typography> <Typography className="stackTypeDualDisplay">UX/UI</Typography> </div>
                       }
-                      <Typography 
-                      display="inline-block"
-                      align="right">{eventDate}</Typography>
-                    </div>
+
+                    {(event.title.length > 18) ?
+                      <Typography
+                        variant="h5"
+                        style={{'bottom': '50px', 'position': 'relative'}}
+                        fontWeight="bold">{event.title.slice(0,18)}...</Typography> :
+                      <Typography
+                        variant="h5"
+                        style={{'bottom': '50px', 'position': 'relative'}}
+                        fontWeight="bold">{event.title}</Typography>
+                    }
                     <Typography
-                    variant="h4"
-                    align="right">{event.title}</Typography>
-                    <Typography
-                    align="right">{event.time.toLocaleString('en-US')}</Typography>
-                    <Typography
-                    variant="h6">Description</Typography>
-                    <Typography>{event.description}</Typography> 
+                      variant="h6"
+                      style={{'bottom': '50px', 'position': 'relative'}}>Description</Typography>
+                    
+                    {(event.description.length > 125) ?
+                      <Typography
+                      style={{'bottom': '50px', 'position': 'relative'}}>{event.description.slice(0,125)}...</Typography> :
+                      <Typography
+                      style={{'bottom': '50px', 'position': 'relative'}}>{event.description}</Typography>
+                    }
                   </CardContent>
                 </Card>
               </Grid>
@@ -115,68 +128,75 @@ function EventPage(props) {
       <h3>Upcoming Events</h3>
 
       <section className="event">
-        {event.map(event => {
-          let eventCompareDate = new Date(event.date);
-          let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-          let twoDigitDate = eventCompareDate.getDate() + "";
-          if (twoDigitDate.length == 1){
-            twoDigitDate = "0" + twoDigitDate;
+      {event.map(event => {
+
+        let eventCompareDate = new Date(event.date);
+        let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
+        let twoDigitDate = eventCompareDate.getDate() + "";
+        if (twoDigitDate.length == 1){
+          twoDigitDate = "0" + twoDigitDate;
+        }
+        let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
+        console.log(eventDate);
+
+
+        if(event.confirm_attendance === false && eventCompareDate > today) {
+          const setOneEvent = () => {
+            dispatch({
+              type: 'SET_ONE_EVENT',
+              payload: {
+                id: event.id,
+                title: event.title,
+                date: event.date,
+                time: event.time, 
+                stack_type: event.stack_type,
+                description: event.description
+              }
+            })
           }
-          let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-          console.log(eventDate);
-          
-        
-          if(event.confirm_attendance === false && eventCompareDate > today) {
-            const setOneEvent = () => {
-              dispatch({
-                type: 'SET_ONE_EVENT',
-                payload: {
-                  id: event.id,
-                  title: event.title,
-                  date: event.date,
-                  time: event.time, 
-                  stack_type: event.stack_type,
-                  description: event.description
-                }
-              })
-            }
-            return (
-              
-              <Grid
-              container
-              style={{'flex-flow': 'row', 'width': '18em'}}
-              direction="row"
-              justifyContent="flex-start"
-              display="inline-flex"
-              alignItems="center">
-                <Card style={{'height': '250px', 'border': '3px solid'}}>
-                  <CardContent>
-                    <div style={{display: "flex"}}>
-                      {(event.stack_type === 'FSE') ?
-                        <Typography className="stackTypeDisplay">FSE</Typography> :
-                        (event.stack_type === 'UX/UI') ?
-                        <Typography className="stackTypeDisplay">UX/UI</Typography> :
-                        <div> <Typography className="stackTypeDisplay">FSE</Typography> <Typography className="stackTypeDisplay">UX/UI</Typography> </div>
-                      }
-                      <Typography 
-                      display="inline-block"
-                      align="right">{eventDate}</Typography>
-                    </div>
-                    <Typography
-                    variant="h4"
-                    align="right">{event.title}</Typography>
-                    <Typography
-                    align="right">{event.time.toLocaleString('en-US')}</Typography>
-                    <Typography
-                    variant="h6">Description</Typography>
-                    <Typography>{event.description}</Typography> 
-                  </CardContent>
-                </Card>
-              </Grid>
-            )
-          }
+          return (
+            
+            <Grid
+            container
+            style={{'flex-flow': 'row', 'width': '18em'}}
+            direction="row"
+            justifyContent="flex-start"
+            display="inline-flex"
+            alignItems="center">
+              <Card style={{'height': '250px', 'border': '3px solid'}}>
+                <CardContent>
+                  <Typography 
+                    className="eventDate">{eventDate}
+                  </Typography>
+                  <Typography>{event.time.toLocaleString('en-US')}</Typography>
+                    
+                  {(event.stack_type === 'FSE') ?
+                      <Typography className="stackTypeDisplay">FSE</Typography> :
+                      (event.stack_type === 'UX/UI') ?
+                      <Typography className="stackTypeDisplay">UX/UI</Typography> :
+                      <div> <Typography className="stackTypeDualDisplay">FSE</Typography> <Typography className="stackTypeDualDisplay">UX/UI</Typography> </div>
+                    }
+                  <Typography
+                  variant="h5"
+                  style={{'bottom': '50px', 'position': 'relative'}}
+                  fontWeight="bold">{event.title}</Typography>
+                  
+                  <Typography
+                  variant="h6"
+                  style={{'bottom': '50px', 'position': 'relative'}}>Description</Typography>
+                  {(event.description.length > 125) ?
+                      <Typography
+                      style={{'bottom': '50px', 'position': 'relative'}}>{event.description.slice(0,125)}...</Typography> :
+                      <Typography
+                      style={{'bottom': '50px', 'position': 'relative'}}>{event.description}</Typography>
+                  }
+                </CardContent>
+              </Card>
+            </Grid>
+          )
+        }
         })
-      }
+        }
       </section>
 
       <h2 onClick={handleClickOpen}>Let's create a new event</h2>
