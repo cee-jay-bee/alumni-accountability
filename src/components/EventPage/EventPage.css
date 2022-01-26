@@ -62,3 +62,16 @@ body {
 .col2 {
     flex: .2;
 }
+
+/* --------------Modal--------------- */
+
+.createNewEventModal{
+    width: 40%;
+  }
+  
+.css-79ws1d-MuiModal-root{
+justify-content: center;
+align-items: center;
+width: 700px;
+}
+
