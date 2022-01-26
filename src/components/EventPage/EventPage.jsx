@@ -42,9 +42,11 @@ function EventPage(props) {
       <Link to="/allevent">
         <p>Want to view all events from the beginning of time? Click here</p>
       </Link>
-
-      <h3>Events Needing Attendance</h3>
-      <section className="event">
+      
+        <h3>Events Needing Attendance</h3>
+        <div class="row">
+          <div class="col1">
+        <section className="event">
 
         {event.map(event => {
 
@@ -118,11 +120,13 @@ function EventPage(props) {
                   </CardContent>
                 </Card>
               </Grid>
+              
             )
           }
         })
       }
       </section>
+      
 
       
       <h3>Upcoming Events</h3>
@@ -193,14 +197,18 @@ function EventPage(props) {
                 </CardContent>
               </Card>
             </Grid>
+            
           )
         }
         })
         }
       </section>
-
-      <h2 onClick={handleClickOpen}>Let's create a new event</h2>
-
+      </div>
+        <div class="col2" id="createNewEventDiv">
+          <h2 onClick={handleClickOpen}>Let's create a new event</h2>
+        </div>
+      </div>
+    
       {/* MODAL */}
       <div createNewEventModalDiv>
         <Modal

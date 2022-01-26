@@ -1,3 +1,7 @@
+body {
+    margin: 0px 25px;
+}
+
 .eventCards {
     display: flex;
     flex-direction: row;
@@ -11,7 +15,7 @@
 }
 
 .stackTypeDisplay{
-    background-color: rgb(23, 126, 137);
+    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
     color: white;
     border-radius: 30px;
     width: 55px;
@@ -27,7 +31,7 @@
 }
 
 .stackTypeDualDisplay{
-    background-color: rgb(23, 126, 137);
+    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
     color: white;
     border-radius: 30px;
     width: 55px;
@@ -41,4 +45,20 @@
     position: relative;
     left: 140px;
     bottom: 50px;
+}
+
+#createNewEventDiv {
+    border: 3px solid;
+}
+
+.row {
+    display: flex;
+}
+
+.col1 {
+    flex: .8;
+}
+
+.col2 {
+    flex: .2;
 }
