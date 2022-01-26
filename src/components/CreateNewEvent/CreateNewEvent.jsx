@@ -197,7 +197,10 @@ function CreateNewEvent(props) {
 
           {/* SUBMISSION BTN */}
           <div className="createNewEventBtn">
+            {( eventTitle==='' || eventDate==='' || eventTime==='' || eventDescription==='' || eventStackType==='' || eventTag==='')?
+            <Button variant="outlined" style={{'backgroundColor':'rgb(75, 75, 75)', 'color':'white'}} disabled>Create Event</Button>:
             <Button variant="outlined" type="submit" name="submit" value="create event" style={{'backgroundColor':'#177E89', 'color':'white'}} onClick={addNewEvent}>Create Event</Button>
+            }
           </div>
         </Card>
       </Grid>
@@ -209,7 +212,7 @@ function CreateNewEvent(props) {
           aria-describedby="modal-modal-description"
           style={{alignItems:'center',
           position: 'absolute',
-          top: '25%',
+          top: '15%',
           left: '35%',
           // transform: 'translate(-50%, -50%)',
           width: '400px',
@@ -218,16 +221,25 @@ function CreateNewEvent(props) {
           // boxShadow: 24,
           }}
           >
-            <Paper
-             style={{
-              // transform: 'translate(-50%, -50%)',
-              width: '400px',
-              height: '300px',
-             }}
-             >
-               <h4 className="">Would you like to create a new event?</h4>
-              <Button onClick={addNewEvent} style={{'backgroundColor':'purple', 'color':'white'}}>Create another event</Button>
-            </Paper>
+            <Box>
+              <Paper
+              style={{
+                // transform: 'translate(-50%, -50%)',
+                width: '450px',
+                height: '400px',
+              }}
+              >
+                <h4 className="cheers">Cheers!</h4>
+                {/* img styled in element + app.css */}
+                <img className="beerscheers" src="/Images/cheers-bottle.gif" alt="beer bottles clicking" height="200px" style={{'top':'-77px', 'left':'123px'}} />
+                <div className="neweventmodalbtns">
+                  <Link to="/eventpage">
+                    <button className="createneweventconfirmcancelbtn">Cancel</button>
+                  </Link>
+                    <button className="createneweventconfirmnewbtn" onClick={handleClickOpen}>Create another event</button>
+                  </div>
+              </Paper>
+            </Box>
         </Modal>
       </div>
     </div>
