@@ -3,7 +3,8 @@ import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
 import { useDispatch } from 'react-redux';
-// import styled from "styled-components";
+//IMPORT CREATE NEW EVENT CSS
+import './CreateNewEvent.css'
 
 
 // Basic functional component structure for React with default state
