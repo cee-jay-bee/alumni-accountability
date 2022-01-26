@@ -197,7 +197,10 @@ function CreateNewEvent(props) {
 
           {/* SUBMISSION BTN */}
           <div className="createNewEventBtn">
+            {( eventTitle==='' || eventDate==='' || eventTime==='' || eventDescription==='' || eventStackType==='' || eventTag==='')?
+            <Button variant="outlined" style={{'backgroundColor':'rgb(75, 75, 75)', 'color':'white'}} disabled>Create Event</Button>:
             <Button variant="outlined" type="submit" name="submit" value="create event" style={{'backgroundColor':'#177E89', 'color':'white'}} onClick={addNewEvent}>Create Event</Button>
+            }
           </div>
         </Card>
       </Grid>
@@ -231,12 +234,10 @@ function CreateNewEvent(props) {
                 <img className="beerscheers" src="/Images/cheers-bottle.gif" alt="beer bottles clicking" height="200px" style={{'top':'-77px', 'left':'123px'}} />
                 <div className="neweventmodalbtns">
                   <Link to="/eventpage">
-                    <button className="createneweventconfirmcancelbtn" onClick={addNewEvent}>Cancel</button>
+                    <button className="createneweventconfirmcancelbtn">Cancel</button>
                   </Link>
-                  {/* <Button className="createneweventconfirmcancelbtn" onClick={addNewEvent} style={{'backgroundColor':'purple', 'color':'white'}}>Cancel</Button> */}
-                  <button className="createneweventconfirmnewbtn" onClick={addNewEvent}>Create another event</button>
-                  {/* <Button onClick={addNewEvent} style={{'backgroundColor':'purple', 'color':'white', 'marginLeft':'40px'}}>Create another event</Button> */}
-                </div>
+                    <button className="createneweventconfirmnewbtn" onClick={handleClickOpen}>Create another event</button>
+                  </div>
               </Paper>
             </Box>
         </Modal>
