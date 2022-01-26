@@ -7,6 +7,7 @@ import event from './event.reducer';
 import eventNote from './eventNote.reducer';
 import skill from './skill.reducer';
 import tag from './tag.reducer';
+import oneEvent from './oneEvent.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   event,
   eventNote,
   skill,
-  tag
+  tag,
+  oneEvent
 });
 
 export default rootReducer;
