@@ -1,6 +1,6 @@
-body {
+/* body {
     margin: 0px 25px;
-}
+} */
 
 .eventCards {
     display: flex;
@@ -74,4 +74,3 @@ justify-content: center;
 align-items: center;
 width: 700px;
 }
-

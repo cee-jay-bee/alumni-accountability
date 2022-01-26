@@ -43,6 +43,7 @@ function EventPage(props) {
         <p>Want to view all events from the beginning of time? Click here</p>
       </Link>
       
+      {/* EVENTS REQUIRING ATTENDANCE */}
         <h3>Events Needing Attendance</h3>
         <div class="row">
           <div class="col1">
@@ -75,8 +76,8 @@ function EventPage(props) {
               })
             }
             return (
-              
               <Grid
+              className="eventsneedattendance"
               container
               style={{'flex-flow': 'row', 'width': '18em'}}
               direction="row"
@@ -120,7 +121,6 @@ function EventPage(props) {
                   </CardContent>
                 </Card>
               </Grid>
-              
             )
           }
         })
@@ -128,7 +128,7 @@ function EventPage(props) {
       </section>
       
 
-      
+      {/* UPCOMING EVENTS SECTION */}
       <h3>Upcoming Events</h3>
 
       <section className="event">

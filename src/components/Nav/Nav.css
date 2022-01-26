@@ -40,3 +40,8 @@
 .navLink:hover {
   background-color: #008183;
 }
+
+.homepage .home-button {
+  display: none;
+}
+

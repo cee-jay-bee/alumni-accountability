@@ -1,3 +1,7 @@
+/* FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 html,
 body,
 #react-root {
@@ -5,9 +9,10 @@ body,
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0px;
+  font-family: 'Open Sans';
+  margin: 0px 25px;
 }
+
 
 img {
   display: inline-block;
@@ -111,172 +116,3 @@ input {
   margin-bottom: 10px;
 }
 
-/* -----------CREATE NEW EVENT COMPONENT--------- */
-
-.createNewEventCard{
-  padding-right: 40px;
-  padding-bottom: 40px;
-  padding-left: 40px;
-  padding-top: 10px;
-  margin-bottom: 20px;
-}
-
-.createNewEventCardHeader{
-text-align: center;
-margin-bottom: 30px;
-}
-
-.createNewEventBtn{
-  /* margin-top: 20px; */
-  text-align: right;
-}
-
-/* adjusts the grid width */
-.css-bhp9pd-MuiPaper-root-MuiCard-root{ 
-  width: 700px;
-}
-
-.eventTimeInput{
-  margin-left: 50px;
-  width: 145px;
-}
-
-.createNewEventTitle{
-  width: 302px;
-}
-
-.createNewEventDescription{
-  width: 100%;
-}
-
-.css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
-  /* margin-top: 20px; */
-  margin-bottom: 20px;
-}
-
-.createNewEventTagDiv{
-  margin-bottom: 20px;
-}
-
-.createNewEventTitleDateTimeDiv{
-  margin-bottom: 20px;
-}
-
-.createNewEventFormClass{
-  width: 300px;
-}
-
-.eventPageCloseModal{
-  background-color: rgb(23, 126, 137);
-  color: white;
-  border-radius: 30px;
-  width: 30px;
-  padding-bottom: 5px;
-  height: auto;
-  text-align: center;
-  align-items: right;
-  position: relative;
-  top: 55px;
-  left: 740px;
-  font-weight: 100;
-  font-size: 20px;
-}
-
-.eventPageCloseModal:hover{
-  background-color: black;
-}
-
-.cheers{
-text-align: center;
-padding-top: 40px;
-font-size: 50px;
-/* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
-}
-
-.neweventmodalbtns{
-  /* justify-content: center;
-  align-items: center; */
-  margin-left: 70px;
-  position: relative;
-  top: -70px;
-}
-
-.beerscheers{
-  position: relative;
-}
-
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: rgb(187, 13, 13);
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 20ms ease-in-out;
-}
-
-/* CANCEL BTN */
-.createneweventconfirmcancelbtn{
-    background: transparent;
-    border: 1px solid red;
-    color: red;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: larger;
-  }
-.createneweventconfirmcancelbtn:hover {
-  transition: 400ms ease-in-out;
-  background: #eb0606;
-  color: white;
-}
-.createneweventconfirmcancelbtn::hover svg {
-  stroke-dashoffset: -480;
-}
-
-.createneweventconfirmcancelbtn span{
-  color: rgb(67, 49, 146);
-  font-size: 18px;
-  font-weight: 100;
-}
-
-/* ANOTHER CREATE BTN */
-.createneweventconfirmnewbtn{
-  background: transparent;
-  border: 1px solid rgb(32, 113, 116);
-  color: rgb(32, 113, 116);
-  background: transparent;
-  border: 1px solid rgb(32, 113, 116);
-  padding: 10px;
-  border-radius: 5px;
-  font-size: larger;
-  margin-left: 40px;
-}
-
-
-
-.createneweventconfirmnewbtn:hover {
-  transition: 400ms ease-in-out;
-  background: rgb(32, 113, 116);
-  color: white;
-}
-.createneweventconfirmnewbtn::hover svg {
-  stroke-dashoffset: -480;
-}
-
-.createneweventconfirmnewbtn span{
-  color: rgb(67, 49, 146);
-  font-size: 18px;
-  font-weight: 100;
-}
-
-/* -----------EVENT PAGE ------------ */
-.createNewEventModal{
-  width: 40%;
-}
-
-.css-79ws1d-MuiModal-root{
-  justify-content: center;
-  align-items: center;
-  width: 700px;
-}
