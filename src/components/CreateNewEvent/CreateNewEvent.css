@@ -153,14 +153,3 @@
     font-weight: 100;
   }
 
-
-  /* -----------EVENT PAGE ------------ */
-.createNewEventModal{
-  width: 40%;
-}
-
-.css-79ws1d-MuiModal-root{
-  justify-content: center;
-  align-items: center;
-  width: 700px;
-}
