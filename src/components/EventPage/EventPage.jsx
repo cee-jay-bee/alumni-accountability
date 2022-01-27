@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { Link } from 'react-router-dom';
 //MATERIAL UI IMPORTS
-import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box } from '@mui/material';
+import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal } from '@mui/material';
 import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
 import './EventPage.css';
 
@@ -37,7 +37,7 @@ function EventPage(props) {
 
   return (
     <div>
-      <h2>Event Page!</h2>
+      <h1>Event Page!</h1>
 
       <Link to="/allevent">
         <p>Want to view all events from the beginning of time? Click here</p>
@@ -47,91 +47,108 @@ function EventPage(props) {
         <h3>Events Needing Attendance</h3>
         <div class="row">
           <div class="col1">
-        <section className="event">
+            <main>
+              <div class="eventContainer">
+                {event.map(event => {
 
-        {event.map(event => {
-
-          let eventCompareDate = new Date(event.date);
-          let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-          let twoDigitDate = eventCompareDate.getDate() + "";
-          if (twoDigitDate.length == 1){
-            twoDigitDate = "0" + twoDigitDate;
-          }
-          let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-          console.log(eventDate);
-          
-        
-          if(event.confirm_attendance === false && eventCompareDate <= today) {
-            const setOneEvent = () => {
-              dispatch({
-                type: 'SET_ONE_EVENT',
-                payload: {
-                  id: event.id,
-                  title: event.title,
-                  date: event.date,
-                  time: event.time, 
-                  stack_type: event.stack_type,
-                  description: event.description
+                let eventCompareDate = new Date(event.date);
+                let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
+                let twoDigitDate = eventCompareDate.getDate() + "";
+                if (twoDigitDate.length == 1){
+                  twoDigitDate = "0" + twoDigitDate;
                 }
-              })
-            }
-            return (
-              <Grid
-              className="eventsneedattendance"
-              container
-              style={{'flex-flow': 'row', 'width': '18em'}}
-              direction="row"
-              justifyContent="flex-start"
-              display="inline-flex"
-              alignItems="center">
-                <Card style={{'height': '250px', 'border': '3px solid'}}>
-                  <CardContent>
-                    <Typography 
-                      className="eventDate">{eventDate}
-                    </Typography>
-                    <Typography>{event.time.toLocaleString('en-US')}</Typography>
-                      
-                    {(event.stack_type === 'FSE') ?
-                        <Typography className="stackTypeDisplay">FSE</Typography> :
+                let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
+                console.log(eventDate);
+            
+                if(event.confirm_attendance === false && eventCompareDate <= today) {
+                  const setOneEvent = () => {
+                    dispatch({
+                      type: 'SET_ONE_EVENT',
+                      payload: {
+                        id: event.id,
+                        title: event.title,
+                        date: event.date,
+                        time: event.time, 
+                        stack_type: event.stack_type,
+                        description: event.description
+                      }
+                    })
+                  }
+                  return (
+                    
+                    <div className="eventItem">
+                      <p class="dateStyling" className="eventDate">{eventDate}</p>
+                      <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+                        
+                      {(event.stack_type === 'FSE') ?
+                        <p class="stackTypeDisplay">FSE</p> :
                         (event.stack_type === 'UX/UI') ?
-                        <Typography className="stackTypeDisplay">UX/UI</Typography> :
-                        <div> <Typography className="stackTypeDualDisplay">FSE</Typography> <Typography className="stackTypeDualDisplay">UX/UI</Typography> </div>
+                        <p class="stackTypeDisplay">UX/UI</p> :
+                        <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
                       }
 
-                    {(event.title.length > 18) ?
-                      <Typography
-                        variant="h5"
-                        style={{'bottom': '50px', 'position': 'relative'}}
-                        fontWeight="bold">{event.title.slice(0,18)}...</Typography> :
-                      <Typography
-                        variant="h5"
-                        style={{'bottom': '50px', 'position': 'relative'}}
-                        fontWeight="bold">{event.title}</Typography>
-                    }
-                    <Typography
-                      variant="h6"
-                      style={{'bottom': '50px', 'position': 'relative'}}>Description</Typography>
+                      {(event.title.length > 15) ?
+                        <h2 class="cardStyling">{event.title.slice(0,15)}...</h2> :
+                        <h2 class="cardStyling">{event.title}</h2>
+                      }
+                      
+                      {(event.description.length > 125) ?
+                        <p class="cardStyling">{event.description.slice(0,125)}...</p> :
+                        <p class="cardStyling">{event.description}</p>
+                      }
+                    </div>
+                  
+                  
+              
+              
+              // <Grid
+              // className="eventsNeedAttendance"
+              // style={{'flex-flow': 'row', 'width': '18em'}}
+              // direction="row"
+              // justifyContent="flex-start"
+              // display="inline-flex"
+              // alignItems="center"
+              // >
+              //   <Card className="eventCards" style={{'height': '250px', 'border': '3px solid', 'padding-bottom': '15px'}}>
+              //     <CardContent>
+              //       <p class="dateStyling"
+              //         className="eventDate">{eventDate}
+              //       </p>
+              //       <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+                      
+              //       {(event.stack_type === 'FSE') ?
+              //           <p class="stackTypeDisplay">FSE</p> :
+              //           (event.stack_type === 'UX/UI') ?
+              //           <p class="stackTypeDisplay">UX/UI</p> :
+              //           <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
+              //         }
+
+              //       {(event.title.length > 15) ?
+              //         <h2 class="cardStyling"
+              //           >{event.title.slice(0,15)}...</h2> :
+              //         <h2 class="cardStyling"
+              //           >{event.title}</h2>
+              //       }
                     
-                    {(event.description.length > 125) ?
-                      <Typography
-                      style={{'bottom': '50px', 'position': 'relative'}}>{event.description.slice(0,125)}...</Typography> :
-                      <Typography
-                      style={{'bottom': '50px', 'position': 'relative'}}>{event.description}</Typography>
-                    }
-                  </CardContent>
-                </Card>
-              </Grid>
+              //       {(event.description.length > 125) ?
+              //         <p class="cardStyling"
+              //           >{event.description.slice(0,125)}...</p> :
+              //         <p class="cardStyling"
+              //           >{event.description}</p>
+              //       }
+              //     </CardContent>
+              //   </Card>
+              // </Grid>
             )
           }
         })
       }
-      </section>
+      </div>
       
 
       {/* UPCOMING EVENTS SECTION */}
       <h3>Upcoming Events</h3>
-
-      <section className="event">
+      <div class="eventContainer">
       {event.map(event => {
 
         let eventCompareDate = new Date(event.date);
@@ -160,52 +177,37 @@ function EventPage(props) {
           }
           return (
             
-            <Grid
-            container
-            style={{'flex-flow': 'row', 'width': '18em'}}
-            direction="row"
-            justifyContent="flex-start"
-            display="inline-flex"
-            alignItems="center">
-              <Card style={{'height': '250px', 'border': '3px solid'}}>
-                <CardContent>
-                  <Typography 
-                    className="eventDate">{eventDate}
-                  </Typography>
-                  <Typography>{event.time.toLocaleString('en-US')}</Typography>
-                    
-                  {(event.stack_type === 'FSE') ?
-                      <Typography className="stackTypeDisplay">FSE</Typography> :
-                      (event.stack_type === 'UX/UI') ?
-                      <Typography className="stackTypeDisplay">UX/UI</Typography> :
-                      <div> <Typography className="stackTypeDualDisplay">FSE</Typography> <Typography className="stackTypeDualDisplay">UX/UI</Typography> </div>
-                    }
-                  <Typography
-                  variant="h5"
-                  style={{'bottom': '50px', 'position': 'relative'}}
-                  fontWeight="bold">{event.title}</Typography>
-                  
-                  <Typography
-                  variant="h6"
-                  style={{'bottom': '50px', 'position': 'relative'}}>Description</Typography>
-                  {(event.description.length > 125) ?
-                      <Typography
-                      style={{'bottom': '50px', 'position': 'relative'}}>{event.description.slice(0,125)}...</Typography> :
-                      <Typography
-                      style={{'bottom': '50px', 'position': 'relative'}}>{event.description}</Typography>
-                  }
-                </CardContent>
-              </Card>
-            </Grid>
+            <div className="eventItem">
+                      <p class="dateStyling" className="eventDate">{eventDate}</p>
+                      <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+                        
+                      {(event.stack_type === 'FSE') ?
+                        <p class="stackTypeDisplay">FSE</p> :
+                        (event.stack_type === 'UX/UI') ?
+                        <p class="stackTypeDisplay">UX/UI</p> :
+                        <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
+                      }
+
+                      {(event.title.length > 15) ?
+                        <h2 class="cardStyling">{event.title.slice(0,15)}...</h2> :
+                        <h2 class="cardStyling">{event.title}</h2>
+                      }
+                      
+                      {(event.description.length > 125) ?
+                        <p class="cardStyling">{event.description.slice(0,125)}...</p> :
+                        <p class="cardStyling">{event.description}</p>
+                      }
+                    </div>
             
           )
         }
         })
         }
-      </section>
+        </div>
+        </main>
       </div>
-        <div class="col2" id="createNewEventDiv">
-          <h2 onClick={handleClickOpen}>Let's create a new event</h2>
+        <div class="col2" id="createNewEventDiv" valign="center" onClick={handleClickOpen}>
+          <h2 id="createNewEventTitle" >Create New Event</h2>
         </div>
       </div>
     
@@ -229,7 +231,7 @@ function EventPage(props) {
         >
           <Box>
             {/* Clicking the x will close out of the modal */}
-            <h2 className="eventPageCloseModal" onClick={handleClickOpen}>x</h2> 
+            <h3 className="eventPageCloseModal" onClick={handleClickOpen}>x</h3> 
             <CreateNewEvent/>  
           </Box> 
         </Modal>

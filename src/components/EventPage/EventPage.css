@@ -2,11 +2,7 @@
     margin: 0px 25px;
 } */
 
-.eventCards {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+
 .css-15tk2fu-MuiGrid-root{
     display: inline-flex;
     flex-flow: row;
@@ -25,9 +21,10 @@
     font-weight: 100;
     font-size: 15px;
     align-items: right;
+    display: inline-block;
     position: relative;
     left: 200px;
-    bottom: 50px;
+    bottom: 85px;
 }
 
 .stackTypeDualDisplay{
@@ -44,11 +41,12 @@
     align-items: right;
     position: relative;
     left: 140px;
-    bottom: 50px;
+    bottom: 85px;
 }
 
 #createNewEventDiv {
-    border: 3px solid;
+    border: 3px dashed;
+
 }
 
 .row {
@@ -61,6 +59,10 @@
 
 .col2 {
     flex: .2;
+    /* vertical-align: middle !important; */
+    line-height: 200px;
+    text-align: center;
+    padding-top: 200px;
 }
 
 /* --------------Modal--------------- */
@@ -74,3 +76,47 @@ justify-content: center;
 align-items: center;
 width: 700px;
 }
+
+.cardStyling {
+    bottom: 75px;
+    top: -100px;
+    position: relative;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+.dateStyling {
+    margin-top: 0px;
+}
+
+.timeStyling {
+    margin-top: -10px;
+}
+
+#createNewEventTitle {
+    display: inline;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.eventContainer {
+    width: 68em;
+    flex-flow: row;
+    flex-direction: row;
+    gap: 10px;
+    display: inline-flex;
+    align-items: center; 
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.eventItem {
+    /* align-items: center; */
+    justify-content: center;
+    border: 3px solid;
+    height: 250px;
+    width: 17em;
+    flex: none;
+} 
