@@ -15,17 +15,41 @@ function* createEvent(action) {
   try {
     
     const response = yield axios.post('/api/event', action.payload);
-
-    
     yield put({ type: 'FETCH_EVENT' })
   } catch (error) {
     console.log('Event Post request failed', error);
   }
 }
 
+
+
+function* deleteEvent(action) {
+  try {
+
+    yield axios.delete(`/api/event/${action.payload}`);
+    yield put({ type: 'FETCH_EVENT'});
+  } catch (error) {
+    console.log('Event delete request failed', error);
+  }
+}
+
+
+function* updateEvent(action) {
+  try {
+    console.log(action)
+    yield axios.put(`/api/event/${action.payload.id}`, action.payload);
+    yield put({ type: 'FETCH_EVENT' })
+  } catch (error) {
+    console.log('Event Update request failed', error);
+  }
+}
+
+
 function* eventSaga() {
   yield takeLatest('FETCH_EVENT', fetchEvent);
   yield takeLatest('CREATE_EVENT', createEvent);
+  yield takeLatest('DELETE_EVENT', deleteEvent);
+  yield takeLatest('UPDATE_EVENT', updateEvent); 
 }
 
 export default eventSaga;
