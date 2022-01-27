@@ -1,0 +1,71 @@
+ .eventContainer {
+    /*
+    align-items: center; */
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    align-content: flex-start;
+    gap: 10px;
+    width: 100%;
+
+} 
+
+.eventItem {
+    /* align-items: center; */
+    border: 3px solid;
+    height: 250px;
+    width: 17em;
+} 
+
+.dateStyling {
+    margin-top: 0px;
+}
+
+.timeStyling {
+    margin-top: -10px;
+}
+
+/* .cardStyling {
+    bottom: 75px;
+    top: -100px;
+} */
+
+h2, h3 {
+    text-transform: uppercase;
+}
+
+.stackTypeDisplay{
+    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    color: white;
+    border-radius: 30px;
+    width: 55px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 100;
+    font-size: 15px;
+    align-items: right;
+    display: inline-block;
+    position: relative;
+    left: 200px;
+    bottom: 85px;
+}
+
+.stackTypeDualDisplay{
+    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    color: white;
+    border-radius: 30px;
+    width: 55px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 100;
+    font-size: 15px;
+    display: inline-block;
+    align-items: right;
+    position: relative;
+    left: 140px;
+    bottom: 85px;
+}
