@@ -51,6 +51,7 @@
 
 .row {
     display: flex;
+    
 }
 
 .col1 {
@@ -83,7 +84,7 @@ width: 700px;
     position: relative;
 }
 
-h2 {
+h2, h3 {
     text-transform: uppercase;
 }
 
@@ -102,7 +103,7 @@ h2 {
 }
 
 .eventContainer {
-    width: 68em;
+    width: 67em;
     flex-flow: row;
     flex-direction: row;
     gap: 10px;
@@ -120,3 +121,19 @@ h2 {
     width: 17em;
     flex: none;
 } 
+
+.titleCol1 {
+    text-align: left;
+    display: inline-block;
+    
+}
+
+.titleCol2 {
+    text-align: right;
+    display: inline-block;
+    padding-left: 782px;
+}
+
+.titleDiv {
+    white-space: nowrap;
+}
