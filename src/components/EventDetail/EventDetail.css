@@ -1,0 +1,44 @@
+.eventDetailHeader{
+    border: 3px solid;
+    flex-direction: row;
+    display: flex;
+}
+
+.eventDetailCol1{
+    border: 3px solid;
+    flex: 5;
+    flex-direction: row;
+    row-gap: 1px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    /* height: 200px; */
+    padding-left: 15px;
+}
+
+.eventDetailCol1 p{
+    display: inline-flex;
+    align-items: center;
+    
+}
+
+.eventDetailStackTypeDualDisplay{
+    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    color: white;
+    border-radius: 30px;
+    width: 55px;
+    padding: 15px 0;
+    height: auto;
+    text-align: left;
+    font-weight: 100;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: right;
+    justify-content: space-evenly;
+    float: right;
+    margin-right: 10px;
+    align-self: baseline;
+}
+.eventDetailCol2{
+    border: 3px solid;
+    flex: 5;
+}
