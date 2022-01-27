@@ -18,6 +18,14 @@ function UserPage() {
     dispatch({ type: 'FETCH_ALUM'});
   }, []);
 
+  const goToEvents = () => {
+    history.push("/eventpage");
+  }
+
+  const goToCohorts = () => {
+    history.push("/cohortpage");
+  }
+
   let today = new Date();
 
   return (
@@ -28,13 +36,11 @@ function UserPage() {
         </div>
         <main className="mainDivHomePage" >
           
-            <div className ="mainDivHomePageCol1" onClick={goToEvents}>
-              <h1>Events</h1>
-            </div>
-          <div className ="mainDivHomePageCol2">
-            <Link to="cohortpage">
-              <h1>Cohorts</h1>
-            </Link>
+          <div className ="mainDivHomePageCol1" onClick={goToEvents}>
+            <h1>Events</h1>
+          </div>
+          <div className ="mainDivHomePageCol2" onClick={goToCohorts}>
+            <h1>Cohorts</h1>
           </div>
           <div className="mainDivHomePageCol3">
             <h3 classname="mainPageCol3Header">Events Needing Attendance</h3>
