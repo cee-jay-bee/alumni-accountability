@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 //MATERIAL UI IMPORTS
 import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal } from '@mui/material';
@@ -14,6 +15,7 @@ function EventPage(props) {
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const event = useSelector((store) => store.event);
+  const history = useHistory();
 
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENT'});
@@ -21,11 +23,6 @@ function EventPage(props) {
 
   let today = new Date();
   console.log(today);
-  // let dd = String(today.getDate()).padStart(2, '0');
-  // let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  // let yyyy = today.getFullYear();
-
-  // today = yyyy + '-' + mm + '-' + dd;
   
 
   //HANLDE POP-UP MODAL
@@ -37,14 +34,17 @@ function EventPage(props) {
 
   return (
     <div>
-      <h1>Event Page!</h1>
-
-      <Link to="/allevent">
-        <p>Want to view all events from the beginning of time? Click here</p>
-      </Link>
-      
       {/* EVENTS REQUIRING ATTENDANCE */}
-        <h3>Events Needing Attendance</h3>
+        <div class="titleDiv">
+          <div class="titleCol1">
+            <h2>Events Needing Attendance</h2>
+          </div>
+          <div class="titleCol2">
+            <Link to="/allevent">
+              <p id="allEvents">Want to view all events from the beginning of time? Click here</p>
+            </Link>
+          </div>
+        </div>
         <div class="row">
           <div class="col1">
             <main>
@@ -73,10 +73,12 @@ function EventPage(props) {
                         description: event.description
                       }
                     })
+
+                    history.push("/eventdetail");
                   }
                   return (
                     
-                    <div className="eventItem">
+                    <div className="eventItem" onClick={setOneEvent}>
                       <p class="dateStyling" className="eventDate">{eventDate}</p>
                       <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
                         
@@ -88,8 +90,8 @@ function EventPage(props) {
                       }
 
                       {(event.title.length > 15) ?
-                        <h2 class="cardStyling">{event.title.slice(0,15)}...</h2> :
-                        <h2 class="cardStyling">{event.title}</h2>
+                        <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
+                        <h3 class="cardStyling">{event.title}</h3>
                       }
                       
                       {(event.description.length > 125) ?
@@ -97,48 +99,6 @@ function EventPage(props) {
                         <p class="cardStyling">{event.description}</p>
                       }
                     </div>
-                  
-                  
-              
-              
-              // <Grid
-              // className="eventsNeedAttendance"
-              // style={{'flex-flow': 'row', 'width': '18em'}}
-              // direction="row"
-              // justifyContent="flex-start"
-              // display="inline-flex"
-              // alignItems="center"
-              // >
-              //   <Card className="eventCards" style={{'height': '250px', 'border': '3px solid', 'padding-bottom': '15px'}}>
-              //     <CardContent>
-              //       <p class="dateStyling"
-              //         className="eventDate">{eventDate}
-              //       </p>
-              //       <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
-                      
-              //       {(event.stack_type === 'FSE') ?
-              //           <p class="stackTypeDisplay">FSE</p> :
-              //           (event.stack_type === 'UX/UI') ?
-              //           <p class="stackTypeDisplay">UX/UI</p> :
-              //           <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
-              //         }
-
-              //       {(event.title.length > 15) ?
-              //         <h2 class="cardStyling"
-              //           >{event.title.slice(0,15)}...</h2> :
-              //         <h2 class="cardStyling"
-              //           >{event.title}</h2>
-              //       }
-                    
-              //       {(event.description.length > 125) ?
-              //         <p class="cardStyling"
-              //           >{event.description.slice(0,125)}...</p> :
-              //         <p class="cardStyling"
-              //           >{event.description}</p>
-              //       }
-              //     </CardContent>
-              //   </Card>
-              // </Grid>
             )
           }
         })
@@ -147,7 +107,7 @@ function EventPage(props) {
       
 
       {/* UPCOMING EVENTS SECTION */}
-      <h3>Upcoming Events</h3>
+      <h2>Upcoming Events</h2>
       <div class="eventContainer">
       {event.map(event => {
 
@@ -189,8 +149,8 @@ function EventPage(props) {
                       }
 
                       {(event.title.length > 15) ?
-                        <h2 class="cardStyling">{event.title.slice(0,15)}...</h2> :
-                        <h2 class="cardStyling">{event.title}</h2>
+                        <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
+                        <h3 class="cardStyling">{event.title}</h3>
                       }
                       
                       {(event.description.length > 125) ?
