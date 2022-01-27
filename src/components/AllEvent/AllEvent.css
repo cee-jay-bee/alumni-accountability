@@ -1,4 +1,4 @@
- .eventContainer {
+ .allEventContainer {
     /*
     align-items: center; */
     display: flex;
@@ -12,31 +12,32 @@
 
 } 
 
-.eventItem {
+.allEventItem {
     /* align-items: center; */
     border: 3px solid;
     height: 250px;
     width: 17em;
 } 
 
-.dateStyling {
+.allDateStyling {
     margin-top: 0px;
 }
 
-.timeStyling {
+.allTimeStyling {
     margin-top: -10px;
 }
 
-/* .cardStyling {
+.allCardStyling {
     bottom: 75px;
     top: -100px;
-} */
+    position: relative;
+}
 
 h2, h3 {
     text-transform: uppercase;
 }
 
-.stackTypeDisplay{
+.allStackTypeDisplay{
     background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
     color: white;
     border-radius: 30px;
@@ -53,7 +54,7 @@ h2, h3 {
     bottom: 85px;
 }
 
-.stackTypeDualDisplay{
+.allStackTypeDualDisplay{
     background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
     color: white;
     border-radius: 30px;
