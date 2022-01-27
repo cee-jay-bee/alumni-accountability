@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import UserPage from '../UserPage/UserPage';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -20,13 +21,18 @@ function Nav() {
             Login / Register
           </Link>
         } */}
-
+          
         {/* If a user is logged in, show these links */}
-        {user.id && (
+        {user.id &&(
           <>
-            <Link className='home-button' className="navLink" to="/user">
+            
+              <Link id='home-button' className="navLink" to="/user">
+                Home
+              </Link>
+            
+            {/* <Link id='home-button' className="navLink" to="/user">
               Home
-            </Link>
+            </Link> */}
 
             <Link className="navLink" to="/eventpage">
               Event
@@ -43,13 +49,15 @@ function Nav() {
             <Link className="navLink" to="/registration">
               Users and Registration
             </Link>
-          
-            <input placeholder="search by alum"></input>
-            {/* Link is a placeholder for now. Later we might want to use useHistory */}
-            <Link to="/resultpage"> 
-              <button>Search alum</button>
-            </Link>
-            <input placeholder="search by skill"></input>
+            
+            <div class="searchbyalumdiv">
+              <input class="searchbyaluminput" placeholder="search by alum"></input>
+              {/* Link is a placeholder for now. Later we might want to use useHistory */}
+              <Link to="/resultpage"> 
+                <button class="searchbyalumbtn">Search alum</button>
+              </Link>
+            </div>
+            <input class="searchbyskill" placeholder="search by skill"></input>
              {/* Link is a placeholder for now. Later we might want to use useHistory */}
             <Link to="/resultpage"> 
               <button to="/resultpage">Search skill</button>

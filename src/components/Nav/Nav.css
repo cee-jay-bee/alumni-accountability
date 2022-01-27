@@ -3,10 +3,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin: 0 0 30px;
-  background-color: #00acb0;
-  overflow: hidden;
+  background-color: #ffffff;
+  /* overflow: hidden; */
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0px -25px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
 }
 
 .nav a {
@@ -16,19 +19,20 @@
 .nav-title {
   font-size: 24px;
   font-weight: 700;
-  color: #f2f2f2;
+  color: #000000;
   padding-left: 10px;
   margin: 0;
 }
 
 .navLink {
   display: inline-block;
-  color: #f2f2f2;
-  background-color: #00acb0;
+  color: #292929;
+  background-color: #ffffff;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
+  text-transform: uppercase;
 
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -38,10 +42,23 @@
 }
 
 .navLink:hover {
-  background-color: #008183;
+  background-color: #efefef;
 }
 
-.homepage .home-button {
-  display: none;
+/* Search by alum */
+.searchbyalumdiv{
+  display: inline;
+  border: solid;
+  border-radius: 20px;
 }
-
+.searchbyaluminput{
+  border-radius: 20px;
+  border: none;
+}
+.searchbyalumbtn{
+  border-radius: 20px;
+}
+/* Search by skill */
+.searchbyskill{
+  border-radius: 20px;
+}
