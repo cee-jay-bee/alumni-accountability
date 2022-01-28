@@ -5,12 +5,21 @@ const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
-/**
- * GET route template
- */
+
+// ALL CRUD ON THESE ROUTES IS FOR EVENTS AND THE TAGS ASSOCIATED WITH IT
+// GET ROUTE ALSO NOW GIVES AN ARRAY OF ALL TAGS ASSOCIATED WITH AN EVENT
+// WHILE CREATING AN EVENT WE CAN ALSO ADD TAGS EITHER TYPING A SINGLE TAG LIKE 'networking' OR MULTIPLE TAGS SEPERATED BY COMMAS LIKE 'networking,speech,programming' 
+// SAME APPLIES FOR EDITING THE TAGS
+// DELETING AN EVENT ALSO DELETES ALL THE ASSOCIATED TAGS AS WELL AS WE HAVE CASCADE DELETE IN THE DATABASE
+
+
+
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
-  const query = `SELECT * FROM "event"`;
+  const query = `SELECT "event".id ,title, "event".date, time, stack_type, description, confirm_attendance,
+  ARRAY_AGG (event_tag.tag) as tags FROM "event" 
+  JOIN event_tag ON "event".id = event_tag.event_id 
+  GROUP BY "event".id;`
   pool.query(query)
     .then( result => {
       res.send(result.rows);
@@ -21,46 +30,104 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-//posting created event
-router.post('/', rejectUnauthenticated, (req, res) => {
-  console.log(req.body);
-  // variables to contain data from req.body
+
+
+
+router.post('/', rejectUnauthenticated , async (req, res) => {
+  // POST route code here
+
+  const client = await pool.connect()
+
   const title = req.body.eventTitle;
   const date = req.body.eventDate;
   const time = req.body.eventTime;
   const stackType = req.body.eventStackType;
   const description = req.body.eventDescription;
-  const tag = req.body.eventTag;
+  const tags = req.body.eventTag;
+
+  const insertEventQuery = `INSERT INTO "event" (title, date, time, stack_type, description)
+  VALUES ($1, $2, $3, $4, $5) RETURNING id`;
+
+  const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
   
-  //query to post event into event table
-  const insertEventQuery = `INSERT INTO "event" (title, date, time, stack_type, description, confirm_attendance)
-  VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
+  try {
 
-  // FIRST QUERY MAKES EVENT
-  pool.query(insertEventQuery, [title, date, time, stackType, description, false])
-  .then(result => {
-    console.log('New Event Id:', result.rows[0].id); //EVENT ID IS HERE!
+    await client.query('BEGIN')
+    const response = await client.query(insertEventQuery, [title, date, time, stackType, description])
+    const createdEventId = response.rows[0].id
     
-    // stores event ID
-    const createdEventId = result.rows[0].id
+    tags.includes(",") ?
+    await Promise.all(
+      tags.split(",").map((tag) => {
+        return client.query(insertEventTagQuery, [createdEventId, tag])
+    })) : 
+    await client.query(insertEventTagQuery, [createdEventId, tags])
+    await client.query('COMMIT')
+    res.sendStatus(201)
+  } catch (error) {
+    await client.query('ROLLBACK')
+    console.log('Creating event error ', error);
+      res.sendStatus(500);
+  }
+  finally {
+    client.release()
+  }
 
-    // Now handle the tag of the event
-    const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
-      // SECOND QUERY ADDS TAG FOR THAT NEW EVENT
-      pool.query(insertEventTagQuery, [createdEventId, tag]).then(result => {
-        //Now that both are done, send back success!
-        res.sendStatus(201);
-      }).catch(err => {
-        // catch for second query
-        console.log(err);
-        res.sendStatus(500)
-      })
+});
 
-// Catch for first query
-  }).catch(err => {
-    console.log(err);
-    res.sendStatus(500)
-  })
+
+
+router.put('/:id', rejectUnauthenticated , async (req, res) => {
+  // POST route code here
+
+  const client = await pool.connect()
+
+  const {id} = req.params
+  const title = req.body.eventTitle;
+  const date = req.body.eventDate;
+  const time = req.body.eventTime;
+  const stackType = req.body.eventStackType;
+  const description = req.body.eventDescription;
+  const confirmAttendance = req.body.eventAttendance;
+  const tags = req.body.eventTag;
+
+
+  const updateEventQuery =  `UPDATE event
+  SET title = $1, date = $2, time = $3, stack_type = $4, description = $5, confirm_attendance = $6
+  WHERE id = $7;`
+  const deleteTags = `DELETE FROM "event_tag" WHERE event_id = $1`
+  const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
+  
+  try {
+
+    await client.query('BEGIN')
+
+    await client.query(updateEventQuery, [title, date, time, stackType, description, confirmAttendance, id])
+
+    if (tags.includes(",")) {
+        await client.query(deleteTags, [id])
+        await Promise.all(
+        tags.split(",").map((tag) => {
+        return client.query(insertEventTagQuery, [id, tag])
+        })) }
+      else {
+          await client.query(deleteTags, [id])
+          await client.query(insertEventTagQuery, [id, tags])
+      }
+    
+    await client.query('COMMIT')
+
+    res.sendStatus(201)
+
+  } catch (error) {
+    await client.query('ROLLBACK')
+    console.log('Creating event error ', error);
+      res.sendStatus(500);
+  }
+  finally {
+    client.release()
+  }
+
 });
 
 
@@ -79,43 +146,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 
-router.put('/:id', rejectUnauthenticated, (req, res) => {
 
-  const {id} = req.params
-  const title = req.body.eventTitle;
-  const date = req.body.eventDate;
-  const time = req.body.eventTime;
-  const stackType = req.body.eventStackType;
-  const description = req.body.eventDescription;
-  const confirmAttendance = req.body.eventAttendance;
-  const tag = req.body.eventTag;
-  
 
-  const updateEventQuery =  `UPDATE event
-  SET title = $1, date = $2, time = $3, stack_type = $4, description = $5, confirm_attendance = $6
-  WHERE id = $7;`
-
-  // FIRST QUERY UDPATE EVENT
-  pool.query(updateEventQuery, [title, date, time, stackType, description, confirmAttendance, id])
-  .then(() => {
-
-    // Now handle the tag of the event
-    const updateEventTagQuery = `UPDATE "event_tag" SET "tag" = $1 WHERE event_id = $2`
-      // SECOND QUERY UPDATES TAG FOR THAT NEW EVENT
-      pool.query(updateEventTagQuery, [tag, id]).then(result => {
-        //Now that both are done, send back success!
-        res.sendStatus(201);
-      }).catch(err => {
-        // catch for second query
-        console.log(err);
-        res.sendStatus(500)
-      })
-
-// Catch for first query
-  }).catch(err => {
-    console.log(err);
-    res.sendStatus(500)
-  })
-});
 
 module.exports = router;
