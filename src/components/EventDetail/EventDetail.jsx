@@ -16,6 +16,8 @@ function EventDetail(props) {
   // a default value of 'Functional Component'
   const oneEvent = useSelector((store) => store.oneEvent);
   const dispatch = useDispatch();
+  const event = useSelector((store) => store.event);
+  
 
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
@@ -24,7 +26,15 @@ function EventDetail(props) {
   };
   // END HANDLE POP-UP MODAL
   
-  
+  const deleteEvent = (event) => {
+    console.log('in deleteEvent');
+    dispatch({
+      type: 'DELETE_EVENT',
+      payload:{
+        id: oneEvent.id
+      }
+    })
+  }
 
 
 
@@ -110,7 +120,7 @@ const [eventNote, setEventNote] = useState('');
             style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
           <div className="deleteeventmodalbtns">
                 <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
-                <button className="deleteeventbtnconfirm">Yes</button>
+                <button className="deleteeventbtnconfirm" onClick={deleteEvent}>Yes</button>
                 
           </div>
        
