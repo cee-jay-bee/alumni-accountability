@@ -10,10 +10,10 @@ function Nav() {
 
   return (
     <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
-      <div>
+      <div className="navbarContainer">
+        <Link to="/home">
+          <h2 className="nav-title">Prime Solo Project</h2>
+        </Link>
         {/* If no user is logged in, show these links
         {user.id === null &&
           // If there's no user, show login/registration links
@@ -21,7 +21,6 @@ function Nav() {
             Login / Register
           </Link>
         } */}
-          
         {/* If a user is logged in, show these links */}
         {user.id &&(
           <>
@@ -47,25 +46,30 @@ function Nav() {
             </Link>
 
             <Link className="navLink" to="/registration">
-              Users and Registration
+              Users
             </Link>
-            
-            <div class="searchbyalumdiv">
+
+            <div class="searchByAlumdiv">
               <input class="searchbyaluminput" placeholder="search by alum"></input>
               {/* Link is a placeholder for now. Later we might want to use useHistory */}
               <Link to="/resultpage"> 
                 <button class="searchbyalumbtn">Search alum</button>
               </Link>
             </div>
-            <input class="searchbyskill" placeholder="search by skill"></input>
-             {/* Link is a placeholder for now. Later we might want to use useHistory */}
-            <Link to="/resultpage"> 
-              <button to="/resultpage">Search skill</button>
+            <div class="searchBySkilldiv">
+              <input class="searchbyskill" placeholder="search by skill"></input>
+              <Link to="/resultpage"> 
+                <button class="searchBySkillBtn" to="/resultpage">Search skill</button>
             </Link>
-            <LogOutButton className="navLink" />
+            </div>
+             {/* Link is a placeholder for now. Later we might want to use useHistory */}
           </>
         )}
-
+      </div>
+      <div>
+        <div className="logoutbtn">
+          <LogOutButton className="navLink" />
+        </div>
       </div>
     </div>
   );

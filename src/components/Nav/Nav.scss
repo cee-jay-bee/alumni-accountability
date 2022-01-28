@@ -21,6 +21,7 @@
   font-weight: 700;
   color: #000000;
   padding-left: 10px;
+  padding-right: 50px;
   margin: 0;
 }
 
@@ -45,14 +46,19 @@
   background-color: #efefef;
 }
 
+.navbarContainer{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 /* Search by alum */
-.searchbyalumdiv{
+.searchByAlumdiv{
   display: flex;
   justify-content: space-between;
-  border: solid 2px;
+  border: solid 1px;
   border-radius: 20px;
   padding: 5px 10px 0 10px;
-  width: 300px;
+  width: 255px;
 }
 .searchbyaluminput{
   border-radius: 20px;
@@ -61,16 +67,51 @@
 .searchbyalumbtn{
   border-radius: 20px;
   border: none;
-  background-color: transparent;
+  background-color: #07aa9e;
+  color: white;
+  flex: none;
+  padding: 6px 10px ;
+  align-items: center;
 }
 
-.searchbyalumbtn:focus{
-  border-radius: 20px;
-  border: none;
-  background-color: blueviolet;
-}
+// .searchbyalumbtn:focus{
+//   border-radius: 20px;
+//   border: none;
+//   background-color: blueviolet;
+// }
 
 /* Search by skill */
-.searchbyskill{
+
+.searchBySkilldiv{
+  display: flex;
+  justify-content: space-between;
+  border: solid 1px;
   border-radius: 20px;
+  padding: 5px 10px 0 10px;
+  width: 250px;
+}
+.searchbyskill{
+  border: none;
+  border-radius: 20px;
+}
+
+.searchBySkillBtn{
+  border-radius: 20px;
+  border: none;
+  background-color: #07aa9e;
+  color: white;
+  flex: none;
+  padding: 6px 10px ;
+  align-items: center;
+}
+
+// .searchBySkillBtn:hover{
+//   border-radius: 20px;
+//   border: none;
+//   background-color: blueviolet;
+// }
+
+.logoutbtn{
+ flex: none;
+ width: 100px;
 }
