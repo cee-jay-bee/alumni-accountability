@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { TextField} from '@mui/material';
+import './EventTags.css';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -10,6 +11,7 @@ function EventTags(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const oneEvent = useSelector((store) => store.oneEvent);
+  const tag=useSelector((store)=> store.tag);
   
 
   const dispatch = useDispatch();
@@ -21,16 +23,7 @@ function EventTags(props) {
     dispatch({ type: 'FETCH_TAG'});
   }, []);
 
-//   function handleSubmit(event){
-//     event.preventDefault();
-//     console.log(newInventory)
-    
-// }
-// const handleKeyDown = (ev)=>{
-//    if(ev.keyCode ===''){ // enter button
-//     formRef.current.submit()
-//    }
-// }
+
   
 
   const addEventTag = (event) => {
@@ -42,6 +35,16 @@ function EventTags(props) {
           
           },
     });
+  }
+
+  const deleteTag= (event) => {
+    console.log('in deleteTag');
+    dispatch({
+      type: 'DELETE_TAG',
+      payload:{
+        id: tag.id
+      }
+    })
   }
   
 
@@ -69,7 +72,15 @@ function EventTags(props) {
               value={eventTag}
               onChange={(event) => setEventTag(event.target.value)}
             />
+            <div className='eventtagdisplayarea'>
+            <p className='eventtagdisplay'>{oneEvent.title}</p>
+            <button className='eventtagdeletebtn' onClick={deleteTag}> X </button>
+            </div>
+            
       </div>
+      
+        
+      
       </div>
     </main>
   );

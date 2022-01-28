@@ -50,8 +50,7 @@ function EventDetail(props) {
 
 
 
-//TAGS HOOK
-const [eventTag, setEventTag] = useState('');
+
 //NOTES HOOK
 const [eventNote, setEventNote] = useState('');
 
