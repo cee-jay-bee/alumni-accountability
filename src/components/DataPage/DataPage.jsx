@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { Link } from 'react-router-dom';
-import {Bar, Chart} from 'react-chartjs-2';
+import {Bar, Chart, Pie} from 'react-chartjs-2';
 import {Chart as ChartJS} from 'chart.js/auto';
 
 // Basic functional component structure for React with default state
@@ -41,18 +41,21 @@ function DataPage(props) {
   }
 
   return (
-    <div>
+    <div style={{"position": "relative", "height": "40vh","width":"80vh"}}>
         <Bar
           data={state}
           options={{
-            title:{
-              display:true,
-              text:'Attendance at Networking Event',
-              fontSize:20
-            },
-            legend:{
-              display:true,
-              position:'right'
+            plugins: {
+              title:{
+                display:true,
+                text:'Attendance by Cohort at Networking Event',
+                fontSize:20,
+                position: 'top'
+              },
+              legend:{
+                display:false,
+                position:'right'
+              }
             }
           }}
         />
