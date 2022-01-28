@@ -49,9 +49,15 @@ const [eventNote, setEventNote] = useState('');
         </div>
         
         <div className='eventDetailCol2'>
-            <GroupAddOutlinedIcon/> 
-            <EditOutlinedIcon/>
-            <DeleteOutlineOutlinedIcon/>
+            <GroupAddOutlinedIcon 
+            
+            style={{fontSize:"60px","left": "70%" }}
+            /> 
+            <span><EditOutlinedIcon 
+            style={{fontSize:"60px","left": "80%" }}/> </span> 
+            <span><DeleteOutlineOutlinedIcon
+            style={{fontSize:"60px","left": "90%" }}/> </span> 
+            
         </div>
       </div>
       

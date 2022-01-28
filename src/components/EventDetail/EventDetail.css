@@ -41,4 +41,7 @@
 .eventDetailCol2{
     border: 3px solid;
     flex: 5;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
 }
