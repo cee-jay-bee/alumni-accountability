@@ -15,6 +15,13 @@ function EventDetail(props) {
   // a default value of 'Functional Component'
   const oneEvent = useSelector((store) => store.oneEvent);
   const dispatch = useDispatch();
+
+  //HANLDE POP-UP MODAL
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+      setOpen(!open);
+  };
+  // END HANDLE POP-UP MODAL
   
   
 
@@ -56,6 +63,7 @@ const [eventNote, setEventNote] = useState('');
             <span><EditOutlinedIcon 
             style={{fontSize:"60px","left": "80%" }}/> </span> 
             <span><DeleteOutlineOutlinedIcon
+            onClick={handleClickOpen}
             style={{fontSize:"60px","left": "90%" }}/> </span> 
             
         </div>
@@ -72,10 +80,47 @@ const [eventNote, setEventNote] = useState('');
       <div className='eventDetailNotes'>      
         <h2>Notes</h2>
       </div>
-
+    <div deleteEventModalDiv>
+      <Modal
+      open={open}
+      onClose={handleClickOpen}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      style={{alignItems:'center',
+      position: 'absolute',
+      top: '15%',
+      left: '35%',
+      // transform: 'translate(-50%, -50%)',
+      width: '400px',
+      height: '400px',
+      bgcolor: 'background.paper'
+    }}
+    >
+      <Box>
+        <Paper
+            style={{
+            // transform: 'translate(-50%, -50%)',
+            width: '450px',
+            height: '400px',
+              }}
+          >
+          <h4 className="confirmDelete">Confirm Delete?</h4>
+          <div className="deleteeventmodalbtns">
+                <button className="deleteeventbtnconfirm">Yes</button>
+                <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
+          </div>
+        {/* Clicking the x will close out of the modal */}
+        <h3 className="eventPageCloseModal" onClick={handleClickOpen}>x</h3> 
+        
+        </Paper>
+      </Box> 
+    </Modal>
+  </div>
       
       
     </main>
+    
+    
   );
 }
 
