@@ -9,6 +9,8 @@ import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import './EventDetail.css';
 import { Link } from 'react-router-dom';
 import EditEvent from '../EditEvent/EditEvent';
+import EventTags from '../EventTags/EventTags';
+import EventNotes from '../EventNotes/EventNotes';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -80,28 +82,27 @@ const [eventNote, setEventNote] = useState('');
             <Link to="/attendance">
             <GroupAddOutlinedIcon 
             
-            style={{fontSize:"60px","left": "70%" }}
+            style={{fontSize:"55px","left": "70%", color: 'black' }}
             /> </Link>
             <span><EditOutlinedIcon 
             onClick={handleClickOpen2}
-            style={{fontSize:"60px","left": "80%" }}/> </span> 
+            style={{fontSize:"55px","left": "80%" }}/> </span> 
             <span><DeleteOutlineOutlinedIcon
             onClick={handleClickOpen}
-            style={{fontSize:"60px","left": "90%" }}/> </span> 
+            style={{fontSize:"55px","left": "90%" }}/> </span> 
             
         </div>
       </div>
       
       <div className='eventDetailDescription'>
-        <p>{JSON.stringify(oneEvent)}</p>
         <p>{oneEvent.description}</p>
       </div>
 
       <div className='eventDetailTags'>
-        <h2>Tags</h2>
+        < EventTags />
       </div>
       <div className='eventDetailNotes'>      
-        <h2>Notes</h2>
+        < EventNotes />
       </div>
     <div deleteEventModalDiv>
       <Modal
