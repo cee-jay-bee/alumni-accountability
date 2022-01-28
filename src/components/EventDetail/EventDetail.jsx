@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import './EventDetail.css';
 
 // Basic functional component structure for React with default state
@@ -105,12 +106,14 @@ const [eventNote, setEventNote] = useState('');
               }}
           >
           <h4 className="confirmDelete">Confirm Delete?</h4>
+          <span className='deleteexclamationpoint'><PriorityHighIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
           <div className="deleteeventmodalbtns">
-                <button className="deleteeventbtnconfirm">Yes</button>
                 <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
+                <button className="deleteeventbtnconfirm">Yes</button>
+                
           </div>
-        {/* Clicking the x will close out of the modal */}
-        <h3 className="eventPageCloseModal" onClick={handleClickOpen}>x</h3> 
+       
         
         </Paper>
       </Box> 
