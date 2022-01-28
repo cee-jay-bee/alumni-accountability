@@ -47,9 +47,12 @@
 
 /* Search by alum */
 .searchbyalumdiv{
-  display: inline;
+  display: flex;
+  justify-content: space-between;
   border: solid 2px;
   border-radius: 20px;
+  padding: 5px 10px 0 10px;
+  width: 300px;
 }
 .searchbyaluminput{
   border-radius: 20px;
