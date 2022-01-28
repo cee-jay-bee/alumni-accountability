@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import { Link } from 'react-router-dom';
+import {Bar, Chart} from 'react-chartjs-2';
+import {Chart as ChartJS} from 'chart.js/auto';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -8,15 +10,54 @@ import { Link } from 'react-router-dom';
 function DataPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+  const dispatch = useDispatch();
+  const eventAttendance = useSelector((store) => store.eventAttendance);
+  useEffect(() => {
+    dispatch({ type: 'FETCH_EVENT_ATTENDANCE'});
+  }, []);
+
+  let labels = [];
+  for ( let i = 0; i < eventAttendance.length; i++) {
+        labels.push(eventAttendance[i].name);
+  }
+
+  let data = [];
+  for ( let i = 0; i < eventAttendance.length; i++) {
+    data.push(eventAttendance[i].count);
+  }
+  
+  const state = {
+    labels: labels,
+      
+    datasets: [
+      {
+        label: 'Number of Attendees',
+        backgroundColor: 'rgba(75,192,192,1)',
+        borderColor: 'rgba(0,0,0,1)',
+        borderWidth: 2,
+        data: data
+      }
+    ]
+  }
 
   return (
     <div>
-      <h2>Data Page</h2>
-      <h3>So many charts. My eyes. MY EYES.</h3>
-     
-    </div>
-  );
+        <Bar
+          data={state}
+          options={{
+            title:{
+              display:true,
+              text:'Attendance at Networking Event',
+              fontSize:20
+            },
+            legend:{
+              display:true,
+              position:'right'
+            }
+          }}
+        />
+      </div>
+    );
 }
 
 export default DataPage;
