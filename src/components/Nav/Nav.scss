@@ -48,7 +48,7 @@
 /* Search by alum */
 .searchbyalumdiv{
   display: inline;
-  border: solid;
+  border: solid 2px;
   border-radius: 20px;
 }
 .searchbyaluminput{
@@ -57,7 +57,16 @@
 }
 .searchbyalumbtn{
   border-radius: 20px;
+  border: none;
+  background-color: transparent;
 }
+
+.searchbyalumbtn:focus{
+  border-radius: 20px;
+  border: none;
+  background-color: blueviolet;
+}
+
 /* Search by skill */
 .searchbyskill{
   border-radius: 20px;
