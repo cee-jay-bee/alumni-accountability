@@ -1,0 +1,113 @@
+.homepageHeader > h2 {
+    text-align: center;
+}
+
+.homepageHeader{
+    margin-top: 100px;
+    font-size: 25px;
+    margin-bottom: 80px ;
+}
+
+.mainDivHomePage {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainDivHomePageCol1 {
+    flex: .3;
+    line-height: 200px;
+    text-align: center;
+    padding-top: 200px;
+    border: 3px solid;
+    /* width: 100px; */
+}
+
+.mainDivHomePageCol2 {
+    flex: .3;
+    line-height: 200px;
+    text-align: center;
+    padding-top: 200px;
+    border: 3px solid;
+}
+
+/* Houses items */
+.mainDivHomePageCol3 {
+    flex: .3;
+    /* width: 28em; */
+    border: 3px solid;
+    height: 70vh;
+    width: 20vh;
+    overflow-y: scroll;
+    /* text-align: center; */
+    white-space: nowrap;
+}
+
+.mainDivHomePageCol3 > h3 {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.mainPageEventItem{
+    /* flex: none; */
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+    border: 3px solid;
+    margin: 30px;
+    padding-top: 15px;
+
+}
+
+.mainPageStackTypeDisplay{
+    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    color: white;
+    border-radius: 30px;
+    width: 55px;
+    padding: 15px 0;
+    height: auto;
+    text-align: left;
+    font-weight: 100;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: right;
+    justify-content: space-evenly;
+    float: right;
+    margin-right: 15px;
+}
+
+.mainPageStackTypeDualDisplay{
+    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    color: white;
+    border-radius: 30px;
+    width: 55px;
+    padding: 15px 0;
+    height: auto;
+    text-align: left;
+    font-weight: 100;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: right;
+    justify-content: space-evenly;
+    float: right;
+    margin-right: 15px;
+    /* position: relative; */
+    /* margin-right: 10px; */
+    
+}
+
+.mainPageDateStyling{
+    text-align: left;
+    display: inline;
+    align-items: left;
+    margin-left: 15px;
+    margin-top: 40px;
+    /* margin-top: ; */
+}
+
+.mainPageTitleStyling {
+    bottom: 75px;
+    top: -100px;
+    margin-left: 15px;
+}
