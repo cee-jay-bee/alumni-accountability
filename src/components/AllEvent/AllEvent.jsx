@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import './AllEvent.css';
 import {useHistory} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -11,6 +12,7 @@ function AllEvent(props) {
   // a default value of 'Functional Component'
   const event = useSelector((store) => store.event);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_EVENT'});
