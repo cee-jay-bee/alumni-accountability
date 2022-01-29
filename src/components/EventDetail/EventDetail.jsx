@@ -69,9 +69,9 @@ const [eventNote, setEventNote] = useState('');
           </div>
           <div>
             {(oneEvent.stack_type === 'FSE') ?
-              <h2 className="eventDetailStackTypeDisplay">FSE</h2> :
+              <p className="eventDetailStackTypeDisplay">FSE</p> :
               (oneEvent.stack_type === 'UX/UI') ?
-              <h2 className="eventDetailStackTypeDisplay">UX/UI</h2> :
+              <p className="eventDetailStackTypeDisplay">UX/UI</p> :
               <span> <p className="eventDetailStackTypeDualDisplay">FSE</p> <p className="eventDetailStackTypeDualDisplay">UX/UI</p> </span>
             }
           </div>
