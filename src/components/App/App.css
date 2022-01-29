@@ -11,7 +11,8 @@ body,
 body {
   font-family: 'Open Sans';
   margin: 0px 25px;
-  background-image: linear-gradient(to bottom right, #CD5377, #e17F93, #EE959E, #EBA7AC, #F4C2C2);
+  background-color: rgb(228, 203, 173);
+  /* background-image: linear-gradient(to bottom right, #CD5377, #e17F93, #EE959E, #EBA7AC, #F4C2C2); */
 }
 
 
