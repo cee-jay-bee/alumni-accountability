@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+  console.log( location.href );
+
   return (
-    <div className="homepage" className="container">
+    <div id="homepage" className="container">
       <h2>Welcome, {user.firstname} {user.lastname}!</h2>
       <p>Your ID is: {user.id}</p>
       <div>
