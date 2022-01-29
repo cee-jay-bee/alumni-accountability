@@ -6,20 +6,10 @@ const {
 } = require('../modules/authentication-middleware');
 
 
-// ALL CRUD ON THESE ROUTES IS FOR EVENTS AND THE TAGS ASSOCIATED WITH IT
-// GET ROUTE ALSO NOW GIVES AN ARRAY OF ALL TAGS ASSOCIATED WITH AN EVENT
-// WHILE CREATING AN EVENT WE CAN ALSO ADD TAGS EITHER TYPING A SINGLE TAG LIKE 'networking' OR MULTIPLE TAGS SEPERATED BY COMMAS LIKE 'networking,speech,programming' 
-// SAME APPLIES FOR EDITING THE TAGS
-// DELETING AN EVENT ALSO DELETES ALL THE ASSOCIATED TAGS AS WELL AS WE HAVE CASCADE DELETE IN THE DATABASE
-
-
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
-  const query = `SELECT "event".id ,title, "event".date, time, stack_type, description, confirm_attendance,
-  ARRAY_AGG (event_tag.tag) as tags FROM "event" 
-  JOIN event_tag ON "event".id = event_tag.event_id 
-  GROUP BY "event".id;`
+  const query = `SELECT * FROM "event"`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);
@@ -76,11 +66,7 @@ router.post('/', rejectUnauthenticated , async (req, res) => {
 });
 
 
-
-router.put('/:id', rejectUnauthenticated , async (req, res) => {
-  // POST route code here
-
-  const client = await pool.connect()
+router.put('/:id', rejectUnauthenticated, (req, res) => {
 
   const {id} = req.params
   const title = req.body.eventTitle;
@@ -89,45 +75,19 @@ router.put('/:id', rejectUnauthenticated , async (req, res) => {
   const stackType = req.body.eventStackType;
   const description = req.body.eventDescription;
   const confirmAttendance = req.body.eventAttendance;
-  const tags = req.body.eventTag;
-
-
+  
   const updateEventQuery =  `UPDATE event
   SET title = $1, date = $2, time = $3, stack_type = $4, description = $5, confirm_attendance = $6
   WHERE id = $7;`
-  const deleteTags = `DELETE FROM "event_tag" WHERE event_id = $1`
-  const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
-  
-  try {
 
-    await client.query('BEGIN')
-
-    await client.query(updateEventQuery, [title, date, time, stackType, description, confirmAttendance, id])
-
-    if (tags.includes(",")) {
-        await client.query(deleteTags, [id])
-        await Promise.all(
-        tags.split(",").map((tag) => {
-        return client.query(insertEventTagQuery, [id, tag])
-        })) }
-      else {
-          await client.query(deleteTags, [id])
-          await client.query(insertEventTagQuery, [id, tags])
-      }
-    
-    await client.query('COMMIT')
-
-    res.sendStatus(201)
-
-  } catch (error) {
-    await client.query('ROLLBACK')
-    console.log('Creating event error ', error);
-      res.sendStatus(500);
-  }
-  finally {
-    client.release()
-  }
-
+  // FIRST QUERY UDPATE EVENT
+  pool.query(updateEventQuery, [title, date, time, stackType, description, confirmAttendance, id])
+  .then(() => {
+    res.sendStatus(201);
+  }).catch(err => {
+    console.log(err);
+    res.sendStatus(500)
+  })
 });
 
 
@@ -144,9 +104,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
     })
 });
-
-
-
 
 
 module.exports = router;
