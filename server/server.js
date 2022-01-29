@@ -16,6 +16,8 @@ const eventNoteRouter = require('./routes/eventNote.router');
 const skillRouter = require('./routes/skill.router');
 const tagRouter = require('./routes/tag.router');
 const cohortRouter = require('./routes/cohort.router');
+const eventAttendanceRouter = require('./routes/eventAttendance.router');
+
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -37,6 +39,7 @@ app.use('/api/eventNote', eventNoteRouter);
 app.use('/api/skill', skillRouter);
 app.use('/api/tag', tagRouter);
 app.use('/api/cohort', cohortRouter);
+app.use('/api/eventAttendance', eventAttendanceRouter);
 
 // Serve static files
 app.use(express.static('build'));

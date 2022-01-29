@@ -1,0 +1,38 @@
+.tagsHeader{
+    border: 3px solid;
+    flex: 5;
+    position: relative;
+}
+
+.taginputfield{
+    position: left;
+    border: 3px solid;
+    flex: 5;
+    position: relative;
+}
+.eventtagdisplay{
+    background-color:white;
+    padding:10px;
+    width: 76px;
+    border-color:white;
+    border-width: 3px;
+    border-style: solid;
+    font-size: 15px;
+    font-weight:bold;
+    color: black;
+    margin: 10px;
+    margin-top: -35px;
+    margin-left: 3px;
+    box-shadow:-1px -1px 1px 3px black inset,5px 5px 5px rgba(255, 255, 255,0.5) inset;
+}
+
+.eventtagdeletebtn {
+    font-size: 13px;
+    background-color: white;
+    border: none;
+    margin-left: 80px;
+   
+    
+}
+
+

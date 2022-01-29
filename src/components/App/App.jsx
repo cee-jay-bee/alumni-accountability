@@ -31,6 +31,8 @@ import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
 import EditEvent from '../EditEvent/EditEvent';
 import Attendance from '../Attendance/Attendance';
 import DataPage from '../DataPage/DataPage';
+import EventNotes from '../EventNotes/EventNotes';
+import EventTags from '../EventTags/EventTags';
 
 function App() {
   const dispatch = useDispatch();
@@ -85,6 +87,20 @@ function App() {
           path="/datapage"
           >
           <DataPage/>
+        </ProtectedRoute>
+
+        <ProtectedRoute 
+          exact
+          path="/eventnotes"
+          >
+          <EventNotes/>
+        </ProtectedRoute>
+
+        <ProtectedRoute 
+          exact
+          path="/eventtags"
+          >
+          <EventTags/>
         </ProtectedRoute>
 
 

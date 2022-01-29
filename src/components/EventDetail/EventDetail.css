@@ -1,0 +1,145 @@
+
+
+.eventDetailHeader{
+    border: 3px solid;
+    flex-direction: row;
+    display: flex;
+}
+
+.eventDetailCol1{
+    border: 3px solid;
+    flex: 5;
+    flex-direction: row;
+    row-gap: 1px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    /* height: 200px; */
+    padding-left: 15px;
+}
+
+.eventDetailCol1 p{
+    display: inline-flex;
+    align-items: center;
+    
+}
+
+.eventDetailStackTypeDualDisplay{
+    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    color: white;
+    border-radius: 30px;
+    width: 55px;
+    padding: 15px 0;
+    height: auto;
+    text-align: left;
+    font-weight: 100;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: right;
+    justify-content: space-evenly;
+    float: right;
+    margin-right: 10px;
+    align-self: baseline;
+}
+.eventDetailCol2{
+    border: 3px solid;
+    flex: 5;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.eventDetailDescription{
+  border: 3px solid;
+  flex: 5;
+  position: relative;
+
+  
+}
+
+.eventDetailTags{
+  border: 3px solid;
+}
+
+.eventDetailNotes{
+  border: 3px solid;
+}
+
+
+.confirmDelete{
+    text-align: center;
+    padding-top: 60px;
+    font-size: 30px;
+    /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
+    }
+
+.eventPageCloseModal{
+    background-color: rgb(23, 126, 137);
+    color: white;
+    border-radius: 30px;
+    width: 30px;
+    padding-bottom: 5px;
+    height: auto;
+    text-align: center;
+    align-items: right;
+    position: relative;
+    top: 55px;
+    left: 740px;
+    font-weight: 100;
+    font-size: 20px;
+  }
+
+  .eventPageCloseModal:hover{
+    background-color: black;
+  }
+
+  .deleteeventmodalbtns{
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 150px;
+    margin-top: 150px;
+    position: relative;
+    
+  }
+  .deleteeventbtncancel{
+    background: transparent;
+    border: 1px solid red;
+    color: red;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+  }
+.deleteeventbtncancel:hover {
+  transition: 400ms ease-in-out;
+  background: #eb0606;
+  color: white;
+}
+.deleteeventbtncancel span{
+    color: rgb(67, 49, 146);
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  .deleteeventbtnconfirm{
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    color: rgb(32, 113, 116);
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+    margin-left: 40px;
+  }
+
+  .deleteeventbtnconfirm:hover {
+    transition: 400ms ease-in-out;
+    background: rgb(32, 113, 116);
+    color: white;
+  }
+
+  .deleteeventbtnconfirm span{
+    color: rgb(67, 49, 146);
+    font-size: 18px;
+    font-weight: 100;
+  }

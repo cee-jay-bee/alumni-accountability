@@ -8,6 +8,7 @@ import eventSaga from './event.saga';
 import eventNoteSaga from './eventNote.saga';
 import skillSaga from './skill.saga';
 import tagSaga from './tag.saga';
+import eventAttendanceSaga from './eventAttendance.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -26,6 +27,7 @@ export default function* rootSaga() {
     eventSaga(),
     eventNoteSaga(),
     skillSaga(),
-    tagSaga()
+    tagSaga(),
+    eventAttendanceSaga()
   ]);
 }
