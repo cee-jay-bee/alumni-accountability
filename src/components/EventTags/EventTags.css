@@ -13,7 +13,7 @@
 .eventtagdisplay{
     background-color:white;
     padding:10px;
-    width: 76px;
+    width: fit-content;
     border-color:white;
     border-width: 3px;
     border-style: solid;

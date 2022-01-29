@@ -35,7 +35,7 @@
   font-size: 15px;
   align-items: right;
   display: inline-block;
-  position: relative;
+  position: static;
   justify-content: space-evenly;
   left: -20px;
   bottom: 5px;
