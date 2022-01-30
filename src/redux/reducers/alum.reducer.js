@@ -1,9 +1,9 @@
-const alumReducer = (state = {}, action) => {
+const alumReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_ALUM':
       return action.payload;
     case 'UNSET_ALUM':
-      return {};
+      return [];
     default:
       return state;
   }

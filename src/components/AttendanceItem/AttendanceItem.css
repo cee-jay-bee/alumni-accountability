@@ -1,0 +1,4 @@
+.alumAttended, .alumName, .alumCohort, .alumGradDate {
+    text-align: center;
+    border: 1px solid;
+}
