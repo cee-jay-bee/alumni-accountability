@@ -7,11 +7,17 @@
     // display: inline-block;
     font-size: 14px;
     text-transform: capitalize;
-    
+    font-family: 'Open Sans';
+    font-weight: lighter;
+    text-decoration: none;
 }
 
 .titleCol2 {
-    text-align: right;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
     // display: inline-block;
     // padding-left: 782px;
 }
@@ -22,6 +28,20 @@
 //     flex-direction: row;
 //     width: 18em;
 // }
+
+#allEvents{
+    color: rgb(73, 73, 73);
+    text-decoration: none;
+    // background-color:gray;
+    // text-decoration: underline gray;
+    // border-radius: 10px;
+    // padding-left: 10px;
+    // padding-right: 10px;
+}
+
+#allEvents span{
+    text-decoration: underline white 2px;
+}
 
 .stackTypeDisplay{
     background: black;
@@ -58,8 +78,21 @@
 }
 
 #createNewEventDiv {
-    border: 3px dashed white;
+    display: flex;
+    border: 3px dashed rgb(104, 104, 104);
     border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0 0 0 / 10%);
+}
+
+#newEventPlusIcon{
+    font-size: 300px;
+    font-weight: 800;
+    position: absolute;
+    opacity: 15%;
+    top: -30px;
+
 }
 
 .eventpagerow {
@@ -124,9 +157,11 @@ width: 700px;
 }
 
 #createNewEventTitle {
-    display: inline;
-    vertical-align: middle;
-    line-height: normal;
+    // display: inline;
+    // vertical-align: middle;
+    // line-height: normal;
+    font-family: 'Open Sans';
+    font-weight: 700;
 }
 
 .eventContainer {
@@ -145,23 +180,27 @@ width: 700px;
     /* align-items: center; */
     justify-content: space-around;
     border: 3px solid transparent;
-    height: 250px;
+    height: 235px;
     width: 14em;
     flex: none;
     border-radius: 8px;
     background-color: white;
     padding-left: 10px;
     padding-right: 10px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    box-shadow-bottom-right-radius: 8px;
+    box-shadow-bottom-left-radius: 8px;
 } 
 
 .eventTitle{
     padding-top: 15px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .eventDescription{
     text-transform: none;
     font-size: 15px;
+    flex: wrap;
 }
 
 .titleDiv {

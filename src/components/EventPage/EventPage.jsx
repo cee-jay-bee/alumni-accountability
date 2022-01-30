@@ -41,7 +41,7 @@ function EventPage(props) {
           </div>
           <div class="titleCol2">
             <Link to="/allevent">
-              <p id="allEvents">Want to view all events from the beginning of time? Click here</p>
+              <p id="allEvents">Click <span>here</span> to view all events</p>
             </Link>
           </div>
         </div>
@@ -181,6 +181,7 @@ function EventPage(props) {
         </div>
           <div class="col2" id="createNewEventDiv" valign="center" onClick={handleClickOpen}>
           <h2 id="createNewEventTitle" >Create New Event</h2>
+          {/* <h2 id="newEventPlusIcon">+</h2> */}
         </div>
         </div>
     
