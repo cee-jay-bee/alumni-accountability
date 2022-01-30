@@ -31,16 +31,16 @@
 
 #allEvents{
     color: rgb(73, 73, 73);
-    text-decoration: none;
-    // background-color:gray;
-    // text-decoration: underline gray;
+    // text-decoration: none;
+    background-color:rgb(243, 240, 236);;
+    text-decoration: underline rgb(243, 240, 236);
     // border-radius: 10px;
     // padding-left: 10px;
     // padding-right: 10px;
 }
 
 #allEvents span{
-    text-decoration: underline white 2px;
+    // text-decoration: underline white 2px;
 }
 
 .stackTypeDisplay{
@@ -79,7 +79,7 @@
 
 #createNewEventDiv {
     display: flex;
-    border: 3px dashed rgb(104, 104, 104);
+    border: 3px dashed rgb(148, 148, 148);
     border-radius: 8px;
     align-items: center;
     justify-content: center;
@@ -162,6 +162,7 @@ width: 700px;
     // line-height: normal;
     font-family: 'Open Sans';
     font-weight: 700;
+    color: rgb(102, 102, 102);
 }
 
 .eventContainer {
