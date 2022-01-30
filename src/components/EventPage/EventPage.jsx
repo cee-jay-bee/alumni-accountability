@@ -112,9 +112,10 @@ function EventPage(props) {
 
         {/* UPCOMING EVENTS SECTION */}
         
-        <div class="titleCol1">
+         <div class="titleCol1">
             <h2>Upcoming Events</h2>
-        </div>
+          </div>
+        
         <div class="eventContainer">
         {event.map(event => {
 
