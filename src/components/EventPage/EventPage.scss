@@ -84,7 +84,7 @@ width: 700px;
     position: relative;
 }
 
-h2, h3 {
+.eventContainer h3 {
     text-transform: uppercase;
 }
 
@@ -115,11 +115,15 @@ h2, h3 {
 
 .eventItem {
     /* align-items: center; */
-    justify-content: center;
-    border: 3px solid;
+    justify-content: space-around;
+    border: 3px solid transparent;
     height: 250px;
-    width: 17em;
+    width: 15em;
     flex: none;
+    border-radius: 8px;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
 } 
 
 .titleCol1 {
