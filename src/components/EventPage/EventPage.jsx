@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 //MATERIAL UI IMPORTS
 import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal } from '@mui/material';
 import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
-import './EventPage.css';
+import './EventPage.scss';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the

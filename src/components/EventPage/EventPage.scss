@@ -124,16 +124,18 @@ h2, h3 {
 
 .titleCol1 {
     text-align: left;
-    display: inline-block;
+    // display: inline-block;
     
 }
 
 .titleCol2 {
     text-align: right;
-    display: inline-block;
-    padding-left: 782px;
+    // display: inline-block;
+    // padding-left: 782px;
 }
 
 .titleDiv {
-    white-space: nowrap;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
