@@ -11,37 +11,37 @@
 }
 
 .stackTypeDisplay{
-    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    background: black;
     color: white;
-    border-radius: 30px;
-    width: 55px;
+    border-radius: 50%;
+    width: 49px;
     padding: 15px 0;
     height: auto;
     text-align: center;
-    font-weight: 100;
-    font-size: 15px;
+    font-weight: 700;
+    font-size: 12px;
     align-items: right;
     display: inline-block;
     position: relative;
-    left: 200px;
-    bottom: 85px;
+    left: 185px;
+    bottom: 70px;
 }
 
 .stackTypeDualDisplay{
-    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    background: black;
     color: white;
-    border-radius: 30px;
-    width: 55px;
+    border-radius: 50%;
+    width: 49px;
     padding: 15px 0;
     height: auto;
     text-align: center;
-    font-weight: 100;
-    font-size: 15px;
+    font-weight: 700;
+    font-size: 12px;
     display: inline-block;
     align-items: right;
     position: relative;
-    left: 140px;
-    bottom: 85px;
+    left: 130px;
+    bottom: 70px;
 }
 
 #createNewEventDiv {
@@ -88,12 +88,25 @@ width: 700px;
     text-transform: uppercase;
 }
 
+.eventItemDateTime{
+    display: flex;
+    flex-direction: row;
+}
+
+.eventItemType span{
+    display: inline-block;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
 .dateStyling {
     margin-top: 0px;
+    font-size: 15px;
 }
 
 .timeStyling {
     margin-top: -10px;
+    font-size: 12px;
 }
 
 #createNewEventTitle {
@@ -126,9 +139,15 @@ width: 700px;
     padding-right: 10px;
 } 
 
+.eventTitle{
+    padding-top: 15px;
+}
+
 .titleCol1 {
     text-align: left;
     // display: inline-block;
+    font-size: 15px;
+    text-transform: capitalize;
     
 }
 

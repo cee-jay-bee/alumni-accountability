@@ -89,15 +89,19 @@ function EventPage(props) {
                         <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
                       }
 
-                      {(event.title.length > 15) ?
-                        <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
-                        <h3 class="cardStyling">{event.title}</h3>
-                      }
-                      
-                      {(event.description.length > 125) ?
-                        <p class="cardStyling">{event.description.slice(0,125)}...</p> :
-                        <p class="cardStyling">{event.description}</p>
-                      }
+                      <div className="eventTitle"> 
+                        {(event.title.length > 15) ?
+                          <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
+                          <h3 class="cardStyling">{event.title}</h3>
+                        }
+                      </div>
+                        
+                      <div className="eventDescription">  
+                        {(event.description.length > 125) ?
+                          <p class="cardStyling">{event.description.slice(0,125)}...</p> :
+                          <p class="cardStyling">{event.description}</p>
+                        }
+                      </div>
                     </div>
             )
           }
@@ -138,26 +142,31 @@ function EventPage(props) {
           return (
             
             <div className="eventItem">
-                      <p class="dateStyling" className="eventDate">{eventDate}</p>
-                      <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
-                        
-                      {(event.stack_type === 'FSE') ?
-                        <p class="stackTypeDisplay">FSE</p> :
-                        (event.stack_type === 'UX/UI') ?
-                        <p class="stackTypeDisplay">UX/UI</p> :
-                        <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
-                      }
+                  <p class="dateStyling" className="eventDate">{eventDate}</p>
+                  <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
 
-                      {(event.title.length > 15) ?
-                        <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
-                        <h3 class="cardStyling">{event.title}</h3>
-                      }
-                      
-                      {(event.description.length > 125) ?
+                  {(event.stack_type === 'FSE') ?
+                    <p class="stackTypeDisplay">FSE</p> :
+                    (event.stack_type === 'UX/UI') ?
+                    <p class="stackTypeDisplay">UX/UI</p> :
+                    <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
+                  }
+
+                  <div className="eventTitle">  
+                    {(event.title.length > 15) ?
+                      <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
+                      <h3 class="cardStyling">{event.title}</h3>
+                    }
+                  </div>
+
+                  <div className="eventDescription">
+                    {(event.description.length > 125) ?
                         <p class="cardStyling">{event.description.slice(0,125)}...</p> :
                         <p class="cardStyling">{event.description}</p>
                       }
-                    </div>
+                  </div>
+
+            </div>
             
           )
         }

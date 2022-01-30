@@ -33,7 +33,7 @@
     position: relative;
 }
 
-h2, h3 {
+.allCardStyling h2, h3 {
     text-transform: uppercase;
 }
 
