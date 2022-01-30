@@ -45,140 +45,143 @@ function EventPage(props) {
             </Link>
           </div>
         </div>
-        <div class="row">
+        <div class="eventpagerow">
           <div class="col1">
-            <main>
-              <div class="eventContainer">
-                {event.map(event => {
+              <main>
+                <div class="eventContainer">
+                  {event.map(event => {
 
-                let eventCompareDate = new Date(event.date);
-                let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-                let twoDigitDate = eventCompareDate.getDate() + "";
-                if (twoDigitDate.length == 1){
-                  twoDigitDate = "0" + twoDigitDate;
-                }
-                let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-                console.log(eventDate);
-            
-                if(event.confirm_attendance === false && eventCompareDate <= today) {
-                  const setOneEvent = () => {
-                    dispatch({
-                      type: 'SET_ONE_EVENT',
-                      payload: {
-                        id: event.id,
-                        title: event.title,
-                        date: event.date,
-                        time: event.time, 
-                        stack_type: event.stack_type,
-                        description: event.description
-                      }
-                    })
-
-                    history.push("/eventdetail");
+                  let eventCompareDate = new Date(event.date);
+                  let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
+                  let twoDigitDate = eventCompareDate.getDate() + "";
+                  if (twoDigitDate.length == 1){
+                    twoDigitDate = "0" + twoDigitDate;
                   }
-                  return (
-                    
-                    <div className="eventItem" onClick={setOneEvent}>
-                      <p class="dateStyling" className="eventDate">{eventDate}</p>
-                      <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
-                        
-                      {(event.stack_type === 'FSE') ?
-                        <p class="stackTypeDisplay">FSE</p> :
-                        (event.stack_type === 'UX/UI') ?
-                        <p class="stackTypeDisplay">UX/UI</p> :
-                        <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
-                      }
-
-                      <div className="eventTitle"> 
-                        {(event.title.length > 15) ?
-                          <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
-                          <h3 class="cardStyling">{event.title}</h3>
+                  let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
+                  console.log(eventDate);
+              
+                  if(event.confirm_attendance === false && eventCompareDate <= today) {
+                    const setOneEvent = () => {
+                      dispatch({
+                        type: 'SET_ONE_EVENT',
+                        payload: {
+                          id: event.id,
+                          title: event.title,
+                          date: event.date,
+                          time: event.time, 
+                          stack_type: event.stack_type,
+                          description: event.description
                         }
+                      })
+
+                      history.push("/eventdetail");
+                    }
+                    return (
+                      
+                      <div className="eventItem" onClick={setOneEvent}>
+                        <p class="dateStyling" className="eventDate">{eventDate}</p>
+                        <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+                          
+                        {(event.stack_type === 'FSE') ?
+                          <p class="stackTypeDisplay">FSE</p> :
+                          (event.stack_type === 'UX/UI') ?
+                          <p class="stackTypeDisplay">UX/UI</p> :
+                          <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
+                        }
+
+                        <div className="eventTitle"> 
+                          {(event.title.length > 15) ?
+                            <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
+                            <h3 class="cardStyling">{event.title}</h3>
+                          }
+                        </div>
+                          
+                        <div className="eventDescription">  
+                          {(event.description.length > 125) ?
+                            <p class="cardStyling">{event.description.slice(0,125)}...</p> :
+                            <p class="cardStyling">{event.description}</p>
+                          }
+                        </div>
                       </div>
-                        
-                      <div className="eventDescription">  
-                        {(event.description.length > 125) ?
+              )
+            }
+          })
+        }
+        </div>
+        
+
+        {/* UPCOMING EVENTS SECTION */}
+        
+        <div class="titleCol1">
+            <h2>Upcoming Events</h2>
+        </div>
+        <div class="eventContainer">
+        {event.map(event => {
+
+          let eventCompareDate = new Date(event.date);
+          let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
+          let twoDigitDate = eventCompareDate.getDate() + "";
+          if (twoDigitDate.length == 1){
+            twoDigitDate = "0" + twoDigitDate;
+          }
+          let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
+          console.log(eventDate);
+
+
+          if(event.confirm_attendance === false && eventCompareDate > today) {
+            const setOneEvent = () => {
+              dispatch({
+                type: 'SET_ONE_EVENT',
+                payload: {
+                  id: event.id,
+                  title: event.title,
+                  date: event.date,
+                  time: event.time, 
+                  stack_type: event.stack_type,
+                  description: event.description
+                }
+              })
+            }
+            return (
+              
+              <div className="eventItem">
+                    <p class="dateStyling" className="eventDate">{eventDate}</p>
+                    <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+
+                    {(event.stack_type === 'FSE') ?
+                      <p class="stackTypeDisplay">FSE</p> :
+                      (event.stack_type === 'UX/UI') ?
+                      <p class="stackTypeDisplay">UX/UI</p> :
+                      <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
+                    }
+
+                    <div className="eventTitle">  
+                      {(event.title.length > 15) ?
+                        <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
+                        <h3 class="cardStyling">{event.title}</h3>
+                      }
+                    </div>
+
+                    <div className="eventDescription">
+                      {(event.description.length > 125) ?
                           <p class="cardStyling">{event.description.slice(0,125)}...</p> :
                           <p class="cardStyling">{event.description}</p>
                         }
-                      </div>
                     </div>
+
+              </div>
+              
             )
           }
-        })
-      }
-      </div>
-      
-
-      {/* UPCOMING EVENTS SECTION */}
-      <h2>Upcoming Events</h2>
-      <div class="eventContainer">
-      {event.map(event => {
-
-        let eventCompareDate = new Date(event.date);
-        let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-        let twoDigitDate = eventCompareDate.getDate() + "";
-        if (twoDigitDate.length == 1){
-          twoDigitDate = "0" + twoDigitDate;
-        }
-        let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-        console.log(eventDate);
-
-
-        if(event.confirm_attendance === false && eventCompareDate > today) {
-          const setOneEvent = () => {
-            dispatch({
-              type: 'SET_ONE_EVENT',
-              payload: {
-                id: event.id,
-                title: event.title,
-                date: event.date,
-                time: event.time, 
-                stack_type: event.stack_type,
-                description: event.description
-              }
-            })
+          })
           }
-          return (
-            
-            <div className="eventItem">
-                  <p class="dateStyling" className="eventDate">{eventDate}</p>
-                  <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
-
-                  {(event.stack_type === 'FSE') ?
-                    <p class="stackTypeDisplay">FSE</p> :
-                    (event.stack_type === 'UX/UI') ?
-                    <p class="stackTypeDisplay">UX/UI</p> :
-                    <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
-                  }
-
-                  <div className="eventTitle">  
-                    {(event.title.length > 15) ?
-                      <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
-                      <h3 class="cardStyling">{event.title}</h3>
-                    }
-                  </div>
-
-                  <div className="eventDescription">
-                    {(event.description.length > 125) ?
-                        <p class="cardStyling">{event.description.slice(0,125)}...</p> :
-                        <p class="cardStyling">{event.description}</p>
-                      }
-                  </div>
-
-            </div>
-            
-          )
-        }
-        })
-        }
+          </div>
+          </main>
         </div>
-        </main>
-      </div>
-        <div class="col2" id="createNewEventDiv" valign="center" onClick={handleClickOpen}>
+          <div class="col2" id="createNewEventDiv" valign="center" onClick={handleClickOpen}>
           <h2 id="createNewEventTitle" >Create New Event</h2>
         </div>
-      </div>
+        </div>
     
       {/* MODAL */}
       <div createNewEventModalDiv>

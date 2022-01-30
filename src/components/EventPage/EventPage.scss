@@ -23,7 +23,7 @@
     align-items: right;
     display: inline-block;
     position: relative;
-    left: 185px;
+    left: 175px;
     bottom: 70px;
 }
 
@@ -40,30 +40,32 @@
     display: inline-block;
     align-items: right;
     position: relative;
-    left: 130px;
+    left: 120px;
     bottom: 70px;
 }
 
 #createNewEventDiv {
-    border: 3px dashed;
-
+    border: 3px dashed white;
+    border-radius: 8px;
 }
 
-.row {
+.eventpagerow {
     display: flex;
-    
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    flex: .8;
+    flex: none;
 }
 
 .col1 {
-    flex: .8;
+    // flex: .8;
 }
 
 .col2 {
-    flex: .2;
-    /* vertical-align: middle !important; */
-    line-height: 200px;
+    // padding-top: 200px;
+    flex-grow: 1;
     text-align: center;
-    padding-top: 200px;
 }
 
 /* --------------Modal--------------- */
@@ -131,7 +133,7 @@ width: 700px;
     justify-content: space-around;
     border: 3px solid transparent;
     height: 250px;
-    width: 15em;
+    width: 14em;
     flex: none;
     border-radius: 8px;
     background-color: white;
@@ -143,10 +145,14 @@ width: 700px;
     padding-top: 15px;
 }
 
+.eventDescription{
+    text-transform: capitalize;
+}
+
 .titleCol1 {
     text-align: left;
     // display: inline-block;
-    font-size: 15px;
+    font-size: 14px;
     text-transform: capitalize;
     
 }
@@ -161,4 +167,5 @@ width: 700px;
     display: flex;
     width: 100%;
     justify-content: space-between;
+    padding-top: 30px;
 }
