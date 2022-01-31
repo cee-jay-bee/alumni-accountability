@@ -134,19 +134,23 @@ width: 700px;
 }
 
 .eventPageCloseModal{
-    background-color: rgb(23, 126, 137);
+    background-color: #177e89;
     color: white;
-    border-radius: 30px;
-    width: 30px;
+    border-radius: 50%;
+    width: 36px;
     padding-bottom: 5px;
+    padding-top: 5px;
     height: auto;
     text-align: center;
-    align-items: right;
+    align-items: center;
     position: relative;
-    top: 55px;
-    left: 740px;
-    font-weight: 100;
-    font-size: 20px;
+    display: inline-flex;
+    top: 58px;
+    left: 734px;
+    font-weight: 700;
+    font-size: 17px;
+    justify-content: center;
+    align-content: center;
   }
 
 /*--------Modal Styling---------*/ 

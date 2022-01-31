@@ -201,7 +201,8 @@ function EventPage(props) {
         top: '5%',
         left: '0',
         marginLeft: '23%',
-        marginRight: '50px'
+        marginRight: '50px',
+        outline: 'none'
        }}
         >
           <Box>
