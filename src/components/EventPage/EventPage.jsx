@@ -23,7 +23,6 @@ function EventPage(props) {
 
   let today = new Date();
   console.log(today);
-  
 
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
@@ -49,6 +48,7 @@ function EventPage(props) {
           <div class="col1">
               <main>
                 <div class="eventContainer">
+
                   {event.map(event => {
 
                   let eventCompareDate = new Date(event.date);
@@ -79,6 +79,7 @@ function EventPage(props) {
                     return (
                       
                       <div className="eventItem" onClick={setOneEvent}>
+
                         <p class="dateStyling" className="eventDate">{eventDate}</p>
                         <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
                           
@@ -145,7 +146,7 @@ function EventPage(props) {
             }
             return (
               
-              <div className="eventItem">
+              <div className="eventItem" onClick={setOneEvent}>
                     <p class="dateStyling" className="eventDate">{eventDate}</p>
                     <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
 
