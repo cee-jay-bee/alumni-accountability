@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
+import AttendanceItem from '../AttendanceItem/AttendanceItem.jsx';
+import {useDispatch} from 'react-redux';
+import './Attendance.css';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -7,11 +10,26 @@ import {useSelector} from 'react-redux';
 function Attendance(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+  const alum = useSelector((store) => store.alum);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_ALUM'});
+  }, []);
 
   return (
     <div>
-      <h2>Attendance</h2>
+      <table id='attendanceTable'>
+        <tr class='attendanceTable'>
+          <th id='tableCol1'></th>
+          <th id='tableCol2'>Name</th>
+          <th id='tableCol3'>Cohort</th>
+          <th id='tableCol4'>Graduation Date</th>
+        </tr>
+        {alum.map(alum => 
+            (<AttendanceItem key={alum.id} alum={alum} />) 
+        )}
+      </table>
     </div>
   );
 }
