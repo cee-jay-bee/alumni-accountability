@@ -114,3 +114,5 @@ INSERT INTO "event_attendance" ( alum_id, event_id )
 VALUES (1, 1);
 
 ALTER TABLE event_note ALTER COLUMN date SET DEFAULT NOW();
+
+ALTER TABLE alum RENAME COLUMN "name" TO alum_name;
