@@ -21,9 +21,9 @@ function AllEvent(props) {
 
 
   return (
-    <div>
-      <div className="allEventPageTitle">
-        <h2>Here is a list of all events from all of time</h2>
+    <div classname="mainAllEventsDiv">
+      <div className="allEventPageMainTitle">
+        <h2 id="allEventPageTitle">Here is a list of all events from all of time</h2>
       </div>
       <main class="allEventContainer">
         {event.map(event => {
