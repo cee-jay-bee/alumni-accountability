@@ -37,7 +37,7 @@ function EventPage(props) {
       {/* EVENTS REQUIRING ATTENDANCE */}
         <div class="titleDiv">
           <div class="titleCol1">
-            <h2>Events Needing Attendance</h2>
+            <h2 className="eventPageTitles">Events Needing Attendance</h2>
           </div>
           <div class="titleCol2">
             <Link to="/allevent">
@@ -113,7 +113,7 @@ function EventPage(props) {
         {/* UPCOMING EVENTS SECTION */}
         
          <div class="titleCol1">
-            <h2>Upcoming Events</h2>
+            <h2 className="eventPageTitles">Upcoming Events</h2>
           </div>
         
         <div class="eventContainer">
