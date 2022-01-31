@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
-import './AllEvent.css';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+//IMPORT SCSS
+import './AllEvent.scss';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -55,10 +56,10 @@ function AllEvent(props) {
               <p class="allTimeStyling">{event.time.toLocaleString('en-US')}</p>
                 
               {(event.stack_type === 'FSE') ?
-                <p class="allStackTypeDisplay">FSE</p> :
+                <p class="allStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
                 (event.stack_type === 'UX/UI') ?
-                <p class="allStackTypeDisplay">UX/UI</p> :
-                <span><p class="allStackTypeDualDisplay">FSE</p> <p class="allStackTypeDualDisplay">UX/UI</p></span>
+                <p class="allStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
+                <span><p class="allStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="allStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
               }
 
               {(event.title.length > 15) ?
