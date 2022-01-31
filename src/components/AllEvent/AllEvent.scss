@@ -1,10 +1,11 @@
  .allEventContainer {
     /*
     align-items: center; */
-    justify-content: space-around;
-    display: flex;
+    align-items: flex-start;
+    justify-content: space-evently;
+    display: inline-flex;
     flex-direction: row;
-    flex-flow: row;
+    // flex-flow: row;
     flex-wrap: wrap;
     /* justify-content: space-evenly; */
     align-content: flex-start;
@@ -36,8 +37,19 @@
 }
 
 .allTimeStyling {
-    margin-top: 0px;
+    margin-top: -10px;
     font-size: 12px;
+}
+
+.allEventTitle{
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.allEventDescription{
+    text-transform: none;
+    font-size: 15px;
+    flex: wrap;
 }
 
 .allCardStyling {
