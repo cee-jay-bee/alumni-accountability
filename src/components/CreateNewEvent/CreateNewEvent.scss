@@ -3,7 +3,7 @@
     padding-bottom: 40px;
     padding-left: 40px;
     padding-top: 10px;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
   }
   
   .createNewEventCardHeader{
@@ -22,7 +22,7 @@
   }
   
   .eventTimeInput{
-    margin-left: 50px;
+    // margin-left: 50px;
     width: 145px;
   }
   
@@ -45,6 +45,7 @@
   
   .createNewEventTitleDateTimeDiv{
     margin-bottom: 20px;
+    display: flex;
   }
   
   .createNewEventFormClass{
