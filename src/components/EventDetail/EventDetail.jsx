@@ -37,13 +37,15 @@ function EventDetail(props) {
       setOpen2(!open2);
   };
   // END HANDLE POP-UP SECOND MODAL
+
+  
   
   const deleteEvent = (event) => {
     console.log('in deleteEvent');
     dispatch({
       type: 'DELETE_EVENT',
       payload:{
-        id: oneEvent.id
+        event_id: oneEvent.id
       }
     })
   }
