@@ -61,16 +61,18 @@ function AllEvent(props) {
                 <p class="allStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
                 <span><p class="allStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="allStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
               }
-
-              {(event.title.length > 15) ?
-                <h3 class="allCardStyling">{event.title.slice(0,15)}...</h3> :
-                <h3 class="allCardStyling">{event.title}</h3>
-              }
-              
-              {(event.description.length > 125) ?
-                <p class="allCardStyling">{event.description.slice(0,125)}...</p> :
-                <p class="allCardStyling">{event.description}</p>
-              }
+              <div class="allEventTitle">
+                {(event.title.length > 15) ?
+                  <h3 class="allCardStyling">{event.title.slice(0,15)}...</h3> :
+                  <h3 class="allCardStyling">{event.title}</h3>
+                }
+              </div>
+              <div class="allEventDescription"> 
+                {(event.description.length > 125) ?
+                  <p class="allCardStyling">{event.description.slice(0,125)}...</p> :
+                  <p class="allCardStyling">{event.description}</p>
+                }
+              </div>
             </div>
           )
         })}
