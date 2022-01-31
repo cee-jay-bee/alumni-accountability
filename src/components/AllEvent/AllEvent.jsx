@@ -22,8 +22,9 @@ function AllEvent(props) {
 
   return (
     <div>
-      <h3>Here is a list of all events from all of time</h3>
-
+      <div className="allEventPageTitle">
+        <h2>Here is a list of all events from all of time</h2>
+      </div>
       <main class="allEventContainer">
         {event.map(event => {
           let eventCompareDate = new Date(event.date);
