@@ -1,0 +1,101 @@
+.allEventPageMainTitle #allEventPageTitle{
+    font-weight: 200;
+    text-transform: uppercase;
+    font-family: "Open Sans";
+    padding-top: 30px;
+} //unless we increase the specificity with the class and id this h2 defaults to "bolder" for font weight
+ 
+ .allEventContainer {
+    align-items: flex-start;
+    // align-items: center;
+    justify-content: space-between;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    gap: 30px;
+    width: 100%;
+    align-content: center;
+
+} 
+
+.allEventItem {
+    /* align-items: center; */
+    justify-content: space-around;
+    border: 3px solid transparent;
+    height: 235px;
+    width: 14em;
+    flex: none;
+    border-radius: 8px;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    
+} 
+
+.allDateStyling {
+    margin-top: 0px;
+    font-size: 15px;
+}
+
+.allTimeStyling {
+    margin-top: -10px;
+    font-size: 12px;
+}
+
+.allEventTitle{
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.allEventDescription{
+    text-transform: none;
+    font-size: 15px;
+    flex: wrap;
+}
+
+.allCardStyling {
+    bottom: 75px;
+    top: -100px;
+    position: relative;
+}
+
+.allCardStyling h2, h3 {
+    text-transform: uppercase;
+}
+
+.allStackTypeDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    align-items: right;
+    display: inline-block;
+    position: relative;
+    left: 175px;
+    bottom: 70px;
+}
+
+.allStackTypeDualDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
+    align-items: right;
+    position: relative;
+    left: 120px;
+    bottom: 70px;
+}
+

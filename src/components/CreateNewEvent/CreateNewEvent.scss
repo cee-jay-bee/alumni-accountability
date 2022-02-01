@@ -3,7 +3,7 @@
     padding-bottom: 40px;
     padding-left: 40px;
     padding-top: 10px;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
   }
   
   .createNewEventCardHeader{
@@ -22,7 +22,7 @@
   }
   
   .eventTimeInput{
-    margin-left: 50px;
+    // margin-left: 50px;
     width: 145px;
   }
   
@@ -45,13 +45,15 @@
   
   .createNewEventTitleDateTimeDiv{
     margin-bottom: 20px;
+    display: flex;
   }
   
   .createNewEventFormClass{
     width: 300px;
   }
   
-  .eventPageCloseModal{
+  /* This needs to be in Event Page.jsx, since that's where the "x" is created */
+  /* .eventPageCloseModal{
     background-color: rgb(23, 126, 137);
     color: white;
     border-radius: 30px;
@@ -65,7 +67,7 @@
     left: 740px;
     font-weight: 100;
     font-size: 20px;
-  }
+  } */
   
   .eventPageCloseModal:hover{
     background-color: black;

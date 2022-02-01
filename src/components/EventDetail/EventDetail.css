@@ -73,7 +73,7 @@
     /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
     }
 
-.eventPageCloseModal{
+.eventDetailCloseModal{
     background-color: rgb(23, 126, 137);
     color: white;
     border-radius: 30px;
