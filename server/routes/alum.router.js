@@ -8,9 +8,10 @@ const {
 /**
  * GET route template
  */
-router.get('/', rejectUnauthenticated, (req, res) => {
+ router.get('/', rejectUnauthenticated, (req, res) => {
 
-  const query = `SELECT * FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
+  const query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id, cohort.cohort_name, cohort.graduation_date
+   FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);
@@ -34,13 +35,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     )
   });
 
-
   router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
     const {id} = req.params
     const { name, placed, seeking, cohortId } = req.body
     const queryText =  `UPDATE alum
-    SET alum_name = $1, placed = $2, seeking = $3, cohort_id = $4
+    SET alum_name = $1, alum_placed = $2, alum_seeking = $3, cohort_id = $4
     WHERE id = $5;`
     pool.query(queryText,[ name, placed, seeking, cohortId,id]).then(()=>
         res.sendStatus(201)
@@ -64,6 +64,5 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500)
       })
   });
-
 
 module.exports = router;

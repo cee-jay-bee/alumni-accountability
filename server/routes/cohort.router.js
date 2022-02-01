@@ -43,7 +43,7 @@ router.put('/:id', rejectUnauthenticated,(req, res) => {
     const { id } = req.params
 
     const queryText =  `UPDATE cohort
-    SET name = $1, graduation_date = $2
+    SET cohort_name = $1, graduation_date = $2
     WHERE id = $3;`
 
     pool.query(queryText,[name,graduationDate,id]).then(()=>res.sendStatus(200))
