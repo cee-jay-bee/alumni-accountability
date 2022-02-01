@@ -7,6 +7,7 @@ function* fetchAlum() {
     const response = yield axios.get(`/api/alum`);
     yield put({ type: 'SET_ALUM', payload: response.data });
   } catch (error) {
+
     console.log('ALum get request failed', error);
   }
 }
