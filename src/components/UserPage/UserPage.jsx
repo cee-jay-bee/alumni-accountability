@@ -48,7 +48,7 @@ function UserPage() {
             <h3 classname="mainPageCol3Header">Events Needing Attendance</h3>
             {event.map(event => {
 
-              let eventCompareDate = new Date(event.date);
+              let eventCompareDate = new Date(event.event_date);
               let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
               let twoDigitDate = eventCompareDate.getDate() + "";
               if (twoDigitDate.length == 1){
@@ -63,11 +63,11 @@ function UserPage() {
                     type: 'SET_ONE_EVENT',
                     payload: {
                       id: event.id,
-                      title: event.title,
-                      date: event.date,
+                      title: event.event_title,
+                      date: event.event_date,
                       time: event.time, 
                       stack_type: event.stack_type,
-                      description: event.description
+                      description: event.event_description
                     }
                   })
                 }
@@ -83,9 +83,9 @@ function UserPage() {
                     }
                     </p>
 
-                    {(event.title.length > 15) ?
-                      <h2 class="mainPageTitleStyling">{event.title.slice(0,15)}...</h2> :
-                      <h2 class="mainPageTitleStyling">{event.title}</h2>
+                    {(event.event_title.length > 15) ?
+                      <h2 class="mainPageTitleStyling">{event.event_title.slice(0,15)}...</h2> :
+                      <h2 class="mainPageTitleStyling">{event.event_title}</h2>
                     }
                   </div>
                 )
