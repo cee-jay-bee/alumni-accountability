@@ -2,37 +2,32 @@
     border: 3px solid;
     flex: 5;
     position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.taginputfield{
-    position: left;
-    border: 3px solid;
-    flex: 5;
-    position: relative;
-}
 .eventtagdisplay{
     background-color:white;
-    padding:10px;
-    width: 76px;
-    border-color:white;
-    border-width: 3px;
+    padding: 12px 10px;
+    width: fit-content;
     border-style: solid;
-    font-size: 15px;
+    font-size: 13px;
     font-weight:bold;
     color: black;
     margin: 10px;
     margin-top: -35px;
     margin-left: 3px;
-    box-shadow:-1px -1px 1px 3px black inset,5px 5px 5px rgba(255, 255, 255,0.5) inset;
+    box-shadow: 1px  black ;
+    
 }
 
 .eventtagdeletebtn {
-    font-size: 13px;
-    background-color: white;
-    border: none;
-    margin-left: 80px;
-   
-    
+    font-size: 10px;
+    font-weight: bold;
+    position: relative;
+    top: -53px;
+    left: 268px;
+      
 }
 
 
