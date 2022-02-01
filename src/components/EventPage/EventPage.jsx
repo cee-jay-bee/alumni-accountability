@@ -66,11 +66,11 @@ function EventPage(props) {
                         type: 'SET_ONE_EVENT',
                         payload: {
                           id: event.id,
-                          title: event.title,
-                          date: event.date,
+                          title: event.event_title,
+                          date: event.event_date,
                           time: event.time, 
                           stack_type: event.stack_type,
-                          description: event.description
+                          description: event.event_description
                         }
                       })
 
@@ -92,15 +92,15 @@ function EventPage(props) {
 
                         <div className="eventTitle"> 
                           {(event.title.length > 15) ?
-                            <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
-                            <h3 class="cardStyling">{event.title}</h3>
+                            <h3 class="cardStyling">{event.event_title.slice(0,15)}...</h3> :
+                            <h3 class="cardStyling">{event.event_title}</h3>
                           }
                         </div>
                           
                         <div className="eventDescription">  
                           {(event.description.length > 125) ?
-                            <p class="cardStyling">{event.description.slice(0,125)}...</p> :
-                            <p class="cardStyling">{event.description}</p>
+                            <p class="cardStyling">{event.event_description.slice(0,125)}...</p> :
+                            <p class="cardStyling">{event.event_description}</p>
                           }
                         </div>
                       </div>
@@ -136,11 +136,11 @@ function EventPage(props) {
                 type: 'SET_ONE_EVENT',
                 payload: {
                   id: event.id,
-                  title: event.title,
-                  date: event.date,
+                  title: event.event_title,
+                  date: event.event_date,
                   time: event.time, 
                   stack_type: event.stack_type,
-                  description: event.description
+                  description: event.event_description
                 }
               })
             }
@@ -159,15 +159,15 @@ function EventPage(props) {
 
                     <div className="eventTitle">  
                       {(event.title.length > 15) ?
-                        <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
-                        <h3 class="cardStyling">{event.title}</h3>
+                        <h3 class="cardStyling">{event.event_title.slice(0,15)}...</h3> :
+                        <h3 class="cardStyling">{event.event_title}</h3>
                       }
                     </div>
 
                     <div className="eventDescription">
                       {(event.description.length > 125) ?
-                          <p class="cardStyling">{event.description.slice(0,125)}...</p> :
-                          <p class="cardStyling">{event.description}</p>
+                          <p class="cardStyling">{event.event_description.slice(0,125)}...</p> :
+                          <p class="cardStyling">{event.event_description}</p>
                         }
                     </div>
 
