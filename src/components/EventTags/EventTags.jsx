@@ -20,7 +20,7 @@ function EventTags(props) {
   const [eventTag, setEventTag] = useState('');
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_TAG'});
+    dispatch({ type: 'FETCH_TAG', payload : oneEvent.id});
   }, []);
 
 
@@ -37,16 +37,26 @@ function EventTags(props) {
     });
   }
 
-  const deleteTag= (event) => {
+  const deleteTag= (id) => {
     console.log('in deleteTag');
+    const newTagList = tag.filter (onetag=>onetag.id !== id)
     dispatch({
       type: 'DELETE_TAG',
       payload:{
-        id: tag.id
+        id: newTagList
       }
     })
   }
   
+  const onPressEnter = (event)=>{
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      dispatch({
+        type: 'ADD_TAG',
+        payload: {tag : eventTag }
+      })
+    }
+  }
 
   return (
     <main> 
@@ -70,14 +80,22 @@ function EventTags(props) {
               name="event tag"
               required
               value={eventTag}
+              onKeyUp={onPressEnter}
               onChange={(event) => setEventTag(event.target.value)}
             />
             
           </div>  
           
           <div className='eventtagdisplayarea'>
-            <p className='eventtagdisplay'>{oneEvent.title}</p>
-            <h3 className='eventtagdeletebtn' onClick={deleteTag}> X </h3>
+          {tag.map((onetag)=>
+            <>
+            <p key={onetag.id} className='eventtagdisplay'
+            >{onetag.tag} <span><button className='eventtagdeletebtn' onClick={()=>deleteTag(onetag.id)}> X </button></span></p>
+            </>
+            )}
+
+            {/* <p className='eventtagdisplay'>{oneEvent.title}</p>
+            <h3 className='eventtagdeletebtn' onClick={deleteTag}> X </h3> */}
           </div>
             
       </div>
