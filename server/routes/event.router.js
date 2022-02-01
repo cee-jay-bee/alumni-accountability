@@ -35,7 +35,7 @@ router.post('/', rejectUnauthenticated , async (req, res) => {
   const description = req.body.eventDescription;
   const tags = req.body.eventTag;
 
-  const insertEventQuery = `INSERT INTO "event" (title, date, time, stack_type, description)
+  const insertEventQuery = `INSERT INTO "event" (event_title, event_date, time, stack_type, event_description)
   VALUES ($1, $2, $3, $4, $5) RETURNING id`;
 
   const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
@@ -43,7 +43,7 @@ router.post('/', rejectUnauthenticated , async (req, res) => {
   try {
 
     await client.query('BEGIN')
-    const response = await client.query(insertEventQuery, [title, date, time, stackType, description])
+    const response = await client.query(insertEventQuery, [event_title, event_date, time, stackType, event_description])
     const createdEventId = response.rows[0].id
     
     tags.includes(",") ?
@@ -77,11 +77,11 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
   const confirmAttendance = req.body.eventAttendance;
   
   const updateEventQuery =  `UPDATE event
-  SET title = $1, date = $2, time = $3, stack_type = $4, description = $5, confirm_attendance = $6
+  SET event_title = $1, event_date = $2, time = $3, stack_type = $4, event_description = $5, confirm_attendance = $6
   WHERE id = $7;`
 
   // FIRST QUERY UDPATE EVENT
-  pool.query(updateEventQuery, [title, date, time, stackType, description, confirmAttendance, id])
+  pool.query(updateEventQuery, [event_title, event_date, time, stackType, event_description, confirmAttendance, id])
   .then(() => {
     res.sendStatus(201);
   }).catch(err => {

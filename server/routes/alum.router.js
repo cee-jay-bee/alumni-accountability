@@ -10,8 +10,7 @@ const {
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
 
-  const query = `SELECT alum.id, alum.name, alum.placed, alum.seeking, alum.cohort_id, cohort.name, cohort.graduation_date
-   FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
+  const query = `SELECT * FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);
@@ -25,7 +24,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.post('/', rejectUnauthenticated, (req, res) => {
     const { name, placed, seeking, cohortId } = req.body
-    const queryText = `INSERT INTO "alum" (alum_name, placed, seeking, cohort_id) VALUES ($1 , $2, $3, $4)`
+    const queryText = `INSERT INTO "alum" (alum_name, alum_placed, alum_seeking, cohort_id) VALUES ($1 , $2, $3, $4)`
     pool.query(queryText,[ name, placed, seeking, cohortId]).then(()=>
         res.sendStatus(201)
     ).catch(err=>{
@@ -34,6 +33,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         }
     )
   });
+
 
   router.put('/:id', rejectUnauthenticated, (req, res) => {
     console.log(req.body)
@@ -64,5 +64,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500)
       })
   });
+
 
 module.exports = router;
