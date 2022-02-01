@@ -37,11 +37,11 @@ function Attendance(props) {
 
   if (props.alum.placed === false){
     return (
-        <tr onClick={setOneAlum}>
-          <td className='alumAttended'><input type='checkbox' id='alumAttendance' value='attended' /></td>
-          <td class='alumName'>Name</td>
-          <td class='alumCohort'>{props.alum.name}</td>
-          <td class='alumGradDate'>{alumGraduationDate}</td>
+        <tr >
+          <td className='alumAttended'><input type='checkbox' id='alumAttendance' value='attended' onChange={(event) => props.handleCheckboxChange(props.alum.id)}/></td>
+          <td class='alumName' onClick={setOneAlum}>{props.alum.alum_name}</td>
+          <td class='alumCohort' onClick={setOneAlum}>{props.alum.name}</td>
+          <td class='alumGradDate' onClick={setOneAlum}>{alumGraduationDate}</td>
         </tr>
     );
   } else {
