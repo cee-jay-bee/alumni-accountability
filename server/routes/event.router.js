@@ -43,7 +43,7 @@ router.post('/', rejectUnauthenticated , async (req, res) => {
   try {
 
     await client.query('BEGIN')
-    const response = await client.query(insertEventQuery, [event_title, event_date, time, stackType, event_description])
+    const response = await client.query(insertEventQuery, [title, date, time, stackType, description])
     const createdEventId = response.rows[0].id
     
     tags.includes(",") ?
@@ -81,7 +81,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
   WHERE id = $7;`
 
   // FIRST QUERY UDPATE EVENT
-  pool.query(updateEventQuery, [event_title, event_date, time, stackType, event_description, confirmAttendance, id])
+  pool.query(updateEventQuery, [title, date, time, stackType, description, confirmAttendance, id])
   .then(() => {
     res.sendStatus(201);
   }).catch(err => {
