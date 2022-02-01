@@ -28,6 +28,13 @@ function Attendance(props) {
 
   const submitAttendance = () => {
     console.log('attendance for event:', attendanceForEvent);
+    dispatch({
+      type: 'CREATE_EVENT_ATTENDANCE',
+      payload: {
+        attendance: attendanceForEvent,
+        event: 1
+      }
+    })
   }
 
   return (

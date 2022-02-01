@@ -18,7 +18,7 @@ function DataPage(props) {
 
   let labels = [];
   for ( let i = 0; i < eventAttendance.length; i++) {
-        labels.push(eventAttendance[i].name);
+        labels.push(eventAttendance[i].cohort_name);
   }
 
   let data = [];
