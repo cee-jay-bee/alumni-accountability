@@ -1,11 +1,14 @@
-.homepageHeader > h2 {
-    text-align: center;
-}
 
 .homepageHeader{
-    margin-top: 100px;
-    font-size: 25px;
-    margin-bottom: 80px ;
+    margin-top: 50px;
+    font-size: 20px;
+    margin-bottom: 50px ;
+
+    h2{
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
 }
 
 .mainDivHomePage {

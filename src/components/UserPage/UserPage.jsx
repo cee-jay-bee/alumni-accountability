@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 //IMPORT CSS
-import './UserPage.css'
+import './UserPage.scss'
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -34,14 +34,16 @@ function UserPage() {
           <h2>Welcome, {user.firstname} {user.lastname}!</h2>
           {/* <p>Your ID is: {user.id}</p> */}
         </div>
-        <main className="mainDivHomePage" >
-          
+        
+        <main className="mainDivHomePage">
           <div className ="mainDivHomePageCol1" onClick={goToEvents}>
             <h1>Events</h1>
           </div>
+
           <div className ="mainDivHomePageCol2" onClick={goToCohorts}>
             <h1>Cohorts</h1>
           </div>
+
           <div className="mainDivHomePageCol3">
             <h3 classname="mainPageCol3Header">Events Needing Attendance</h3>
             {event.map(event => {
