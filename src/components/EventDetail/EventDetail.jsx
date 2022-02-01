@@ -41,16 +41,14 @@ function EventDetail(props) {
   
   
   const deleteEvent = (event) => {
-    console.log('in deleteEvent');
+    console.log('inDeleteEvent');
     dispatch({
       type: 'DELETE_EVENT',
-      payload:{
-        event_id: oneEvent.id
-      }
+      payload: oneEvent.id
     })
   }
 
-
+//History.push within delete event
 
 
 //NOTES HOOK
