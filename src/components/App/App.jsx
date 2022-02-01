@@ -164,13 +164,20 @@ function App() {
           <EditEvent/>
         </ProtectedRoute>
 
-
-        <ProtectedRoute
+        {/*!!!!!! DO NOT DELETE WE NEED THIS FOR LATER!!!!!! */}
+        {/* <ProtectedRoute
           exact
           path="/registration"
           >
           <RegisterPage/>
-        </ProtectedRoute>
+        </ProtectedRoute> */}
+
+          <Route
+            exact
+            path="/registration"
+            >
+            <RegisterPage/>
+          </Route>
 
           <Route
             exact
