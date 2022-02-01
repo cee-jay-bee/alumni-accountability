@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
 import { useDispatch } from 'react-redux';
 //IMPORT CREATE NEW EVENT CSS
-import './CreateNewEvent.css'
+import './CreateNewEvent.scss'
 
 
 // Basic functional component structure for React with default state

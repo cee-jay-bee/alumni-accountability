@@ -136,21 +136,25 @@ width: 700px;
 .eventPageCloseModal{
     background-color: #177e89;
     color: white;
+    border: solid 2px #177e89;
     border-radius: 50%;
-    width: 36px;
+    width: 26px;
+
     padding-bottom: 5px;
     padding-top: 5px;
     height: auto;
     text-align: center;
     align-items: center;
     position: relative;
-    display: inline-flex;
-    top: 58px;
-    left: 734px;
-    font-weight: 700;
-    font-size: 17px;
-    justify-content: center;
+    top: 54px;
+    left: 740px;
+    font-weight: 800;
+    font-size: 15px;
+    display: flex;
     align-content: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+
   }
 
 /*--------Modal Styling---------*/ 
