@@ -139,7 +139,9 @@ width: 700px;
     border: solid 2px #177e89;
     border-radius: 50%;
     width: 26px;
+
     padding-bottom: 5px;
+    padding-top: 5px;
     height: auto;
     text-align: center;
     align-items: center;
@@ -152,6 +154,7 @@ width: 700px;
     align-content: center;
     flex-wrap: nowrap;
     justify-content: center;
+
   }
 
 /*--------Modal Styling---------*/ 
@@ -166,16 +169,16 @@ width: 700px;
     text-transform: uppercase;
 }
 
-.eventItemDateTime{
-    display: flex;
-    flex-direction: row;
-}
+// .eventItemDateTime{
+//     display: flex;
+//     flex-direction: row;
+// }
 
-.eventItemType span{
-    display: inline-block;
-    flex-direction: row;
-    justify-content: space-around;
-}
+// .eventItemType span{
+//     display: inline-block;
+//     flex-direction: row;
+//     justify-content: space-around;
+// }
 
 .dateStyling {
     margin-top: 0px;

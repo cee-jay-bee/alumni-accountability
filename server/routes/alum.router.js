@@ -23,9 +23,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
-
     const { name, placed, seeking, cohortId } = req.body
-    const queryText = `INSERT INTO "alum" (name, placed, seeking, cohort_id) VALUES ($1 , $2, $3, $4)`
+    const queryText = `INSERT INTO "alum" (alum_name, placed, seeking, cohort_id) VALUES ($1 , $2, $3, $4)`
     pool.query(queryText,[ name, placed, seeking, cohortId]).then(()=>
         res.sendStatus(201)
     ).catch(err=>{
@@ -33,6 +32,37 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         res.sendStatus(500)
         }
     )
+  });
+
+
+  router.put('/:id', rejectUnauthenticated, (req, res) => {
+    console.log(req.body)
+    const {id} = req.params
+    const { name, placed, seeking, cohortId } = req.body
+    const queryText =  `UPDATE alum
+    SET alum_name = $1, placed = $2, seeking = $3, cohort_id = $4
+    WHERE id = $5;`
+    pool.query(queryText,[ name, placed, seeking, cohortId,id]).then(()=>
+        res.sendStatus(201)
+    ).catch(err=>{
+        console.log("alum put router has error", err)
+        res.sendStatus(500)
+        }
+    )
+  });
+
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    const {id} = req.params
+    const query = `DELETE FROM alum WHERE id = $1`
+    pool.query(query,[id])
+      .then( () => {
+        res.sendStatus(200);
+      })
+      .catch(err => {
+        console.log('ERROR: Delete alum', err);
+        res.sendStatus(500)
+      })
   });
 
 
