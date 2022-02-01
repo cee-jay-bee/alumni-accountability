@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 //MATERIAL UI IMPORTS
 import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal } from '@mui/material';
 import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
-import './EventPage.css';
+import './EventPage.scss';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -23,7 +23,6 @@ function EventPage(props) {
 
   let today = new Date();
   console.log(today);
-  
 
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
@@ -37,139 +36,155 @@ function EventPage(props) {
       {/* EVENTS REQUIRING ATTENDANCE */}
         <div class="titleDiv">
           <div class="titleCol1">
-            <h2>Events Needing Attendance</h2>
+            <h2 className="eventPageTitles">Events Needing Attendance</h2>
           </div>
           <div class="titleCol2">
             <Link to="/allevent">
-              <p id="allEvents">Want to view all events from the beginning of time? Click here</p>
+              <p id="allEvents">Click <span>here</span> to view all events</p>
             </Link>
           </div>
         </div>
-        <div class="row">
+        <div class="eventpagerow">
           <div class="col1">
-            <main>
-              <div class="eventContainer">
-                {event.map(event => {
+              <main>
+                <div class="eventContainer">
 
-                let eventCompareDate = new Date(event.date);
-                let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-                let twoDigitDate = eventCompareDate.getDate() + "";
-                if (twoDigitDate.length == 1){
-                  twoDigitDate = "0" + twoDigitDate;
-                }
-                let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-                console.log(eventDate);
-            
-                if(event.confirm_attendance === false && eventCompareDate <= today) {
-                  const setOneEvent = () => {
-                    dispatch({
-                      type: 'SET_ONE_EVENT',
-                      payload: {
-                        id: event.id,
-                        title: event.title,
-                        date: event.date,
-                        time: event.time, 
-                        stack_type: event.stack_type,
-                        description: event.description
-                      }
-                    })
+                  {event.map(event => {
 
-                    history.push("/eventdetail");
+                  let eventCompareDate = new Date(event.date);
+                  let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
+                  let twoDigitDate = eventCompareDate.getDate() + "";
+                  if (twoDigitDate.length == 1){
+                    twoDigitDate = "0" + twoDigitDate;
                   }
-                  return (
-                    
-                    <div className="eventItem" onClick={setOneEvent}>
-                      <p class="dateStyling" className="eventDate">{eventDate}</p>
-                      <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
-                        
-                      {(event.stack_type === 'FSE') ?
-                        <p class="stackTypeDisplay">FSE</p> :
-                        (event.stack_type === 'UX/UI') ?
-                        <p class="stackTypeDisplay">UX/UI</p> :
-                        <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
-                      }
+                  let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
+                  console.log(eventDate);
+              
+                  if(event.confirm_attendance === false && eventCompareDate <= today) {
+                    const setOneEvent = () => {
+                      dispatch({
+                        type: 'SET_ONE_EVENT',
+                        payload: {
+                          id: event.id,
+                          title: event.title,
+                          date: event.date,
+                          time: event.time, 
+                          stack_type: event.stack_type,
+                          description: event.description
+                        }
+                      })
 
+                      history.push("/eventdetail");
+                    }
+                    return (
+                      
+                      <div className="eventItem" onClick={setOneEvent}>
+
+                        <p class="dateStyling" className="eventDate">{eventDate}</p>
+                        <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+                          
+                        {(event.stack_type === 'FSE') ?
+                          <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                          (event.stack_type === 'UX/UI') ?
+                          <p class="stackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
+                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
+                        }
+
+                        <div className="eventTitle"> 
+                          {(event.title.length > 15) ?
+                            <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
+                            <h3 class="cardStyling">{event.title}</h3>
+                          }
+                        </div>
+                          
+                        <div className="eventDescription">  
+                          {(event.description.length > 125) ?
+                            <p class="cardStyling">{event.description.slice(0,125)}...</p> :
+                            <p class="cardStyling">{event.description}</p>
+                          }
+                        </div>
+                      </div>
+              )
+            }
+          })
+        }
+        </div>
+        
+
+        {/* UPCOMING EVENTS SECTION */}
+        
+         <div class="titleCol1">
+            <h2 className="eventPageTitles">Upcoming Events</h2>
+          </div>
+        
+        <div class="eventContainer">
+        {event.map(event => {
+
+          let eventCompareDate = new Date(event.date);
+          let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
+          let twoDigitDate = eventCompareDate.getDate() + "";
+          if (twoDigitDate.length == 1){
+            twoDigitDate = "0" + twoDigitDate;
+          }
+          let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
+          console.log(eventDate);
+
+
+          if(event.confirm_attendance === false && eventCompareDate > today) {
+            const setOneEvent = () => {
+              dispatch({
+                type: 'SET_ONE_EVENT',
+                payload: {
+                  id: event.id,
+                  title: event.title,
+                  date: event.date,
+                  time: event.time, 
+                  stack_type: event.stack_type,
+                  description: event.description
+                }
+              })
+            }
+            return (
+              
+              <div className="eventItem" onClick={setOneEvent}>
+                    <p class="dateStyling" className="eventDate">{eventDate}</p>
+                    <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+
+                    {(event.stack_type === 'FSE') ?
+                      <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                      (event.stack_type === 'UX/UI') ?
+                      <p class="stackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
+                      <span><p class="stackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
+                    }
+
+                    <div className="eventTitle">  
                       {(event.title.length > 15) ?
                         <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
                         <h3 class="cardStyling">{event.title}</h3>
                       }
-                      
-                      {(event.description.length > 125) ?
-                        <p class="cardStyling">{event.description.slice(0,125)}...</p> :
-                        <p class="cardStyling">{event.description}</p>
-                      }
                     </div>
+
+                    <div className="eventDescription">
+                      {(event.description.length > 125) ?
+                          <p class="cardStyling">{event.description.slice(0,125)}...</p> :
+                          <p class="cardStyling">{event.description}</p>
+                        }
+                    </div>
+
+              </div>
+              
             )
           }
-        })
-      }
-      </div>
-      
-
-      {/* UPCOMING EVENTS SECTION */}
-      <h2>Upcoming Events</h2>
-      <div class="eventContainer">
-      {event.map(event => {
-
-        let eventCompareDate = new Date(event.date);
-        let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-        let twoDigitDate = eventCompareDate.getDate() + "";
-        if (twoDigitDate.length == 1){
-          twoDigitDate = "0" + twoDigitDate;
-        }
-        let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-        console.log(eventDate);
-
-
-        if(event.confirm_attendance === false && eventCompareDate > today) {
-          const setOneEvent = () => {
-            dispatch({
-              type: 'SET_ONE_EVENT',
-              payload: {
-                id: event.id,
-                title: event.title,
-                date: event.date,
-                time: event.time, 
-                stack_type: event.stack_type,
-                description: event.description
-              }
-            })
+          })
           }
-          return (
-            
-            <div className="eventItem">
-                      <p class="dateStyling" className="eventDate">{eventDate}</p>
-                      <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
-                        
-                      {(event.stack_type === 'FSE') ?
-                        <p class="stackTypeDisplay">FSE</p> :
-                        (event.stack_type === 'UX/UI') ?
-                        <p class="stackTypeDisplay">UX/UI</p> :
-                        <span><p class="stackTypeDualDisplay">FSE</p> <p class="stackTypeDualDisplay">UX/UI</p></span>
-                      }
-
-                      {(event.title.length > 15) ?
-                        <h3 class="cardStyling">{event.title.slice(0,15)}...</h3> :
-                        <h3 class="cardStyling">{event.title}</h3>
-                      }
-                      
-                      {(event.description.length > 125) ?
-                        <p class="cardStyling">{event.description.slice(0,125)}...</p> :
-                        <p class="cardStyling">{event.description}</p>
-                      }
-                    </div>
-            
-          )
-        }
-        })
-        }
+          </div>
+          </main>
         </div>
-        </main>
-      </div>
-        <div class="col2" id="createNewEventDiv" valign="center" onClick={handleClickOpen}>
+          <div class="col2" id="createNewEventDiv" valign="center" onClick={handleClickOpen}>
           <h2 id="createNewEventTitle" >Create New Event</h2>
+          {/* <h2 id="newEventPlusIcon">+</h2> */}
         </div>
-      </div>
+        </div>
     
       {/* MODAL */}
       <div createNewEventModalDiv>
@@ -186,7 +201,8 @@ function EventPage(props) {
         top: '5%',
         left: '0',
         marginLeft: '23%',
-        marginRight: '50px'
+        marginRight: '50px',
+        outline: 'none'
        }}
         >
           <Box>

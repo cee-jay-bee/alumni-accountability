@@ -49,16 +49,16 @@ function EventTags(props) {
   
 
   return (
-    <main>
+    <main> 
       <div className='tagsHeader'>
-      <h2>Tag</h2>
-      <div className='taginputfield'>
+
+        <div className='eventtagdisplayfield'>
+        <h2>Tag</h2>
         {/* EVENT TAG INPUT */}
-        
         <TextField
               // id="outlined-multiline-static"
               className="createNewEventTag"
-              style={{'left':'500px', width: '500px', top: '-45px'}}
+              style={{ width: '65%', top: '-54px', left: '34%', position: 'relative'}}
               size='small'
               label="add event tag"
               variant="outlined"
@@ -72,16 +72,19 @@ function EventTags(props) {
               value={eventTag}
               onChange={(event) => setEventTag(event.target.value)}
             />
-            <div className='eventtagdisplayarea'>
+            
+          </div>  
+          
+          <div className='eventtagdisplayarea'>
             <p className='eventtagdisplay'>{oneEvent.title}</p>
-            <button className='eventtagdeletebtn' onClick={deleteTag}> X </button>
-            </div>
+            <h3 className='eventtagdeletebtn' onClick={deleteTag}> X </h3>
+          </div>
             
       </div>
       
-        
       
-      </div>
+      
+    
     </main>
   );
 }
