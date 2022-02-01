@@ -205,7 +205,7 @@ function CreateNewEvent(props) {
           </div>
         </Card>
       </Grid>
-      <div createNewEventModalDiv>
+      <div class="createNewEventModalDiv">
         <Modal
           open={open}
           onClose={handleClickOpen}

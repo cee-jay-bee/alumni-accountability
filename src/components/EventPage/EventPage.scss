@@ -1,0 +1,242 @@
+/* body {
+    margin: 0px 25px;
+} */
+
+.titleCol1 {
+    text-align: left;
+    // display: inline-block;
+    font-size: 14px;
+    text-transform: capitalize;
+    font-family: 'Open Sans';
+    font-weight: lighter;
+    text-decoration: none;
+
+    .eventPageTitles{
+        font-weight: 200;
+        text-transform: uppercase;
+    }
+}
+
+
+.titleCol2 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    // display: inline-block;
+    // padding-left: 782px;
+}
+
+// .css-15tk2fu-MuiGrid-root{
+//     display: inline-flex;
+//     flex-flow: row;
+//     flex-direction: row;
+//     width: 18em;
+// }
+
+#allEvents{
+    color: rgb(73, 73, 73);
+    // text-decoration: none;
+    background-color:rgb(243, 240, 236);;
+    text-decoration: underline rgb(243, 240, 236);
+    // border-radius: 10px;
+    // padding-left: 10px;
+    // padding-right: 10px;
+}
+
+#allEvents span{
+    // text-decoration: underline white 2px;
+}
+
+.stackTypeDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    align-items: right;
+    display: inline-block;
+    position: relative;
+    left: 175px;
+    bottom: 70px;
+}
+
+.stackTypeDualDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
+    align-items: right;
+    position: relative;
+    left: 120px;
+    bottom: 70px;
+}
+
+#createNewEventDiv {
+    display: flex;
+    border: 3px dashed rgb(148, 148, 148);
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0 0 0 / 10%);
+    // flex-basis: auto;
+}
+
+#newEventPlusIcon{
+    font-size: 300px;
+    font-weight: 800;
+    position: absolute;
+    opacity: 15%;
+    top: -30px;
+
+}
+
+.eventpagerow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    gap: 30px;
+    // flex: none;
+}
+
+.col1 {
+    // flex: .8;
+    // flex-grow: ;
+}
+
+.col2 {
+    // padding-top: 200px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* --------------Modal--------------- */
+
+.createNewEventModal{
+    width: 40%;
+  }
+  
+.css-79ws1d-MuiModal-root{
+justify-content: center;
+align-items: center;
+width: 700px;
+}
+
+.eventPageCloseModal{
+    background-color: #177e89;
+    color: white;
+    border-radius: 50%;
+    width: 36px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    display: inline-flex;
+    top: 58px;
+    left: 734px;
+    font-weight: 700;
+    font-size: 17px;
+    justify-content: center;
+    align-content: center;
+  }
+
+/*--------Modal Styling---------*/ 
+
+.cardStyling {
+    bottom: 75px;
+    top: -100px;
+    position: relative;
+}
+
+.eventContainer h3 {
+    text-transform: uppercase;
+}
+
+// .eventItemDateTime{
+//     display: flex;
+//     flex-direction: row;
+// }
+
+// .eventItemType span{
+//     display: inline-block;
+//     flex-direction: row;
+//     justify-content: space-around;
+// }
+
+.dateStyling {
+    margin-top: 0px;
+    font-size: 15px;
+}
+
+.timeStyling {
+    margin-top: -10px;
+    font-size: 12px;
+}
+
+#createNewEventTitle {
+    // display: inline;
+    // vertical-align: middle;
+    // line-height: normal;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    color: rgb(102, 102, 102);
+}
+
+.eventContainer {
+    width: 70em;
+    flex-flow: row;
+    flex-direction: row;
+    gap: 10px;
+    display: inline-flex;
+    align-items: center; 
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+}
+
+.eventItem {
+    /* align-items: center; */
+    justify-content: space-around;
+    border: 3px solid transparent;
+    height: 235px;
+    width: 14em;
+    flex: none;
+    border-radius: 8px;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    box-shadow-bottom-right-radius: 8px;
+    box-shadow-bottom-left-radius: 8px;
+} 
+
+.eventTitle{
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.eventDescription{
+    text-transform: none;
+    font-size: 15px;
+    flex: wrap;
+}
+
+.titleDiv {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 30px;
+}
