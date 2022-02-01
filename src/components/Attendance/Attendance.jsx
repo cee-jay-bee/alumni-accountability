@@ -17,6 +17,11 @@ function Attendance(props) {
     dispatch({ type: 'FETCH_ALUM'});
   }, []);
 
+  const handleCheckboxChange = (id) => {
+    console.log('checkbox changed:', id);
+    
+  }
+
   return (
     <div>
       <table id='attendanceTable'>
@@ -27,7 +32,7 @@ function Attendance(props) {
           <th id='tableCol4'>Graduation Date</th>
         </tr>
         {alum.map(alum => 
-            (<AttendanceItem key={alum.id} alum={alum} />) 
+            (<AttendanceItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
         )}
       </table>
     </div>
