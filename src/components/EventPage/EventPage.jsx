@@ -51,7 +51,7 @@ function EventPage(props) {
 
                   {event.map(event => {
 
-                  let eventCompareDate = new Date(event.date);
+                  let eventCompareDate = new Date(event.event_date);
                   let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
                   let twoDigitDate = eventCompareDate.getDate() + "";
                   if (twoDigitDate.length == 1){
@@ -91,14 +91,14 @@ function EventPage(props) {
                         }
 
                         <div className="eventTitle"> 
-                          {(event.title.length > 15) ?
+                          {(event.event_title.length > 15) ?
                             <h3 class="cardStyling">{event.event_title.slice(0,15)}...</h3> :
                             <h3 class="cardStyling">{event.event_title}</h3>
                           }
                         </div>
                           
                         <div className="eventDescription">  
-                          {(event.description.length > 125) ?
+                          {(event.event_description.length > 125) ?
                             <p class="cardStyling">{event.event_description.slice(0,125)}...</p> :
                             <p class="cardStyling">{event.event_description}</p>
                           }
@@ -120,7 +120,7 @@ function EventPage(props) {
         <div class="eventContainer">
         {event.map(event => {
 
-          let eventCompareDate = new Date(event.date);
+          let eventCompareDate = new Date(event.event_date);
           let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
           let twoDigitDate = eventCompareDate.getDate() + "";
           if (twoDigitDate.length == 1){
@@ -158,14 +158,14 @@ function EventPage(props) {
                     }
 
                     <div className="eventTitle">  
-                      {(event.title.length > 15) ?
+                      {(event.event_title.length > 15) ?
                         <h3 class="cardStyling">{event.event_title.slice(0,15)}...</h3> :
                         <h3 class="cardStyling">{event.event_title}</h3>
                       }
                     </div>
 
                     <div className="eventDescription">
-                      {(event.description.length > 125) ?
+                      {(event.event_description.length > 125) ?
                           <p class="cardStyling">{event.event_description.slice(0,125)}...</p> :
                           <p class="cardStyling">{event.event_description}</p>
                         }
