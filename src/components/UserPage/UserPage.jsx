@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 //IMPORT CSS
-import './UserPage.css'
+import './UserPage.scss'
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
