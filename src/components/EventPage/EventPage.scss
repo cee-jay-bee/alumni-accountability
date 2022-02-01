@@ -200,7 +200,7 @@ width: 700px;
 }
 
 .eventContainer {
-    width: 70em;
+    max-width: 70em;
     flex-flow: row;
     flex-direction: row;
     gap: 10px;
