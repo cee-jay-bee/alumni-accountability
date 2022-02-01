@@ -12,6 +12,7 @@ function Attendance(props) {
   // a default value of 'Functional Component'
   const alum = useSelector((store) => store.alum);
   const dispatch = useDispatch();
+  const [attendanceForEvent, setAttendanceForEvent] = useState([]);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALUM'});
@@ -19,7 +20,14 @@ function Attendance(props) {
 
   const handleCheckboxChange = (id) => {
     console.log('checkbox changed:', id);
+
+    attendanceForEvent.includes(id) ? attendanceForEvent.splice(attendanceForEvent.indexOf(id), 1) 
+    : setAttendanceForEvent([...attendanceForEvent, id]);
     
+  }
+
+  const submitAttendance = () => {
+    console.log('attendance for event:', attendanceForEvent);
   }
 
   return (
@@ -35,6 +43,7 @@ function Attendance(props) {
             (<AttendanceItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
         )}
       </table>
+      <button onClick={submitAttendance} >Submit Attendance</button>
     </div>
   );
 }
