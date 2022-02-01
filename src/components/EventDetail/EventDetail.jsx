@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import EditEvent from '../EditEvent/EditEvent';
 import EventTags from '../EventTags/EventTags';
 import EventNotes from '../EventNotes/EventNotes';
+import {useHistory} from 'react-router-dom';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -21,7 +22,7 @@ function EventDetail(props) {
   const oneEvent = useSelector((store) => store.oneEvent);
   const dispatch = useDispatch();
   const event = useSelector((store) => store.event);
- 
+  const history = useHistory();
   
 
   //HANLDE POP-UP MODAL
@@ -46,9 +47,10 @@ function EventDetail(props) {
       type: 'DELETE_EVENT',
       payload: oneEvent.id
     })
+    history.push("/eventpage")
   }
 
-//History.push within delete event
+
 
 
 //NOTES HOOK

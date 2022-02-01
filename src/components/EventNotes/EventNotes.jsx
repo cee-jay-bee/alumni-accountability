@@ -9,13 +9,14 @@ function EventNotes(props) {
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const eventNote=useSelector((store)=> store.eventNote);
+  const oneEvent=useSelector((store)=> store.oneEvent);
 
 
   //EVENT NOTE HOOK
   const [eventNotes, setEventNotes] = useState('');
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_EVENTNOTE'});
+    dispatch({ type: 'FETCH_EVENTNOTE', payload : oneEvent.id });
   }, []);
   
 
