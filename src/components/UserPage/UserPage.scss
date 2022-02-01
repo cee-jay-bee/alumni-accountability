@@ -48,7 +48,7 @@
     display: flex;
     border-radius: 10px;
     background: white;
-    box-shadow: 0px 0px 5px gray;s
+    box-shadow: 0px 0px 5px gray;
 
     h1{
         font-size: 2.5em;
@@ -60,13 +60,19 @@
 .mainDivHomePageCol3 {
     flex: .3;
     /* width: 28em; */
-    border: 3px solid;
+    // border: 3px solid;
     height: 70vh;
     width: 20vh;
     overflow-y: scroll;
     /* text-align: center; */
     white-space: nowrap;
     border-radius: 10px;
+    background: white;
+    box-shadow: 0px 0px 5px gray;
+
+    h3{
+        
+    }
 }
 
 .mainDivHomePageCol3 > h3 {
