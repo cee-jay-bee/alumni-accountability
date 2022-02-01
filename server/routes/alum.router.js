@@ -10,8 +10,8 @@ const {
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
 
-  const query = `SELECT alum.id, alum.name, alum.placed, alum.seeking, alum.cohort_id, cohort.name, cohort.graduation_date
-   FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
+  const query = `SELECT alum.id, alum.alum_name, alum.placed, alum.seeking, alum.cohort_id, cohort.name, cohort.graduation_date
+  FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);
