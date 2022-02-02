@@ -24,19 +24,6 @@ function EventTags(props) {
   }, []);
 
 
-  
-
-  const addEventTag = (event) => {
-        dispatch({
-        type: 'POST_TAG',
-        payload: {
-          id: oneEvent.id,
-          event_tag_tag: eventTag
-          
-          },
-    });
-  }
-
   const deleteTag= (id) => {
     console.log('in deleteTag');
     const newTagList = tag.filter (onetag=>onetag.id !== id)
@@ -93,9 +80,6 @@ function EventTags(props) {
             >{onetag.tag} <span><button className='eventtagdeletebtn' onClick={()=>deleteTag(onetag.id)}> X </button></span></p>
             </>
             )}
-
-            {/* <p className='eventtagdisplay'>{oneEvent.title}</p>
-            <h3 className='eventtagdeletebtn' onClick={deleteTag}> X </h3> */}
           </div>
             
       </div>
