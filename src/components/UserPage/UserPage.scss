@@ -69,8 +69,9 @@
     /* text-align: center; */
     white-space: nowrap;
     border-radius: 10px;
-    background: white;
-    box-shadow: 0px 0px 5px gray;
+    // background: white;
+    // box-shadow: 0px 0px 5px gray;
+    box-shadow: inset 0 0 5px gray;
     // font-family: ;
 
     #mainPageCol3Header{
@@ -91,11 +92,13 @@
     flex-direction: column;
     justify-content: space-between;
     width: auto;
-    border: 3px solid;
+    // border: 3px solid;
     margin: 30px;
     padding-top: 15px;
     cursor: pointer;
-
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px gray;
 }
 
 .mainPageStackTypeDisplay{
