@@ -81,10 +81,10 @@ function UserPage() {
                         </div>
                         <div className="mainPageStackTypeDiv">
                         {(event.stack_type === 'FSE') ?
-                          <p class="mainPageStackTypeDisplay">FSE</p> :
+                          <p class="mainPageStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
                           (event.stack_type === 'UX/UI') ?
-                          <p class="mainPageStackTypeDisplay">UX/UI</p> :
-                          <span><p class="mainPageStackTypeDualDisplay">UX/UI</p> <p class="mainPageStackTypeDualDisplay">FSE</p></span>
+                          <p class="mainPageStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
+                          <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p></span>
                         }
                         </div>
                     </div>
