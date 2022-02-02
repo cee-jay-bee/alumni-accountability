@@ -1,13 +1,13 @@
 
 
 .eventDetailHeader{
-    border: 3px solid;
+    /* border: 3px solid; */
     flex-direction: row;
     display: flex;
 }
 
 .eventDetailCol1{
-    border: 3px solid;
+    /* border: 3px solid; */
     flex: 5;
     flex-direction: row;
     row-gap: 1px;
@@ -59,7 +59,7 @@
     align-self: baseline;
 }
 .eventDetailCol2{
-    border: 3px solid;
+    /* border: 3px solid; */
     flex: 5;
     position: relative;
     display: flex;
@@ -68,20 +68,20 @@
 }
 
 .eventDetailDescription{
-  border: 3px solid;
+  /* border: 3px solid; */
   flex: 5;
   position: relative;
 
   
 }
 
-.eventDetailTags{
+/* .eventDetailTags{
   border: 3px solid;
-}
+} */
 
-.eventDetailNotes{
+/* .eventDetailNotes{
   border: 3px solid;
-}
+} */
 
 
 .confirmDelete{
