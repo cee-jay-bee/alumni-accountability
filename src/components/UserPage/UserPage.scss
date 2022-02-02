@@ -60,16 +60,17 @@
 
 /* Houses items */
 .mainDivHomePageCol3 {
-    flex: .3;
+    flex: .27;
     /* width: 28em; */
     // border: 3px solid;
     height: 70vh;
     width: 20vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     /* text-align: center; */
     white-space: nowrap;
     border-radius: 10px;
-    // background: white;
+    background: rgb(233, 232, 232);
     // box-shadow: 0px 0px 5px gray;
     box-shadow: inset 0 0 5px gray;
     // font-family: ;
@@ -77,78 +78,92 @@
     #mainPageCol3Header{
         font-size: 20px;
         font-weight: 100;
+        text-align: center;
     }
 }
 
-.mainDivHomePageCol3 > h3 {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-}
-
 .mainPageEventItem{
+    display: flex;
     /* flex: none; */
     flex-direction: column;
     justify-content: space-between;
     width: auto;
     // border: 3px solid;
-    margin: 30px;
-    padding-top: 15px;
+    margin: 10px 10px;
+    // padding: 1px 0px;
     cursor: pointer;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 5px gray;
+
+    .mainPageDateTimeStack{
+        display: flex;
+        height: 40px;
+    }
+
+    // .mainPageStackTypeDiv{
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     flex-direction: row-reverse;
+    // }
+    
+    #mainpageeventname{
+        justify-content: flex-start;
+    }
+
+    .mainPageTitleStyling{
+        font-weight: 400;
+        font-size: 20px;
+        margin-left: 20px;
+        bottom: 75px;
+        top: -100px;
+        // margin-left: 15px;   
+    }
+
+    .mainPageDateTimeStyling{
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        margin-left: 20px;
+
+        #maindateallevent{
+            margin-right: 10px;
+        }
+    }
 }
 
 .mainPageStackTypeDisplay{
-    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    background: black;
     color: white;
-    border-radius: 30px;
-    width: 55px;
+    border-radius: 50%;
+    width: 49px;
     padding: 15px 0;
     height: auto;
-    text-align: left;
-    font-weight: 100;
-    font-size: 15px;
-    display: inline-flex;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
     align-items: right;
-    justify-content: space-evenly;
-    float: right;
-    margin-right: 15px;
+    display: inline-block;
+    align-items: right;
+    justify-content: flex-end;
+    position: relative;
+    left: 120px;
+    bottom: 0px;
 }
 
 .mainPageStackTypeDualDisplay{
-    background: linear-gradient(90deg, rgba(203,203,219,1) 0%, rgba(23, 126, 137) 100%);
+    background: black;
     color: white;
-    border-radius: 30px;
-    width: 55px;
+    border-radius: 50%;
+    width: 49px;
     padding: 15px 0;
     height: auto;
-    text-align: left;
-    font-weight: 100;
-    font-size: 15px;
-    display: inline-flex;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
     align-items: right;
-    justify-content: space-evenly;
-    float: right;
-    margin-right: 15px;
-    /* position: relative; */
-    /* margin-right: 10px; */
-    
-}
-
-.mainPageDateStyling{
-    text-align: left;
-    display: inline;
-    align-items: left;
-    margin-left: 15px;
-    margin-top: 40px;
-    /* margin-top: ; */
-}
-
-.mainPageTitleStyling {
-    bottom: 75px;
-    top: -100px;
-    margin-left: 15px;
+    position: relative;
+    left: 70px;
+    bottom: 0px;
 }

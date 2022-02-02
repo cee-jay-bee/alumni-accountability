@@ -74,19 +74,27 @@ function UserPage() {
                 return (
                 
                   <div className="mainPageEventItem">
-                    <p className="mainPageDateStyling"  >{eventDate} {event.time.toLocaleString('en-US')}
-                    {(event.stack_type === 'FSE') ?
-                      <p class="mainPageStackTypeDisplay">FSE</p> :
-                      (event.stack_type === 'UX/UI') ?
-                      <p class="mainPageStackTypeDisplay">UX/UI</p> :
-                      <span><p class="mainPageStackTypeDualDisplay">UX/UI</p> <p class="mainPageStackTypeDualDisplay">FSE</p></span>
-                    }
-                    </p>
+                    <div className="mainPageDateTimeStack">
+                        <div className="mainPageDateTimeStyling">
+                          <p id="maindateallevent">{eventDate}</p>
+                          <p>{event.time.toLocaleString('en-US')}</p>
+                        </div>
+                        <div className="mainPageStackTypeDiv">
+                        {(event.stack_type === 'FSE') ?
+                          <p class="mainPageStackTypeDisplay">FSE</p> :
+                          (event.stack_type === 'UX/UI') ?
+                          <p class="mainPageStackTypeDisplay">UX/UI</p> :
+                          <span><p class="mainPageStackTypeDualDisplay">UX/UI</p> <p class="mainPageStackTypeDualDisplay">FSE</p></span>
+                        }
+                        </div>
+                    </div>
+                    <div id="mainpageeventname">
+                       {(event.event_title.length > 15) ?
+                       <h2 class="mainPageTitleStyling">{event.event_title.slice(0,20)}...</h2> :
+                       <h2 class="mainPageTitleStyling">{event.event_title}</h2>
+                       }
+                    </div>
 
-                    {(event.event_title.length > 15) ?
-                      <h2 class="mainPageTitleStyling">{event.event_title.slice(0,15)}...</h2> :
-                      <h2 class="mainPageTitleStyling">{event.event_title}</h2>
-                    }
                   </div>
                 )
               }
