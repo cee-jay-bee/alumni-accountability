@@ -11,17 +11,16 @@
 
  .allEventContainer {
     align-items: flex-start;
-    // align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 10px;
     /* justify-content: space-evenly; */
     gap: 30px;
-    width: 100%;
-    align-content: center;
-
-} 
+    max-width: 1400px;
+    /* align-content: center;*/
+ }
 
 .allEventItem {
     /* align-items: center; */
