@@ -1,9 +1,9 @@
-const alumNoteReducer = (state = {}, action) => {
+const alumNoteReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_ALUMNOTE':
       return action.payload;
     case 'UNSET_ALUMNOTE':
-      return {};
+      return [];
     default:
       return state;
   }

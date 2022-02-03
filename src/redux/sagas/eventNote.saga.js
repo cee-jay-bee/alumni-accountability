@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-
 function* fetchEventNote(action) {
   try {
     const response = yield axios.get(`/api/eventNote/${action.payload}`);  
@@ -11,35 +10,32 @@ function* fetchEventNote(action) {
   } 
 }
 
-
 function* createEventNote(action) {
   try {
-    yield axios.post(`/api/eventNote/${action.payload.id}`, action.payload);
-    yield put({ type: 'FETCH_EVENTNOTE' })
+    const response = yield axios.post(`/api/eventNote`, action.payload);
+    yield put({ type: 'FETCH_EVENTNOTE' , payload : response.data[0].event_id})
   } catch (error) {
     console.log('event note Post request failed', error);
   }
 }
 
-
 function* updateEventNote(action) {
   try {
-    yield axios.put(`/api/eventNote/${action.payload.id}`, action.payload);
-    yield put({ type: 'FETCH_EVENTNOTE' })
+    const response = yield axios.put(`/api/eventNote/${action.payload.id}`, action.payload);
+    yield put({ type: 'FETCH_EVENTNOTE' , payload : response.data[0].event_id})
   } catch (error) {
-    console.log('Event note put request failed', error);
+    console.log('event note put request failed', error);
   }
 }
 
 function* deleteEventNote(action) {
   try {
-    yield axios.delete(`/api/eventNote/${action.payload}`);
-    yield put({ type: 'FETCH_EVENTNOTE' })
+    const response = yield axios.delete(`/api/eventNote/${action.payload}`);
+    yield put({ type: 'FETCH_EVENTNOTE' , payload : response.data[0].event_id })
   } catch (error) {
-    console.log('Event note Delete request failed', error);
+    console.log('event note Delete request failed', error);
   }
 }
-
 function* eventNoteSaga() {
   yield takeLatest('FETCH_EVENTNOTE', fetchEventNote);
   yield takeLatest('CREATE_EVENTNOTE', createEventNote);
