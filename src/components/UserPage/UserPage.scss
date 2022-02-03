@@ -1,8 +1,8 @@
 
 .homepageHeader{
-    margin-top: 50px;
+    margin-top: 1em;
     font-size: 20px;
-    margin-bottom: 30px ;
+    margin-bottom: 1em ;
 
     h2{
         text-align: center;
@@ -16,6 +16,7 @@
     flex-direction: row;
     justify-content: center;
     border: solid 3px purple;
+    // height: 50%;
     // gap: 2%;
 }
 
@@ -38,6 +39,7 @@
     // height: 63vh;
     height: 100%;
     border: solid 3px purple;
+    margin-right: 2.5%;
 }
 
 .mainDivHomePageCol1 {
@@ -81,14 +83,14 @@
 }
 
 .mainDivHomePageCol3 {
-    margin-top: 50px;
-    height: 80vh;
+    // margin-top: 50px;
+    height: 85vh;
     width: 25%;
     min-width: 50px;
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 10px;
-    background: rgb(233, 232, 232);
+    // background: rgb(233, 232, 232);
     box-shadow: inset 0 0 5px gray;
     margin-left: 2%;
     display: flex;
@@ -100,6 +102,7 @@
         font-size: 20px;
         font-weight: 100;
         text-align: center;
+        margin-top: 2.7em;
     }
 }
 
