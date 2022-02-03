@@ -45,7 +45,7 @@ function UserPage() {
           </div>
 
           <div className="mainDivHomePageCol3">
-            <h3 id="mainPageCol3Header">Events Needing Attendance</h3>
+            <h3 id="mainPageCol3Header">Events requiring attendance</h3>
             {event.map(event => {
 
               let eventCompareDate = new Date(event.event_date);
