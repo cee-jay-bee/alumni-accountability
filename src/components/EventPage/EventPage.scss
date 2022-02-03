@@ -23,25 +23,13 @@
     align-items: center;
     justify-content: space-between;
     align-content: center;
-    // display: inline-block;
-    // padding-left: 782px;
 }
-
-// .css-15tk2fu-MuiGrid-root{
-//     display: inline-flex;
-//     flex-flow: row;
-//     flex-direction: row;
-//     width: 18em;
-// }
 
 #allEvents{
     color: rgb(73, 73, 73);
     // text-decoration: none;
     background-color:rgb(243, 240, 236);;
     text-decoration: underline rgb(243, 240, 236);
-    // border-radius: 10px;
-    // padding-left: 10px;
-    // padding-right: 10px;
 }
 
 #allEvents span{
@@ -83,6 +71,7 @@
 }
 
 #createNewEventDiv {
+    max-width: 20%;
     display: flex;
     border: 3px dashed rgb(148, 148, 148);
     border-radius: 8px;
@@ -168,17 +157,6 @@ width: 700px;
     text-transform: uppercase;
 }
 
-// .eventItemDateTime{
-//     display: flex;
-//     flex-direction: row;
-// }
-
-// .eventItemType span{
-//     display: inline-block;
-//     flex-direction: row;
-//     justify-content: space-around;
-// }
-
 .dateStyling {
     margin-top: 0px;
     font-size: 15px;
@@ -190,9 +168,6 @@ width: 700px;
 }
 
 #createNewEventTitle {
-    // display: inline;
-    // vertical-align: middle;
-    // line-height: normal;
     font-family: 'Open Sans';
     font-weight: 700;
     color: rgb(102, 102, 102);
