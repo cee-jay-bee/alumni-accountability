@@ -11,7 +11,9 @@ function Attendance(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const alum = useSelector((store) => store.alum);
+  const oneEvent = useSelector((store) => store.oneEvent);
   const dispatch = useDispatch();
+  const [attendanceForEvent, setAttendanceForEvent] = useState([]);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALUM'});
@@ -19,11 +21,26 @@ function Attendance(props) {
 
   const handleCheckboxChange = (id) => {
     console.log('checkbox changed:', id);
+
+    attendanceForEvent.includes(id) ? attendanceForEvent.splice(attendanceForEvent.indexOf(id), 1) 
+    : setAttendanceForEvent([...attendanceForEvent, id]);
     
+  }
+
+  const submitAttendance = () => {
+    console.log('attendance for event:', attendanceForEvent);
+    dispatch({
+      type: 'CREATE_EVENT_ATTENDANCE',
+      payload: {
+        attendance: attendanceForEvent,
+        event: oneEvent.id
+      }
+    })
   }
 
   return (
     <div>
+      <h3>{oneEvent.title} Attendance</h3>
       <table id='attendanceTable'>
         <tr class='attendanceTable'>
           <th id='tableCol1'></th>
@@ -35,6 +52,7 @@ function Attendance(props) {
             (<AttendanceItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
         )}
       </table>
+      <button onClick={submitAttendance} >Submit Attendance</button>
     </div>
   );
 }
