@@ -8,6 +8,7 @@
 
 .eventtagdisplay{
     background-color:white;
+    border-radius: 2%;
     padding: 12px 10px;
     width: fit-content;
     border-style: solid;
@@ -17,7 +18,7 @@
     margin: 10px;
     margin-top: -35px;
     margin-left: 3px;
-    box-shadow: 1px  black ;
+    box-shadow: .5px 1px 1px .5px  black ;
     
 }
 

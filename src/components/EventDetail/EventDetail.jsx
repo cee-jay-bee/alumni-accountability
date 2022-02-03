@@ -12,6 +12,7 @@ import EditEvent from '../EditEvent/EditEvent';
 import EventTags from '../EventTags/EventTags';
 import EventNotes from '../EventNotes/EventNotes';
 import {useHistory} from 'react-router-dom';
+import Attendance from '../AttendanceItem/AttendanceItem';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -77,7 +78,11 @@ const [eventNote, setEventNote] = useState('');
               <span> <p className="eventDetailStackTypeDualDisplay">FSE</p> <p className="eventDetailStackTypeDualDisplay">UX/UI</p> </span>
             }
           </div>
+          
         </div>
+
+        {/* {oneEvent.map (event => 
+          (<Attendance key={event.id} taco={event}/>))} */}
         
         <div className='eventDetailCol2'>
             <Link to="/attendance">
