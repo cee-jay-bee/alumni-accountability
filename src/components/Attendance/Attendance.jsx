@@ -11,6 +11,7 @@ function Attendance(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const alum = useSelector((store) => store.alum);
+  const oneEvent = useSelector((store) => store.oneEvent);
   const dispatch = useDispatch();
   const [attendanceForEvent, setAttendanceForEvent] = useState([]);
 
@@ -32,13 +33,14 @@ function Attendance(props) {
       type: 'CREATE_EVENT_ATTENDANCE',
       payload: {
         attendance: attendanceForEvent,
-        event: 1
+        event: oneEvent.id
       }
     })
   }
 
   return (
     <div>
+      <h3>{oneEvent.title} Attendance</h3>
       <table id='attendanceTable'>
         <tr class='attendanceTable'>
           <th id='tableCol1'></th>
