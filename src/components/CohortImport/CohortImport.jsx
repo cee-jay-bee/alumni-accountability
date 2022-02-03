@@ -13,9 +13,10 @@ function CohortImport(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const dispatch = useDispatch();
+  
 
   const upload = (event) => {
-    let file = event.target.files[0];
+    let file = event.target[0].files[0];
     let reader = new FileReader();
     
     reader.readAsText(file);
@@ -26,7 +27,6 @@ function CohortImport(props) {
       console.log(data.data);
 
       sendCohortToDatabase(data.data);
-
     };
 
     reader.onerror = function() {
@@ -42,7 +42,10 @@ function CohortImport(props) {
   return (
     <div className="cohortImportDiv"> 
       <h2>Cohort IMPORT</h2>
-      <input type="file" id="cohortFiles" accept=".csv" onChange={()=>upload(event)} multiple />
+      <form onSubmit={()=>{upload(event)}}>
+      <input type="file" id="cohortFiles" accept=".csv" name="addCohort" multiple />
+      <input type="submit" />
+      </form>
       <h3>Here's another person</h3>
       <Link to="alumdetail">
         <h3>And another one</h3>
