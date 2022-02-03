@@ -12,8 +12,8 @@ function CohortImport(props) {
 
   return (
     <div> 
-      <h2>Cohort Detail Page</h2>
-      <h3>Here's a list of people's names</h3>
+      <h2>Cohort IMPORT</h2>
+      <h3>CSV UPLOAD</h3>
       <h3>Here's another person</h3>
       <Link to="alumdetail">
         <h3>And another one</h3>
