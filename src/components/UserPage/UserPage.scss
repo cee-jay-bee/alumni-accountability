@@ -13,23 +13,45 @@
 
 .mainDivHomePage {
     display: flex;
+    flex-direction: row;
+    // justify-content: space-between;
+    border: solid 3px purple;
+    gap: 2%;
+}
+
+.hiUserDiv{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    width: 70%;
+    margin-left: 1%;
+    border: solid 3px purple;
+}
+
+.mpEventandCohort{
+    display: flex;
     justify-content: space-between;
+    width: auto;
+    gap: 3%;
+    height: 63vh;
+    border: solid 3px purple;
 }
 
 .mainDivHomePageCol1 {
-    flex: .3;
-    // line-height: 50px;
+    // flex: .3;
+    width: 100%;
     text-align: center;
-    // padding-top: 200px;
     justify-content: center;
     align-items: center;
     align-content: center;
     box-shadow: 0px 0px 5px gray;
-    // border: 3px solid;
     display: flex;
     border-radius: 10px;
     background: white;
     cursor: pointer;
+    border: solid 3px purple;
     
     h1{
         font-size: 2.5em;
@@ -38,19 +60,18 @@
 }
 
 .mainDivHomePageCol2 {
-    flex: .3;
-    // line-height: 50px;
+    // flex: .3;
+    width: 100%;
     text-align: center;
-    // padding-top: 200px;
     justify-content: center;
     align-items: center;
     align-content: center;
-    // border: 3px solid;
     display: flex;
     border-radius: 10px;
     background: white;
     box-shadow: 0px 0px 5px gray;
     cursor: pointer;
+    border: solid 3px purple;
 
     h1{
         font-size: 2.5em;
@@ -58,21 +79,25 @@
     }
 }
 
-/* Houses items */
 .mainDivHomePageCol3 {
-    
-    flex: .27;
-    height: 70vh;
-    width: 20vh;
+    // flex: .27;
+    margin-top: 50px;
+    height: 80vh;
+    // max-height: 80%;
+    width: 25%;
+    min-width: 50px;
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 10px;
     background: rgb(233, 232, 232);
+    // border-left: solid 3pxpurple;
     box-shadow: inset 0 0 5px gray;
     max-width: 22em;
-    display: block;
-    align-items: center; 
-    // border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: solid 3px rgb(187, 49, 49);
+    // align-items: center; 
 
     #mainPageCol3Header{
         font-size: 20px;
@@ -87,12 +112,6 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
-
-// .mainPageDateTimeStack{
-//     // display: flex;
-//     height: 40px;
-//     border: 3px solid orangered;
-// }
 
 .mainPageEventItem{
     margin: 10px 10px;
@@ -111,6 +130,7 @@
             display: flex;
             flex-direction: row;
             text-align: left;
+            margin-left: 8px;
             #maindateallevent{
                 margin-right: 10px;
                 display: flex;
@@ -154,9 +174,6 @@
     font-size: 12px;
     align-items: right;
     display: inline-block;
-    // position: relative;
-    // left: 270px;
-    // bottom: 55px;
 }
 
 .mainPageStackTypeDualDisplay{
@@ -171,7 +188,4 @@
     font-size: 12px;
     display: inline-block;
     align-items: right;
-    // position: relative;
-    // left: 220px;
-    // bottom: 55px;
 }

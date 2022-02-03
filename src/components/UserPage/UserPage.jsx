@@ -30,20 +30,22 @@ function UserPage() {
 
   return (
       <div>
-        <div className="homepageHeader">
-          <h2>Welcome, {user.firstname} {user.lastname}!</h2>
-          {/* <p>Your ID is: {user.id}</p> */}
-        </div>
         
         <main className="mainDivHomePage">
-          <div className ="mainDivHomePageCol1" onClick={goToEvents}>
-            <h1>Events</h1>
+          <div className="hiUserDiv">
+            <div className="homepageHeader">
+              <h2>Welcome, {user.firstname} {user.lastname}!</h2>
+              {/* <p>Your ID is: {user.id}</p> */}
+            </div>
+            <div className="mpEventandCohort">
+              <div className ="mainDivHomePageCol1" onClick={goToEvents}>
+                <h1>Events</h1>
+              </div>
+              <div className ="mainDivHomePageCol2" onClick={goToCohorts}>
+                <h1>Cohorts</h1>
+              </div>
+            </div>
           </div>
-
-          <div className ="mainDivHomePageCol2" onClick={goToCohorts}>
-            <h1>Cohorts</h1>
-          </div>
-
           <div className="mainDivHomePageCol3">
             <h3 id="mainPageCol3Header">Events requiring attendance</h3>
             <div classname="mainPageContainer">
