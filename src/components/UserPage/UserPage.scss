@@ -14,9 +14,9 @@
 .mainDivHomePage {
     display: flex;
     flex-direction: row;
-    // justify-content: space-between;
+    justify-content: center;
     border: solid 3px purple;
-    gap: 2%;
+    // gap: 2%;
 }
 
 .hiUserDiv{
@@ -26,7 +26,7 @@
     align-items: stretch;
     flex-wrap: nowrap;
     width: 70%;
-    margin-left: 1%;
+    // margin-left: 1%;
     border: solid 3px purple;
 }
 
@@ -35,7 +35,8 @@
     justify-content: space-between;
     width: auto;
     gap: 3%;
-    height: 63vh;
+    // height: 63vh;
+    height: 100%;
     border: solid 3px purple;
 }
 
@@ -80,24 +81,20 @@
 }
 
 .mainDivHomePageCol3 {
-    // flex: .27;
     margin-top: 50px;
     height: 80vh;
-    // max-height: 80%;
     width: 25%;
     min-width: 50px;
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 10px;
     background: rgb(233, 232, 232);
-    // border-left: solid 3pxpurple;
     box-shadow: inset 0 0 5px gray;
-    max-width: 22em;
+    margin-left: 2%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     border: solid 3px rgb(187, 49, 49);
-    // align-items: center; 
 
     #mainPageCol3Header{
         font-size: 20px;
