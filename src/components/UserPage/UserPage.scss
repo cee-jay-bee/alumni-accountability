@@ -44,7 +44,6 @@
 }
 
 .mainDivHomePageCol1 {
-    // flex: .3;
     width: 100%;
     text-align: center;
     justify-content: center;
@@ -54,16 +53,22 @@
     display: flex;
     border-radius: 10px;
     background: white;
+    // background-image: url('https://drive.google.com/file/d/11zKSvV6g3RWzKvNAEq5hfnBDhRmQuGpl/view?usp=sharing');
     cursor: pointer;
-    
+    transition: background-color 150ms ease-in;
+
     h1{
         font-size: 2.5em;
         font-weight: 400;
     }
+}
+
+.mainDivHomePageCol1:hover{
+    background: #cecca7;
+    color: white;
 }
 
 .mainDivHomePageCol2 {
-    // flex: .3;
     width: 100%;
     text-align: center;
     justify-content: center;
@@ -74,6 +79,7 @@
     background: white;
     box-shadow: 0px 0px 5px gray;
     cursor: pointer;
+    transition: background-color 150ms ease-in;
 
     h1{
         font-size: 2.5em;
@@ -81,16 +87,18 @@
     }
 }
 
+.mainDivHomePageCol2:hover{
+    background: #cecca7;
+    color: white;
+}
+
 .mainDivHomePageCol3 {
-    // margin-top: 50px;
     height: 85vh;
     width: 27%;
     min-width: 50px;
     overflow-y: scroll;
     overflow-x: hidden;
     border-radius: 10px;
-    // background: rgb(233, 232, 232);
-    // box-shadow: inset 0 0 5px gray;
     margin-left: 1%;
     display: flex;
     flex-direction: column;
@@ -152,7 +160,8 @@
     .mainPageTitleStyling{
         display: flex;
         font-weight: 400;
-        font-size: 20px;
+        text-transform: uppercase;
+        font-size: 18px;
         margin-left: 20px;
         bottom: 75px;
         top: -100px;
@@ -168,8 +177,8 @@
     padding: 15px 0;
     // height: auto;
     text-align: center;
-    font-weight: 700;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: .9rem;
     align-items: right;
     display: inline-block;
 }
@@ -182,8 +191,8 @@
     padding: 15px 0;
     // height: auto;
     text-align: center;
-    font-weight: 700;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: .9rem;
     display: inline-block;
     align-items: right;
 }

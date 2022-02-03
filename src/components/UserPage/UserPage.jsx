@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 //IMPORT CSS
-import './UserPage.scss'
+import './UserPage.scss';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -84,10 +84,10 @@ function UserPage() {
                         </div>
                         <div className="mainPageStackTypeDiv">
                           {(event.stack_type === 'FSE') ?
-                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
                             (event.stack_type === 'UX/UI') ?
-                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
-                            <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p></span>
+                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
+                            <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p></span>
                         }
                         </div>
                     </div>
