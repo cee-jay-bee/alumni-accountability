@@ -45,7 +45,7 @@ function UserPage() {
           </div>
 
           <div className="mainDivHomePageCol3">
-            <h3 classname="mainPageCol3Header">Events Needing Attendance</h3>
+            <h3 id="mainPageCol3Header">Events requiring attendance</h3>
             {event.map(event => {
 
               let eventCompareDate = new Date(event.event_date);
@@ -74,19 +74,27 @@ function UserPage() {
                 return (
                 
                   <div className="mainPageEventItem">
-                    <p className="mainPageDateStyling"  >{eventDate} {event.time.toLocaleString('en-US')}
-                    {(event.stack_type === 'FSE') ?
-                      <p class="mainPageStackTypeDisplay">FSE</p> :
-                      (event.stack_type === 'UX/UI') ?
-                      <p class="mainPageStackTypeDisplay">UX/UI</p> :
-                      <span><p class="mainPageStackTypeDualDisplay">UX/UI</p> <p class="mainPageStackTypeDualDisplay">FSE</p></span>
-                    }
-                    </p>
+                    <div className="mainPageDateTimeStack">
+                        <div className="mainPageDateTimeStyling">
+                          <p id="maindateallevent">{eventDate}</p>
+                          <p>{event.time.toLocaleString('en-US')}</p>
+                        </div>
+                        <div className="mainPageStackTypeDiv">
+                        {(event.stack_type === 'FSE') ?
+                          <p class="mainPageStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                          (event.stack_type === 'UX/UI') ?
+                          <p class="mainPageStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
+                          <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p></span>
+                        }
+                        </div>
+                    </div>
+                    <div id="mainpageeventname">
+                       {(event.event_title.length > 15) ?
+                       <h2 class="mainPageTitleStyling">{event.event_title.slice(0,20)}...</h2> :
+                       <h2 class="mainPageTitleStyling">{event.event_title}</h2>
+                       }
+                    </div>
 
-                    {(event.event_title.length > 15) ?
-                      <h2 class="mainPageTitleStyling">{event.event_title.slice(0,15)}...</h2> :
-                      <h2 class="mainPageTitleStyling">{event.event_title}</h2>
-                    }
                   </div>
                 )
               }
