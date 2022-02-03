@@ -46,6 +46,7 @@ function UserPage() {
 
           <div className="mainDivHomePageCol3">
             <h3 id="mainPageCol3Header">Events requiring attendance</h3>
+            <div classname="mainPageContainer">
             {event.map(event => {
 
               let eventCompareDate = new Date(event.event_date);
@@ -79,14 +80,14 @@ function UserPage() {
                           <p id="maindateallevent">{eventDate}</p>
                           <p>{event.time.toLocaleString('en-US')}</p>
                         </div>
-                        <div className="mainPageStackTypeDiv">
+                        {/* <div className="mainPageStackTypeDiv"> */}
                         {(event.stack_type === 'FSE') ?
                           <p class="mainPageStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
                           (event.stack_type === 'UX/UI') ?
                           <p class="mainPageStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
                           <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p></span>
                         }
-                        </div>
+                        {/* </div> */}
                     </div>
                     <div id="mainpageeventname">
                        {(event.event_title.length > 15) ?
@@ -99,6 +100,7 @@ function UserPage() {
                 )
               }
             })}
+            </div>
           </div>
           {/* <LogOutButton className="btn" /> */}
         </main>
