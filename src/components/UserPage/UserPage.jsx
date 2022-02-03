@@ -80,14 +80,14 @@ function UserPage() {
                           <p id="maindateallevent">{eventDate}</p>
                           <p>{event.time.toLocaleString('en-US')}</p>
                         </div>
-                        {/* <div className="mainPageStackTypeDiv"> */}
-                        {(event.stack_type === 'FSE') ?
-                          <p class="mainPageStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
-                          (event.stack_type === 'UX/UI') ?
-                          <p class="mainPageStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
-                          <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p></span>
+                        <div className="mainPageStackTypeDiv">
+                          {(event.stack_type === 'FSE') ?
+                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                            (event.stack_type === 'UX/UI') ?
+                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
+                            <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p></span>
                         }
-                        {/* </div> */}
+                        </div>
                     </div>
                     <div id="mainpageeventname">
                        {(event.event_title.length > 15) ?
