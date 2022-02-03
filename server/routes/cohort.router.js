@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
+const axios = require('axios');
 
 /**
  * GET route template
@@ -24,16 +25,35 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.post('/', rejectUnauthenticated, (req, res) => {
 
-    const { name, graduationDate } = req.body
-    const queryText = `INSERT INTO "cohort" (cohort_name, graduation_date) VALUES ($1 , $2)`
-    pool.query(queryText,[ name, graduationDate]).then(()=>
-        res.sendStatus(201)
-    ).catch(err=>{
-        console.log("cohort post router has error", err)
+    const cohortName = req.body[0].Cohort;
+    const graduationDate = req.body[0]['Graduation Date'];
+
+    const insertCohortQuery = `INSERT INTO "cohort" (cohort_name, graduation_date) VALUES ($1 , $2) RETURNING "id";`
+
+    // FIRST QUERY MAKES MOVIE
+    pool.query(insertCohortQuery, [cohortName, graduationDate]).then(result => {
+      console.log('New Cohort Id:', result.rows[0].id); //ID IS HERE!
+    
+      const createdCohortId = result.rows[0].id
+    
+      req.body.forEach( 
+        async values => {
+        const insertNamesQuery = `INSERT INTO "alum" (alum_name, alum_placed, alum_seeking, cohort_id) VALUES ($1 , $2, $3, $4)`;
+      
+        // SECOND QUERY ADDS GENRE FOR THAT NEW MOVIE
+        await pool.query(insertNamesQuery, [values.Name, false, false, createdCohortId]).then(result => {
+        //Now that both are done, send back success!
+        }).catch(err => {// catch for second query
+        console.log(err);
         res.sendStatus(500)
-        }
-    )
+        })
+      })
+    }).catch(err => { // Catch for first query
+      console.log(err);
+      res.sendStatus(500)
   });
+  res.sendStatus(201);
+});
 
 
 router.put('/:id', rejectUnauthenticated,(req, res) => {
@@ -52,7 +72,7 @@ router.put('/:id', rejectUnauthenticated,(req, res) => {
         res.sendStatus(500)
     })
   
-  });
+});
 
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
@@ -67,7 +87,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         console.log('ERROR: delete cohort', err);
         res.sendStatus(500)
       })
-  });
+});
   
 
 
