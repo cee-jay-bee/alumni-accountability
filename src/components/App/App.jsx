@@ -33,6 +33,7 @@ import Attendance from '../Attendance/Attendance';
 import DataPage from '../DataPage/DataPage';
 import EventNotes from '../EventNotes/EventNotes';
 import EventTags from '../EventTags/EventTags';
+import ForgottenUsername from '../ForgottenUsername/ForgottenUsername';
 
 function App() {
   const dispatch = useDispatch();
@@ -177,6 +178,13 @@ function App() {
             path="/registration"
             >
             <RegisterPage/>
+          </Route>
+
+          <Route
+            exact
+            path="/username"
+            >
+            <ForgottenUsername/>
           </Route>
 
           <Route

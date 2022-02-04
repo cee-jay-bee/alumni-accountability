@@ -5,7 +5,8 @@ const {
 const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool');
 const userStrategy = require('../strategies/user.strategy');
-
+const nodemailer = require("nodemailer");
+const { getImageListItemBarUtilityClass } = require('@mui/material');
 const router = express.Router();
 
 // Handles Ajax request for user information if user is authenticated
@@ -13,6 +14,52 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
   res.send(req.user);
 });
+
+router.get('/username', (req, res) => {
+  
+  const queryText = `SELECT "username" from "user" WHERE email=${req.body.email}`;
+  pool
+    .query(queryText)
+    .then(
+      async (result) => {
+        // Generate test SMTP service account from ethereal.email
+        // Only needed if you don't have a real mail account for testing
+        // let testAccount = await nodemailer.createTestAccount();
+      
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+          name: "gmail.com",
+          host: "smtp.gmail.com",
+          port: 587,
+          secure: false, // true for 465, false for other ports
+          auth: {
+            user: 'priumni.devs@gmail.com', // generated ethereal user
+            pass: 'testapp1234', // generated ethereal password
+          },
+        });
+      
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+          from: '"Priumni App"', // sender address
+          to: "parankashani@gmail.com", // list of receivers
+          subject: "Hello ✔", // Subject line
+          text: "Hello world?", // plain text body
+          html: `<b>Hello world?</b> ${result.rows[0].username}`, // html body
+        });
+      
+        console.log("Message sent: %s", info.messageId);
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+      
+        // Preview only available when sending through an Ethereal account
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+      }
+    ).catch((err) => {
+      console.log('Username email failed: ', err);
+      res.sendStatus(500);
+    });
+    res.sendStatus(201);
+})
 
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
