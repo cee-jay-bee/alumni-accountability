@@ -61,6 +61,20 @@ router.get('/username', (req, res) => {
     res.sendStatus(201);
 })
 
+router.put('/password', (req, res, next) => {
+  const username = req.body.username;
+  const password = encryptLib.encryptPassword(req.body.password);
+  const email = req.body.email;
+  
+  const queryText = `UPDATE "user" SET password=$1 WHERE username=$2 AND user_email=$3`;
+  pool
+    .query(queryText, [password, username, email])
+    .then(() => res.sendStatus(201))
+    .catch((err) => {
+      console.log('User registration failed: ', err);
+      res.sendStatus(500);
+    });
+});
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted

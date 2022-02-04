@@ -41,9 +41,19 @@ function* emailUsername(action) {
   }
 }
 
+function* resetPassword(action) {
+  try {
+    const response = yield axios.put('/api/user/password', action.payload);
+
+  } catch (error) {
+    console.log('User get request failed', error);
+  }
+}
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeLatest('EMAIL_USERNAME', emailUsername);
+  yield takeLatest('RESET_PASSWORD', resetPassword);
 }
 
 export default userSaga;

@@ -34,6 +34,7 @@ import DataPage from '../DataPage/DataPage';
 import EventNotes from '../EventNotes/EventNotes';
 import EventTags from '../EventTags/EventTags';
 import ForgottenUsername from '../ForgottenUsername/ForgottenUsername';
+import ResetPassword from '../ResetPassword/ResetPassword';
 
 function App() {
   const dispatch = useDispatch();
@@ -185,6 +186,13 @@ function App() {
             path="/username"
             >
             <ForgottenUsername/>
+          </Route>
+
+          <Route
+            exact
+            path="/resetpassword"
+            >
+            <ResetPassword/>
           </Route>
 
           <Route

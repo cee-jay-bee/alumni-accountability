@@ -6,19 +6,24 @@ import { useDispatch, useSelector } from 'react-redux';
 function ForgottenUsername() {
   const history = useHistory();
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
-  const recoverUsername = (event) => {
+  const resetPassword = (event) => {
     event.preventDefault();
 
     dispatch({
-      type: 'EMAIL_USERNAME',
+      type: 'RESET_PASSWORD',
       payload: {
-        email: email
+        email: email,
+        username: username,
+        password: password
       },
     });
+    history.push("/login");
   }; // end registerUser
 
   return (
@@ -27,8 +32,8 @@ function ForgottenUsername() {
       <div>
         <h2>Current users</h2>
       </div>
-      <form className="formPanel" onSubmit={recoverUsername}>
-        <h2>Forgotten Username</h2>
+      <form className="formPanel" onSubmit={resetPassword}>
+        <h2>Reset Password</h2>
         {errors.registrationMessage && (
           <h3 className="alert" role="alert">
             {errors.registrationMessage}
@@ -47,7 +52,31 @@ function ForgottenUsername() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Email Username" />
+        <label htmlFor="username">
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={username}
+            required
+            onChange={(event) => setUsername(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="password">
+          New Password:
+          <input
+            type="password"
+            name="password"
+            value={password}
+            required
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <input className="btn" type="submit" name="submit" value="Reset Password" />
       </div>
     </form>
 
@@ -66,7 +95,7 @@ function ForgottenUsername() {
           type="button"
           className="btn btn_asLink"
           onClick={() => {
-            history.push('/resetpassword');
+            history.push('/login');
           }}
         >
           Reset Password
