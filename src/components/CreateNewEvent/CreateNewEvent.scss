@@ -1,11 +1,11 @@
 .createNewEventCard{
-    padding: 10px 30px;
+    padding: 10px 19px;
     background: white;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    width:600px;
-    outline:0;
+    width: 700px;
+    outline: 0;
   }
   
 .createNewEventCardHeader{
@@ -229,8 +229,8 @@ select.createnewdropdown {
     linear-gradient(135deg, gray 50%, transparent 50%),
     radial-gradient(#ddd 70%, transparent 72%);
   background-position:
-    calc(100% - 19px) calc(1em + 2px),
-    calc(100% - 14.1px) calc(1em + 2px),
+    calc(100% - 20.4px) calc(1em + 2px),
+    calc(100% - 16.3px) calc(1em + 2px),
     calc(100% - .5em) .5em;
   background-size:
     5px 5px,
@@ -245,8 +245,8 @@ select.createnewdropdown:focus {
     linear-gradient(135deg, transparent 50%, white 50%),
     radial-gradient(gray 70%, transparent 72%);
   background-position:
-    calc(100% - 14.1px) 1em,
-    calc(100% - 19px) 1em,
+    calc(100% - 16.3px) 1em,
+    calc(100% - 20.4px) 1em,
     calc(100% - .5em) .5em;
   background-size:
     5px 5px,

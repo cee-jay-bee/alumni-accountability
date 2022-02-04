@@ -196,11 +196,11 @@ function EventPage(props) {
         aria-describedby="modal-modal-description"
         style={{alignItems:'center',
         justifyContent:'center', 
-        width: '50%',
+        // width: '50%',
         position: 'flexible',
-        top: '5%',
+        top: '15%',
         left: '0',
-        marginLeft: '23%',
+        marginLeft: '26%',
         marginRight: '50px',
         outline: 'none'
        }}
