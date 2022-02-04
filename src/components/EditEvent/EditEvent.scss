@@ -1,0 +1,396 @@
+.EditEventCard{
+    padding: 10px 19px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    outline: 0;
+  }
+  
+.createNewEventCardHeader{
+  text-align: center;
+  margin-bottom: 30px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+
+    .createNewEventH2div #createNewEvenrH{
+      height: 30px;
+      margin: 0px 0px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .createNewEventclosing{
+      height: 30px;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .createNewEventclosing p{
+      color: white;
+      background-color: #6c7f42;
+      border-radius: 50%;
+      padding: 3px 10px;
+      padding-bottom: 5px;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: solid underline #6c7f42 ;
+    }
+
+    .createNewEventclosing p:hover{
+      color: white;
+      background-color: #566634;
+      border-radius: 50%;
+      padding: 3px 10px;
+      padding-bottom: 5px;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: solid underline #566634 ;
+    }
+}
+
+/*----------------------------------*/ 
+
+.createNewEventTitleDateTimeDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.createnewtitleinput{
+  // height: 56px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "open sans", sans-serif;
+}
+
+.createnewtitleinput:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createnewtitleinput:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createnewDateInput{
+  height: 56px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "open sans", sans-serif;
+}
+
+.createnewDateInput:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createnewDateInput:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+
+.createnewTimeInput{
+  height: 56px;
+  width: 120px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "open sans", sans-serif;
+}
+
+.createnewTimeInput:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createnewTimeInput:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+/*----------------------------------*/ 
+
+.createNewDescriptionDiv{
+  display: flex;
+}
+
+.createNewEventDescription{
+  width: 100%;
+  border: solid 1px #c3c3c3;
+  resize: none;
+  margin: 2px 5px;
+  padding: 10px 10px;
+  // padding-left: 10px;
+  // padding-right: 10px;
+
+  border-radius: 4px;
+  font-family: "open sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.createNewEventDescription:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createNewEventDescription:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+/*----------------------------------*/ 
+
+.createNewEventTagDiv{
+  display: flex;
+  margin-top: 4px;
+}
+
+.createNewEventTagInput{
+  height: 54px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  // font-family: 'open sans';
+  font-size: 16px;
+  font-weight: 500;
+  // margin-right: 30px;
+  font-family: "open sans", sans-serif;
+}
+
+.createNewEventTagInput:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createNewEventTagInput:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+/*------------------------------------------------*/ 
+
+.createnewFormandBtn{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.createnewdropdown{
+  height: 56px;
+  width: 217px;
+  margin: 2px 5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(117, 117, 117);
+  font-family: "open sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  appearance: none;
+}
+
+select.createnewdropdown {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 20.4px) calc(1em + 2px),
+    calc(100% - 16.3px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.6em 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.createnewdropdown:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    radial-gradient(gray 70%, transparent 72%);
+  background-position:
+    calc(100% - 16.3px) 1em,
+    calc(100% - 20.4px) 1em,
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.6em 1.5em;
+  background-repeat: no-repeat;
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+select.createnewdropdown:hover{
+  border-color: rgb(255, 175, 175);
+  // box-shadow: 0px 0px 5px rgb(255, 175, 175);
+}
+
+.createNewEventBtn{
+margin: 2px 5px;
+}
+
+.createneweventsubmitbtn{
+  border: none;
+  height: 56px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 150px;
+  background-color: #6c7f42;
+  color: white;
+  font-family: 'open sans';
+  font-weight: 500;
+}
+
+.createneweventsubmitbtn:hover{
+  border: none;
+  height: 56px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 150px;
+  background-color: #526132;
+  color: white;
+  font-family: 'open sans';
+  font-weight: 500;
+}
+
+.createneweventdisable{
+  border: none;
+  height: 56px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 150px;
+  background-color: #999999;
+  color: white;
+  font-family: 'open sans';
+  font-weight: 500;
+}
+
+  /*-------------------------------*/ 
+
+
+  .createNewEventFormClass{
+    width: 300px;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+  
+  .cheers{
+  text-align: center;
+  padding-top: 40px;
+  font-size: 50px;
+  /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
+  }
+  
+  .neweventmodalbtns{
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 70px;
+    position: relative;
+    top: -70px;
+  }
+  
+  .beerscheers{
+    position: relative;
+  }
+  
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: rgb(187, 13, 13);
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 20ms ease-in-out;
+  }
+  
+  /* CANCEL BTN */
+  .createneweventconfirmcancelbtn{
+      background: transparent;
+      border: 1px solid red;
+      color: red;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: larger;
+    }
+  .createneweventconfirmcancelbtn:hover {
+    transition: 400ms ease-in-out;
+    background: #eb0606;
+    color: white;
+  }
+  .createneweventconfirmcancelbtn::hover svg {
+    stroke-dashoffset: -480;
+  }
+  
+  .createneweventconfirmcancelbtn span{
+    color: rgb(67, 49, 146);
+    font-size: 18px;
+    font-weight: 100;
+  }
+  
+  /* ANOTHER CREATE BTN */
+  .createneweventconfirmnewbtn{
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    color: rgb(32, 113, 116);
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+    margin-left: 40px;
+  }
+  
+  .createneweventconfirmnewbtn:hover {
+    transition: 400ms ease-in-out;
+    background: rgb(32, 113, 116);
+    color: white;
+  }
+  .createneweventconfirmnewbtn::hover svg {
+    stroke-dashoffset: -480;
+  }
+  
+  .createneweventconfirmnewbtn span{
+    color: rgb(67, 49, 146);
+    font-size: 18px;
+    font-weight: 100;
+  }
+
