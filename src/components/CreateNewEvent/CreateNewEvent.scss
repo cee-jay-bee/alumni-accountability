@@ -180,6 +180,18 @@
     font-weight: 500;
   }
 
+  .createneweventdisable{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    background-color: #999999;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+  }
+
   .createNewEventFormClass{
     width: 300px;
     flex-direction: row-reverse;

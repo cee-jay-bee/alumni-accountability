@@ -190,7 +190,7 @@ function CreateNewEvent(props) {
               {/* SUBMISSION BTN */}
               <div className="createNewEventBtn">
                 {( eventTitle==='' || eventDate==='' || eventTime==='' || eventDescription==='' || eventStackType==='' || eventTag==='')?
-                <Button variant="outlined" style={{'backgroundColor':'rgb(75, 75, 75)', 'color':'white'}} disabled>Create Event</Button>:
+                <button className="createneweventdisable" variant="outlined" disabled>Create Event</button>:
                 <button className="createneweventsubmitbtn" variant="outlined" type="submit" name="submit" value="create event" onClick={addNewEvent}>Create Event</button>
                 }
               </div>
