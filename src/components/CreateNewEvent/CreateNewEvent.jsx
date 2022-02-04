@@ -75,7 +75,14 @@ function CreateNewEvent(props) {
       >
         <Card className="createNewEventCard">
           <div className="createNewEventCardHeader">
-            <h2>Let's Create a New Event!</h2>
+          <Link to="/eventpage">
+            <div className="createNewEventclosing">
+                <p>x</p>
+            </div>
+          </Link>
+            <div className="createNewEventH2div">
+              <h2 id="createNewEvenrH">Let's Create a New Event!</h2>
+            </div>
           </div>
           <div className="createNewEventTitleDateTimeDiv">
             {/* EVENT TITLE INPUT */}

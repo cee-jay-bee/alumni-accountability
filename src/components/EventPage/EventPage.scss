@@ -121,15 +121,13 @@ align-items: center;
 width: 700px;
 }
 
-.eventPageCloseModal{
-    background-color: #177e89;
+.eventPageCloseModalx{
+    background-color: #6c7f42;
     color: white;
-    border: solid 2px #177e89;
+    border: solid 2px #6c7f42;
     border-radius: 50%;
     width: 26px;
-
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 5px 2px;
     height: auto;
     text-align: center;
     align-items: center;
@@ -142,7 +140,11 @@ width: 700px;
     align-content: center;
     flex-wrap: nowrap;
     justify-content: center;
+  }
 
+  .eventPageCloseModalx:hover{
+    background-color: #556434;
+    border: solid 2px #556434;
   }
 
 /*--------Modal Styling---------*/ 

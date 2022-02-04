@@ -207,7 +207,7 @@ function EventPage(props) {
         >
           <Box>
             {/* Clicking the x will close out of the modal */}
-            <h3 className="eventPageCloseModal" onClick={handleClickOpen}>x</h3> 
+            {/* <h3 className="eventPageCloseModalx" onClick={handleClickOpen}>x</h3>  */}
             <CreateNewEvent/>  
           </Box> 
         </Modal>

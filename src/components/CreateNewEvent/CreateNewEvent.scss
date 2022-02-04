@@ -1,16 +1,59 @@
 .createNewEventCard{
-    padding-right: 40px;
-    padding-bottom: 40px;
-    padding-left: 40px;
-    padding-top: 10px;
-    // margin-bottom: 20px;
+    padding: 10px 10px;
   }
   
   .createNewEventCardHeader{
-  text-align: center;
-  margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+
+    // .createNewEventH2div{
+    //   border: solid 2px rgb(255, 72, 0);
+    //   padding: none;
+    //   // height: 40px;
+    // }
+
+    .createNewEventH2div #createNewEvenrH{
+      height: 30px;
+      margin: 0px 0px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .createNewEventclosing{
+      height: 30px;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .createNewEventclosing p{
+      color: white;
+      background-color: #6c7f42;
+      border-radius: 50%;
+      padding: 3px 10px;
+      padding-bottom: 5px;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: solid underline #6c7f42 ;
+    }
+
+    .createNewEventclosing p:hover{
+      color: white;
+      background-color: #566634;
+      border-radius: 50%;
+      padding: 3px 10px;
+      padding-bottom: 5px;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: solid underline #566634 ;
+    }
   }
-  
+
   .createNewEventBtn{
     /* margin-top: 20px; */
     text-align: right;
@@ -50,27 +93,6 @@
   
   .createNewEventFormClass{
     width: 300px;
-  }
-  
-  /* This needs to be in Event Page.jsx, since that's where the "x" is created */
-  /* .eventPageCloseModal{
-    background-color: rgb(23, 126, 137);
-    color: white;
-    border-radius: 30px;
-    width: 30px;
-    padding-bottom: 5px;
-    height: auto;
-    text-align: center;
-    align-items: right;
-    position: relative;
-    top: 55px;
-    left: 740px;
-    font-weight: 100;
-    font-size: 20px;
-  } */
-  
-  .eventPageCloseModal:hover{
-    background-color: black;
   }
   
   .cheers{
