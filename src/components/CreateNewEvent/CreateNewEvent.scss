@@ -95,6 +95,60 @@
     margin: 10px 15px;
   }
   
+  .createnewdropdown{
+    height: 56px;
+    width: 195px;
+    border: solid 1px #c3c3c3;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(98, 98, 98);
+    // font-family: 'open sans';
+    font-size: 15px;
+    font-weight: 500;
+    appearance: none;
+  }
+  
+  select.createnewdropdown {
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      radial-gradient(#ddd 70%, transparent 72%);
+    background-position:
+      calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - .5em) .5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.6em 1.5em;
+    background-repeat: no-repeat;
+  }
+  
+  select.createnewdropdown:focus {
+    background-image:
+      linear-gradient(45deg, white 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, white 50%),
+      radial-gradient(gray 70%, transparent 72%);
+    background-position:
+      calc(100% - 15px) 1em,
+      calc(100% - 20px) 1em,
+      calc(100% - .5em) .5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.6em 1.5em;
+    background-repeat: no-repeat;
+    border-color: rgb(255, 175, 175);
+    box-shadow: 0px 0px 5px rgb(255, 175, 175);
+    outline: 0;
+  }
+
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus{
+    border-color: rgb(255, 175, 175);
+    box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  }
+
   .createnewFormandBtn{
     display: flex;
     justify-content: space-between;
@@ -102,8 +156,34 @@
     margin: 10px 10px 15px 15px;
   }
 
+  .createneweventsubmitbtn{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    background-color: #6c7f42;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+  }
+
+  .createneweventsubmitbtn:hover{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    background-color: #526132;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+  }
+
   .createNewEventFormClass{
     width: 300px;
+    flex-direction: row-reverse;
+    text-align: right;
   }
   
   .cheers{
