@@ -66,31 +66,42 @@
   
   .eventTimeInput{
     // margin-left: 50px;
-    width: 145px;
+    // width: 145px;
+    width: 30%;
   }
   
   .createNewEventTitle{
-    width: 302px;
+    // width: 302px;
+    width: 30%;
   }
   
   .createNewEventDescription{
     width: 100%;
+    // margin: 10px 15px;
   }
-  
-  .css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
-    /* margin-top: 20px; */
-    margin-bottom: 20px;
+
+  .createNewDescription{
+     margin: 10px 15px;
   }
   
   .createNewEventTagDiv{
-    margin-bottom: 20px;
+    margin: 10px 15px;
   }
   
   .createNewEventTitleDateTimeDiv{
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     display: flex;
+    justify-content: space-between;
+    margin: 10px 15px;
   }
   
+  .createnewFormandBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 10px 10px 15px 15px;
+  }
+
   .createNewEventFormClass{
     width: 300px;
   }

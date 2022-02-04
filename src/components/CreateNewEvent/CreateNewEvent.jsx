@@ -138,7 +138,7 @@ function CreateNewEvent(props) {
           </div>
 
           {/* EVENT DESCRIPTION INPUT */}
-          <div>
+          <div className="createNewDescription">
             <TextField
               className="createNewEventDescription"
               id="outlined-multiline-static"
@@ -176,39 +176,40 @@ function CreateNewEvent(props) {
               onChange={(event) => setEventTag(event.target.value)}
             />
           </div>
-          {/* EVENT COHORT TYPE INPUT */}
-          <div>
-            <FormControl 
-              className="createNewEventFormClass"
-              // style={{'minWidth':'380px'}}
-              >
-                <InputLabel id="actors-select-label">cohort type</InputLabel>
-                  <Select
-                    labelId="stack-type-select"
-                    // this ID needs to be the same as the ID of InputLabel ^^
-                    id="actors-select"
-                    // but this id needs to be different from the other two above ^^
-                    value={eventStackType}
-                    required
-                    label="eventStackType"
-                    onChange={( event )=>setEventStackType( event.target.value )}
-                >
-                    <MenuItem>
-                        <em>--please select from the following--</em>
-                        </MenuItem>
-                        <MenuItem value={'FSE'}>FSE</MenuItem>
-                        <MenuItem value={'UX/UI'}>UX/UI</MenuItem>
-                        <MenuItem value={'FSE and UX/UI'}>FSE and UX/UI</MenuItem>
-                  </Select>
-            </FormControl>
-          </div>
-
-          {/* SUBMISSION BTN */}
-          <div className="createNewEventBtn">
-            {( eventTitle==='' || eventDate==='' || eventTime==='' || eventDescription==='' || eventStackType==='' || eventTag==='')?
-            <Button variant="outlined" style={{'backgroundColor':'rgb(75, 75, 75)', 'color':'white'}} disabled>Create Event</Button>:
-            <Button variant="outlined" type="submit" name="submit" value="create event" style={{'backgroundColor':'#177E89', 'color':'white'}} onClick={addNewEvent}>Create Event</Button>
-            }
+          <div className="createnewFormandBtn">
+              {/* EVENT COHORT TYPE INPUT */}
+              <div>
+                <FormControl 
+                  className="createNewEventFormClass"
+                  // style={{'minWidth':'380px'}}
+                  >
+                    <InputLabel id="actors-select-label">cohort type</InputLabel>
+                      <Select
+                        labelId="stack-type-select"
+                        // this ID needs to be the same as the ID of InputLabel ^^
+                        id="actors-select"
+                        // but this id needs to be different from the other two above ^^
+                        value={eventStackType}
+                        required
+                        label="eventStackType"
+                        onChange={( event )=>setEventStackType( event.target.value )}
+                    >
+                        <MenuItem>
+                            <em>--please select from the following--</em>
+                            </MenuItem>
+                            <MenuItem value={'FSE'}>FSE</MenuItem>
+                            <MenuItem value={'UX/UI'}>UX/UI</MenuItem>
+                            <MenuItem value={'FSE and UX/UI'}>FSE and UX/UI</MenuItem>
+                      </Select>
+                </FormControl>
+              </div>
+              {/* SUBMISSION BTN */}
+              <div className="createNewEventBtn">
+                {( eventTitle==='' || eventDate==='' || eventTime==='' || eventDescription==='' || eventStackType==='' || eventTag==='')?
+                <Button variant="outlined" style={{'backgroundColor':'rgb(75, 75, 75)', 'color':'white'}} disabled>Create Event</Button>:
+                <Button variant="outlined" type="submit" name="submit" value="create event" style={{'backgroundColor':'#177E89', 'color':'white'}} onClick={addNewEvent}>Create Event</Button>
+                }
+              </div>
           </div>
         </Card>
       </Grid>
