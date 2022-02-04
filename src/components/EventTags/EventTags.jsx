@@ -11,7 +11,7 @@ function EventTags(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const oneEvent = useSelector((store) => store.oneEvent);
-  const tag=useSelector((store)=> store.tag);
+  const tag = useSelector((store)=> store.tag);
   
 
   const dispatch = useDispatch();
@@ -74,12 +74,14 @@ function EventTags(props) {
           </div>  
           
           <div className='eventtagdisplayarea'>
-          {tag.map((onetag)=>
+            <span>
+          {tag.map(onetag =>
             <>
             <p key={onetag.id} className='eventtagdisplay'
             >{onetag.tag} <span><button className='eventtagdeletebtn' onClick={()=>deleteTag(onetag.id)}> X </button></span></p>
             </>
             )}
+            </span>
           </div>
             
       </div>

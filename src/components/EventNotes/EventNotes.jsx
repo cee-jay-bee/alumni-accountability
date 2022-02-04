@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { TextField, Button} from '@mui/material';
+import { TextField, Button, Modal, Box, Paper} from '@mui/material';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import './EventNotes.css'
 
 // Basic functional component structure for React with default state
@@ -24,6 +25,20 @@ function EventNotes(props) {
   const toggleEditMode = () =>{
     setEditMode( !editMode );
   }
+
+  //HANLDE POP-UP MODAL
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+      setOpen(!open);
+  };
+  // END HANDLE POP-UP MODAL
+
+  //HANLDE POP-UP for SECOND MODAL
+  const [open2, setOpen2] = React.useState(false);
+  const handleClickOpen2 = () => {
+      setOpen2(!open2);
+  };
+  // END HANDLE POP-UP SECOND MODAL
   
 
   useEffect(() => {
@@ -45,7 +60,7 @@ function EventNotes(props) {
   }
 
   const deleteNote= (id) => {
-    console.log('in deleteTag');
+    console.log('in deleteNote');
     const newNoteList = eventNote.filter (onenote=>onenote.id !== id)
     dispatch({
       type: 'DELETE_EVENTNOTE',
@@ -84,7 +99,7 @@ function EventNotes(props) {
             <p key={onenote.id} className='eventnotedisplay'
             >{onenote.event_note_date}{onenote.event_note_entry} 
 
-            <span>
+            {/* <span>
               { editMode?
               <span>
             <TextField
@@ -107,13 +122,13 @@ function EventNotes(props) {
               <span><EditOutlinedIcon  className='noteeditbtn' onClick={toggleEditMode} 
               style={{fontSize:"35px","left": "87%", top: "70%" }}/> </span>
               }
-            </span>
+            </span> */}
               
             
-            <span><EditOutlinedIcon  className='noteeditbtn' onClick={toggleEditMode} 
+            <span><EditOutlinedIcon  className='noteeditbtn' onClick={handleClickOpen2} 
             style={{fontSize:"35px","left": "87%", top: "70%" }}/> </span>
           
-            <span><DeleteOutlineOutlinedIcon className='eventnotedeletebtn' onClick={()=>deleteNote(onenote.id)} 
+            <span><DeleteOutlineOutlinedIcon className='eventnotedeletebtn' onClick={handleClickOpen} 
             style={{fontSize:"35px","left": "90%", top: "70%" }}/> </span>
             </p>
             </>
@@ -121,6 +136,44 @@ function EventNotes(props) {
 
         </div>
       </div>
+      <div deleteEventNoteDiv>
+      <Modal
+      open={open}
+      onClose={handleClickOpen}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      style={{alignItems:'center',
+      position: 'absolute',
+      top: '15%',
+      left: '35%',
+      // transform: 'translate(-50%, -50%)',
+      width: '400px',
+      height: '400px',
+      bgcolor: 'background.paper'
+    }}
+    >
+      <Box>
+        <Paper
+            style={{
+            // transform: 'translate(-50%, -50%)',
+            width: '450px',
+            height: '400px',
+              }}
+          >
+          <h4 className="confirmDeleteNote">Confirm Delete?</h4>
+          <span className='notesdeleteexclamationpoint'><PriorityHighIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
+          <div className="notesdeleteeventmodalbtns">
+                <button className="notesdeleteeventbtncancel" onClick={handleClickOpen}>No</button>
+                <button className="notesdeleteeventbtnconfirm" onClick={deleteNote}>Yes</button>
+                
+          </div>
+       
+        
+        </Paper>
+      </Box> 
+    </Modal>
+    </div>
     </div>
   );
 }
