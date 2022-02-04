@@ -38,8 +38,6 @@
   }
 
   .notesdeleteeventmodalbtns{
-    /* justify-content: center;
-    align-items: center; */
     margin-left: 150px;
     margin-top: 150px;
     position: relative;
@@ -87,3 +85,30 @@
     font-size: 18px;
     font-weight: 100;
   }
+
+  .notesmodalsavechangebtn{
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    color: rgb(32, 113, 116);
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+    margin-left: 240px;
+   
+  
+  }
+
+  .editNoteModalDescription{
+    margin-left: 10%;
+    font-size: 20px;
+    }
+
+    .editNoteModalOGstamp{
+      text-align: center;
+      font-size: 30px;
+      padding-top: 60px;
+      }
+
+  

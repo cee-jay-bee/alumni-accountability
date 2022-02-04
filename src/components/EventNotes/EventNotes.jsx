@@ -137,19 +137,18 @@ function EventNotes(props) {
         </div>
       </div>
       <div deleteEventNoteDiv>
-      <Modal
-      open={open}
-      onClose={handleClickOpen}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      style={{alignItems:'center',
-      position: 'absolute',
-      top: '15%',
-      left: '35%',
-      // transform: 'translate(-50%, -50%)',
-      width: '400px',
-      height: '400px',
-      bgcolor: 'background.paper'
+        <Modal
+        open={open}
+        onClose={handleClickOpen}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        style={{alignItems:'center',
+        position: 'absolute',
+        top: '15%',
+        left: '35%',
+        width: '400px',
+        height: '400px',
+        bgcolor: 'background.paper'
     }}
     >
       <Box>
@@ -168,8 +167,61 @@ function EventNotes(props) {
                 <button className="notesdeleteeventbtnconfirm" onClick={deleteNote}>Yes</button>
                 
           </div>
-       
         
+        </Paper>
+      </Box> 
+    </Modal>
+    </div>
+    <div editEventNoteModal>
+      <Modal
+      open={open2}
+      onClose={handleClickOpen2}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      style={{alignItems:'center',
+      position: 'absolute',
+      top: '15%',
+      left: '25%',
+      width: '400px',
+      height: '400px',
+      bgcolor: 'background.paper'
+    }}
+    >
+      <Box>
+        <Paper
+            style={{
+            width: '600px',
+            height: '500px',
+              }}
+          > {eventNote.map((onenote)=>
+            <>
+            <span key={onenote.id} className='eventnotedisplay'>
+            <p className="editNoteModalOGstamp">{onenote.event_note_date}</p>
+            <p className="editNoteModalDescription">Description</p>
+            <TextField
+              className="editEventNote"
+              style={{ width: '80%', top: '20px', left: '10%', position: 'relative'}}
+              size='small'
+              label={onenote.event_note_entry}
+              multiline
+              minRows={7}
+              variant="outlined"
+              autoComplete= "off"
+              type="text"
+              name="event note"
+              required
+              value={eventNotes}
+              onKeyUp={onPressEnter}
+              onChange={(event) => setEventNotes(event.target.value)}
+            />
+            <div className="notesdeleteeventmodalbtns">
+                <button className="notesmodalsavechangebtn" onClick={updateNote}>Save Changes</button> 
+            </div>
+            <span><DeleteOutlineOutlinedIcon className='eventnotedeletebtn' onClick={handleClickOpen} 
+            style={{fontSize:"50px","left": "13%", top: "110%" }}/> </span>
+            </span>
+            </>
+        )}
         </Paper>
       </Box> 
     </Modal>
