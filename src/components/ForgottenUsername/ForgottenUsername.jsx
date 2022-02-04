@@ -12,7 +12,7 @@ function ForgottenUsername() {
 
   const recoverUsername = (event) => {
     event.preventDefault();
-
+    
     dispatch({
       type: 'EMAIL_USERNAME',
       payload: {

@@ -16,8 +16,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/username', (req, res) => {
-  
-  const queryText = `SELECT "username" from "user" WHERE email=${req.body.email}`;
+  console.log(req.query);
+  const queryText = `SELECT * FROM "user" WHERE "email"='${req.query.email}'`;
   pool
     .query(queryText)
     .then(
@@ -41,7 +41,7 @@ router.get('/username', (req, res) => {
         // send mail with defined transport object
         let info = await transporter.sendMail({
           from: '"Priumni App"', // sender address
-          to: "parankashani@gmail.com", // list of receivers
+          to: `${req.query.email}`, // list of receivers
           subject: "Hello ✔", // Subject line
           text: "Hello world?", // plain text body
           html: `<b>Hello world?</b> ${result.rows[0].username}`, // html body
