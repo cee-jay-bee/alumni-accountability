@@ -1,20 +1,19 @@
 .createNewEventCard{
-    padding: 10px 10px;
-  }
-  
-  .createNewEventCardHeader{
-    text-align: center;
-    margin-bottom: 30px;
-    justify-content: flex-start;
-    align-content: flex-start;
+    padding: 10px 30px;
+    background: white;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-
-    // .createNewEventH2div{
-    //   border: solid 2px rgb(255, 72, 0);
-    //   padding: none;
-    //   // height: 40px;
-    // }
+    width:600px;
+  }
+  
+.createNewEventCardHeader{
+  text-align: center;
+  margin-bottom: 30px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
 
     .createNewEventH2div #createNewEvenrH{
       height: 30px;
@@ -52,109 +51,181 @@
       font-weight: 700;
       text-decoration: solid underline #566634 ;
     }
-  }
+}
 
-  .createNewEventBtn{
-    /* margin-top: 20px; */
-    text-align: right;
-  }
-  
-  /* adjusts the grid width */
-  .css-bhp9pd-MuiPaper-root-MuiCard-root{ 
-    width: 700px;
-  }
-  
-  .eventTimeInput{
-    // margin-left: 50px;
-    // width: 145px;
-    width: 30%;
-  }
-  
-  .createNewEventTitle{
-    // width: 302px;
-    width: 30%;
-  }
-  
-  .createNewEventDescription{
-    width: 100%;
-    // margin: 10px 15px;
-  }
+/*----------------------------------*/ 
 
-  .createNewDescription{
-     margin: 10px 15px;
-  }
-  
-  .createNewEventTagDiv{
-    margin: 10px 15px;
-  }
-  
-  .createNewEventTitleDateTimeDiv{
-    // margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 15px;
-  }
-  
-  .createnewdropdown{
-    height: 56px;
-    width: 194.5px;
-    border: solid 1px #c3c3c3;
-    border-radius: 4px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: rgb(98, 98, 98);
-    // font-family: 'open sans';
-    font-size: 15px;
-    font-weight: 500;
-    appearance: none;
-  }
-  
-  select.createnewdropdown {
-    background-image:
-      linear-gradient(45deg, transparent 50%, gray 50%),
-      linear-gradient(135deg, gray 50%, transparent 50%),
-      radial-gradient(#ddd 70%, transparent 72%);
-    background-position:
-      calc(100% - 20px) calc(1em + 2px),
-      calc(100% - 15px) calc(1em + 2px),
-      calc(100% - .5em) .5em;
-    background-size:
-      5px 5px,
-      5px 5px,
-      1.6em 1.5em;
-    background-repeat: no-repeat;
-  }
-  
-  select.createnewdropdown:focus {
-    background-image:
-      linear-gradient(45deg, white 50%, transparent 50%),
-      linear-gradient(135deg, transparent 50%, white 50%),
-      radial-gradient(gray 70%, transparent 72%);
-    background-position:
-      calc(100% - 15px) 1em,
-      calc(100% - 20px) 1em,
-      calc(100% - .5em) .5em;
-    background-size:
-      5px 5px,
-      5px 5px,
-      1.6em 1.5em;
-    background-repeat: no-repeat;
-    border-color: rgb(255, 175, 175);
-    box-shadow: 0px 0px 5px rgb(255, 175, 175);
-    outline: 0;
-  }
+.createNewEventTitleDateTimeDiv{
+  // margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  // margin: 10px 15px;
+  border: solid 1px purple;
+}
 
-  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input:focus{
-    border-color: rgb(255, 175, 175);
-    box-shadow: 0px 0px 5px rgb(255, 175, 175);
-  }
+.createnewtitleinput{
+  // height: 56px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  // font-family: 'open sans';
+  font-size: 16px;
+  font-weight: 500;
+  // margin-right: 30px;
+  font-family: "open sans", sans-serif;
+}
 
-  .createnewFormandBtn{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin: 10px 10px 15px 15px;
-  }
+.createnewDateInput{
+  height: 56px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  // font-family: 'open sans';
+  font-size: 16px;
+  font-weight: 500;
+  // margin-right: 30px;
+  font-family: "open sans", sans-serif;
+}
+.createnewTimeInput{
+  height: 56px;
+  width: 120px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  // font-family: 'open sans';
+  font-size: 16px;
+  font-weight: 500;
+  // margin-right: 30px;
+  font-family: "open sans", sans-serif;
+}
+
+/*----------------------------------*/ 
+
+.createNewDescriptionDiv{
+  display: flex;
+  // width: 100%;
+  // align-content: stretch;
+  border: solid 1px purple;
+  // margin: 10px 15px;
+}
+
+.createNewEventDescription{
+  width: 100%;
+  border: solid 1px #c3c3c3;
+  resize: none;
+  margin: 2px 5px;
+  padding: 10px 10px;
+  // padding-left: 10px;
+  // padding-right: 10px;
+
+  border-radius: 4px;
+  font-family: "open sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/*----------------------------------*/ 
+
+.createNewEventTagDiv{
+  display: flex;
+  // width: 100%;
+  // align-content: stretch;
+  border: solid 1px purple;
+}
+
+.createNewEventTagInput{
+  height: 54px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  // font-family: 'open sans';
+  font-size: 16px;
+  font-weight: 500;
+  // margin-right: 30px;
+  font-family: "open sans", sans-serif;
+}
+
+/*----------------------------------*/ 
+
+.createnewFormandBtn{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border: solid 1px purple;
+}
+
+.createnewdropdown{
+  height: 56px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  // font-family: 'open sans';
+  font-size: 15px;
+  font-weight: 500;
+  appearance: none;
+}
+
+select.createnewdropdown {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 19px) calc(1em + 2px),
+    calc(100% - 14.1px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.6em 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.createnewdropdown:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    radial-gradient(gray 70%, transparent 72%);
+  background-position:
+    calc(100% - 14.1px) 1em,
+    calc(100% - 19px) 1em,
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.6em 1.5em;
+  background-repeat: no-repeat;
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+select.createnewdropdown:hover{
+  border-color: rgb(255, 175, 175);
+  // box-shadow: 0px 0px 5px rgb(255, 175, 175);
+}
+
+
+
+.createNewEventBtn{
+  /* margin-top: 20px; */
+  text-align: right;
+}
 
   .createneweventsubmitbtn{
     border: none;

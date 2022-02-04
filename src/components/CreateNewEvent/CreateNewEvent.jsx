@@ -64,117 +64,30 @@ function CreateNewEvent(props) {
   const [eventTag, setEventTag] = useState('');
   
   return (
-    <div>
+    <div className="createNewEventCard">
       {/* EVENT NAME INPUT */}
-      <Grid
-        container
-        // spacing={0}
-        direction="column"
-        alignItems="center"
-        justify="center"
-      >
-        <Card className="createNewEventCard">
           <div className="createNewEventCardHeader">
-          <Link to="/eventpage">
-            <div className="createNewEventclosing">
-                <p>x</p>
-            </div>
-          </Link>
+            <Link to="/eventpage">
+              <div className="createNewEventclosing">
+                  <p>x</p>
+              </div>
+            </Link>
             <div className="createNewEventH2div">
               <h2 id="createNewEvenrH">Let's Create a New Event!</h2>
             </div>
           </div>
           <div className="createNewEventTitleDateTimeDiv">
-            {/* EVENT TITLE INPUT */}
-            <TextField
-              // id="outlined-multiline-static"
-              className="createNewEventTitle"
-              style={{'margin-right':'30px'}}
-              label="event title"
-              variant="outlined"
-              autoComplete= "off"
-              // // variant="filled"
-              // // color="warning"
-              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-              type="text"
-              name="event title"
-              required
-              value={eventTitle}
-              onChange={(event) => setEventTitle(event.target.value)}
-            />
-
-            {/* EVENT DATE INPUT*/}
-            <TextField
-              id="outlined-multiline-static"
-              style={{'margin-right':'30px'}}
-              // label="event date"
-              variant="outlined"
-              autoComplete= "off"
-              // // variant="filled"
-              // // color="warning"
-              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-              type="date"
-              name="event date"
-              required
-              value={eventDate}
-              onChange={(event) => setEventDate(event.target.value)}
-            />
-
-            {/* EVENT TIME INPUT */}
-            <TextField
-              className="eventTimeInput"
-              // label="event time"
-              variant="outlined"
-              autoComplete= "off"
-              // // variant="filled"
-              // // color="warning"
-              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-              type="time"
-              name="event time"
-              required
-              value={eventTime}
-              onChange={(event) => setEventTime(event.target.value)}
-            />
+            <input type="text" className="createnewtitleinput" placeholder="event title" label="event title"  autoComplete= "off" required value={eventTitle} onChange={(event) => setEventTitle(event.target.value)}/>
+            <input type="date" className="createnewDateInput" autoComplete= "off" required value={eventDate} onChange={(event) => setEventDate(event.target.value)} />
+            <input type="time" className="createnewTimeInput" autoComplete= "off"required value={eventTime} onChange={(event) => setEventTime(event.target.value)}/>
           </div>
-
           {/* EVENT DESCRIPTION INPUT */}
-          <div className="createNewDescription">
-            <TextField
-              className="createNewEventDescription"
-              id="outlined-multiline-static"
-              label="event description"
-              variant="outlined"
-              autoComplete= "off"
-              multiline
-              maxRows={4}
-              rows={5}
-              // // variant="filled"
-              // // color="warning"
-              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-              type="text"
-              name="event description"
-              required
-              value={eventDescription}
-              onChange={(event) => setEventDescription(event.target.value)}
-            />
+          <div className="createNewDescriptionDiv">
+            <textarea type="text" className="createNewEventDescription" placeholder="event description" autoComplete= "off" maxRows={2} rows={7} wrap="soft" maxLength="250" required value={eventDescription} onChange={(event) => setEventDescription(event.target.value)}/>
           </div>
-
           {/* EVENT TAG INPUT */}
           <div className="createNewEventTagDiv">
-            <TextField
-              id="outlined-multiline-static"
-              label="event tag"
-              variant="outlined"
-              autoComplete= "off"
-              // // variant="filled"
-              // // color="warning"
-              // style ={{width: '150%', justifyItems: 'center', marginLeft: '-25%'}}
-              type="text"
-              name="event tag"
-              required
-              value={eventTag}
-              onChange={(event) => setEventTag(event.target.value)}
-            />
+            <input className="createNewEventTagInput" placeholder="event tags" type="text" autoComplete= "off" required value={eventTag} onChange={(event) => setEventTag(event.target.value)}/>
           </div>
           <div className="createnewFormandBtn">
               {/* EVENT COHORT TYPE INPUT */}
@@ -195,8 +108,6 @@ function CreateNewEvent(props) {
                 }
               </div>
           </div>
-        </Card>
-      </Grid>
       <div class="createNewEventModalDiv">
         <Modal
           open={open}
