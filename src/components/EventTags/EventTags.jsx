@@ -85,24 +85,18 @@ function EventTags(props) {
 
           {tag.map((onetag,index)=>
 
-            <>
-              <p key={index} className='eventtagdisplay'
-            >
+            
+              <p key={index} className='eventtagdisplay'>
               {onetag.tag} <span><button className='eventtagdeletebtn' 
               onClick={()=>deleteTag(index)}> X </button></span></p>
-            </>
             )}
-            </span>
+            
           </div>
           <div>
             <button onClick = {saveNewTags} > Save Changes </button>
           </div>
             
       </div>
-      
-      
-      
-    
     </main>
   );
 }
