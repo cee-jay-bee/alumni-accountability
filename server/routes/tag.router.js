@@ -24,15 +24,15 @@ router.get('/:id', async (req, res) => {
 
 
  router.post('/:id', rejectUnauthenticated , async (req, res) => {
-
+  console.log(req.body)
   const {id} = req.params
-  const {tags} = req.body
+  const tagList = req.body
   const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
   const deleteEventTagQuery = `DELETE FROM "event_tag" WHERE event_id = $1;`
   try {
     await pool.query(deleteEventTagQuery,[id])
     await Promise.all(
-      tags.map((tag) => {
+      tagList.map((tag) => {
       return pool.query(insertEventTagQuery, [id, tag])
       }))
     res.sendStatus(201)

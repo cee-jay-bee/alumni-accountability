@@ -26,13 +26,12 @@ function EventTags(props) {
 
   const deleteTag= (id) => {
     console.log('in deleteTag');
-    const newTagList = tag.filter (onetag=>onetag.id !== id)
+    const newTagList = tag.filter ((onetag,index)=>index !== id)
     dispatch({
       type: 'DELETE_TAG',
-      payload:{
-        id: newTagList
-      }
+      payload: newTagList
     })
+ 
   }
   
   const onPressEnter = (event)=>{
@@ -42,7 +41,16 @@ function EventTags(props) {
         type: 'ADD_TAG',
         payload: {tag : eventTag }
       })
+      setEventTag("")
     }
+  }
+
+  const saveNewTags = () => {
+    const tagList = tag.map(t=>t.tag)
+    dispatch({
+      type: 'POST_TAG',
+      payload: {id : oneEvent.id, tagList }
+    })
   }
 
   return (
@@ -50,7 +58,7 @@ function EventTags(props) {
       <div className='tagsHeader'>
 
         <div className='eventtagdisplayfield'>
-        <h2>Tag</h2>
+        <h2> Tag</h2>
         {/* EVENT TAG INPUT */}
         <TextField
               // id="outlined-multiline-static"
@@ -74,14 +82,20 @@ function EventTags(props) {
           </div>  
           
           <div className='eventtagdisplayarea'>
-            <span>
-          {tag.map(onetag =>
+
+          {tag.map((onetag,index)=>
+
             <>
-            <p key={onetag.id} className='eventtagdisplay'
-            >{onetag.tag} <span><button className='eventtagdeletebtn' onClick={()=>deleteTag(onetag.id)}> X </button></span></p>
+              <p key={index} className='eventtagdisplay'
+            >
+              {onetag.tag} <span><button className='eventtagdeletebtn' 
+              onClick={()=>deleteTag(index)}> X </button></span></p>
             </>
             )}
             </span>
+          </div>
+          <div>
+            <button onClick = {saveNewTags} > Save Changes </button>
           </div>
             
       </div>

@@ -45,6 +45,7 @@
 .navLink {
   // color: #07aa9e;
   position: relative;
+  font-size: 1.1rem;
   text-decoration: none;
   transition: all 0.15s ease-out;
   &:before {
@@ -55,14 +56,14 @@
     bottom: 0px;
     left: 0;
     bottom: 20px;
-    background: #07aa9e;
+    background: #6c7f42;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
   }
   &:hover {
     transition: all 0.15s ease-out;
-    color: #07aa9e;
+    color: #6c7f42;
     &:before {
         visibility: visible;
         transform: scaleX(1);
@@ -74,6 +75,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  width: auto;
 }
 /* Search by alum */
 .searchByAlumdiv{
@@ -93,13 +95,13 @@
 .searchbyalumbtn{
   border-radius: 20px;
   border: none;
-  background-color: #07aa9e;
+  background-color: #6c7f42;
   color: white;
   flex: none;
   padding: 6px 10px ;
   align-items: center;
     &:hover{
-      background-color: #0d9b91;
+      background-color: #61723b;
     }
 }
 
@@ -127,13 +129,13 @@
 .searchBySkillBtn{
   border-radius: 20px;
   border: none;
-  background-color: #07aa9e;
+  background-color: #6c7f42;
   color: white;
   flex: none;
   padding: 6px 10px ;
   align-items: center;
     &:hover{
-      background-color: #0d9b91;
+      background-color: #61723b;
     }
 }
 
