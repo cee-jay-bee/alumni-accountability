@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 //IMPORT CSS
-import './UserPage.scss'
+import './UserPage.scss';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -30,22 +30,25 @@ function UserPage() {
 
   return (
       <div>
-        <div className="homepageHeader">
-          <h2>Welcome, {user.firstname} {user.lastname}!</h2>
-          {/* <p>Your ID is: {user.id}</p> */}
-        </div>
         
         <main className="mainDivHomePage">
-          <div className ="mainDivHomePageCol1" onClick={goToEvents}>
-            <h1>Events</h1>
+          <div className="hiUserDiv">
+            <div className="homepageHeader">
+              <h2>Welcome, {user.firstname} {user.lastname}!</h2>
+              {/* <p>Your ID is: {user.id}</p> */}
+            </div>
+            <div className="mpEventandCohort">
+              <div className ="mainDivHomePageCol1" onClick={goToEvents}>
+                <h1>Events</h1>
+              </div>
+              <div className ="mainDivHomePageCol2" onClick={goToCohorts}>
+                <h1>Cohorts</h1>
+              </div>
+            </div>
           </div>
-
-          <div className ="mainDivHomePageCol2" onClick={goToCohorts}>
-            <h1>Cohorts</h1>
-          </div>
-
           <div className="mainDivHomePageCol3">
             <h3 id="mainPageCol3Header">Events requiring attendance</h3>
+            <div classname="mainPageContainer">
             {event.map(event => {
 
               let eventCompareDate = new Date(event.event_date);
@@ -80,11 +83,11 @@ function UserPage() {
                           <p>{event.time.toLocaleString('en-US')}</p>
                         </div>
                         <div className="mainPageStackTypeDiv">
-                        {(event.stack_type === 'FSE') ?
-                          <p class="mainPageStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
-                          (event.stack_type === 'UX/UI') ?
-                          <p class="mainPageStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
-                          <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p></span>
+                          {(event.stack_type === 'FSE') ?
+                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
+                            (event.stack_type === 'UX/UI') ?
+                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
+                            <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p></span>
                         }
                         </div>
                     </div>
@@ -99,6 +102,7 @@ function UserPage() {
                 )
               }
             })}
+            </div>
           </div>
           {/* <LogOutButton className="btn" /> */}
         </main>
