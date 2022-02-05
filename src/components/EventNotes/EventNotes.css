@@ -9,3 +9,6 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.title{
+    margin-left: 5px;
+}

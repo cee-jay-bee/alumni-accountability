@@ -15,9 +15,9 @@
     font-size: 13px;
     font-weight:bold;
     color: black;
+    display: inline-table;
     margin: 10px;
-    margin-top: -35px;
-    margin-left: 3px;
+    margin-top: inherit;
     box-shadow: .5px 1px 1px .5px  black ;
     
 }
@@ -25,10 +25,13 @@
 .eventtagdeletebtn {
     font-size: 10px;
     font-weight: bold;
-    position: relative;
+    position: inline;
     top: -53px;
     left: 268px;
       
 }
-
+.eventtagdisplayfield{
+    margin-left: 5px;
+    margin-bottom: -20px;
+}
 
