@@ -68,7 +68,7 @@ const [eventNote, setEventNote] = useState('');
         <div className='eventDetailCol1'>
           <div>
             <h2>{oneEvent.title}</h2> 
-            <p>{oneEvent.date}</p>
+            <p>{oneEvent.date.split("T")[0]}</p>
           </div>
           <div>
             {(oneEvent.stack_type === 'FSE') ?
