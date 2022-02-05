@@ -84,10 +84,10 @@ function EventPage(props) {
                         <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
                           
                         {(event.stack_type === 'FSE') ?
-                          <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                          <p class="stackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
                           (event.stack_type === 'UX/UI') ?
-                          <p class="stackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
-                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
+                          <p class="stackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
+                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
                         }
 
                         <div className="eventTitle"> 
@@ -151,10 +151,10 @@ function EventPage(props) {
                     <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
 
                     {(event.stack_type === 'FSE') ?
-                      <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                      <p class="stackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
                       (event.stack_type === 'UX/UI') ?
-                      <p class="stackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
-                      <span><p class="stackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
+                      <p class="stackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
+                      <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
                     }
 
                     <div className="eventTitle">  
@@ -196,18 +196,18 @@ function EventPage(props) {
         aria-describedby="modal-modal-description"
         style={{alignItems:'center',
         justifyContent:'center', 
-        width: '50%',
+        // width: '50%',
         position: 'flexible',
-        top: '5%',
+        top: '15%',
         left: '0',
-        marginLeft: '23%',
+        marginLeft: '26%',
         marginRight: '50px',
         outline: 'none'
        }}
         >
           <Box>
             {/* Clicking the x will close out of the modal */}
-            <h3 className="eventPageCloseModal" onClick={handleClickOpen}>x</h3> 
+            {/* <h3 className="eventPageCloseModalx" onClick={handleClickOpen}>x</h3>  */}
             <CreateNewEvent/>  
           </Box> 
         </Modal>

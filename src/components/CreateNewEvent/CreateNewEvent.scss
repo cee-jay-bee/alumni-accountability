@@ -1,76 +1,315 @@
 .createNewEventCard{
-    padding-right: 40px;
-    padding-bottom: 40px;
-    padding-left: 40px;
-    padding-top: 10px;
-    // margin-bottom: 20px;
+    padding: 10px 19px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    outline: 0;
   }
   
-  .createNewEventCardHeader{
+.createNewEventCardHeader{
   text-align: center;
   margin-bottom: 30px;
-  }
-  
-  .createNewEventBtn{
-    /* margin-top: 20px; */
-    text-align: right;
-  }
-  
-  /* adjusts the grid width */
-  .css-bhp9pd-MuiPaper-root-MuiCard-root{ 
-    width: 700px;
-  }
-  
-  .eventTimeInput{
-    // margin-left: 50px;
-    width: 145px;
-  }
-  
-  .createNewEventTitle{
-    width: 302px;
-  }
-  
-  .createNewEventDescription{
-    width: 100%;
-  }
-  
-  .css-dpjnhs-MuiInputBase-root-MuiOutlinedInput-root{
-    /* margin-top: 20px; */
-    margin-bottom: 20px;
-  }
-  
-  .createNewEventTagDiv{
-    margin-bottom: 20px;
-  }
-  
-  .createNewEventTitleDateTimeDiv{
-    margin-bottom: 20px;
-    display: flex;
-  }
-  
+  justify-content: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+
+    .createNewEventH2div #createNewEvenrH{
+      height: 30px;
+      margin: 0px 0px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .createNewEventclosing{
+      height: 30px;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .createNewEventclosing p{
+      color: white;
+      background-color: #6c7f42;
+      border-radius: 50%;
+      padding: 3px 10px;
+      padding-bottom: 5px;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: solid underline #6c7f42 ;
+    }
+
+    .createNewEventclosing p:hover{
+      color: white;
+      background-color: #566634;
+      border-radius: 50%;
+      padding: 3px 10px;
+      padding-bottom: 5px;
+      text-align: center;
+      font-weight: 700;
+      text-decoration: solid underline #566634 ;
+    }
+}
+
+/*----------------------------------*/ 
+
+.createNewEventTitleDateTimeDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.createnewtitleinput{
+  // height: 56px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "open sans", sans-serif;
+}
+
+.createnewtitleinput:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createnewtitleinput:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createnewDateInput{
+  height: 56px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "open sans", sans-serif;
+}
+
+.createnewDateInput:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createnewDateInput:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+
+.createnewTimeInput{
+  height: 56px;
+  width: 120px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "open sans", sans-serif;
+}
+
+.createnewTimeInput:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createnewTimeInput:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+/*----------------------------------*/ 
+
+.createNewDescriptionDiv{
+  display: flex;
+}
+
+.createNewEventDescription{
+  width: 100%;
+  border: solid 1px #c3c3c3;
+  resize: none;
+  margin: 2px 5px;
+  padding: 10px 10px;
+  // padding-left: 10px;
+  // padding-right: 10px;
+
+  border-radius: 4px;
+  font-family: "open sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.createNewEventDescription:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createNewEventDescription:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+/*----------------------------------*/ 
+
+.createNewEventTagDiv{
+  display: flex;
+  margin-top: 4px;
+}
+
+.createNewEventTagInput{
+  height: 54px;
+  width: 194.5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  // font-family: 'open sans';
+  font-size: 16px;
+  font-weight: 500;
+  // margin-right: 30px;
+  font-family: "open sans", sans-serif;
+}
+
+.createNewEventTagInput:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.createNewEventTagInput:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+/*------------------------------------------------*/ 
+
+.createnewFormandBtn{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.createnewdropdown{
+  height: 56px;
+  width: 217px;
+  margin: 2px 5px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(117, 117, 117);
+  font-family: "open sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  appearance: none;
+}
+
+select.createnewdropdown {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 20.4px) calc(1em + 2px),
+    calc(100% - 16.3px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.6em 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.createnewdropdown:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    radial-gradient(gray 70%, transparent 72%);
+  background-position:
+    calc(100% - 16.3px) 1em,
+    calc(100% - 20.4px) 1em,
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.6em 1.5em;
+  background-repeat: no-repeat;
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+select.createnewdropdown:hover{
+  border-color: rgb(255, 175, 175);
+  // box-shadow: 0px 0px 5px rgb(255, 175, 175);
+}
+
+.createNewEventBtn{
+margin: 2px 5px;
+}
+
+.createneweventsubmitbtn{
+  border: none;
+  height: 56px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 150px;
+  background-color: #6c7f42;
+  color: white;
+  font-family: 'open sans';
+  font-weight: 500;
+}
+
+.createneweventsubmitbtn:hover{
+  border: none;
+  height: 56px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 150px;
+  background-color: #526132;
+  color: white;
+  font-family: 'open sans';
+  font-weight: 500;
+}
+
+.createneweventdisable{
+  border: none;
+  height: 56px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 150px;
+  background-color: #999999;
+  color: white;
+  font-family: 'open sans';
+  font-weight: 500;
+}
+
+  /*-------------------------------*/ 
+
+
   .createNewEventFormClass{
     width: 300px;
-  }
-  
-  /* This needs to be in Event Page.jsx, since that's where the "x" is created */
-  /* .eventPageCloseModal{
-    background-color: rgb(23, 126, 137);
-    color: white;
-    border-radius: 30px;
-    width: 30px;
-    padding-bottom: 5px;
-    height: auto;
-    text-align: center;
-    align-items: right;
-    position: relative;
-    top: 55px;
-    left: 740px;
-    font-weight: 100;
-    font-size: 20px;
-  } */
-  
-  .eventPageCloseModal:hover{
-    background-color: black;
+    flex-direction: row-reverse;
+    text-align: right;
   }
   
   .cheers{
