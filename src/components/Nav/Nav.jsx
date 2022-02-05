@@ -62,15 +62,16 @@ function Nav() {
                 <button class="searchBySkillBtn" to="/resultpage">Search skill</button>
             </Link>
             </div>
+            
              {/* Link is a placeholder for now. Later we might want to use useHistory */}
           </>
         )}
       </div>
-      <div>
-        <div className="logoutbtn">
-          <LogOutButton className="navLink" />
-        </div>
+      {/* <div> */}
+      <div className="logoutbtn">
+        <LogOutButton className="navLink" />
       </div>
+      {/* </div> */}
     </div>
   );
 }
