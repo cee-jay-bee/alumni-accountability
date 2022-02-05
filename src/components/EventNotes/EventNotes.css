@@ -9,6 +9,106 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.title{
-    margin-left: 5px;
+
+.confirmDeleteNote{
+    text-align: center;
+    padding-top: 60px;
+    font-size: 30px;
+    /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
+    }
+
+.deleteEventNoteDiv{
+    background-color: rgb(23, 126, 137);
+    color: white;
+    border-radius: 30px;
+    width: 30px;
+    padding-bottom: 5px;
+    height: auto;
+    text-align: center;
+    align-items: right;
+    position: relative;
+    top: 55px;
+    left: 740px;
+    font-weight: 100;
+    font-size: 20px;
+  }
+
+  .deleteEventNoteDiv:hover{
+    background-color: black;
+  }
+
+  .notesdeleteeventmodalbtns{
+    margin-left: 150px;
+    margin-top: 150px;
+    position: relative;
+    
+  }
+  .notesdeleteeventbtncancel{
+    background: transparent;
+    border: 1px solid red;
+    color: red;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+  }
+.notesdeleteeventbtncancel:hover {
+  transition: 400ms ease-in-out;
+  background: #eb0606;
+  color: white;
 }
+.notesdeleteeventbtnconfirm span{
+    color: rgb(67, 49, 146);
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  .notesdeleteeventbtnconfirm{
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    color: rgb(32, 113, 116);
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+    margin-left: 40px;
+  }
+
+  .notesdeleteeventbtnconfirm:hover {
+    transition: 400ms ease-in-out;
+    background: rgb(32, 113, 116);
+    color: white;
+  }
+
+  .notesdeleteeventbtnconfirm span{
+    color: rgb(67, 49, 146);
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  .notesmodalsavechangebtn{
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    color: rgb(32, 113, 116);
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+    margin-left: 240px;
+   
+  
+  }
+
+  .editNoteModalDescription{
+    margin-left: 10%;
+    font-size: 20px;
+    }
+
+    .editNoteModalOGstamp{
+      text-align: center;
+      font-size: 30px;
+      padding-top: 60px;
+      }
+
+
