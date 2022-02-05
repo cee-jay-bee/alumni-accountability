@@ -6,13 +6,14 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-import './EventDetail.css';
 import { Link } from 'react-router-dom';
 import EditEvent from '../EditEvent/EditEvent';
 import EventTags from '../EventTags/EventTags';
 import EventNotes from '../EventNotes/EventNotes';
 import {useHistory} from 'react-router-dom';
 import Attendance from '../AttendanceItem/AttendanceItem';
+//SCSS IMPORT
+import './EventDetail.scss';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -142,8 +143,6 @@ const [eventNote, setEventNote] = useState('');
                 <button className="deleteeventbtnconfirm" onClick={deleteEvent}>Yes</button>
                 
           </div>
-       
-        
         </Paper>
       </Box> 
     </Modal>

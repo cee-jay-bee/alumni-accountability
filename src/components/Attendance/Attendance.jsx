@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import AttendanceItem from '../AttendanceItem/AttendanceItem.jsx';
 import {useDispatch} from 'react-redux';
-import './Attendance.css';
+//IMPORT SCSS
+import './Attendance.scss';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
