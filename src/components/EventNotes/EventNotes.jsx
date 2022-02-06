@@ -42,14 +42,14 @@ function EventNotes(props) {
     setEditMode( !editMode );
   }
 
-  //HANLDE POP-UP MODAL
+  //HANDLE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
       setOpen(!open);
   };
   // END HANDLE POP-UP MODAL
 
-  //HANLDE POP-UP for SECOND MODAL
+  //HANDLE POP-UP for SECOND MODAL
   const [open2, setOpen2] = React.useState(false);
   const handleClickOpen2 = () => {
       setOpen2(!open2);
@@ -87,6 +87,7 @@ function EventNotes(props) {
       type: 'DELETE_EVENTNOTE',
       payload: id
     })
+    setOpen2(false)
   }
 
   return (
@@ -131,7 +132,7 @@ function EventNotes(props) {
               <EditOutlinedIcon style={{position:"static"}} onClick = {()=>{setOneNote(onenote);setOpen(true)}}/>
               </Grid>
               <Grid item>
-              <DeleteOutlineOutlinedIcon style={{position:"static"}} onClick={()=>deleteNote(onenote.id)} />
+              <DeleteOutlineOutlinedIcon style={{position:"static"}} onClick={()=>setOpen2(true)} />
               </Grid>
              
             </Grid>
@@ -159,6 +160,26 @@ function EventNotes(props) {
           Update Changes
         </Button>
      </Box>
+   </Modal>
+
+   <Modal
+     open={open2}
+     onClose={handleClickOpen2}
+   >
+     <Box sx={style}>
+       <Typography variant="h6" component="h2">
+         Delete the Event Note
+       </Typography>
+       {eventNote.map((onenote)=>
+       <span className='eventnotesdeletemodalbtns'>
+        <Button onClick={handleClickOpen2}> Cancel</Button>
+        <Button onClick={()=>{deleteNote(onenote.id)}}>
+          Delete Note
+        </Button>
+        </span>
+         )}
+     </Box>
+     
    </Modal>
    </>
   );
