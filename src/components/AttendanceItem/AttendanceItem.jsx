@@ -33,7 +33,9 @@ function Attendance(props) {
         id: props.alum.id,
         name: props.alum.alum_name,
         cohort: props.alum.cohort_name,
-        graduation_date: props.alum.graduation_date
+        graduation_date: props.alum.graduation_date,
+        alum_skills : props.alum.alum_skills,
+        alum_placed : props.alum.alum_placed
       }
     })
 
