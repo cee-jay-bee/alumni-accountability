@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import './CohortDetail.scss';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -12,12 +15,26 @@ function CohortDetail(props) {
 
   return (
     <div> 
-      <h2>Cohort Detail Page</h2>
-      <h3>Here's a list of people's names</h3>
-      <h3>Here's another person</h3>
-      <Link to="alumdetail">
-        <h3>And another one</h3>
-      </Link>
+      <h2>Ionian Sample Class List</h2>
+      <div className='cohortDetailCol2'>
+            <span><EditOutlinedIcon 
+            // onClick={handleClickOpen2}
+            style={{fontSize:"45px","left": "85%", "top": "19%" }}/> </span> 
+            <span><DeleteOutlineOutlinedIcon
+            // onClick={handleClickOpen}
+            style={{fontSize:"45px","left": "90%", "top": "19%" }}/> </span> 
+            
+        </div>
+     
+      <table id='cohortDetailTable'>
+        <tr class='cohortDetailTable'>
+          <th id='cohortDetailTableCol1'></th>
+          <th id='cohortDetailTableCol2'>Name</th>
+          <th id='cohortDetailTableCol3'>Cohort</th>
+          <th id='cohortDetailTableCol4'>Graduation Date</th>
+        </tr>
+      </table>
+      
     </div>
   );
 }

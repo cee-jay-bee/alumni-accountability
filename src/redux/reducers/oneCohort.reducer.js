@@ -1,8 +1,8 @@
-const oneEventReducer = (state = {}, action) => {
+const oneCohortReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'SET_ONE_EVENT':
+    case 'SET_ONE_COHORT':
       return action.payload;
-    case 'UNSET_ONE_EVENT':
+    case 'UNSET_ONE_COHORT':
       return {};
     default:
       return state;
@@ -11,4 +11,4 @@ const oneEventReducer = (state = {}, action) => {
 
 // user will be on the redux state at:
 // state.user
-export default oneEventReducer;
+export default oneCohortReducer;

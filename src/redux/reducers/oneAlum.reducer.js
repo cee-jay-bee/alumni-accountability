@@ -11,3 +11,4 @@ const oneAlumReducer = (state = {}, action) => {
   
   export default oneAlumReducer;
   
+
