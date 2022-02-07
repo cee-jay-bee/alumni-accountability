@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import './CohortDetail.scss';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -18,10 +19,10 @@ function CohortDetail(props) {
       <div className='cohortDetailCol2'>
             <span><EditOutlinedIcon 
             // onClick={handleClickOpen2}
-            style={{fontSize:"55px","left": "85%", "top": "20%" }}/> </span> 
+            style={{fontSize:"45px","left": "85%", "top": "19%" }}/> </span> 
             <span><DeleteOutlineOutlinedIcon
             // onClick={handleClickOpen}
-            style={{fontSize:"55px","left": "90%", "top": "20%" }}/> </span> 
+            style={{fontSize:"45px","left": "90%", "top": "19%" }}/> </span> 
             
         </div>
      
