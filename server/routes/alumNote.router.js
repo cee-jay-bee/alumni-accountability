@@ -22,11 +22,11 @@ router.get('/:id', async (req, res) => {
 
  router.post('/', rejectUnauthenticated , async (req, res) => {
 
-  const {note, reminder,id} = req.body
-  const insertEventNoteQuery = `INSERT INTO "alum_note" ("alum_id", "note", "reminder","date") 
+  const {note, id} = req.body
+  const insertEventNoteQuery = `INSERT INTO "alum_note" ("alum_id", "alum_note_entry", "alum_note_reminder","alum_note_date") 
   VALUES  ($1, $2, $3, NOW()) RETURNING alum_id;` 
   try {
-    const response = await pool.query(insertEventNoteQuery, [id,note,reminder])
+    const response = await pool.query(insertEventNoteQuery, [id,note,false])
     res.send(response.rows).status(201)
   } catch (error) {
     console.log('Creating alum note error ', error);
@@ -38,14 +38,14 @@ router.put('/:id', rejectUnauthenticated , async (req, res) => {
 
   try {
     const {id} = req.params
-    const {note, reminder} = req.body
+    const {alum_note_entry} = req.body
     const updateEventNotesQuery =  `UPDATE alum_note
-    SET note = $1, reminder = $2
+    SET alum_note_entry = $1, alum_note_reminder = $2
     WHERE id = $3 RETURNING alum_id;`
-    const response = await pool.query(updateEventNotesQuery, [note,reminder,id])
+    const response = await pool.query(updateEventNotesQuery, [alum_note_entry,false,id])
     res.send(response.rows).status(201)
   } catch (error) {
-    console.log('Update event note error ', error);
+    console.log('Update alum note error ', error);
       res.sendStatus(500);
   }
 });

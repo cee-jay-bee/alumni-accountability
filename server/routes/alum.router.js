@@ -10,8 +10,8 @@ const {
  */
  router.get('/', rejectUnauthenticated, (req, res) => {
 
-  const query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id, cohort.cohort_name, cohort.graduation_date
-   FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
+  const query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id, cohort.cohort_name, cohort.graduation_date,
+   alum.alum_skills FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
 
   pool.query(query)
     .then( result => {
@@ -50,6 +50,20 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         console.log("alum put router has error", err)
         res.sendStatus(500)
         }
+    )
+  });
+
+
+  router.put('/skill/:id', rejectUnauthenticated, (req, res) => {
+    const { id } = req.params
+    const skills = req.body
+    const queryText =  `UPDATE alum SET alum_skills = $1 WHERE id = $2;`
+    pool.query(queryText,[ skills , id ]).then(()=>
+        res.sendStatus(201)
+    ).catch(err=>{
+        console.log("alum put skill router has error", err)
+        res.sendStatus(500)
+      }
     )
   });
 

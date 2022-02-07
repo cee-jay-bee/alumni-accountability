@@ -8,6 +8,7 @@ import eventNote from './eventNote.reducer';
 import skill from './skill.reducer';
 import tag from './tag.reducer';
 import oneEvent from './oneEvent.reducer';
+import oneAlum from './oneAlum.reducer'
 import eventAttendance from './eventAttendance.reducer';
 import cohort from './cohort.reducer'
 import oneCohort from './oneCohort.reducer';

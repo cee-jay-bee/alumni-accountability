@@ -15,7 +15,7 @@ function* fetchAlum() {
 function* createAlum(action) {
   try {
     yield axios.post('/api/alum', action.payload);
-    yield put({ type: 'FETCH_EVENT' })
+    yield put({ type: 'FETCH_ALUM' })
   } catch (error) {
     console.log('Alum Post request failed', error);
   }
@@ -24,7 +24,16 @@ function* createAlum(action) {
 function* updateAlum(action) {
   try {
     yield axios.put(`/api/alum/${action.payload.id}`, action.payload);
-    yield put({ type: 'FETCH_EVENT' })
+    yield put({ type: 'FETCH_ALUM' })
+  } catch (error) {
+    console.log('Alum put request failed', error);
+  }
+}
+
+function* updateAlumSkill(action) {
+  try {
+    yield axios.put(`/api/alum/skill/${action.payload.id}`, action.payload.skills);
+    yield put({ type: 'FETCH_ALUM' })
   } catch (error) {
     console.log('Alum put request failed', error);
   }
@@ -33,7 +42,7 @@ function* updateAlum(action) {
 function* deleteAlum(action) {
   try {
     yield axios.delete(`/api/alum/${action.payload}`);
-    yield put({ type: 'FETCH_EVENT' })
+    yield put({ type: 'FETCH_ALUM' })
   } catch (error) {
     console.log('Alum Delete request failed', error);
   }
@@ -44,6 +53,7 @@ function* alumSaga() {
   yield takeLatest('CREATE_ALUM', createAlum);
   yield takeLatest('DELETE_ALUM', deleteAlum);
   yield takeLatest('UPDATE_ALUM', updateAlum);
+  yield takeLatest('UPDATE_ALUM_SKILL', updateAlumSkill);
 }
 
 export default alumSaga;
