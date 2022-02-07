@@ -13,7 +13,7 @@ function CohortImport(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const dispatch = useDispatch();
-  
+  const [cohortType, setCohortType] = useState('');
 
   const upload = (event) => {
     let file = event.target[0].files[0];
@@ -26,7 +26,7 @@ function CohortImport(props) {
       let data = Papa.parse(csvData, {header: true});
       console.log(data.data);
 
-      sendCohortToDatabase(data.data);
+      sendCohortToDatabase(data.data, cohortType);
     };
 
     reader.onerror = function() {
@@ -34,9 +34,12 @@ function CohortImport(props) {
     }
   }
 
-  const sendCohortToDatabase = (inputData) => {
+  const sendCohortToDatabase = (inputData, cohortType) => {
     dispatch({type: 'CREATE_COHORT',
-              payload: inputData})
+              payload: {
+                csvData: inputData,
+                cohortType: cohortType}
+              })
   }
 
   return (
@@ -44,12 +47,15 @@ function CohortImport(props) {
       <h2>Cohort IMPORT</h2>
       <form onSubmit={()=>{upload(event)}}>
       <input type="file" id="cohortFiles" accept=".csv" name="addCohort" multiple />
+      <br />
+      <select className="createnewdropdown" onChange={( event )=>setCohortType( event.target.value )}>
+        <option value={''}>Choose Cohort</option>
+        <option value={'FSE'}>FSE</option>
+        <option value={'UX/UI'}>UX/UI</option>
+      </select>
+      <br />
       <input type="submit" />
       </form>
-      <h3>Here's another person</h3>
-      <Link to="alumdetail">
-        <h3>And another one</h3>
-      </Link>
     </div>
   );
 }
