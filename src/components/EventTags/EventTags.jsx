@@ -93,7 +93,7 @@ function EventTags(props) {
             
           </div>
           <div>
-            <button onClick = {saveNewTags} > Save Changes </button>
+            <button onClick = {saveNewTags} > Save Tags </button>
           </div>
             
       </div>

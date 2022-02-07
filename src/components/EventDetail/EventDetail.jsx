@@ -69,7 +69,8 @@ const [eventNote, setEventNote] = useState('');
         <div className='eventDetailCol1'>
           <div>
             <h2>{oneEvent.title}</h2> 
-            <p>{oneEvent.date.split("T")[0]}</p>
+            <p>{oneEvent.date}</p>
+            {/* <p>{oneEvent.date.split("T")[0]}</p> */}
           </div>
           <div>
             {(oneEvent.stack_type === 'FSE') ?
@@ -81,9 +82,6 @@ const [eventNote, setEventNote] = useState('');
           </div>
           
         </div>
-
-        {/* {oneEvent.map (event => 
-          (<Attendance key={event.id} taco={event}/>))} */}
         
         <div className='eventDetailCol2'>
             <Link to="/attendance">
