@@ -25,13 +25,15 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.post('/', rejectUnauthenticated, (req, res) => {
 
-    const cohortName = req.body[0].Cohort;
-    const graduationDate = req.body[0]['Graduation Date'];
+    const cohortName = req.body.csvData[0].Cohort;
+    const graduationDate = req.body.csvData[0]['Graduation Date'];
+    const cohortType = req.body.cohortType;
 
-    const insertCohortQuery = `INSERT INTO "cohort" (cohort_name, graduation_date) VALUES ($1 , $2) RETURNING "id";`
+    console.log(req.body);
+    const insertCohortQuery = `INSERT INTO "cohort" (cohort_name, cohort_type, graduation_date) VALUES ($1 , $2) RETURNING "id";`
 
     // FIRST QUERY MAKES MOVIE
-    pool.query(insertCohortQuery, [cohortName, graduationDate]).then(result => {
+    pool.query(insertCohortQuery, [cohortName, cohortType, graduationDate]).then(result => {
       console.log('New Cohort Id:', result.rows[0].id); //ID IS HERE!
     
       const createdCohortId = result.rows[0].id
