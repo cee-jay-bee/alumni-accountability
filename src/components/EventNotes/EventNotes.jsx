@@ -113,11 +113,9 @@ function EventNotes(props) {
               onChange={(event) => setEventNotes(event.target.value)}
             />
          </div>
-         <div className='eventnotedisplayarea'>
-        
+        <div className='eventnotedisplayarea'>
           {eventNote.map((onenote)=>
             <Grid container key={onenote.id} justifyContent = "space-evenly">
-
               <Grid item>
                 <Typography paragraph> {onenote.event_note_date.split("T")[0]} </Typography>
               </Grid>
@@ -127,18 +125,15 @@ function EventNotes(props) {
               <Grid item>
                 <Typography paragraph> {onenote.event_note_entry} </Typography>
               </Grid>
-         
               <Grid item>
               <EditOutlinedIcon style={{position:"static"}} onClick = {()=>{setOneNote(onenote);setOpen(true)}}/>
               </Grid>
               <Grid item>
               <DeleteOutlineOutlinedIcon style={{position:"static"}} onClick={()=>setOpen2(true)} />
               </Grid>
-             
             </Grid>
             )}
-
-        </div>
+          </div>
       </div>
     </div>
      <Modal
@@ -171,12 +166,14 @@ function EventNotes(props) {
          Delete the Event Note
        </Typography>
        {eventNote.map((onenote)=>
+       <Grid container key={onenote.id} justifyContent = "space-evenly">
        <span className='eventnotesdeletemodalbtns'>
         <Button onClick={handleClickOpen2}> Cancel</Button>
         <Button onClick={()=>{deleteNote(onenote.id)}}>
           Delete Note
         </Button>
         </span>
+        </Grid>
          )}
      </Box>
      
