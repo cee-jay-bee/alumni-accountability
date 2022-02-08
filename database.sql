@@ -121,3 +121,5 @@ ALTER TABLE alum RENAME COLUMN "name" TO alum_name;
 ALTER TABLE alum ADD COLUMN alum_skills text[];
 
 ALTER TABLE cohort ADD COLUMN cohort_type VARCHAR (80);
+
+ALTER TABLE alum ADD COLUMN placed_date date;
