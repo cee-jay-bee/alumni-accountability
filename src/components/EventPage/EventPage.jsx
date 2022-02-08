@@ -24,12 +24,20 @@ function EventPage(props) {
   let today = new Date();
   console.log(today);
 
+  let eventAttendanceArray = [];
+
+  for( let i = 0; i<event.length; i++ ){
+    if( event.confirm_attendance === false){
+      eventAttendanceArray.push(event[i]);
+    }
+  }
+
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
-      setOpen(!open);
+    setOpen(!open);
   };
-  // END HANDLE POP-UP MODAL
+// END HANDLE POP-UP MODAL
 
   return (
     <div>
@@ -113,7 +121,7 @@ function EventPage(props) {
 
         {/* UPCOMING EVENTS SECTION */}
         
-         <div class="titleCol1">
+        <div class="titleCol1">
             <h2 className="eventPageTitles">Upcoming Events</h2>
           </div>
         
@@ -203,7 +211,7 @@ function EventPage(props) {
         marginLeft: '26%',
         marginRight: '50px',
         outline: 'none'
-       }}
+      }}
         >
           <Box>
             {/* Clicking the x will close out of the modal */}
