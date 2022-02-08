@@ -12,7 +12,6 @@ import oneAlum from './oneAlum.reducer'
 import eventAttendance from './eventAttendance.reducer';
 import cohort from './cohort.reducer'
 import oneCohort from './oneCohort.reducer';
-import oneAlum from './oneAlum.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.

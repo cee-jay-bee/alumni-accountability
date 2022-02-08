@@ -9,16 +9,25 @@ const nodemailer = require("nodemailer");
 const { getImageListItemBarUtilityClass } = require('@mui/material');
 const { config } = require('dotenv');
 const router = express.Router();
-const xoauth2 = require('xoauth2');
-
+const {google} = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+const oauth2Client = new OAuth2(
+  '650563796542-r9t62jarb07gvm5aif5ggd6vf4pm1drv.apps.googleusercontent.com',
+  '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',
+  "https://developers.google.com/oauthplayground"
+);
 const gconfig = {
   mailUser: 'priumni.devs@gmail.com',
   clientId: '650563796542-r9t62jarb07gvm5aif5ggd6vf4pm1drv.apps.googleusercontent.com',
-  mailPass: 'testapp1234',
   clientSecret: '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',
-  refreshToken: '1//044u4_ahSxEroCgYIARAAGAQSNwF-L9Ir_g9HblFmN25WbNSvJ0oqNLnXMwsTXH_3_ypWs-xtzlyj-zR8YblUeL4z2MtEn5z7tB0',
-  accessToken: 'ya29.A0ARrdaM_qsBRLIKU4fa8iO2iCqTEXMADA_pbaID__i1KgPY9EfFRlMxhSTMO_Os2myYZuOsk3z__CLiuGHIfnwp60Kuq-v5XCAT8bfSZ2XbX5HFVBkMXuH6QpQuSrzy-PWL6Qsla2GahNAH3grEGmoXCg1Mtv'
+  refreshToken: '1//044u4_ahSxEroCgYIARAAGAQSNwF-L9Ir_g9HblFmN25WbNSvJ0oqNLnXMwsTXH_3_ypWs-xtzlyj-zR8YblUeL4z2MtEn5z7tB0'
 }
+oauth2Client.setCredentials({
+  refresh_token: '1//044u4_ahSxEroCgYIARAAGAQSNwF-L9Ir_g9HblFmN25WbNSvJ0oqNLnXMwsTXH_3_ypWs-xtzlyj-zR8YblUeL4z2MtEn5z7tB0'
+});
+
+const accessToken = oauth2Client.getAccessToken();
+
 
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
@@ -47,8 +56,8 @@ router.get('/username', (req, res) => {
             user: gconfig.mailUser, // generated ethereal user
             clientId: gconfig.clientId,
             clientSecret: gconfig.clientSecret,
-            refeshToken: gconfig.refreshToken,
-            accessToken: gconfig.accessToken
+            refreshToken: gconfig.refreshToken,
+            accessToken: accessToken
           },
         });
       
