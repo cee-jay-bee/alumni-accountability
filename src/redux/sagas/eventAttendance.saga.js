@@ -19,7 +19,6 @@ function* createEventAttendance(action) {
       const response = axios.post(`/api/eventAttendance`, {attendance: action.payload.attendance[i], event: action.payload.event});
     }
     
-    yield put({ type: 'FETCH_EVENT_ATTENDANCE' });
   } catch (error) {
     console.log('Event get request failed', error);
   }

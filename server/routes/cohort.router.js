@@ -30,7 +30,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     const cohortType = req.body.cohortType;
 
     console.log(req.body);
-    const insertCohortQuery = `INSERT INTO "cohort" (cohort_name, cohort_type, graduation_date) VALUES ($1 , $2) RETURNING "id";`
+    const insertCohortQuery = `INSERT INTO "cohort" (cohort_name, cohort_type, graduation_date) VALUES ($1 , $2, $3) RETURNING "id";`
 
     // FIRST QUERY MAKES MOVIE
     pool.query(insertCohortQuery, [cohortName, cohortType, graduationDate]).then(result => {
@@ -38,7 +38,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     
       const createdCohortId = result.rows[0].id
     
-      req.body.forEach( 
+      req.body.csvData.forEach( 
         async values => {
         const insertNamesQuery = `INSERT INTO "alum" (alum_name, alum_placed, alum_seeking, cohort_id) VALUES ($1 , $2, $3, $4)`;
       

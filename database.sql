@@ -117,4 +117,6 @@ ALTER TABLE event_note ALTER COLUMN event_note_date SET DEFAULT NOW();
 
 ALTER TABLE alum RENAME COLUMN "name" TO alum_name;
 
-ALTER TABLE alum ADD COLUMN alum_skills text[]
+ALTER TABLE alum ADD COLUMN alum_skills text[];
+
+ALTER TABLE cohort ADD cohort_type VARCHAR;

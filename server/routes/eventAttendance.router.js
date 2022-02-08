@@ -7,7 +7,6 @@ const router = express.Router();
  */
 router.get('/:id', (req, res) => {
   // GET route code here
-  console.log(req.params.id);
   const query = `SELECT COUNT(cohort.cohort_name), cohort.cohort_name from "alum" 
   JOIN "event_attendance" on "event_attendance".alum_id = alum.id
   Join cohort on alum.cohort_id = cohort.id
@@ -19,7 +18,7 @@ router.get('/:id', (req, res) => {
       res.send(result.rows);
     })
     .catch(err => {
-      console.log('ERROR: Get attendace', err);
+      console.log('ERROR: Get attendance', err);
       res.sendStatus(500)
     })
 });
