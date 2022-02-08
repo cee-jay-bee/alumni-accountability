@@ -52,10 +52,10 @@
     box-shadow: 0px 0px 5px gray;
     display: flex;
     border-radius: 10px;
-    background: white;
-    // background-image: url('https://drive.google.com/file/d/11zKSvV6g3RWzKvNAEq5hfnBDhRmQuGpl/view?usp=sharing');
-    cursor: pointer;
-    transition: background-color 150ms ease-in;
+    // background: white;
+    background-image: url('../UserPage/event-bg-bw.png    ');
+    background-size: cover;
+    transition: background-image 150ms ease-in-out;
 
     h1{
         font-size: 2.5em;
@@ -65,7 +65,12 @@
 
 .mainDivHomePageCol1:hover{
     background: #cecca7;
-    color: white;
+    color: rgb(68, 68, 68);
+    background-image: url('../UserPage/event-bg-color.png');
+    transition: background-image 150ms ease-in-out;
+    background-size: cover;
+    // background-image: url('./Images/event-bg-bw.png');
+    
 }
 
 .mainDivHomePageCol2 {
