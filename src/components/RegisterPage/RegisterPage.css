@@ -1,0 +1,15 @@
+.userRegisterPageDiv {
+    display:table;
+    width:100%;
+    
+}
+.userTableDiv {
+    display:table-cell;
+    background-color:#cecca7;
+    width:45%;
+}
+.registerFormDiv {
+    display:table-cell;
+    background-color:#cecca7;
+    width:45%;
+}

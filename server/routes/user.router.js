@@ -119,6 +119,19 @@ router.post('/register', (req, res, next) => {
     });
 });
 
+router.get('/all', rejectUnauthenticated, (req, res) => {
+  
+  const query = `SELECT * FROM "user"`;
+  pool.query(query)
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get User', err);
+      res.sendStatus(500)
+    })
+});
+
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful
