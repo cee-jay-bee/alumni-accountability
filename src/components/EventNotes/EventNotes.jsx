@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { TextField, Button, Grid,Typography, Modal,Box } from '@mui/material';
+import { TextField, Button, Grid,Typography, Modal,Box,Paper,Snackbar} from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import './EventNotes.css'
+
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const style = {
   position: 'absolute',
@@ -27,8 +33,10 @@ function EventNotes(props) {
   const dispatch = useDispatch();
   const eventNote=useSelector((store)=> store.eventNote);
   const oneEvent=useSelector((store)=> store.oneEvent);
+  const snackValue=useSelector((store)=> store.snackBar);
   const [editMode, setEditMode] = useState( false );
-  
+  const [deleteID, setDeleteID] = useState("")
+  const [deleteOpen, setDeleteOpen] = useState(false)
   const [oneNote, setOneNote] = React.useState({});
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -42,14 +50,21 @@ function EventNotes(props) {
     setEditMode( !editMode );
   }
 
-  //HANDLE POP-UP MODAL
+  const handleSnackClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    dispatch({type : 'CLEAR_SNACKBAR'})
+  };
+
+  //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
       setOpen(!open);
   };
   // END HANDLE POP-UP MODAL
 
-  //HANDLE POP-UP for SECOND MODAL
+  //HANLDE POP-UP for SECOND MODAL
   const [open2, setOpen2] = React.useState(false);
   const handleClickOpen2 = () => {
       setOpen2(!open2);
@@ -87,7 +102,7 @@ function EventNotes(props) {
       type: 'DELETE_EVENTNOTE',
       payload: id
     })
-    setOpen2(false)
+    setDeleteOpen(false)
   }
 
   return (
@@ -113,9 +128,11 @@ function EventNotes(props) {
               onChange={(event) => setEventNotes(event.target.value)}
             />
          </div>
-        <div className='eventnotedisplayarea'>
+         <div className='eventnotedisplayarea'>
+        
           {eventNote.map((onenote)=>
             <Grid container key={onenote.id} justifyContent = "space-evenly">
+
               <Grid item>
                 <Typography paragraph> {onenote.event_note_date.split("T")[0]} </Typography>
               </Grid>
@@ -125,15 +142,19 @@ function EventNotes(props) {
               <Grid item>
                 <Typography paragraph> {onenote.event_note_entry} </Typography>
               </Grid>
+         
               <Grid item>
               <EditOutlinedIcon style={{position:"static"}} onClick = {()=>{setOneNote(onenote);setOpen(true)}}/>
               </Grid>
               <Grid item>
-              <DeleteOutlineOutlinedIcon style={{position:"static"}} onClick={()=>setOpen2(true)} />
+              <DeleteOutlineOutlinedIcon style={{position:"static"}} 
+              onClick={()=>{setDeleteID(onenote.id);setDeleteOpen(true)}} />
               </Grid>
+             
             </Grid>
             )}
-          </div>
+
+        </div>
       </div>
     </div>
      <Modal
@@ -156,31 +177,42 @@ function EventNotes(props) {
         </Button>
      </Box>
    </Modal>
-
    <Modal
-     open={open2}
-     onClose={handleClickOpen2}
-   >
-     <Box sx={style}>
-       <Typography variant="h6" component="h2">
-         Delete the Event Note
-       </Typography>
-       {eventNote.map((onenote)=>
-       <Grid container key={onenote.id} justifyContent = "space-evenly">
-       <span className='eventnotesdeletemodalbtns'>
-        <Button onClick={handleClickOpen2}> Cancel</Button>
-        <Button onClick={()=>{deleteNote(onenote.id)}}>
-          Delete Note
-        </Button>
-        </span>
-        </Grid>
-         )}
-     </Box>
-     
-   </Modal>
+      open={deleteOpen}
+      onClose={handleClickOpen}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      style={{alignItems:'center',
+      position: 'absolute',
+      top: '15%',
+      left: '35%',
+      // transform: 'translate(-50%, -50%)',
+      width: '400px',
+      height: '400px',
+      bgcolor: 'background.paper'
+    }}
+    >
+      <Box>
+        <Paper
+            style={{
+            // transform: 'translate(-50%, -50%)',
+            width: '450px',
+            height: '400px',
+              }}
+          >
+          <h4 className="confirmDelete">Confirm Delete?</h4>
+          <span className='deleteexclamationpoint'><PriorityHighIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
+          <div className="deleteeventmodalbtns">
+                <button className="deleteeventbtncancel" onClick={()=>setDeleteOpen(false)}>No</button>
+                <button className="deleteeventbtnconfirm" onClick={()=>deleteNote(deleteID)}>Yes</button>
+          </div>
+        </Paper>
+      </Box> 
+    </Modal>
+
    </>
   );
 }
 
 export default EventNotes;
-
