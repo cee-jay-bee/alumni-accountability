@@ -2,9 +2,10 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
-function* fetchEventAttendance() {
+function* fetchEventAttendance(action) {
+  
   try {
-    const response = yield axios.get(`/api/eventAttendance`);
+    const response = yield axios.get(`/api/eventAttendance/${action.payload}`);
     
     yield put({ type: 'SET_EVENT_ATTENDANCE', payload: response.data });
   } catch (error) {
