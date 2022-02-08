@@ -22,15 +22,20 @@ function EventPage(props) {
   }, []);
 
   let today = new Date();
-  console.log(today);
 
   let eventAttendanceArray = [];
+  let upcomingAttendanceArray = [];
 
   for( let i = 0; i<event.length; i++ ){
-    if( event.confirm_attendance === false){
+    let eventCompareDate = new Date(event[i].event_date);
+
+    if( event[i].confirm_attendance === false && eventCompareDate < today){
       eventAttendanceArray.push(event[i]);
+    } else if (event[i].confirm_attendance === false && eventCompareDate >= today) {
+      upcomingAttendanceArray.push(event[i]);
     }
   }
+  console.log(event, eventAttendanceArray);
 
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
@@ -57,18 +62,18 @@ function EventPage(props) {
               <main>
                 <div class="eventContainer">
 
-                  {event.map(event => {
-
-                  let eventCompareDate = new Date(event.event_date);
-                  let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-                  let twoDigitDate = eventCompareDate.getDate() + "";
-                  if (twoDigitDate.length == 1){
-                    twoDigitDate = "0" + twoDigitDate;
-                  }
-                  let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-                  console.log(eventDate);
+                  {eventAttendanceArray.length === 0 ? 
+                    <h2>HIIII</h2> :
+                    eventAttendanceArray.map(event => {
+                      let eventCompareDate = new Date(event.event_date);
+                      let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
+                      let twoDigitDate = eventCompareDate.getDate() + "";
+                      if (twoDigitDate.length == 1){
+                        twoDigitDate = "0" + twoDigitDate;
+                      }
+                      let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear();
               
-                  if(event.confirm_attendance === false && eventCompareDate <= today) {
+                  if(eventCompareDate <= today) {
                     const setOneEvent = () => {
                       dispatch({
                         type: 'SET_ONE_EVENT',
@@ -117,7 +122,6 @@ function EventPage(props) {
           })
         }
         </div>
-        
 
         {/* UPCOMING EVENTS SECTION */}
         
@@ -126,7 +130,10 @@ function EventPage(props) {
           </div>
         
         <div class="eventContainer">
-        {event.map(event => {
+
+        {upcomingAttendanceArray.length === 0 ? 
+          <h2>HIIII</h2> :
+          upcomingAttendanceArray.map(event => {
 
           let eventCompareDate = new Date(event.event_date);
           let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
@@ -138,7 +145,7 @@ function EventPage(props) {
           console.log(eventDate);
 
 
-          if(event.confirm_attendance === false && eventCompareDate > today) {
+          if(eventCompareDate > today) {
             const setOneEvent = () => {
               dispatch({
                 type: 'SET_ONE_EVENT',
@@ -194,6 +201,9 @@ function EventPage(props) {
         </div>
         </div>
     
+
+
+
       {/* MODAL */}
       <div createNewEventModalDiv>
         <Modal
