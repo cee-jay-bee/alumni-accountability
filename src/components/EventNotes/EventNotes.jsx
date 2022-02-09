@@ -33,7 +33,6 @@ function EventNotes(props) {
   const dispatch = useDispatch();
   const eventNote=useSelector((store)=> store.eventNote);
   const oneEvent=useSelector((store)=> store.oneEvent);
-  const snackValue=useSelector((store)=> store.snackBar);
   const [editMode, setEditMode] = useState( false );
   const [deleteID, setDeleteID] = useState("")
   const [deleteOpen, setDeleteOpen] = useState(false)
@@ -50,12 +49,6 @@ function EventNotes(props) {
     setEditMode( !editMode );
   }
 
-  const handleSnackClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    dispatch({type : 'CLEAR_SNACKBAR'})
-  };
 
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
