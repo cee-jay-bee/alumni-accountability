@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal } from '@mui/material';
 import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
 import './EventPage.scss';
+import milTime from '../Functions/milTime';
+import dateChange from '../Functions/dateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -22,14 +24,27 @@ function EventPage(props) {
   }, []);
 
   let today = new Date();
-  console.log(today);
+
+  let eventAttendanceArray = [];
+  let upcomingAttendanceArray = [];
+
+  for( let i = 0; i<event.length; i++ ){
+    let eventCompareDate = new Date(event[i].event_date);
+
+    if( event[i].confirm_attendance === false && eventCompareDate < today){
+      eventAttendanceArray.push(event[i]);
+    } else if (event[i].confirm_attendance === false && eventCompareDate >= today) {
+      upcomingAttendanceArray.push(event[i]);
+    }
+  }
+  console.log(event, eventAttendanceArray);
 
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
-      setOpen(!open);
+    setOpen(!open);
   };
-  // END HANDLE POP-UP MODAL
+// END HANDLE POP-UP MODAL
 
   return (
     <div>
@@ -49,18 +64,13 @@ function EventPage(props) {
               <main>
                 <div class="eventContainer">
 
-                  {event.map(event => {
-
-                  let eventCompareDate = new Date(event.event_date);
-                  let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-                  let twoDigitDate = eventCompareDate.getDate() + "";
-                  if (twoDigitDate.length == 1){
-                    twoDigitDate = "0" + twoDigitDate;
-                  }
-                  let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-                  console.log(eventDate);
+                  {eventAttendanceArray.length === 0 ? 
+                    <div className="noEventDiv"><h2 id="noEventDivId">All done with attendance tracking. Time for a break!</h2></div> :
+                    eventAttendanceArray.map(event => {
+                      
+                      let eventCompareDate = new Date(event.event_date);
               
-                  if(event.confirm_attendance === false && eventCompareDate <= today) {
+                  if(eventCompareDate <= today) {
                     const setOneEvent = () => {
                       dispatch({
                         type: 'SET_ONE_EVENT',
@@ -80,8 +90,8 @@ function EventPage(props) {
                       
                       <div className="eventItem" onClick={setOneEvent}>
 
-                        <p class="dateStyling" className="eventDate">{eventDate}</p>
-                        <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+                        <p class="dateStyling" className="eventDate">{dateChange(event.event_date)}</p>
+                        <p class="timeStyling">{milTime(event.time)}</p>
                           
                         {(event.stack_type === 'FSE') ?
                           <p class="stackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
@@ -109,28 +119,22 @@ function EventPage(props) {
           })
         }
         </div>
-        
 
         {/* UPCOMING EVENTS SECTION */}
         
-         <div class="titleCol1">
+        <div class="titleCol1">
             <h2 className="eventPageTitles">Upcoming Events</h2>
           </div>
         
         <div class="eventContainer">
-        {event.map(event => {
+
+        {upcomingAttendanceArray.length === 0 ? 
+          <div className="upcomingEventNoEventDiv"><h2 id="upcomingEventNoEventId">No upcoming events!</h2></div> :
+          upcomingAttendanceArray.map(event => {
 
           let eventCompareDate = new Date(event.event_date);
-          let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-          let twoDigitDate = eventCompareDate.getDate() + "";
-          if (twoDigitDate.length == 1){
-            twoDigitDate = "0" + twoDigitDate;
-          }
-          let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-          console.log(eventDate);
 
-
-          if(event.confirm_attendance === false && eventCompareDate > today) {
+          if(eventCompareDate > today) {
             const setOneEvent = () => {
               dispatch({
                 type: 'SET_ONE_EVENT',
@@ -143,12 +147,14 @@ function EventPage(props) {
                   description: event.event_description
                 }
               })
+              history.push("/eventdetail");
             }
             return (
               
               <div className="eventItem" onClick={setOneEvent}>
-                    <p class="dateStyling" className="eventDate">{eventDate}</p>
-                    <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
+
+                    <p class="dateStyling" className="eventDate">{dateChange(event.event_date)}</p>
+                    <p class="timeStyling">{milTime(event.time)}</p>
 
                     {(event.stack_type === 'FSE') ?
                       <p class="stackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
@@ -170,9 +176,7 @@ function EventPage(props) {
                           <p class="cardStyling">{event.event_description}</p>
                         }
                     </div>
-
-              </div>
-              
+              </div>            
             )
           }
           })
@@ -203,7 +207,7 @@ function EventPage(props) {
         marginLeft: '26%',
         marginRight: '50px',
         outline: 'none'
-       }}
+      }}
         >
           <Box>
             {/* Clicking the x will close out of the modal */}

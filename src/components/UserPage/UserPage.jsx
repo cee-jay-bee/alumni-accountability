@@ -5,6 +5,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 //IMPORT CSS
 import './UserPage.scss';
+import milTime from '../Functions/milTime';
+import dateChange from '../Functions/dateChange';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -51,14 +53,7 @@ function UserPage() {
             <div classname="mainPageContainer">
             {event.map(event => {
 
-              let eventCompareDate = new Date(event.event_date);
-              let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-              let twoDigitDate = eventCompareDate.getDate() + "";
-              if (twoDigitDate.length == 1){
-                twoDigitDate = "0" + twoDigitDate;
-              }
-              let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-              console.log(eventDate);
+              let eventCompareDate = new Date(event.event_date); 
 
               if(event.confirm_attendance === false && eventCompareDate <= today) {
                 const setOneEvent = () => {
@@ -73,14 +68,15 @@ function UserPage() {
                       description: event.event_description
                     }
                   })
+                  history.push("/eventdetail");
                 }
                 return (
                 
-                  <div className="mainPageEventItem">
+                  <div className="mainPageEventItem" onClick={setOneEvent}>
                     <div className="mainPageDateTimeStack">
                         <div className="mainPageDateTimeStyling">
-                          <p id="maindateallevent">{eventDate}</p>
-                          <p>{event.time.toLocaleString('en-US')}</p>
+                          <p id="maindateallevent">{dateChange(event.event_date)}</p>
+                          <p>{milTime(event.time)}</p>
                         </div>
                         <div className="mainPageStackTypeDiv">
                           {(event.stack_type === 'FSE') ?
