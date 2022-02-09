@@ -1,16 +1,18 @@
 
 .nav {
-  /* flex box layout */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 30px;
+  // margin: 0 0 30px;
   background-color: #ffffff;
-  /* overflow: hidden; */
-  padding-left: 20px;
-  padding-right: 20px;
+  // overflow: ;
+  // padding-left: 20px;
+  // padding-right: 0px;
   margin: 0px -25px;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .nav a {
@@ -21,7 +23,7 @@
   font-size: 20px;
   font-weight: 700;
   color: #000000;
-  padding-left: 10px;
+  padding-left: 30px;
   padding-right: 50px;
   margin: 0;
 }
@@ -77,6 +79,7 @@
   flex-wrap: wrap;
   width: auto;
 }
+
 /* Search by alum */
 .searchByAlumdiv{
   display: flex;
@@ -144,4 +147,5 @@
 .logoutbtn{
  flex: none;
  width: 100px;
+ padding-right: 15px;
 }

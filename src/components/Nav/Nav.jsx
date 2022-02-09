@@ -4,6 +4,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.scss';
 import { useSelector } from 'react-redux';
 import UserPage from '../UserPage/UserPage';
+import SearchByAlum from '../SearchByAlum/SearchByAlum'
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -48,13 +49,15 @@ function Nav() {
             <Link className="navLink" to="/registration">
               Users
             </Link>
-
-            <div class="searchByAlumdiv">
-              <input class="searchbyaluminput" placeholder="search by alum"></input>
+            
+            <div>
+            {/* class="searchByAlumdiv" */}
+              {/* <input class="searchbyaluminput" placeholder="search by alum"></input> */}
               {/* Link is a placeholder for now. Later we might want to use useHistory */}
-              <Link to="/resultpage"> 
+              {/* <Link to="/resultpage"> 
                 <button class="searchbyalumbtn">Search alum</button>
-              </Link>
+              </Link> */}
+              <SearchByAlum/>
             </div>
             <div class="searchBySkilldiv">
               <input class="searchbyskill" placeholder="search by skill"></input>

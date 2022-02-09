@@ -30,6 +30,7 @@ function AlumSkills(props) {
   }
 
   const saveNewSkill = () => {
+    console.log(oneAlum);
     dispatch({
       type: 'UPDATE_ALUM_SKILL',
       payload: {id : oneAlum.id, skills :  skillList}

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
+import { Select } from 'react-select';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -7,11 +8,15 @@ import {useSelector} from 'react-redux';
 function ResultPage(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+  const alum = useSelector((store) => store.alum);
+  
+
 
   return (
     <div>
-      <h2>Search ResultPage is: ""</h2>
+      {JSON.stringify(alum)}
+      <h2>Search ResultPage is: "" </h2>
+      {/* append as cards? Perhaps with tag info + cohort info? */}
     </div>
   );
 }
