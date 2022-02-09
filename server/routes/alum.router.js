@@ -9,11 +9,21 @@ const {
  * GET route template
  */
  router.get('/', rejectUnauthenticated, (req, res) => {
-
-  const query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id, cohort.cohort_name, cohort.graduation_date,
+  console.log('in alum router', req.query.search);
+  let query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id, cohort.cohort_name, cohort.graduation_date,
    alum.alum_skills FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
+  
+   let params = [query];
 
-  pool.query(query)
+  if(req.query.search) {
+    query = `SELECT * FROM "alum" 
+    WHERE "alum_name" ILIKE $1 ORDER BY "alum_name" ASC;
+    `;
+
+    params = [query, [`%${req.query.search}%`]];    
+  }
+
+  pool.query(...params)
     .then( result => {
       res.send(result.rows);
     })
@@ -55,7 +65,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 
   router.put('/skill/:id', rejectUnauthenticated, (req, res) => {
-    const { id } = req.params
+    console.log(req.params, req.body);
+    const id = req.params.id
     const skills = req.body
     const queryText =  `UPDATE alum SET alum_skills = $1 WHERE id = $2;`
     pool.query(queryText,[ skills , id ]).then(()=>

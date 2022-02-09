@@ -4,6 +4,8 @@ import AttendanceItem from '../AttendanceItem/AttendanceItem.jsx';
 import {useDispatch} from 'react-redux';
 //IMPORT SCSS
 import './Attendance.scss';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -40,22 +42,42 @@ function Attendance(props) {
   }
 
   return (
-    <div>
-      <h3>{oneEvent.title} Attendance</h3>
-      <table id='attendanceTable'>
-        <tr class='attendanceTable'>
-          <th id='tableCol1'></th>
-          <th id='tableCol2'>Name</th>
-          <th id='tableCol3'>Cohort</th>
-          <th id='tableCol4'>Graduation Date</th>
-        </tr>
-        {alum.map(alum => 
-            (<AttendanceItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
-        )}
-      </table>
-      <button onClick={submitAttendance} >Submit Attendance</button>
-    </div>
-  );
-}
+      <div className="mainAttendanceDiv">
+        <div className="attendanceEventInfoDiv">
+          <div className="attendanceNameDateType">
+              <div className="attendanceNameDate">
+                <h3>Tracking attendance for {oneEvent.title}</h3>
+              </div>
+              <div className="attendancestackType">
+              {(oneEvent.stack_type === 'FSE') ?
+                <p class="attendancestackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
+                  (oneEvent.stack_type === 'UX/UI') ?
+                <p class="attendancestackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
+                  <span><p class="attendancestackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="attendancestackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+              }
+              </div>
+          </div>
+          <div className="attendanceIcons">
+              <DeleteOutlineOutlinedIcon id="attendanceDeleteEvent"/>
+              <EditOutlinedIcon id="attendanceEditEvent"/>
+          </div>
+        </div>
+        <div id='attendanceTableMain'>
+          <div className='attendanceTableRow'>
+            <div className='attendanceTableCol1'></div>
+            <h3 className='attendanceTableCol2'>Name</h3>
+            <h3 className='attendanceTableCol3'>Cohort</h3>
+            <h3 className='attendanceTableCol4'>Graduation Date</h3>
+          </div>
+          {alum.map(alum => 
+              (<AttendanceItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
+          )}
+        </div>
+        <div className="attendanceSubmitBtnDiv">
+          <button id="attendancePageSubmitBtn" onClick={submitAttendance} >Submit Attendance</button>
+        </div>
+      </div>
+    );
+  }
 
 export default Attendance;

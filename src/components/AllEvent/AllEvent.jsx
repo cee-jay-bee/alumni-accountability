@@ -4,6 +4,8 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 //IMPORT SCSS
 import './AllEvent.scss';
+import milTime from '../Functions/milTime';
+import dateChange from '../Functions/dateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -19,21 +21,30 @@ function AllEvent(props) {
     dispatch({ type: 'FETCH_ALL_EVENT'});
   }, []);
 
-
+  const addMonths = (date, months) => {
+    
+    date.setMonth(date.getMonth() + months);
+    return date.toString();
+  }
+  
+  const compare = ( a, b ) => {
+    if ( a.event_date < b.event_date ){
+      return -1;
+    }
+    if ( a.event_date > b.event_date ){
+      return 1;
+    }
+    return 0;
+  }
+  event.sort( compare );
+  
   return (
     <div classname="mainAllEventsDiv">
       <div className="allEventPageMainTitle">
-        <h2 id="allEventPageTitle">Here is a list of all events from all of time</h2>
+        <h2 id="allEventPageTitle">Events from {event[0].event_date.split('T')[0]} to foreveer</h2>
       </div>
       <main class="allEventContainer">
-        {event.map(event => {
-          let eventCompareDate = new Date(event.event_date);
-          let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-          let twoDigitDate = eventCompareDate.getDate() + "";
-          if (twoDigitDate.length == 1){
-            twoDigitDate = "0" + twoDigitDate;
-          }
-          let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
+        {event.map(event => { 
 
           const setOneEvent = () => {
             dispatch({
@@ -53,14 +64,14 @@ function AllEvent(props) {
           return (
     
             <div className="allEventItem" onClick={setOneEvent}>
-              <p class="allDateStyling" className="allEventDate">{eventDate}</p>
-              <p class="allTimeStyling">{event.time.toLocaleString('en-US')}</p>
+              <p class="allDateStyling" className="allEventDate">{dateChange(event.event_date)}</p>
+              <p class="allTimeStyling">{milTime(event.time)}</p>
                 
               {(event.stack_type === 'FSE') ?
-                <p class="allStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                <p class="allStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
                 (event.stack_type === 'UX/UI') ?
-                <p class="allStackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
-                <span><p class="allStackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="allStackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
+                <p class="allStackTypeDisplay" style={{'background-color': 'rgb(218, 149, 149)'}}>UX/UI</p> :
+                <span><p class="allStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="allStackTypeDualDisplay" style={{'background-color': 'rgb(218, 149, 149)'}}>UX/UI</p></span>
               }
               <div class="allEventTitle">
                 {(event.event_title.length > 15) ?

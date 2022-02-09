@@ -9,7 +9,8 @@ CREATE TABLE "user" (
     "password" VARCHAR (1000) NOT NULL,
     "firstname" VARCHAR (80) NOT NULL,
     "lastname" VARCHAR (80) NOT NULL,
-    "role" varchar(255) NOT NULL DEFAULT 'regular'
+    "role" varchar(255) NOT NULL DEFAULT 'regular',
+    "email_address" VARCHAR (80) NOT NULL
 );
 
 CREATE TABLE "cohort" (
@@ -119,4 +120,7 @@ ALTER TABLE alum RENAME COLUMN "name" TO alum_name;
 
 ALTER TABLE alum ADD COLUMN alum_skills text[];
 
-ALTER TABLE cohort ADD cohort_type VARCHAR;
+ALTER TABLE cohort ADD COLUMN cohort_type VARCHAR (80);
+
+ALTER TABLE alum ADD COLUMN placed_date date;
+

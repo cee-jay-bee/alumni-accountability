@@ -1,28 +1,184 @@
-#attendanceTable {
-    width: 95vw;
-    border: 3px solid;
+.mainAttendanceDiv{
+    // border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 28px;
+    align-items: center;
+    min-width: 889px;
+}
+
+.attendanceEventInfoDiv{
+    // border: solid 1px rgb(255, 0, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 63%;
+}
+
+.attendanceNameDateType{
+    // border: solid 1px black;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    // margin-left: 10%;
+}
+
+.attendanceNameDate{
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+}
+
+.attendanceNameDate > h3{
+    font-weight: 300;
+}
+
+.attendancestackType{
+    display: flex;
+}
+
+.attendanceIcons{
+    // border: solid 1px black;
+    display: flex;
+
+    button{
+        width: 100px;
+    }
+}
+
+#attendanceDeleteEvent{
+    position: relative;
+    font-size: 35px;
+    top: 20px;
+    left: 34px;
+    color: rgb(112, 112, 112);
+    // border: orangered 1px solid;
+}
+
+#attendanceDeleteEvent:hover{
+    color: rgb(78, 78, 78);
+    background-color: orangered;
+}
+
+#attendanceEditEvent{
+    color: rgb(112, 112, 112);
+    position: relative;
+    top: 20px;
+    left: -59px;
+    font-size: 35px;
+}
+
+#attendanceTableMain {
+    display: flex;
+    height: 62vh;
+    flex-direction: column;
+    width: 65%;
     margin-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    overflow-y: scroll;
+    gap: 4px;
+    // :nth-child(even) {background-color: #f2f2f2;}
 }
 
-#tableCol1 {
+.attendanceTableRow{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 10px 0px;
+    background-color: #6f6f8c;
+    color: white;
+    // position: fixed;
+    // width: 63%;
+    // top: 120px;
+    // overflow: hidden;
+}
+
+.attendanceTableCol1 {
     width: 5%;
+    padding-right: 40px;
     text-align: center;
-    border: 1px solid;
+    // border: 1px solid red;
 }
 
-#tableCol2 {
+.attendanceTableCol2 {
+    width: 40%;
+    // border: 1px solid green;
+}
+
+.attendanceTableCol3 {
     width: 35%;
-    text-align: center;
-    border: 1px solid;
+    // border: 1px solid blue;
 }
 
-#tableCol3 {
-    width: 35%;
-    border: 1px solid;
-}
-
-#tableCol4 {
+.attendanceTableCol4 {
     width: 25%;
-    border: 1px solid;
+    // border: 1px solid orangered;
 }
 
+.attendancestackTypeDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    align-items: right;
+    display: inline-block;
+    position: relative;
+    left: 60px;
+}
+
+.attendancestackTypeDualDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
+    align-items: right;
+    position: relative;
+    left: 60px;
+}
+
+.attendanceSubmitBtnDiv{
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-end;
+    align-content: flex-end;
+    align-items: flex-end;
+    width: 65%;
+
+}
+#attendancePageSubmitBtn{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 180px;
+    background-color: #6c7f42;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+}
+
+#attendancePageSubmitBtn:hover{
+        border: none;
+        height: 56px;
+        border-radius: 5px;
+        font-size: 16px;
+        width: 180px;
+        background-color: #526132;
+        color: white;
+        font-family: 'open sans';
+        font-weight: 500;
+}
