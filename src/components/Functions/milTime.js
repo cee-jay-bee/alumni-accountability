@@ -21,7 +21,6 @@ const milTime = (time) => { // your input
     timeValue += (hours >= 12) ? " P.M." : " A.M.";  // get AM/PM
 
     // show
-    console.log(timeValue);
     return timeValue;
   }
 

@@ -19,14 +19,29 @@ function AllEvent(props) {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_EVENT'});
-    console.log(event);
   }, []);
 
-
+  const addMonths = (date, months) => {
+    
+    date.setMonth(date.getMonth() + months);
+    return date.toString();
+  }
+  
+  const compare = ( a, b ) => {
+    if ( a.event_date < b.event_date ){
+      return -1;
+    }
+    if ( a.event_date > b.event_date ){
+      return 1;
+    }
+    return 0;
+  }
+  event.sort( compare );
+  
   return (
     <div classname="mainAllEventsDiv">
       <div className="allEventPageMainTitle">
-        <h2 id="allEventPageTitle">Here is a list of all events from all of time</h2>
+        <h2 id="allEventPageTitle">Events from {event[0].event_date.split('T')[0]} to foreveer</h2>
       </div>
       <main class="allEventContainer">
         {event.map(event => { 
