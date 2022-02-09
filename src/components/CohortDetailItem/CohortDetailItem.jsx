@@ -8,11 +8,17 @@ function CohortDetailItem(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Functional Component');
+  
 
   return (
     <div>
-      <h2>{heading}</h2>
+      <tr class='cohortDetailRow2'>
+          <td id='cohortDetailTableRow2Col1'></td>
+          <td id='cohortDetailTableRow2Col2'>{props.alum.alum_name}</td>
+          <td id='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</td>
+          <td id='cohortDetailTableRow2Col4'>{props.alum.graduation_date}</td>
+        </tr>
+     
     </div>
   );
 }

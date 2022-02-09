@@ -5,6 +5,7 @@ import {useDispatch} from 'react-redux';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import './CohortDetail.scss';
+import CohortDetailItem from '../CohortDetailItem/CohortDetailItem';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -19,13 +20,13 @@ function CohortDetail(props) {
   const oneAlum = useSelector((store) => store.oneAlum);
   const dispatch = useDispatch();
 
-  // const handleCheckboxChange = (id) => {
-  //   console.log('checkbox changed:', id);
+  const handleCheckboxChange = (id) => {
+    console.log('checkbox changed:', id);
 
-  //   alumPlacement.includes(id) ? alumPlacement.splice(alumPlacement.indexOf(id), 1) 
-  //   : setAlumPlacement([...alumPlacement, id]);
+    // alumPlacement.includes(id) ? alumPlacement.splice(alumPlacement.indexOf(id), 1) 
+    // : setAlumPlacement([...alumPlacement, id]);
     
-  // }
+  }
 
   // useEffect(() => {
   //   dispatch({ type: 'FETCH_ALUM'});
@@ -45,6 +46,7 @@ function CohortDetail(props) {
   return (
     <div> 
       <p>{JSON.stringify(oneCohort)}</p>
+      <p>{JSON.stringify(alum)}</p>
       <h2>Ionian Sample Class List</h2>
       <div className='cohortDetailCol2'>
             <span><EditOutlinedIcon 
@@ -62,13 +64,12 @@ function CohortDetail(props) {
           <th id='cohortDetailTableCol2'>Name</th>
           <th id='cohortDetailTableCol3'>Cohort</th>
           <th id='cohortDetailTableCol4'>Graduation Date</th>
-        </tr>  
-        <tr class='cohortDetailRow2'>
-          <td id='cohortDetailTableRow2Col1'></td>
-          <td id='cohortDetailTableRow2Col2'></td>
-          <td id='cohortDetailTableRow2Col3'>{oneCohort.name}</td>
-        </tr>
-      </table>
+        </tr> 
+        {alum.map(alum => 
+            (<CohortDetailItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
+        )} 
+        
+        </table>
 
       
       
