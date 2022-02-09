@@ -41,20 +41,21 @@ function SearchByAlum() {
         control: (base, state) => ({
             ...base,
             fontFamily: 'Open Sans',
-            fontSize: 18,
-            border: state.isFocused ? 0 : 0,
-            boxShadow: 'inset 0 0 2px rgb(0 0 0 / 40%)',
+            fontSize: 16,
+            border: state.isFocused ? 'solid 1px #6c7f42' : 0,
+            boxShadow: 'inset 0 0 3px rgb(0 0 0 / 40%)',
             // boxShadow: state.isFocused ? 0 : 0,
             cursor: 'text',
             borderRadius: '20px'
           }),
         
+          //this is how the result options are appended
           option: (styles, { isFocused }) => {
             return {
               ...styles,
               cursor: 'pointer',
-              backgroundColor: isFocused ? 'white' : 'white',
-              color: isFocused ? 'rgba(255, 80, 86)' : 'black',
+              backgroundColor: isFocused ? 'white' : 'white', 
+              color: isFocused ? '#c46061' : 'black',
               lineHeight: 2,
             }
           },
@@ -65,13 +66,12 @@ function SearchByAlum() {
             // paddingLeft: '5px',
             fontFamily: 'Open Sans',
           }),
-        
+          //fanned out menu styling
           menu: styles => ({
             ...styles,
             marginTop: 0,
-            boxShadow: 'none',
-            // border: 'solid 1px black',
-            borderRadius: '20px',
+            boxShadow: '0 2px 4px 1px rgb(0 0 0 / 20%)',
+            borderRadius: '5px',
           }),
           
           //input bar AFTER it appends the search 
