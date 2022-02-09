@@ -5,6 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 //IMPORT CSS
 import './UserPage.scss';
+import milTime from '../Functions/milTime';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -81,7 +82,7 @@ function UserPage() {
                     <div className="mainPageDateTimeStack">
                         <div className="mainPageDateTimeStyling">
                           <p id="maindateallevent">{eventDate}</p>
-                          <p>{event.time.toLocaleString('en-US')}</p>
+                          <p>{milTime(event.time)}</p>
                         </div>
                         <div className="mainPageStackTypeDiv">
                           {(event.stack_type === 'FSE') ?
