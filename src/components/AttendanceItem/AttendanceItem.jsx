@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
-import './AttendanceItem.css';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+
+//IMPORT SCSS
+import './AttendanceItem.scss';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -44,12 +46,12 @@ function Attendance(props) {
 
   if (props.alum.alum_placed === false){
     return (
-        <tr >
-          <td className='alumAttended'><input type='checkbox' id='alumAttendance' className='alumAttendedCheckbox' value='attended' onChange={(event) => props.handleCheckboxChange(props.alum.id)}/></td>
-          <td className='alumName' onClick={setOneAlum}>{props.alum.alum_name}</td>
-          <td class='alumCohort' onClick={setOneAlum}>{props.alum.cohort_name}</td>
-          <td class='alumGradDate' onClick={setOneAlum}>{alumGraduationDate}</td>
-        </tr>
+        <div className="attendanceItemMainRow">
+          <div className='attendanceItemAlumAttended'><input type='checkbox' className='alumAttendedCheckbox' value='attended' onChange={(event) => props.handleCheckboxChange(props.alum.id)}/></div>
+          <div className='attendanceItemAlumName' onClick={setOneAlum}>{props.alum.alum_name}</div>
+          <div class='attendanceItemAlumCohort' onClick={setOneAlum}>{props.alum.cohort_name}</div>
+          <div class='attendanceItemAlumGradDate' onClick={setOneAlum}>{alumGraduationDate}</div>
+        </div>
     );
   } else {
     return null;
