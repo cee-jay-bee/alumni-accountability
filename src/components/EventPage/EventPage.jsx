@@ -63,7 +63,7 @@ function EventPage(props) {
                 <div class="eventContainer">
 
                   {eventAttendanceArray.length === 0 ? 
-                    <h2>HIIII</h2> :
+                    <div className="noEventDiv"><h2 id="noEventDivId">All done with attendance tracking. Time for a break!</h2></div> :
                     eventAttendanceArray.map(event => {
                       let eventCompareDate = new Date(event.event_date);
                       let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
@@ -132,7 +132,7 @@ function EventPage(props) {
         <div class="eventContainer">
 
         {upcomingAttendanceArray.length === 0 ? 
-          <h2>HIIII</h2> :
+          <div className="upcomingEventNoEventDiv"><h2 id="upcomingEventNoEventId">No upcoming events!</h2></div> :
           upcomingAttendanceArray.map(event => {
 
           let eventCompareDate = new Date(event.event_date);

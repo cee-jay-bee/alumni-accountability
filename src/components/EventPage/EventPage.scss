@@ -2,6 +2,54 @@
     margin: 0px 25px;
 } */
 
+.noEventDiv{
+    padding: 1px 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid rgb(243, 240, 236);
+    height: 235px;
+    width: 520px;
+    flex: none;
+    border-radius: 8px;
+    background-color: rgb(236, 236, 236);
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: inset 0 0 3px #a1a1a1;
+}
+
+#noEventDivId{
+    font-weight: 400;
+    font-size: 20px;
+    color: rgb(134, 134, 134);
+}
+
+.upcomingEventNoEventDiv{
+    padding: 1px 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid rgb(243, 240, 236);
+    height: 235px;
+    width: 520px;
+    flex: none;
+    border-radius: 8px;
+    background-color: rgb(236, 236, 236);
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: inset 0 0 3px #a1a1a1;
+}
+
+#upcomingEventNoEventId{
+    font-weight: 400;
+    font-size: 20px;
+    color: rgb(134, 134, 134);
+}
+
 .titleCol1 {
     text-align: left;
     // display: inline-block;
