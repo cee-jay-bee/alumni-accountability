@@ -6,6 +6,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import './CohortDetail.scss';
 import CohortDetailItem from '../CohortDetailItem/CohortDetailItem';
+import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -23,8 +24,8 @@ function CohortDetail(props) {
   const handleCheckboxChange = (id) => {
     console.log('checkbox changed:', id);
 
-    // alumPlacement.includes(id) ? alumPlacement.splice(alumPlacement.indexOf(id), 1) 
-    // : setAlumPlacement([...alumPlacement, id]);
+    alumPlacement.includes(id) ? alumPlacement.splice(alumPlacement.indexOf(id), 1) 
+    : setAlumPlacement([...alumPlacement, id]);
     
   }
 
@@ -45,9 +46,10 @@ function CohortDetail(props) {
 
   return (
     <div> 
-      <p>{JSON.stringify(oneCohort)}</p>
-      <p>{JSON.stringify(alum)}</p>
-      <h2>Ionian Sample Class List</h2>
+      {/* <p>{JSON.stringify(oneCohort)}</p>
+      <p>{JSON.stringify(alum)}</p> */}
+      <h2 className='cohortDetailCohortName'>{oneCohort.cohort_name}</h2>
+      <h2 className='cohortDetailCohortGradDate'>{oneCohort.graduation_date.split("T")[0]}</h2>
       <div className='cohortDetailCol2'>
             <span><EditOutlinedIcon 
             // onClick={handleClickOpen2}
@@ -60,10 +62,11 @@ function CohortDetail(props) {
      
       <table id='cohortDetailTable'>
         <tr class='cohortDetailTable'>
-          <th id='cohortDetailTableCol1'></th>
+          <th id='cohortDetailTableCol1'>Placed</th>
           <th id='cohortDetailTableCol2'>Name</th>
           <th id='cohortDetailTableCol3'>Cohort</th>
           <th id='cohortDetailTableCol4'>Graduation Date</th>
+          <th id='cohortDetailTableCol5'>Notes</th>
         </tr> 
         {alum.map(alum => 
             (<CohortDetailItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
