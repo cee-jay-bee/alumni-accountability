@@ -12,6 +12,18 @@ function* fetchAlum() {
   }
 }
 
+function* searchForAlum(action) {
+  console.log('-------->in alum saga', action.payload);
+  try {
+    const response = yield axios.get(`/api/alum?search=${action.payload}`);
+    console.log(response.data);
+    yield put({ type: 'SET_ALUM', payload: response.data });
+  } catch (error) {
+
+    console.log('Alum get request failed', error);
+  }
+}
+
 function* createAlum(action) {
   try {
     yield axios.post('/api/alum', action.payload);
@@ -54,6 +66,7 @@ function* alumSaga() {
   yield takeLatest('DELETE_ALUM', deleteAlum);
   yield takeLatest('UPDATE_ALUM', updateAlum);
   yield takeLatest('UPDATE_ALUM_SKILL', updateAlumSkill);
+  yield takeLatest('ALUM_SEARCH', searchForAlum);
 }
 
 export default alumSaga;
