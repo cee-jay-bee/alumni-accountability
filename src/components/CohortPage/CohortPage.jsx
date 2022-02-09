@@ -60,11 +60,8 @@ function CohortPage(props) {
                         type: 'SET_ONE_COHORT',
                         payload: {
                           id: cohort.id,
-                          title: cohort.event_title,
-                          date: cohort.event_date,
-                          time: cohort.time, 
-                          stack_type: cohort.stack_type,
-                          description: cohort.event_description
+                          cohort_name: cohort.cohort_name,
+                          graduation_date: cohort.graduation_date,
                         }
                       })
                       history.push("/cohortdetail");
