@@ -19,6 +19,7 @@ function AllEvent(props) {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_EVENT'});
+    console.log(event);
   }, []);
 
 

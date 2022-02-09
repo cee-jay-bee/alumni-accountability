@@ -22,9 +22,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.get('/all', rejectUnauthenticated, (req, res) => {
   // GET route code here
+  console.log('in router');
   const query = `SELECT * FROM "event"
-  WHERE "event_date" BETWEEN NOW() - INTERVAL '6 Months' AND NOW()
-  OR "event_date" > NOW()`;
+    WHERE "event_date" BETWEEN NOW() - INTERVAL '6 Months' AND NOW()
+    OR "event_date" > NOW()`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);

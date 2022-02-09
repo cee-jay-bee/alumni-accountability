@@ -12,8 +12,9 @@ function* fetchEvent(action) {
 }
 
 function* fetchAllEvent(action) {
+  console.log('in saga');
   try {
-    const response = yield axios.get(`/api/event/al`);
+    const response = yield axios.get(`/api/event/all`);
     
     yield put({ type: 'SET_EVENT', payload: response.data });
   } catch (error) {
