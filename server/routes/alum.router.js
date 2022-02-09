@@ -65,7 +65,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 
   router.put('/skill/:id', rejectUnauthenticated, (req, res) => {
-    const { id } = req.params
+    console.log(req.params, req.body);
+    const id = req.params.id
     const skills = req.body
     const queryText =  `UPDATE alum SET alum_skills = $1 WHERE id = $2;`
     pool.query(queryText,[ skills , id ]).then(()=>

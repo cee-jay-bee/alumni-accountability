@@ -49,8 +49,9 @@ function Nav() {
             <Link className="navLink" to="/registration">
               Users
             </Link>
-
-            <div class="searchByAlumdiv">
+            
+            <div>
+            {/* class="searchByAlumdiv" */}
               {/* <input class="searchbyaluminput" placeholder="search by alum"></input> */}
               {/* Link is a placeholder for now. Later we might want to use useHistory */}
               {/* <Link to="/resultpage"> 

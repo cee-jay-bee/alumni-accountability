@@ -3,6 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 //IMPORT SCSS
 import './SearchByAlum.scss';
+import Select from 'react-select';
+import SearchIcon from '@mui/icons-material/Search';
 
 
 // Basic functional component structure for React with default state
@@ -11,26 +13,100 @@ import './SearchByAlum.scss';
 function SearchByAlum() {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [alumSearch, setAlumSearch] = useState('');
+  const alum = useSelector((store) => store.alum);
   const history = useHistory();
+  const [alumSearch, setAlumSearch] = useState('');
   const dispatch = useDispatch();
-
-  const alumSearchFunction = () => {
-    console.log(alumSearch);
-    dispatch({
-        type: 'ALUM_SEARCH',
-        payload: alumSearch
+  const searchList = alum.map(alum => {
+    return {
+        id: alum.id,
+        name: alum.alum_name,
+        graduation_date: alum.graduation_date,
+        cohort_id: alum.cohort_id,
+        alum_placed: alum.alum_placed,
+        value: alum.alum_name,
+        label: alum.alum_name
+    }
     })
-    history.push("/resultpage");
+
+    const DropdownIndicator = props => {
+        return(
+             <SearchIcon icon={SearchIcon} style={{'left':'250px', 'top':'7px', 'color':'gray'}} />
+         )
+       }
+
+
+    const customStyles = {
+        control: (base, state) => ({
+            ...base,
+            fontFamily: 'Open Sans',
+            fontSize: 18,
+            border: state.isFocused ? 0 : 0,
+            boxShadow: 'inset 0 0 2px rgb(0 0 0 / 40%)',
+            // boxShadow: state.isFocused ? 0 : 0,
+            cursor: 'text',
+            borderRadius: '20px'
+          }),
+        
+          option: (styles, { isFocused }) => {
+            return {
+              ...styles,
+              cursor: 'pointer',
+              backgroundColor: isFocused ? 'white' : 'white',
+              color: isFocused ? 'rgba(255, 80, 86)' : 'black',
+              lineHeight: 2,
+            }
+          },
+        
+          input: styles => ({
+            ...styles,
+            color: 'black',
+            // paddingLeft: '5px',
+            fontFamily: 'Open Sans',
+          }),
+        
+          menu: styles => ({
+            ...styles,
+            marginTop: 0,
+            boxShadow: 'none',
+            // border: 'solid 1px black',
+            borderRadius: '20px',
+          }),
+          
+          //input bar AFTER it appends the search 
+          singleValue: styles => ({
+            ...styles,
+            color: 'gray',
+          }),
+    }
+
+  const alumSearchFunction = (event) => {
+    console.log('alum search is --------------->', event);
+    dispatch({
+        type: 'SET_ONE_ALUM',
+        payload: event
+    })
+    setAlumSearch('');
+    history.push("/alumdetail");
   }
 
   return (
     <div>
-        <input class="searchbyaluminput" placeholder="search by alum" onChange={(event) => setAlumSearch(event.target.value)}></input>
+        {/* <input class="searchbyaluminput" placeholder="search by alum" onChange={(event) => setAlumSearch(event.target.value)}></input>
         {/* Link is a placeholder for now. Later we might want to use useHistory */}
 
-        <button class="searchbyalumbtn" onClick={alumSearchFunction} >Search alum</button>
+        {/* <button class="searchbyalumbtn" onClick={alumSearchFunction} >Search alum</button>  */}
+        <Select
+            className="divSearchSelect"
+            value={alumSearch}
+            options={searchList}
+            onChange={(event) => alumSearchFunction(event)}
+            placeholder= "Search Alum..."
+            styles={customStyles}
+            openMenuOnClick={false}
+
+            components={{DropdownIndicator}}
+        />
 
     </div>
   );
