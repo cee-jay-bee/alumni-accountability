@@ -1,27 +1,41 @@
+.cohortDetailCohortName{
+    text-align: center;
+}
+
+.cohortDetailCohortGradDate{
+    text-align: center;
+}
+
+
 #cohortDetailTable {
     width: 95vw;
     border: 3px solid;
     margin-top: 10px;
 }
 
-#tableCol1 {
+#cohortDetailTableCol1 {
     width: 5%;
     text-align: center;
     border: 1px solid;
 }
 
-#tableCol2 {
+#cohortDetailTableCol2 {
     width: 35%;
     text-align: center;
     border: 1px solid;
 }
 
-#tableCol3 {
-    width: 35%;
+#cohortDetailTableCol3{
+    width: 25%;
     border: 1px solid;
 }
 
-#tableCol4 {
+#cohortDetailTableCol4{
     width: 25%;
+    border: 1px solid;
+}
+
+#cohortDetailTableCol5{
+    width: 10%;
     border: 1px solid;
 }

@@ -305,92 +305,90 @@ margin: 2px 5px;
 
   /*-------------------------------*/ 
 
-
-  .createNewEventFormClass{
-    width: 300px;
-    flex-direction: row-reverse;
-    text-align: right;
+  .mainCheersDiv{
+    padding: 10px 19px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    outline: 0;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
   }
   
   .cheers{
-  text-align: center;
-  padding-top: 40px;
-  font-size: 50px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 300; 
+    margin: 40px 0 0 0;
   /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
   }
-  
-  .neweventmodalbtns{
-    /* justify-content: center;
-    align-items: center; */
-    margin-left: 70px;
-    position: relative;
-    top: -70px;
-  }
-  
+
   .beerscheers{
-    position: relative;
+    justify-content: center;
+    display: flex;
   }
   
-  svg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    fill: none;
-    stroke: rgb(187, 13, 13);
-    stroke-dasharray: 150 480;
-    stroke-dashoffset: 150;
-    transition: 20ms ease-in-out;
+  .neweventmodalbtnsDiv{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
   }
-  
   /* CANCEL BTN */
-  .createneweventconfirmcancelbtn{
-      background: transparent;
-      border: 1px solid red;
-      color: red;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: larger;
-    }
-  .createneweventconfirmcancelbtn:hover {
-    transition: 400ms ease-in-out;
-    background: #eb0606;
-    color: white;
-  }
-  .createneweventconfirmcancelbtn::hover svg {
-    stroke-dashoffset: -480;
-  }
-  
-  .createneweventconfirmcancelbtn span{
-    color: rgb(67, 49, 146);
-    font-size: 18px;
-    font-weight: 100;
-  }
   
   /* ANOTHER CREATE BTN */
   .createneweventconfirmnewbtn{
-    background: transparent;
-    border: 1px solid rgb(32, 113, 116);
-    color: rgb(32, 113, 116);
-    background: transparent;
-    border: 1px solid rgb(32, 113, 116);
-    padding: 10px;
+    border: none;
+    height: 56px;
     border-radius: 5px;
-    font-size: larger;
-    margin-left: 40px;
-  }
-  
-  .createneweventconfirmnewbtn:hover {
-    transition: 400ms ease-in-out;
-    background: rgb(32, 113, 116);
+    font-size: 16px;
+    width: 180px;
+    background-color: #6c7f42;
     color: white;
-  }
-  .createneweventconfirmnewbtn::hover svg {
-    stroke-dashoffset: -480;
+    font-family: 'open sans';
+    font-weight: 500;
+    margin-left: 40px;
+    margin-bottom: 5px;
   }
   
-  .createneweventconfirmnewbtn span{
-    color: rgb(67, 49, 146);
-    font-size: 18px;
-    font-weight: 100;
+  .createneweventconfirmnewbtn:hover{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 180px;
+    background-color: #526132;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+    margin-bottom: 5px;
   }
 
+  .createneweventconfirmcancelbtn{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    border: 1px solid rgb(129, 129, 129);
+    background-color: white;
+    color: rgb(129, 129, 129);
+    font-family: 'open sans';
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  .createneweventconfirmcancelbtn:hover{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    border: 1px solid #9e9e9e;
+    background-color: #9e9e9e;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
