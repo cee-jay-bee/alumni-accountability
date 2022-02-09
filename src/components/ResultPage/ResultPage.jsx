@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
-import { Select } from 'react-select';
+import Select from 'react-select';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
