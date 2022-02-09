@@ -7,6 +7,7 @@ import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, S
 import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
 import './EventPage.scss';
 import milTime from '../Functions/milTime';
+import dateChange from '../Functions/dateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -66,13 +67,8 @@ function EventPage(props) {
                   {eventAttendanceArray.length === 0 ? 
                     <div className="noEventDiv"><h2 id="noEventDivId">All done with attendance tracking. Time for a break!</h2></div> :
                     eventAttendanceArray.map(event => {
+                      
                       let eventCompareDate = new Date(event.event_date);
-                      let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-                      let twoDigitDate = eventCompareDate.getDate() + "";
-                      if (twoDigitDate.length == 1){
-                        twoDigitDate = "0" + twoDigitDate;
-                      }
-                      let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear();
               
                   if(eventCompareDate <= today) {
                     const setOneEvent = () => {
@@ -94,7 +90,7 @@ function EventPage(props) {
                       
                       <div className="eventItem" onClick={setOneEvent}>
 
-                        <p class="dateStyling" className="eventDate">{eventDate}</p>
+                        <p class="dateStyling" className="eventDate">{dateChange(event.event_date)}</p>
                         <p class="timeStyling">{milTime(event.time)}</p>
                           
                         {(event.stack_type === 'FSE') ?
@@ -137,14 +133,6 @@ function EventPage(props) {
           upcomingAttendanceArray.map(event => {
 
           let eventCompareDate = new Date(event.event_date);
-          let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-          let twoDigitDate = eventCompareDate.getDate() + "";
-          if (twoDigitDate.length == 1){
-            twoDigitDate = "0" + twoDigitDate;
-          }
-          let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
-          console.log(eventDate);
-
 
           if(eventCompareDate > today) {
             const setOneEvent = () => {
@@ -165,7 +153,7 @@ function EventPage(props) {
               
               <div className="eventItem" onClick={setOneEvent}>
 
-                    <p class="dateStyling" className="eventDate">{eventDate}</p>
+                    <p class="dateStyling" className="eventDate">{dateChange(event.event_date)}</p>
                     <p class="timeStyling">{milTime(event.time)}</p>
 
                     {(event.stack_type === 'FSE') ?
