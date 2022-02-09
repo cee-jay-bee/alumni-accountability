@@ -1,28 +1,125 @@
+.mainAttendanceDiv{
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    padding-top: 28px;
+}
+
+.attendanceEventInfoDiv{
+    // border: solid 1px rgb(255, 0, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.attendanceNameDateType{
+    // border: solid 1px black;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: center;
+    margin-left: 10%;
+}
+
+.attendanceNameDate{
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+}
+
+.attendanceNameDate > h3{
+    font-weight: 300;
+}
+
+.attendancestackType{
+    display: flex;
+}
+
+.attendanceIcons{
+    // border: solid 1px black;
+    display: flex;
+
+    button{
+        width: 100px;
+    }
+}
+
+#attendanceDeleteEvent{
+    top: 17%;
+    font-size: 35px;
+    left: 93.5%;
+    color: rgb(112, 112, 112);
+    // border: orangered 1px solid;
+}
+
+#attendanceDeleteEvent:hover{
+    color: rgb(78, 78, 78);
+    background-color: orangered;
+}
+
+#attendanceEditEvent{
+    color: rgb(112, 112, 112);
+    top: 17%;
+    left: 90%;
+    font-size: 35px;
+}
+
 #attendanceTable {
     width: 95vw;
-    border: 3px solid;
+    border: 3px solid purple;
     margin-top: 10px;
 }
 
 #tableCol1 {
     width: 5%;
     text-align: center;
-    border: 1px solid;
+    border: 1px solid red;
 }
 
 #tableCol2 {
     width: 35%;
     text-align: center;
-    border: 1px solid;
+    border: 1px solid green;
 }
 
 #tableCol3 {
     width: 35%;
-    border: 1px solid;
+    border: 1px solid blue;
 }
 
 #tableCol4 {
     width: 25%;
-    border: 1px solid;
+    border: 1px solid orangered;
 }
 
+.attendancestackTypeDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    align-items: right;
+    display: inline-block;
+    position: relative;
+    left: 60px;
+}
+
+.attendancestackTypeDualDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    display: inline-block;
+    align-items: right;
+    position: relative;
+    left: 60px;
+}
