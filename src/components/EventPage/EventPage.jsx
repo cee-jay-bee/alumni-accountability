@@ -158,6 +158,7 @@ function EventPage(props) {
                   description: event.event_description
                 }
               })
+              history.push("/eventdetail");
             }
             return (
               
