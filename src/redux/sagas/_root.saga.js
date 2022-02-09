@@ -10,6 +10,7 @@ import skillSaga from './skill.saga';
 import tagSaga from './tag.saga';
 import cohortSaga from './cohort.saga';
 import eventAttendanceSaga from './eventAttendance.saga';
+import allUserSaga from './allUser.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -30,6 +31,7 @@ export default function* rootSaga() {
     skillSaga(),
     tagSaga(),
     eventAttendanceSaga(),
-    cohortSaga()
+    cohortSaga(),
+    allUserSaga()
   ]);
 }

@@ -12,13 +12,16 @@ function DataPage(props) {
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const eventAttendance = useSelector((store) => store.eventAttendance);
+  const event = useSelector((store) => store.event);
+  const [eventID, setEventID] = useState(0);
+  
   useEffect(() => {
-    dispatch({ type: 'FETCH_EVENT_ATTENDANCE'});
+    dispatch({ type: 'FETCH_EVENT'});
   }, []);
 
   let labels = [];
   for ( let i = 0; i < eventAttendance.length; i++) {
-        labels.push(eventAttendance[i].cohort_name);
+    labels.push(eventAttendance[i].cohort_name);
   }
 
   let data = [];
@@ -40,7 +43,17 @@ function DataPage(props) {
     ]
   }
 
+  const displayChart = () => {
+    dispatch({ type: 'FETCH_EVENT_ATTENDANCE', payload: eventID});
+  }
+
   return (
+    <div>
+    <select className="eventAttendanceDropdown" onChange={( event )=>setEventID( event.target.value )}>
+      {event.map(event => 
+        (<option key={event.id} value={event.id} className="eventOptions" >{event.event_title}</option>))}
+    </select>
+    <button id="submitChartBtn" onClick={displayChart}>Display Chart</button>
     <div style={{"position": "relative", "height": "40vh","width":"80vh"}}>
         <Bar
           data={state}
@@ -48,7 +61,7 @@ function DataPage(props) {
             plugins: {
               title:{
                 display:true,
-                text:'Attendance by Cohort at Networking Event',
+                text:`Attendance by Cohort at ${event.event_title} Event`,
                 fontSize:20,
                 position: 'top'
               },
@@ -60,6 +73,7 @@ function DataPage(props) {
           }}
         />
       </div>
+    </div>
     );
 }
 

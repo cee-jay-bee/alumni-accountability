@@ -31,7 +31,7 @@ function Attendance(props) {
   }
 
   const submitAttendance = () => {
-    console.log('attendance for event:', attendanceForEvent);
+    console.log('attendance for event:', attendanceForEvent, oneEvent);
     dispatch({
       type: 'CREATE_EVENT_ATTENDANCE',
       payload: {
