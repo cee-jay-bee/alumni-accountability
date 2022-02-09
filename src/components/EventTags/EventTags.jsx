@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { TextField} from '@mui/material';
+import {TextField, Button, Grid,Typography, Modal,Box,Paper} from '@mui/material';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import './EventTags.css';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name EventTags with the name for the new component.
-function EventTags(props) {
+function EventTags() {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+
   const oneEvent = useSelector((store) => store.oneEvent);
   const tag = useSelector((store)=> store.tag);
   
@@ -18,6 +19,8 @@ function EventTags(props) {
 
   //EVENT TAG HOOK
   const [eventTag, setEventTag] = useState('');
+  const [openModal, setopenModal] = useState(false)
+
 
   useEffect(() => {
     dispatch({ type: 'FETCH_TAG', payload : oneEvent.id});
@@ -51,6 +54,7 @@ function EventTags(props) {
       type: 'POST_TAG',
       payload: {id : oneEvent.id, tagList }
     })
+    setopenModal(false)
   }
 
   return (
@@ -93,10 +97,42 @@ function EventTags(props) {
             
           </div>
           <div>
-            <button onClick = {saveNewTags} > Save Tags </button>
+            <button onClick = { ()=>setopenModal(true)} > Save Changes </button>
           </div>
             
       </div>
+      <Modal
+      open={openModal}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      style={{alignItems:'center',
+      position: 'absolute',
+      top: '15%',
+      left: '35%',
+      // transform: 'translate(-50%, -50%)',
+      width: '400px',
+      height: '400px',
+      bgcolor: 'background.paper'
+    }}
+    >
+      <Box>
+        <Paper
+            style={{
+            // transform: 'translate(-50%, -50%)',
+            width: '450px',
+            height: '400px',
+              }}
+          >
+          <h4 className="confirmDelete">Confirm Changes?</h4>
+          <span className='deleteexclamationpoint'><PriorityHighIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
+          <div className="deleteeventmodalbtns">
+                <button className="deleteeventbtncancel" onClick={()=>setopenModal(false)}>No</button>
+                <button className="deleteeventbtnconfirm" onClick={saveNewTags}>Yes</button>
+          </div>
+        </Paper>
+      </Box> 
+    </Modal>
     </main>
   );
 }
