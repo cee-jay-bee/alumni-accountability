@@ -3,6 +3,7 @@
     text-transform: uppercase;
     font-family: "Open Sans";
     padding-top: 30px;
+    font-size: 21px;
 } //unless we increase the specificity with the class and id this h2 defaults to "bolder" for font weight
  
 // .mainAllEventsDiv{
@@ -45,7 +46,7 @@
 
 .allTimeStyling {
     margin-top: -10px;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .allEventTitle{
@@ -57,6 +58,7 @@
     text-transform: none;
     font-size: 15px;
     flex: wrap;
+    color: #575757;
 }
 
 .allCardStyling {
@@ -67,6 +69,9 @@
 
 .allCardStyling h2, h3 {
     text-transform: uppercase;
+    // text-transform: uppercase;
+    font-weight: 600;
+    color:rgb(80, 80, 80);
 }
 
 .allStackTypeDisplay{

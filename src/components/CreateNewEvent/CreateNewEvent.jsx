@@ -117,33 +117,27 @@ function CreateNewEvent(props) {
           style={{alignItems:'center',
           position: 'absolute',
           top: '15%',
-          left: '35%',
+          left: '34%',
           // transform: 'translate(-50%, -50%)',
-          width: '400px',
+          width: '470px',
           height: '400px',
           bgcolor: 'background.paper'
           // boxShadow: 24,
           }}
           >
-            <Box>
-              <Paper
-              style={{
-                // transform: 'translate(-50%, -50%)',
-                width: '450px',
-                height: '400px',
-              }}
-              >
+            <div className="mainCheersDiv">
                 <h4 className="cheers">Cheers!</h4>
                 {/* img styled in element + app.css */}
-                <img className="beerscheers" src="/Images/cheers-bottle.gif" alt="beer bottles clicking" height="200px" style={{'top':'-77px', 'left':'123px'}} />
-                <div className="neweventmodalbtns">
+                <div className="beerscheers">
+                  <img src="/Images/cheers-bottle.gif" alt="beer bottles clicking" height="200px" style={{'top':'-77px', 'left':'123px'}} />
+                </div>
+                <div className="neweventmodalbtnsDiv">
                   <Link to="/eventpage">
                     <button className="createneweventconfirmcancelbtn">Cancel</button>
                   </Link>
                     <button className="createneweventconfirmnewbtn" onClick={handleClickOpen}>Create another event</button>
                   </div>
-              </Paper>
-            </Box>
+            </div>
         </Modal>
       </div>
     </div>
