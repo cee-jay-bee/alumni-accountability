@@ -73,7 +73,9 @@ function Attendance(props) {
               (<AttendanceItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
           )}
         </div>
-        <button onClick={submitAttendance} >Submit Attendance</button>
+        <div className="attendanceSubmitBtnDiv">
+          <button id="attendancePageSubmitBtn" onClick={submitAttendance} >Submit Attendance</button>
+        </div>
       </div>
     );
   }
