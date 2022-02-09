@@ -8,6 +8,7 @@ import './UserPage.scss';
 import milTime from '../Functions/milTime';
 import dateChange from '../Functions/dateChange';
 
+
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
