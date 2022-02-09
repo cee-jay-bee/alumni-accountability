@@ -28,7 +28,8 @@ function SearchByAlum() {
         label: alum.alum_name
     }
     })
-
+    
+    //styling the search icon
     const DropdownIndicator = props => {
         return(
              <SearchIcon icon={SearchIcon} style={{'left':'250px', 'top':'7px', 'color':'gray'}} />
