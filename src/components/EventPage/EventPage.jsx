@@ -162,6 +162,7 @@ function EventPage(props) {
             return (
               
               <div className="eventItem" onClick={setOneEvent}>
+
                     <p class="dateStyling" className="eventDate">{eventDate}</p>
                     <p class="timeStyling">{event.time.toLocaleString('en-US')}</p>
 
@@ -185,9 +186,7 @@ function EventPage(props) {
                           <p class="cardStyling">{event.event_description}</p>
                         }
                     </div>
-
-              </div>
-              
+              </div>            
             )
           }
           })
@@ -201,9 +200,6 @@ function EventPage(props) {
         </div>
         </div>
     
-
-
-
       {/* MODAL */}
       <div createNewEventModalDiv>
         <Modal
