@@ -57,6 +57,7 @@
     text-transform: none;
     font-size: 15px;
     flex: wrap;
+    color: #575757;
 }
 
 .allCardStyling {
@@ -67,6 +68,9 @@
 
 .allCardStyling h2, h3 {
     text-transform: uppercase;
+    // text-transform: uppercase;
+    font-weight: 600;
+    color:rgb(80, 80, 80);
 }
 
 .allStackTypeDisplay{

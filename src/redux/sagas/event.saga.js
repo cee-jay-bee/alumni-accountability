@@ -11,6 +11,16 @@ function* fetchEvent(action) {
   }
 }
 
+function* fetchAllEvent(action) {
+  try {
+    const response = yield axios.get(`/api/event/al`);
+    
+    yield put({ type: 'SET_EVENT', payload: response.data });
+  } catch (error) {
+    console.log('Event get request failed', error);
+  }
+}
+
 function* createEvent(action) {
   try {
     
@@ -49,7 +59,8 @@ function* eventSaga() {
   yield takeLatest('FETCH_EVENT', fetchEvent);
   yield takeLatest('CREATE_EVENT', createEvent);
   yield takeLatest('DELETE_EVENT', deleteEvent);
-  yield takeLatest('UPDATE_EVENT', updateEvent); 
+  yield takeLatest('UPDATE_EVENT', updateEvent);
+  yield takeLatest('FETCH_ALL_EVENT', fetchAllEvent);
 }
 
 export default eventSaga;
