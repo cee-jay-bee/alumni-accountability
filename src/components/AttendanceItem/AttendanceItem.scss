@@ -1,0 +1,40 @@
+
+.alumAttendedCheckbox {
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+}
+
+.alumName, .alumCohort, .alumGradDate {
+    font-size: 20px;
+}
+
+.attendanceItemMainRow{
+    // border: 1px solid black;
+    border-bottom: gray 1px solid;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 55px;
+}
+
+.attendanceItemAlumAttended{
+    width: 5%;
+    text-align: center;
+    padding-right: 40px;
+}
+
+.attendanceItemAlumName{
+    width: 40%;
+    // margin-left: 30px;
+    // text-align: center;
+}
+
+.attendanceItemAlumCohort{
+    width: 35%;
+}
+
+.attendanceItemAlumGradDate{
+    width: 25%;
+}

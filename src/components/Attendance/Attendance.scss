@@ -1,8 +1,10 @@
 .mainAttendanceDiv{
-    border: solid 1px black;
+    // border: solid 1px black;
     display: flex;
     flex-direction: column;
     padding-top: 28px;
+    align-items: center;
+    min-width: 889px;
 }
 
 .attendanceEventInfoDiv{
@@ -10,15 +12,16 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 70%;
 }
 
 .attendanceNameDateType{
     // border: solid 1px black;
     display: flex;
     flex-direction: row;
-    width: 80%;
-    justify-content: center;
-    margin-left: 10%;
+    width: 100%;
+    justify-content: flex-start;
+    // margin-left: 10%;
 }
 
 .attendanceNameDate{
@@ -45,9 +48,10 @@
 }
 
 #attendanceDeleteEvent{
-    top: 17%;
+    position: relative;
     font-size: 35px;
-    left: 93.5%;
+    top: 20px;
+    left: 34px;
     color: rgb(112, 112, 112);
     // border: orangered 1px solid;
 }
@@ -59,37 +63,53 @@
 
 #attendanceEditEvent{
     color: rgb(112, 112, 112);
-    top: 17%;
-    left: 90%;
+    position: relative;
+    top: 20px;
+    left: -59px;
     font-size: 35px;
 }
 
-#attendanceTable {
-    width: 95vw;
-    border: 3px solid purple;
+#attendanceTableMain {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
     margin-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    overflow: hidden;
+    // :nth-child(even) {background-color: #f2f2f2;}
 }
 
-#tableCol1 {
+.attendanceTableRow{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 10px 0px;
+    background-color: #6f6f8c;
+    color: white;
+}
+
+.attendanceTableCol1 {
     width: 5%;
+    padding-right: 40px;
     text-align: center;
-    border: 1px solid red;
+    // border: 1px solid red;
 }
 
-#tableCol2 {
+.attendanceTableCol2 {
+    width: 40%;
+    // border: 1px solid green;
+}
+
+.attendanceTableCol3 {
     width: 35%;
-    text-align: center;
-    border: 1px solid green;
+    // border: 1px solid blue;
 }
 
-#tableCol3 {
-    width: 35%;
-    border: 1px solid blue;
-}
-
-#tableCol4 {
+.attendanceTableCol4 {
     width: 25%;
-    border: 1px solid orangered;
+    // border: 1px solid orangered;
 }
 
 .attendancestackTypeDisplay{
