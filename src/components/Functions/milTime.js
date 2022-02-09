@@ -3,11 +3,11 @@ const milTime = (time) => { // your input
     time = time.split(':'); // convert to array
 
     // fetch
-    var hours = Number(time[0]);
-    var minutes = Number(time[1]);
+    let hours = Number(time[0]);
+    let minutes = Number(time[1]);
 
     // calculate
-    var timeValue;
+    let timeValue;
 
     if (hours > 0 && hours <= 12) {
       timeValue= "" + hours;
