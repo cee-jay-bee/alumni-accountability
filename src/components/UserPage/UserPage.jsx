@@ -73,10 +73,11 @@ function UserPage() {
                       description: event.event_description
                     }
                   })
+                  history.push("/eventdetail");
                 }
                 return (
                 
-                  <div className="mainPageEventItem">
+                  <div className="mainPageEventItem" onClick={setOneEvent}>
                     <div className="mainPageDateTimeStack">
                         <div className="mainPageDateTimeStyling">
                           <p id="maindateallevent">{eventDate}</p>

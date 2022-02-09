@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 //IMPORT SCSS
 import './AllEvent.scss';
+import milTime from '../Functions/milTime';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -54,7 +55,7 @@ function AllEvent(props) {
     
             <div className="allEventItem" onClick={setOneEvent}>
               <p class="allDateStyling" className="allEventDate">{eventDate}</p>
-              <p class="allTimeStyling">{event.time.toLocaleString('en-US')}</p>
+              <p class="allTimeStyling">{milTime(event.time)}</p>
                 
               {(event.stack_type === 'FSE') ?
                 <p class="allStackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
