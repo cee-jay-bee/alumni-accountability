@@ -75,7 +75,7 @@
     display: flex;
     height: 62vh;
     flex-direction: column;
-    width: 65%;
+    width: 75%;
     margin-top: 10px;
     background-color: white;
     border-radius: 10px;
@@ -101,12 +101,13 @@
 .cohortDetailTableCol1 {
     width: 5%;
     padding-right: 40px;
-    text-align: center;
+    text-align: right;
     // border: 1px solid red;
 }
 
 .cohortDetailTableCol2 {
     width: 40%;
+ 
     // border: 1px solid green;
 }
 
