@@ -7,6 +7,8 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import './CohortDetail.scss';
 import CohortDetailItem from '../CohortDetailItem/CohortDetailItem';
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
+import { Modal, Box, Paper} from '@mui/material';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -20,6 +22,11 @@ function CohortDetail(props) {
   const alum = useSelector((store) => store.alum);
   const oneAlum = useSelector((store) => store.oneAlum);
   const dispatch = useDispatch();
+
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+      setOpen(!open);
+  };
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALUM'});
@@ -54,7 +61,7 @@ function CohortDetail(props) {
             {/* <p>{JSON.stringify(alum)}</p> */}
             <div className="cohortDetailCohortNameDate">
                 <h2>{oneCohort.cohort_name}</h2>
-                <h2>{oneCohort.graduation_date.split("T")[0]}</h2>
+                <h2>{oneCohort.graduation_date}</h2>
             </div>
             <div className="cohortdetailstackType">
               {(oneCohort.stack_type === 'FSE') ?
@@ -70,7 +77,7 @@ function CohortDetail(props) {
             // onClick={handleClickOpen2}
             id="cohortDetailEditEvent"/> 
             <DeleteOutlineOutlinedIcon
-            // onClick={handleClickOpen}
+            onClick={handleClickOpen}
             id="cohortDetailDeleteEvent"/> 
         </div>
       </div>
@@ -86,6 +93,42 @@ function CohortDetail(props) {
             (<CohortDetailItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
         )}  
       </div>
+      <div cohortDetailDeleteModalDiv>
+        <Modal
+        open={open}
+        onClose={handleClickOpen}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        style={{alignItems:'center',
+        position: 'absolute',
+        top: '15%',
+        eft: '35%',
+        // transform: 'translate(-50%, -50%)',
+        width: '400px',
+        height: '400px',
+        bgcolor: 'background.paper'
+        }}
+        >
+        <Box>
+          <Paper
+            style={{
+            // transform: 'translate(-50%, -50%)',
+            width: '450px',
+            height: '400px',
+              }}
+            >
+            <h4 className="confirmDelete">Confirm Delete?</h4>
+            <span className='deleteexclamationpoint'><PriorityHighIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
+            <div className="deleteeventmodalbtns">
+                <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
+                <button className="deleteeventbtnconfirm" >Yes</button>
+                
+            </div>
+          </Paper>
+        </Box> 
+      </Modal>
+    </div>
     </div>
   );
 }
