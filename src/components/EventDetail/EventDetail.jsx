@@ -42,10 +42,8 @@ function EventDetail(props) {
   // END HANDLE POP-UP SECOND MODAL
 
   useEffect(()=> {
-    
   }, [oneEvent]);
-  
-  
+
   const deleteEvent = (event) => {
     console.log('inDeleteEvent');
     dispatch({
@@ -55,41 +53,30 @@ function EventDetail(props) {
     history.push("/eventpage")
   }
 
-
-
-
 //NOTES HOOK
 const [eventNote, setEventNote] = useState('');
 
-
-
-  
-
   return (
-    <main>
-      
+    <main className="eventDetailMainDiv">
       <div className='eventDetailHeader'>
         <div className='eventDetailCol1'>
-          <div>
-            <h2>{oneEvent.title}</h2> 
+          <div className="eventDetailTitleDate">
+            <h2 id="eventDetailTitle">{oneEvent.title}</h2> 
             <p>{oneEvent.date}</p>
-            {/* <p>{oneEvent.date.split("T")[0]}</p> */}
           </div>
-          <div>
+          <div className="eventDetailStackType">
             {(oneEvent.stack_type === 'FSE') ?
-              <p className="eventDetailStackTypeDisplay">FSE</p> :
-              (oneEvent.stack_type === 'UX/UI') ?
-              <p className="eventDetailStackTypeDisplay">UX/UI</p> :
-              <span> <p className="eventDetailStackTypeDualDisplay">FSE</p> <p className="eventDetailStackTypeDualDisplay">UX/UI</p> </span>
+              <p className="eventDetailStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
+              (oneEvent.stack_type === 'UXD') ?
+              <p className="eventDetailStackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
+              <span> <p className="eventDetailStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p className="eventDetailStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p> </span>
             }
           </div>
-          
         </div>
         
         <div className='eventDetailCol2'>
             <Link to="/attendance">
             <GroupAddOutlinedIcon 
-            
             style={{fontSize:"55px","left": "70%", color: 'black' }}
             /> </Link>
             <span><EditOutlinedIcon 
@@ -98,7 +85,6 @@ const [eventNote, setEventNote] = useState('');
             <span><DeleteOutlineOutlinedIcon
             onClick={handleClickOpen}
             style={{fontSize:"55px","left": "90%" }}/> </span> 
-            
         </div>
       </div>
       
