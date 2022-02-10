@@ -66,7 +66,7 @@ function CohortImport(props) {
       <select className="createnewCohortdropdown" onChange={( event )=>setCohortType( event.target.value )}>
         <option value={''}>choose cohort type</option>
         <option value={'FSE'}>FSE</option>
-        <option value={'UX/UI'}>UX/UI</option>
+        <option value={'UX/UI'}>UXD</option>
       </select>
       <br />
       <div className="cohortImportSubmitDiv">
