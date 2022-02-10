@@ -35,6 +35,7 @@ import EventNotes from '../EventNotes/EventNotes';
 import EventTags from '../EventTags/EventTags';
 import ForgottenUsername from '../ForgottenUsername/ForgottenUsername';
 import ResetPassword from '../ResetPassword/ResetPassword';
+import CohortImport from '../CohortImport/CohortImport'; //DELETE THIS ONCE WE'RE DONE
 
 function App() {
   const dispatch = useDispatch();
@@ -73,6 +74,13 @@ function App() {
           path="/allevent"
           >
           <AllEvent/>
+        </ProtectedRoute>
+
+        <ProtectedRoute 
+          exact
+          path="/cohortimport"
+          >
+          <CohortImport/>
         </ProtectedRoute>
 
 

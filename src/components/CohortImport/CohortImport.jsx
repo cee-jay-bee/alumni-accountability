@@ -44,9 +44,14 @@ function CohortImport(props) {
 
   return (
     <div className="cohortImportDiv"> 
-      <h2>Cohort IMPORT</h2>
+      <div className="cohortImportModalTitle">
+        <h2>Cohort IMPORT</h2>
+      </div>
       <form onSubmit={()=>{upload(event)}}>
-      <input type="file" id="cohortFiles" accept=".csv" name="addCohort" multiple />
+      <label for="cohortFiles" class="custom-file-upload">
+      Custom Upload
+      </label>
+        <input type="file" id="cohortFiles" accept=".csv" name="addCohort" multiple />
       <br />
       <select className="createnewdropdown" onChange={( event )=>setCohortType( event.target.value )}>
         <option value={''}>Choose Cohort</option>
