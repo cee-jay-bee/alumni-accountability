@@ -50,7 +50,7 @@ function UserPage() {
             </div>
           </div>
           <div className="mainDivHomePageCol3">
-            <h3 id="mainPageCol3Header">Events requiring attendance</h3>
+            <h2 id="mainPageCol3Header">Events requiring attendance</h2>
             <div classname="mainPageContainer">
             {event.map(event => {
 
