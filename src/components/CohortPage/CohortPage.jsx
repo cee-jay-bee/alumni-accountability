@@ -29,7 +29,6 @@ function CohortPage(props) {
 
   return (
     <div> 
-      <h2>Cohort Page!</h2>
         <div class="titleDiv">
           <div class="titleCol1">
             <h2 className="cohortPageTitles">Cohorts</h2>
