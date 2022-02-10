@@ -10,21 +10,10 @@
     filter: alpha(opacity=0);
     opacity: 0;
   }
-  .file-custom {
-    position: absolute;
-    top: 50;
-    right: 0;
-    left: 0;
-    z-index: 5;
-    height: 2.5rem;
-    padding: .5rem 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-  }
 
   .file-custom:before {
     position: absolute;
-    top: -4px;
+    top: 140px;
     right: 25.25rem;
     bottom: -.075rem;
     text-align: center;
@@ -35,10 +24,11 @@
     height: 25px;
     padding: .5rem 1rem;
     line-height: 1.5;
-    color: rgb(255, 255, 255);
-    background-color: #5a578d;
-    // border: .075rem solid #ddd;
+    color: #434169;
+    border: 1px #434169 solid;
+    background-color: #f0efff;
     border-radius: 5px;
+    cursor: pointer;
   }
 
 .cohortFiles{
@@ -90,6 +80,7 @@
     justify-content: right;
     align-items: center;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .cohortPageClosing p{
@@ -100,7 +91,7 @@
     padding-bottom: 5px;
     text-align: center;
     font-weight: 700;
-    text-decoration: solid underline #6c7f42 ;
+    text-decoration: solid underline #6c7f42;
   }
 
   .cohortPageClosing p:hover{
@@ -111,7 +102,7 @@
     padding-bottom: 5px;
     text-align: center;
     font-weight: 700;
-    text-decoration: solid underline #566634 ;
+    text-decoration: solid underline #566634;
   }
 
   .cohortImportSubmitDiv{
@@ -130,6 +121,7 @@
     font-family: 'open sans';
     font-weight: 500;
     margin-bottom: 5px;
+    cursor: pointer;
   }
 
   #cohortImportSubmitBtn:hover{
@@ -143,6 +135,7 @@
     font-family: 'open sans';
     font-weight: 500;
     margin-bottom: 5px;
+    cursor: pointer;
   }
 
   .createnewCohortdropdown{
@@ -159,6 +152,7 @@
     font-size: 16px;
     font-weight: 500;
     appearance: none;
+    // cursor: pointer;
   }
 
   select.createnewCohortdropdown {
@@ -175,6 +169,7 @@
       5px 5px,
       1.6em 1.5em;
     background-repeat: no-repeat;
+    cursor: pointer;
   }
   
   select.createnewCohortdropdown:focus {
