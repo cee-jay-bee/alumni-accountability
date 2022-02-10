@@ -80,10 +80,6 @@
     text-decoration: underline rgb(243, 240, 236);
 }
 
-// #allEvents span{
-//     // text-decoration: underline white 2px;
-// }
-
 .stackTypeDisplay{
     background: black;
     color: white;
@@ -130,15 +126,6 @@
     // flex-basis: auto;
 }
 
-#newEventPlusIcon{
-    font-size: 300px;
-    font-weight: 800;
-    position: absolute;
-    opacity: 15%;
-    top: -30px;
-
-}
-
 .eventpagerow {
     display: flex;
     flex-direction: row;
@@ -146,11 +133,6 @@
     gap: 30px;
     // flex: none;
 }
-
-// .col1 {
-//     // flex: .8;
-//     // flex-grow: ;
-// }
 
 .col2 {
     // padding-top: 200px;
