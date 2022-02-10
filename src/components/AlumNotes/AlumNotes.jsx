@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { TextField, Button, Grid,Typography, Modal,Box } from '@mui/material';
+import { TextField, Button, Grid,Typography, Modal,Box,Paper } from '@mui/material';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
 const style = {
   position: 'absolute',
@@ -38,7 +38,8 @@ function AlumNotes(props) {
 
  
   const [open, setOpen] = React.useState(false);
-
+  const [deleteID, setDeleteID] = useState("")
+  const [deleteOpen, setDeleteOpen] = useState(false)
 
 
   const onPressEnter = (event)=>{
@@ -67,6 +68,7 @@ function AlumNotes(props) {
       type: 'DELETE_ALUMNOTE',
       payload: id
     })
+    setDeleteOpen(false)
   }
 
   return (
@@ -111,7 +113,8 @@ function AlumNotes(props) {
 
 
               <Grid item>
-              <DeleteOutlineOutlinedIcon style={{position:"static"}} onClick={()=>deleteNote(onenote.id)}/>
+              <DeleteOutlineOutlinedIcon style={{position:"static"}} 
+              onClick={()=>{setDeleteID(onenote.id);setDeleteOpen(true)}}/>
               </Grid>
              
             </Grid>
@@ -140,9 +143,60 @@ function AlumNotes(props) {
         </Button>
      </Box>
    </Modal>
+   <Modal
+     open={open}
+     onClose={handleClose}
+   >
+     <Box sx={style}>
+       <Typography variant="h6" component="h2">
+         Edit the Event Note
+       </Typography>
+       <TextField
+          label="Note"
+          multiline
+          rows={4}
+          value={oneNote.event_note_entry}
+          onChange={(e)=>{setOneNote({...oneNote, event_note_entry : e.target.value})}}
+        />
+        <Button onClick={updateNote}>
+          Update Changes
+        </Button>
+     </Box>
+   </Modal>
+   <Modal
+      open={deleteOpen}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      style={{alignItems:'center',
+      position: 'absolute',
+      top: '15%',
+      left: '35%',
+      // transform: 'translate(-50%, -50%)',
+      width: '400px',
+      height: '400px',
+      bgcolor: 'background.paper'
+    }}
+    >
+      <Box>
+        <Paper
+            style={{
+            // transform: 'translate(-50%, -50%)',
+            width: '450px',
+            height: '300px',
+              }}
+          >
+          <h4 className="confirmnoteDelete">Confirm Delete?</h4>
+          <span className='deleteexclamationpoint'><PriorityHighIcon
+            style={{fontSize:"120px", marginLeft:"150px", marginBottom:"5px", marginTop:"0px"}}/> </span> 
+          <div className="deleteeventnotemodalbtns">
+                <button className="deleteeventnotebtncancel" onClick={()=>setDeleteOpen(false)}>No</button>
+                <button className="deleteeventnotebtnconfirm" onClick={()=>deleteNote(deleteID)}>Yes</button>
+          </div>
+        </Paper>
+      </Box> 
+    </Modal>
    </>
   );
 }
 
 export default AlumNotes;
-

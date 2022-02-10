@@ -78,6 +78,33 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     )
   });
 
+  router.put('/placed/:id', rejectUnauthenticated, (req, res) => {
+    const { id } = req.params
+    const {placedStatus} = req.body
+    const queryText =  `UPDATE alum SET alum_placed = $2 WHERE id = $1;`
+    pool.query(queryText,[ id, placedStatus ]).then(()=>
+        res.sendStatus(201)
+    ).catch(err=>{
+        console.log("alum put placed router has error", err)
+        res.sendStatus(500)
+      }
+    )
+  });
+
+  router.put('/placed/date/:id', rejectUnauthenticated, (req, res) => {
+    const { id } = req.params
+    const {placedDate} = req.body
+    const queryText =  `UPDATE alum SET placed_date = $2 WHERE id = $1;`
+    pool.query(queryText,[ id, placedDate ]).then(()=>
+        res.sendStatus(201)
+    ).catch(err=>{
+        console.log("alum put placed router has error", err)
+        res.sendStatus(500)
+      }
+    )
+  });
+
+
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const {id} = req.params

@@ -60,6 +60,28 @@ function* deleteAlum(action) {
     console.log('Alum Delete request failed', error);
   }
 }
+function* updateAlumPlaced(action) {
+  try {
+    console.log(action.payload)
+    yield axios.put(`/api/alum/placed/${action.payload.id}`,action.payload);
+    const response = yield axios.get(`/api/alum/${action.payload.id}`);
+    yield put({type : "SET_ONE_ALUM", payload : response.data[0]})
+    yield put({ type: 'FETCH_ALUM' })
+  } catch (error) {
+    console.log('Alum put request failed', error);
+  }
+}
+
+function* updateAlumPlacedDate(action) {
+  try {
+    yield axios.put(`/api/alum/placed/date/${action.payload.id}`,action.payload);
+    const response = yield axios.get(`/api/alum/${action.payload.id}`);
+    yield put({type : "SET_ONE_ALUM", payload : response.data[0]})
+    yield put({ type: 'FETCH_ALUM' })
+  } catch (error) {
+    console.log('Alum put placed date request failed', error);
+  }
+}
 
 function* alumSaga() {
   yield takeLatest('FETCH_ALUM', fetchAlum);
@@ -68,6 +90,8 @@ function* alumSaga() {
   yield takeLatest('UPDATE_ALUM', updateAlum);
   yield takeLatest('UPDATE_ALUM_SKILL', updateAlumSkill);
   yield takeLatest('ALUM_SEARCH', searchForAlum);
+  yield takeLatest('ALUM_PLACED', updateAlumPlaced);
+  yield takeLatest('ALUM_PLACED_DATE', updateAlumPlacedDate);
 }
 
 export default alumSaga;
