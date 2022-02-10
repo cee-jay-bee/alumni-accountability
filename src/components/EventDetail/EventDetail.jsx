@@ -41,6 +41,9 @@ function EventDetail(props) {
   };
   // END HANDLE POP-UP SECOND MODAL
 
+  useEffect(()=> {
+    
+  }, [oneEvent]);
   
   
   const deleteEvent = (event) => {
