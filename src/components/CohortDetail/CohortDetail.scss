@@ -66,6 +66,10 @@
     left: -59px;
     font-size: 35px;
 }
+#cohortDetailEditEvent:hover{
+    color: rgb(78, 78, 78);
+    background-color: orangered;
+}
 
 #cohortDetailTableMain{
     display: flex;
@@ -121,7 +125,7 @@
     // border: 1px solid orangered;
 }
 
-.cohortdetailstackType{
+.cohortdetailstackTypeDisplay{
     background: black;
     color: white;
     border-radius: 50%;
@@ -137,7 +141,7 @@
     left: 60px;
 }
 
-.cohortdetailstackTypeDisplay{
+.cohortdetailstackTypeDualDisplay{
     background: black;
     color: white;
     border-radius: 50%;

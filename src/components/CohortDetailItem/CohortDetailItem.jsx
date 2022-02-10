@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import './CohortDetailItem.scss';
@@ -11,22 +11,34 @@ function CohortDetailItem(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
+  const oneCohort = useSelector((store) => store.oneCohort);
   
-
+  useEffect(() => {
+    // console.log (oneCohort);
+    // console.log (props.alum);
+  }, []);
+  
+  if (props.alum.cohort_id == oneCohort.id){
   return (
-    <div>
-      <tr class='cohortDetailRow2'>
-          <td className='cohortDetailTableRow2Col1'><input type='checkbox' id='alumPlaced' className='alumPlacedCheckbox' value='placed'/></td>
+      <div className='cohortDetailRow2'>
+          <div className='cohortDetailTableRow2Col1'><input type='checkbox' id='alumPlaced' className='alumPlacedCheckbox' value='placed'/></div>
           <Link to="/alumdetail">
-          <td className='cohortDetailTableRow2Col2'>{props.alum.alum_name}</td>
+          <div className='cohortDetailTableRow2Col2'>{props.alum.alum_name}</div>
           </Link>
-          <td className='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</td>
-          <td className='cohortDetailTableRow2Col4'>{props.alum.graduation_date.split("T")[0]}</td>
-          <td className='cohortDetailTableRow2Col5'><StickyNote2Icon style={{fontSize:"35px", "left": "93%", "top": "50%" }}/></td>
-        </tr>
-     
-    </div>
-  );
+          <div class='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</div>
+          <div class='cohortDetailTableRow2Col4'>{props.alum.graduation_date.split("T")[0]}</div>
+          <div class='cohortDetailTableRow2Col5'><StickyNote2Icon className='cohortDetailNoteIcon' style={{fontSize:"35px", "left": "93%", "top": "50%" }}/></div>
+      </div>
+    );
+  } else {
+    return null;
+  }
+
+    
+
+
+
+  
 }
 
 export default CohortDetailItem;

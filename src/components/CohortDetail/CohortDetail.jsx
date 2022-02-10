@@ -98,6 +98,7 @@ function CohortDetail(props) {
         {alum.map(alum => 
             (<CohortDetailItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
         )}  
+        
       </div>
       <div cohortDetailDeleteModalDiv>
         <Modal
