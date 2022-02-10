@@ -9,6 +9,7 @@ import CohortDetailItem from '../CohortDetailItem/CohortDetailItem';
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import { Modal, Box, Paper} from '@mui/material';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import EditCohort from '../EditCohort/EditCohort';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -26,6 +27,11 @@ function CohortDetail(props) {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
       setOpen(!open);
+  };
+
+  const [open2, setOpen2] = React.useState(false);
+  const handleClickOpen2 = () => {
+      setOpen2(!open2);
   };
 
   useEffect(() => {
@@ -74,7 +80,7 @@ function CohortDetail(props) {
         </div>   
         <div className='cohortDetailIcons'>
             <EditOutlinedIcon 
-            // onClick={handleClickOpen2}
+            onClick={handleClickOpen2}
             id="cohortDetailEditEvent"/> 
             <DeleteOutlineOutlinedIcon
             onClick={handleClickOpen}
@@ -128,6 +134,36 @@ function CohortDetail(props) {
           </Paper>
         </Box> 
       </Modal>
+    </div>
+    <div cohortDetailEditModalDiv>
+      <Modal
+      open={open2}
+      onClose={handleClickOpen2}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      style={{alignItems:'center',
+      position: 'absolute',
+      top: '15%',
+      left: '35%',
+      // transform: 'translate(-50%, -50%)',
+      width: '400px',
+      height: '400px',
+      bgcolor: 'background.paper'
+    }}
+    >
+      <Box>
+        <Paper
+            style={{
+            // transform: 'translate(-50%, -50%)',
+            width: '450px',
+            height: '400px',
+              }}
+          >
+          <EditCohort />
+          
+        </Paper>
+      </Box> 
+    </Modal>
     </div>
     </div>
   );
