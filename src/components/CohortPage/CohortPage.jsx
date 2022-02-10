@@ -34,9 +34,9 @@ function CohortPage(props) {
             <h2 className="cohortPageTitles">Cohorts</h2>
           </div>
           <div class="titleCol2">
-            <Link to="/allcohort">
+            {/* <Link to="/allcohort">
               <p id="allCohorts">Click <span>here</span> to view all events</p>
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div class="cohortpagerow">
