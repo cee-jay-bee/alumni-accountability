@@ -24,7 +24,7 @@
 
   .file-custom:before {
     position: absolute;
-    top: 0px;
+    top: -4px;
     right: 25.25rem;
     bottom: -.075rem;
     text-align: center;
@@ -36,10 +36,14 @@
     padding: .5rem 1rem;
     line-height: 1.5;
     color: rgb(255, 255, 255);
-    background-color: rgb(81, 59, 145);
+    background-color: #5a578d;
     // border: .075rem solid #ddd;
     border-radius: 5px;
   }
+
+.cohortFiles{
+    margin-left: 16px;
+}
   
 .cohortImportCardHeader{
     text-align: center;
