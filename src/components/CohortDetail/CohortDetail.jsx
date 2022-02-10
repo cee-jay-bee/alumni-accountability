@@ -21,6 +21,10 @@ function CohortDetail(props) {
   const oneAlum = useSelector((store) => store.oneAlum);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch({ type: 'FETCH_ALUM'});
+  }, []);
+
   const handleCheckboxChange = (id) => {
     console.log('checkbox changed:', id);
 
@@ -29,9 +33,7 @@ function CohortDetail(props) {
     
   }
 
-  // useEffect(() => {
-  //   dispatch({ type: 'FETCH_ALUM'});
-  // }, []);
+ 
 
   // const submitPlacement = () => {
   //   console.log('attendance for event:', alumPlacement);
@@ -45,37 +47,45 @@ function CohortDetail(props) {
   // }
 
   return (
-    <div> 
-      {/* <p>{JSON.stringify(oneCohort)}</p>
-      <p>{JSON.stringify(alum)}</p> */}
-      <h2 className='cohortDetailCohortName'>{oneCohort.cohort_name}</h2>
-      <h2 className='cohortDetailCohortGradDate'>{oneCohort.graduation_date.split("T")[0]}</h2>
-      <div className='cohortDetailCol2'>
-            <span><EditOutlinedIcon 
+    <div className='mainCohortDetailDiv'> 
+      <div className="cohortDetailInfoDiv">
+        <div className="cohortDetailNameDateType">
+            {/* <p>{JSON.stringify(oneCohort)}</p> */}
+            {/* <p>{JSON.stringify(alum)}</p> */}
+            <div className="cohortDetailCohortNameDate">
+                <h2>{oneCohort.cohort_name}</h2>
+                <h2>{oneCohort.graduation_date.split("T")[0]}</h2>
+            </div>
+            <div className="cohortdetailstackType">
+              {(oneCohort.stack_type === 'FSE') ?
+                <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
+                  (oneCohort.stack_type === 'UX/UI') ?
+                <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
+                  <span><p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+              }
+            </div>
+        </div>   
+        <div className='cohortDetailIcons'>
+            <EditOutlinedIcon 
             // onClick={handleClickOpen2}
-            style={{fontSize:"45px","left": "85%", "top": "19%" }}/> </span> 
-            <span><DeleteOutlineOutlinedIcon
+            id="cohortDetailEditEvent"/> 
+            <DeleteOutlineOutlinedIcon
             // onClick={handleClickOpen}
-            style={{fontSize:"45px","left": "90%", "top": "19%" }}/> </span> 
-            
+            id="cohortDetailDeleteEvent"/> 
         </div>
-     
-      <table id='cohortDetailTable'>
-        <tr class='cohortDetailTable'>
-          <th id='cohortDetailTableCol1'>Placed</th>
-          <th id='cohortDetailTableCol2'>Name</th>
-          <th id='cohortDetailTableCol3'>Cohort</th>
-          <th id='cohortDetailTableCol4'>Graduation Date</th>
-          <th id='cohortDetailTableCol5'>Notes</th>
-        </tr> 
+      </div>
+      <div id='cohortDetailTableMain'>
+        <div className='cohortDetailTableRow'>
+          <div className='cohortDetailTableCol1'>Placed</div>
+          <h3 className='cohortDetailTableCol2'>Name</h3>
+          <h3 className='cohortDetailTableCol3'>Cohort</h3>
+          <h3 className='cohortDetailTableCol4'>Graduation Date</h3>
+          <h3 className='cohortDetailTableCol5'>Notes</h3>
+        </div> 
         {alum.map(alum => 
             (<CohortDetailItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
-        )} 
-        
-        </table>
-
-      
-      
+        )}  
+      </div>
     </div>
   );
 }
