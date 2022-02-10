@@ -62,7 +62,7 @@ const [eventNote, setEventNote] = useState('');
         <div className='eventDetailCol1'>
           <div className="eventDetailTitleDate">
             <h2 id="eventDetailTitle">{oneEvent.title}</h2> 
-            <p>{oneEvent.date}</p>
+            <p id="eventDetailDate">{oneEvent.date}</p>
           </div>
           <div className="eventDetailStackType">
             {(oneEvent.stack_type === 'FSE') ?
@@ -76,15 +76,15 @@ const [eventNote, setEventNote] = useState('');
         
         <div className='eventDetailCol2'>
             <Link to="/attendance">
-            <GroupAddOutlinedIcon 
-            style={{fontSize:"55px","left": "70%", color: 'black' }}
+            <GroupAddOutlinedIcon id="attendancetitleBtn"
+            style={{fontSize:"40px", "left": "60%" }}
             /> </Link>
             <span><EditOutlinedIcon 
             onClick={handleClickOpen2}
-            style={{fontSize:"55px","left": "80%" }}/> </span> 
+            style={{fontSize:"40px", "left": "80%", 'margin-right': '15px', 'cursor':'pointer'}}/> </span> 
             <span><DeleteOutlineOutlinedIcon
             onClick={handleClickOpen}
-            style={{fontSize:"55px","left": "90%" }}/> </span> 
+            style={{fontSize:"40px", "left": "90%" , 'cursor':'pointer'}}/> </span> 
         </div>
       </div>
       

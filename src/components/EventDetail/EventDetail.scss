@@ -5,10 +5,10 @@
   width: 100%;
   justify-content: space-between;
   padding-top: 30px;
+  margin-bottom: 20px;
 }
 
 .eventDetailCol1{
-    border: 1px solid blue;
     flex-direction: row;
     row-gap: 1px;
     display: inline-flex;
@@ -29,16 +29,22 @@
 }
 
 .eventDetailTitleDate{
-  border: 1px solid;
+  // border: 1px solid;
 }
 
 #eventDetailTitle{
   font-weight: 200;
   text-transform: uppercase;
+  margin-bottom: 0px;
+}
+
+#eventDetailDate{
+  margin-top: 0px;
 }
 
 .eventDetailStackType{
-  border: 1px solid;
+  // border: 1px solid;
+  margin-left: 15px;
 }
 
 .eventDetailStackTypeDisplay{
@@ -71,31 +77,28 @@
     align-items: center;
 }
 .eventDetailCol2{
-    border: 1px solid purple;
-    flex: 5;
     position: relative;
     display: flex;
     justify-content: flex-end;
+    color:#707070;
+    align-items: center;
+    // cursor: pointer;
+}
 
+#attendancetitleBtn{
+  color:#707070;
+  margin-right: 20px;
+  cursor: pointer;
 }
 
 .eventDetailDescription{
-  /* border: 3px solid; */
-  flex: 5;
-  position: relative;
-  border: 1px solid;
-
-  
+  display: flex;
+  border-radius: 5px;
+  padding: 0px 10px;
+  background: white;
+  // min-height: 30px;
+  box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
 }
-
-/* .eventDetailTags{
-  border: 3px solid;
-} */
-
-/* .eventDetailNotes{
-  border: 3px solid;
-} */
-
 
 .confirmDelete{
     text-align: center;
