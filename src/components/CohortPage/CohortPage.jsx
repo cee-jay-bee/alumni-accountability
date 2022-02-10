@@ -106,18 +106,19 @@ function CohortPage(props) {
         aria-describedby="modal-modal-description"
         style={{alignItems:'center',
         justifyContent:'center', 
-        width: '50%',
+        width: '540px',
         position: 'flexible',
-        top: '5%',
-        left: '0',
+        top: '12%',
+        left: '7%',
         marginLeft: '23%',
         marginRight: '50px',
-        outline: 'none'
+        outline: '0',
+        overflow: 'hidden'
        }}
         >
           <Box>
             {/* Clicking the x will close out of the modal */}
-            <h3 className="cohortPageCloseModal" onClick={handleClickOpen}>x</h3> 
+            {/* <h3 className="cohortPageCloseModal" onClick={handleClickOpen}>x</h3>  */}
             <CohortImport/>  
           </Box> 
         </Modal>

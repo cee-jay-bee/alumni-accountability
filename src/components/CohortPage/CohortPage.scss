@@ -29,39 +29,39 @@
     text-decoration: underline rgb(243, 240, 236);
 }
 
-.stackTypeDisplay{
-    background: black;
-    color: white;
-    border-radius: 50%;
-    width: 49px;
-    padding: 15px 0;
-    height: auto;
-    text-align: center;
-    font-weight: 700;
-    font-size: 12px;
-    align-items: right;
-    display: inline-block;
-    position: relative;
-    left: 175px;
-    bottom: 70px;
-}
+// .stackTypeDisplay{
+//     background: black;
+//     color: white;
+//     border-radius: 50%;
+//     width: 49px;
+//     padding: 15px 0;
+//     height: auto;
+//     text-align: center;
+//     font-weight: 700;
+//     font-size: 12px;
+//     align-items: right;
+//     display: inline-block;
+//     position: relative;
+//     left: 175px;
+//     bottom: 70px;
+// }
 
-.stackTypeDualDisplay{
-    background: black;
-    color: white;
-    border-radius: 50%;
-    width: 49px;
-    padding: 15px 0;
-    height: auto;
-    text-align: center;
-    font-weight: 700;
-    font-size: 12px;
-    display: inline-block;
-    align-items: right;
-    position: relative;
-    left: 120px;
-    bottom: 70px;
-}
+// .stackTypeDualDisplay{
+//     background: black;
+//     color: white;
+//     border-radius: 50%;
+//     width: 49px;
+//     padding: 15px 0;
+//     height: auto;
+//     text-align: center;
+//     font-weight: 700;
+//     font-size: 12px;
+//     display: inline-block;
+//     align-items: right;
+//     position: relative;
+//     left: 120px;
+//     bottom: 70px;
+// }
 
 #createNewCohortDiv {
     max-width: 20%;
@@ -102,27 +102,29 @@ width: 700px;
 }
 
 .cohortPageCloseModal{
-    background-color: #177e89;
+    background-color: #6c7f42;
     color: white;
-    border: solid 2px #177e89;
+    border: solid 2px #6c7f42;
     border-radius: 50%;
-    width: 26px;
-
-    padding-bottom: 5px;
-    padding-top: 5px;
+    width: 24px;
+    padding: 5px 2px;
     height: auto;
     text-align: center;
     align-items: center;
     position: relative;
-    top: 54px;
-    left: 740px;
+    top: 56px;
+    left: 553px;
     font-weight: 800;
-    font-size: 15px;
+    font-size: 13px;
     display: flex;
     align-content: center;
     flex-wrap: nowrap;
     justify-content: center;
+  }
 
+  .cohortPageCloseModal:hover{
+    background-color: #556434;
+    border: solid 2px #556434;
   }
 
 /*--------Modal Styling---------*/ 

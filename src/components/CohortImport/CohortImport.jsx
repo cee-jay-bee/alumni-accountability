@@ -44,22 +44,34 @@ function CohortImport(props) {
 
   return (
     <div className="cohortImportDiv"> 
-      <div className="cohortImportModalTitle">
-        <h2>Cohort IMPORT</h2>
+      <div className="cohortImportCardHeader">
+            <Link to="/cohortpage">
+              <div className="cohortPageClosing">
+                  <p>x</p>
+              </div>
+            </Link>
+            <div className="createNewEventH2div">
+              <h2 id="newCohortH2">Let's import a new cohort</h2>
+              <p id="cohortUploadReminder">Reminder: please only upload one cohort file at a time!</p>
+            </div>
       </div>
+   
       <form onSubmit={()=>{upload(event)}}>
-      <label for="cohortFiles" class="custom-file-upload">
-      Custom Upload
+   
+      <label class="cohortFiles">
+        <input type="file" id="cohortFiles" accept=".csv" name="addCohort" aria-label="File browser example" multiple/>
+        <span class="file-custom"></span>
       </label>
-        <input type="file" id="cohortFiles" accept=".csv" name="addCohort" multiple />
       <br />
-      <select className="createnewdropdown" onChange={( event )=>setCohortType( event.target.value )}>
-        <option value={''}>Choose Cohort</option>
+      <select className="createnewCohortdropdown" onChange={( event )=>setCohortType( event.target.value )}>
+        <option value={''}>choose cohort type</option>
         <option value={'FSE'}>FSE</option>
         <option value={'UX/UI'}>UX/UI</option>
       </select>
       <br />
-      <input type="submit" />
+      <div className="cohortImportSubmitDiv">
+        <input type="submit" id="cohortImportSubmitBtn" />
+      </div>
       </form>
     </div>
   );
