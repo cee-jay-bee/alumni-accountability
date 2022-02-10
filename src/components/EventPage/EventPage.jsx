@@ -95,9 +95,9 @@ function EventPage(props) {
                           
                         {(event.stack_type === 'FSE') ?
                           <p class="stackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-                          (event.stack_type === 'UX/UI') ?
-                          <p class="stackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
-                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+                          (event.stack_type === 'UXD') ?
+                          <p class="stackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
+                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></span>
                         }
 
                         <div className="eventTitle"> 
@@ -158,9 +158,9 @@ function EventPage(props) {
 
                     {(event.stack_type === 'FSE') ?
                       <p class="stackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-                      (event.stack_type === 'UX/UI') ?
-                      <p class="stackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
-                      <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+                      (event.stack_type === 'UXD') ?
+                      <p class="stackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
+                      <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></span>
                     }
 
                     <div className="eventTitle">  
