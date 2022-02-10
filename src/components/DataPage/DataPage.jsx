@@ -44,7 +44,7 @@ function DataPage(props) {
   }
 
   const displayChart = () => {
-    dispatch({ type: 'FETCH_EVENT_ATTENDANCE', payload: eventID});
+    dispatch({ type: 'FETCH_EVENT_ATTENDANCE_DATA', payload: eventID});
   }
 
   return (

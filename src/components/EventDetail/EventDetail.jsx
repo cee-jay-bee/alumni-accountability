@@ -25,6 +25,10 @@ function EventDetail(props) {
   const dispatch = useDispatch();
   const event = useSelector((store) => store.event);
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_EVENT_ATTENDANCE', payload: oneEvent.id});
+  }, []);
   
 
   //HANLDE POP-UP MODAL
