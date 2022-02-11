@@ -36,8 +36,7 @@ const {
 router.get('/data', rejectUnauthenticated, (req, res) => {
   // GET route code here
   const query = `SELECT COUNT("event_attendance".id), alum_name, DATE_PART('day', NOW() - cohort.graduation_date) 
-  FROM alum 
-  JOIN event_attendance ON event_attendance.alum_id = alum.id
+  FROM alum LEFT JOIN event_attendance ON event_attendance.alum_id = alum.id
   JOIN cohort ON cohort.id=alum.cohort_id
   GROUP BY alum.alum_name, cohort.graduation_date;`;
   pool.query(query)
