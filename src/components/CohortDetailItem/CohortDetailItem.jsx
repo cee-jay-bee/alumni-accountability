@@ -20,6 +20,7 @@ function CohortDetailItem(props) {
     // console.log (props.alum);
   }, []);
   
+  
   if (props.alum.cohort_id == oneCohort.id){
     return (
       <div className='cohortDetailRow2'>
@@ -29,21 +30,21 @@ function CohortDetailItem(props) {
           </Link>
           <div class='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</div>
           <div class='cohortDetailTableRow2Col4'>{props.alum.graduation_date.split("T")[0]}</div>
+      <div>
+      {alumNote.alum_id == props.alum.id ?
+        <Link to="/alumnote"> 
+        <div class='cohortDetailTableRow2Col5'><StickyNote2Icon className='cohortDetailNoteIcon' style={{fontSize:"35px", "left": "93%", "top": "50%" }}/></div>
+        </Link>
+        :
+        <p></p>}
+      </div>
       </div>
           );
   } else {
     return null;
   };
 
-  // if ( alumNote.alum_id == alum.id ){
-  //   return (
-  //         <Link to="/alumnote"> 
-  //         <div class='cohortDetailTableRow2Col5'><StickyNote2Icon className='cohortDetailNoteIcon' style={{fontSize:"35px", "left": "93%", "top": "50%" }}/></div>
-  //         </Link>
-  //         );
-  //     } else {
-  //       return null;
-  //     }   
+  
   
 }
 
