@@ -12,6 +12,8 @@ function CohortDetailItem(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const oneCohort = useSelector((store) => store.oneCohort);
+  const alumNote = useSelector((store) => store.alumNote);
+  const alum = useSelector((store) => store.alum )
   
   useEffect(() => {
     // console.log (oneCohort);
@@ -27,8 +29,11 @@ function CohortDetailItem(props) {
           </Link>
           <div class='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</div>
           <div class='cohortDetailTableRow2Col4'>{props.alum.graduation_date.split("T")[0]}</div>
+
+          {/* { alumNote.alum_id == alum.id ( */}
           <div class='cohortDetailTableRow2Col5'><StickyNote2Icon className='cohortDetailNoteIcon' style={{fontSize:"35px", "left": "93%", "top": "50%" }}/></div>
-      </div>
+          {/* )} ; */}
+          </div>
     );
   } else {
     return null;
