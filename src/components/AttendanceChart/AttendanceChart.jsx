@@ -58,11 +58,17 @@ function AttendanceChart(props) {
                 display:false,
                 position:'right'
               }
+            },
+            scales: {
+              y: {
+                min: 0,
+                max: 16
+              }
+
             }
           }}
         />
       </div>
-      {JSON.stringify(props)}
     </div>
   );
 }

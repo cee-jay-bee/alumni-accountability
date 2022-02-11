@@ -13,6 +13,7 @@ import eventAttendance from './eventAttendance.reducer';
 import cohort from './cohort.reducer'
 import oneCohort from './oneCohort.reducer';
 import allUser from './allUser.reducer';
+import data from './data.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -34,7 +35,8 @@ const rootReducer = combineReducers({
   cohort,
   oneCohort,
   oneAlum,
-  allUser
+  allUser,
+  data
 });
 
 export default rootReducer;
