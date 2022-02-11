@@ -10,6 +10,7 @@ import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import { Modal, Box, Paper} from '@mui/material';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import EditCohort from '../EditCohort/EditCohort';
+import {useHistory} from 'react-router-dom';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -23,6 +24,7 @@ function CohortDetail(props) {
   const alum = useSelector((store) => store.alum);
   const oneAlum = useSelector((store) => store.oneAlum);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
@@ -38,6 +40,15 @@ function CohortDetail(props) {
     dispatch({ type: 'FETCH_ALUM'});
   }, []);
 
+  const deleteCohort = (event) => {
+    console.log('inDeleteCohort');
+    dispatch({
+      type: 'DELETE_COHORT',
+      payload: oneCohort.id
+    })
+    history.push("/cohortpage")
+  }
+
   const handleCheckboxChange = (id) => {
     console.log('checkbox changed:', id);
 
@@ -47,17 +58,6 @@ function CohortDetail(props) {
   }
 
  
-
-  // const submitPlacement = () => {
-  //   console.log('attendance for event:', alumPlacement);
-  //   dispatch({
-  //     type: 'UPDATE_ALUM',
-  //     payload: {
-  //       alum_placed: alumPlacement,
-  //       alum: oneAlum.id
-  //     }
-  //   })
-  // }
 
   return (
     <div className='mainCohortDetailDiv'> 
@@ -129,7 +129,7 @@ function CohortDetail(props) {
             style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
             <div className="deleteeventmodalbtns">
                 <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
-                <button className="deleteeventbtnconfirm" >Yes</button>
+                <button className="deleteeventbtnconfirm" onClick={deleteCohort}>Yes</button>
                 
             </div>
           </Paper>
