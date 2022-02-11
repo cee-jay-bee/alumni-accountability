@@ -24,7 +24,11 @@ function CohortDetailItem(props) {
   if (props.alum.cohort_id == oneCohort.id){
     return (
       <div className='cohortDetailRow2'>
+          {props.alum.alum_placed === true?
+          <div className='cohortDetailTableRow2Col1'><input type='checkbox' id='alumPlaced' className='alumPlacedCheckbox' value='placed' checked="checked"/></div>
+          :
           <div className='cohortDetailTableRow2Col1'><input type='checkbox' id='alumPlaced' className='alumPlacedCheckbox' value='placed'/></div>
+          } 
           <Link to="/alumdetail">
           <div className='cohortDetailTableRow2Col2'>{props.alum.alum_name}</div>
           </Link>
