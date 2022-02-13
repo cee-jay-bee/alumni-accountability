@@ -21,20 +21,23 @@ function PlacedChart(props) {
     let thirdArr = [];
     let fourthArr = [];
     let fifthArr = [];
+    let sixthArr = [];
     
     
     for (let i = 0; i < placementData.length; i++ ) {
       console.log(parseInt(placementData[i].count));
-      if(0 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 3) {
-        firstArr.push(placementData[i].date_part);
-      } else if(4 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 6) {
-        secondArr.push(placementData[i].date_part);
-      } else if(7 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 9) {
-        thirdArr.push(placementData[i].date_part);
-      } else if(10 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 12) {
-        fourthArr.push(placementData[i].date_part);
-      } else if(13 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 15) {
-        fifthArr.push(placementData[i].date_part);
+      if(0 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 2) {
+        firstArr.push(placementData[i].placement_time);
+      } else if(3 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 4) {
+        secondArr.push(placementData[i].placement_time);
+      } else if(5 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 6) {
+        thirdArr.push(placementData[i].placement_time);
+      } else if(7 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 8) {
+        fourthArr.push(placementData[i].placement_time);
+      } else if(9 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 10) {
+        fifthArr.push(placementData[i].placement_time);
+      } else if(10 <= Number(placementData[i].count)) {
+        sixthArr.push(placementData[i].placement_time);
       }
     }
 
@@ -68,23 +71,31 @@ function PlacedChart(props) {
       data.push(0);
     } else {
       data.push(fifthArr.reduce((a,b) => a + b) / fifthArr.length);
-    }  
+    }
+
+    if (sixthArr.length === 0) {
+      data.push(0);
+    } else {
+      data.push(sixthArr.reduce((a,b) => a + b) / sixthArr.length);
+    } 
     return data;
   }
 
   const state = {
     labels: [
-      '0-3',
-      '4-6',
-      '7-9',
-      '10-12',
-      '13-15'
+      '0-2',
+      '3-4',
+      '5-6',
+      '7-8',
+      '9-10',
+      '10+'
     ],
       
     datasets: [
       {
         label: 'Days to Placement',
         backgroundColor: [
+          'rgba(0, 0, 0, 0.2)',
           'rgba(255, 99, 132, 0.2)',
           'rgba(255, 159, 64, 0.2)',
           'rgba(75, 192, 192, 0.2)',
@@ -92,6 +103,7 @@ function PlacedChart(props) {
           'rgba(153, 102, 255, 0.2)'
         ],
         borderColor: [
+          'rgb(0, 0, 0)',
           'rgb(255, 99, 132)',
           'rgb(255, 159, 64)',
           'rgb(75, 192, 192)',
