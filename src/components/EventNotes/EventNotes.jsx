@@ -5,7 +5,7 @@ import MuiAlert from '@mui/material/Alert';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-import './EventNotes.css'
+import './EventNotes.scss'
 
 
 const Alert = React.forwardRef(function Alert(props, ref) {
