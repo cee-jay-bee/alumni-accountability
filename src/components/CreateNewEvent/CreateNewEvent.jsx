@@ -93,7 +93,7 @@ function CreateNewEvent(props) {
               {/* EVENT COHORT TYPE INPUT */}
               <div>
                 {/* <label for="createnewdropdown">cohort type</label> */}
-                <select className="createnewdropdown" onChange={( event )=>setEventStackType( event.target.value )}>
+                <select className="createnewdropdown" value={eventStackType} onChange={( event )=>setEventStackType( event.target.value )}>
                   <option value="">cohort type</option>
                   <option value={'FSE'}>FSE</option>
                   <option value={'UX/UI'}>UX/UI</option>
