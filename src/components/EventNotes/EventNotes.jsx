@@ -103,25 +103,12 @@ function EventNotes(props) {
     <div>
       <div className='notesHeader'>
 
-      <h2 className='title'> Notes</h2>
+        <h2 className='eventNotestitle'> Notes</h2>
 
         <div className='eventnotedisplayfield'>
-        <TextField
-              className="createNewEventNote"
-              style={{ width: '65%', top: '-54px', left: '34%', position: 'relative'}}
-              size='small'
-              label="add event notes"
-              variant="outlined"
-              autoComplete= "off"
-              type="text"
-              name="event note"
-              required
-              value={eventNotes}
-              onKeyUp={onPressEnter}
-              onChange={(event) => setEventNotes(event.target.value)}
-            />
-         </div>
-         <div className='eventnotedisplayarea'>
+          <input className="eventNewTagInput" placeholder="add event tag" type="text" autoComplete= "off" value={eventNotes} onKeyUp={onPressEnter} onChange={(event) => setEventNotes(event.target.value)}/>
+        </div>
+        <div className='eventnotedisplayarea'>
         
           {eventNote.map((onenote)=>
             <Grid container key={onenote.id} justifyContent = "space-evenly">
