@@ -4,7 +4,8 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.scss';
 import { useSelector,useDispatch } from 'react-redux';
 import UserPage from '../UserPage/UserPage';
-import SearchByAlum from '../SearchByAlum/SearchByAlum'
+import SearchByAlum from '../SearchByAlum/SearchByAlum';
+import SearchBySkill from '../SearchBySkill/SearchBySkill';
 
 function Nav() {
   const [skillName, setskillName] = useState("")
@@ -64,13 +65,8 @@ function Nav() {
               </Link> */}
               <SearchByAlum/>
             </div>
-            <div class="searchBySkilldiv">
-              <input class="searchbyskill" placeholder="search by skill" 
-              onChange={(e)=>setskillName(e.target.value)} />
-              <Link to="/resultpage"> 
-                <button class="searchBySkillBtn" to="/resultpage" onClick={onSkillSearch}>
-                  Search skill</button>
-            </Link>
+            <div>
+              <SearchBySkill/>
             </div>
             
              {/* Link is a placeholder for now. Later we might want to use useHistory */}
