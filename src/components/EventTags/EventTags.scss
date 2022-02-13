@@ -1,0 +1,90 @@
+.tagsHeader{
+    // border: 3px solid;
+    flex: 5;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    margin-bottom: 10px;
+}
+
+.eventtagdisplayarea{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.eventtagdisplay{
+    display: flex;
+    background-color: #434169;
+    border-radius: 5px;
+    padding: 12px 10px;
+    width: fit-content;
+    // border-style: solid;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    display: inline-table;
+    margin: 10px;
+    margin-top: inherit;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    
+}
+
+.eventtagdeletebtn {
+    // display: flex;
+    margin-left: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    border: none;
+    position: inline;
+    border-radius: 50%;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    align-content: baseline;
+    color: #434169;
+    background-color: white;
+
+}
+.eventtagdisplayfield{
+    margin: 5px 12px;
+    // border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.eventtagdisplayfield > h2{
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #505050;
+
+}
+
+
+.eventNewTagInput{
+    height: 40px;
+    width: 50%;
+    border: solid 1px #c3c3c3;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(98, 98, 98);
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "open sans", sans-serif;
+  }
+  
+  .eventNewTagInput:focus{
+    border-color: rgb(255, 175, 175);
+    box-shadow: 0px 0px 5px rgb(255, 175, 175);
+    outline: 0;
+  }
+  
+  .eventNewTagInput:hover{
+    border-color: rgb(255, 175, 175);
+    outline: 0;
+  }
