@@ -24,6 +24,16 @@ function* fetchUser() {
   }
 }
 
+function* deleteUser(action) {
+  try {
+
+    yield axios.delete(`/api/user/${action.payload}`);
+    yield put({ type: 'FETCH_ALL_USER'});
+  } catch (error) {
+    console.log('Event delete request failed', error);
+  }
+}
+
 function* emailUsername(action) {
   console.log(action.payload);
   try {
@@ -55,6 +65,7 @@ function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeLatest('EMAIL_USERNAME', emailUsername);
   yield takeLatest('RESET_PASSWORD', resetPassword);
+  yield takeLatest('DELETE_USER', deleteUser);
 }
 
 export default userSaga;

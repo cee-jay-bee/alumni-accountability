@@ -105,7 +105,7 @@ router.post('/register', rejectUnauthenticated, (req, res, next) => {
   const email = req.body.email;
   const firstname = req.body.firstname;
   const lastname = req.body.lastname;
-  const role = 'admin';
+  const role = req.body.usertype;
   
   const queryText = `INSERT INTO "user" (username, password, email_address, firstname, lastname, role)
     VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
@@ -127,6 +127,20 @@ router.get('/all', rejectUnauthenticated, (req, res) => {
     })
     .catch(err => {
       console.log('ERROR: Get User', err);
+      res.sendStatus(500)
+    })
+});
+
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  // DELETE route for user
+  const id = req.params.id;
+  const query = `DELETE FROM "user" WHERE id = $1`;
+  pool.query(query, [id])
+    .then( () => {
+      res.sendStatus(200);
+    })
+    .catch(err => {
+      console.log('ERROR: Delete user', err);
       res.sendStatus(500)
     })
 });

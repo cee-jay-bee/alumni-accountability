@@ -23,14 +23,16 @@ function RegisterPage() {
       <div className='userRegisterPageDiv'>
         <div className="userTableDiv">
           <table id='userTable'>
-            <tr class='userTable'>
-              <th id='userTableCol2'>Name</th>
-              <th id='userTableCol3'>Status</th>
-              <th id='userTableCol4'>Delete</th>
-            </tr>
-          {allUser.map(user => 
-              (<UserItem key={user.id} user={user} />) 
-          )}
+            <tbody>
+              <tr className='userTable'>
+                <th id='userTableCol2'>Name</th>
+                <th id='userTableCol3'>Status</th>
+                <th id='userTableCol4'>Delete</th>
+              </tr>
+              {allUser.map(user => 
+                (<UserItem key={user.id} user={user} />) 
+              )}
+            </tbody>
         </table>
       </div>
       <div className="registerFormDiv">
