@@ -9,6 +9,7 @@ const nodemailer = require("nodemailer");
 const { getImageListItemBarUtilityClass } = require('@mui/material');
 const { config } = require('dotenv');
 const router = express.Router();
+
 const {google} = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
@@ -65,17 +66,14 @@ router.get('/username', (req, res) => {
         let info = await transporter.sendMail({
           from: '"Priumni App"', // sender address
           to: `${req.query.email}`, // list of receivers
-          subject: "Hello ✔", // Subject line
-          text: "Hello world?", // plain text body
-          html: `<b>Hello world?</b> ${result.rows[0].username}`, // html body
+          subject: "Priumni Username Request", // Subject line
+          text: "Priumni Username Request", // plain text body
+          html: `<b>Username is:</b> ${result.rows[0].username}`, // html body
         });
       
         console.log("Message sent: %s", info.messageId);
         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
       
-        // Preview only available when sending through an Ethereal account
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
       }
     ).catch((err) => {
       console.log('Username email failed: ', err);
@@ -89,7 +87,7 @@ router.put('/password', (req, res, next) => {
   const password = encryptLib.encryptPassword(req.body.password);
   const email = req.body.email;
   
-  const queryText = `UPDATE "user" SET password=$1 WHERE username=$2 AND user_email=$3`;
+  const queryText = `UPDATE "user" SET password=$1 WHERE username=$2 AND email_address=$3`;
   pool
     .query(queryText, [password, username, email])
     .then(() => res.sendStatus(201))
@@ -101,17 +99,18 @@ router.put('/password', (req, res, next) => {
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
-router.post('/register', (req, res, next) => {
+router.post('/register', rejectUnauthenticated, (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
+  const email = req.body.email;
   const firstname = req.body.firstname;
   const lastname = req.body.lastname;
   const role = 'admin';
   
-  const queryText = `INSERT INTO "user" (username, password, firstname, lastname, role)
-    VALUES ($1, $2, $3, $4, $5) RETURNING id`;
+  const queryText = `INSERT INTO "user" (username, password, email_address, firstname, lastname, role)
+    VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
   pool
-    .query(queryText, [username, password, firstname, lastname, role])
+    .query(queryText, [username, password, email, firstname, lastname, role])
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('User registration failed: ', err);
@@ -148,3 +147,4 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
+

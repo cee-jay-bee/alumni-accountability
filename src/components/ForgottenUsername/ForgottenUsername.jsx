@@ -19,7 +19,8 @@ function ForgottenUsername() {
         email: email
       },
     });
-  }; // end registerUser
+    history.push("/login");
+  }; // end recoverUsername
 
   return (
     <div>
@@ -49,8 +50,6 @@ function ForgottenUsername() {
       <div>
         <input className="btn" type="submit" name="submit" value="Email Username" />
       </div>
-    </form>
-
       <center>
         <button
           type="button"
@@ -72,6 +71,7 @@ function ForgottenUsername() {
           Reset Password
         </button>
       </center>
+    </form>
     </div>
   );
 }

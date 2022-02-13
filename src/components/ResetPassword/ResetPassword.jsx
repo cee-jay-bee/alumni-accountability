@@ -78,8 +78,6 @@ function ForgottenUsername() {
       <div>
         <input className="btn" type="submit" name="submit" value="Reset Password" />
       </div>
-    </form>
-
       <center>
         <button
           type="button"
@@ -101,6 +99,7 @@ function ForgottenUsername() {
           Forgot Username?
         </button>
       </center>
+    </form>
     </div>
   );
 }
