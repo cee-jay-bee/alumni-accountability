@@ -1,3 +1,197 @@
-.cohortImportDiv {
-    background-color: white;
+.file {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    height: 2.5rem;
+  }
+  .file input {
+    min-width: 14rem;
+    margin: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+  }
+
+  .file-custom:before {
+    position: absolute;
+    top: 140px;
+    right: 25.25rem;
+    bottom: -.075rem;
+    text-align: center;
+    z-index: 6;
+    display: block;
+    content: "Browse";
+    width: 80px;
+    height: 25px;
+    padding: .5rem 1rem;
+    line-height: 1.5;
+    color: #434169;
+    border: 1px #434169 solid;
+    background-color: #f0efff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+.cohortFiles{
+    margin-left: 16px;
 }
+  
+.cohortImportCardHeader{
+    text-align: center;
+    margin-bottom: 50px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.cohortImportCardHeader #newCohortH2{
+    height: 30px;
+    margin: 0px 0px;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    }
+
+#cohortUploadReminder{
+    font-size: 14px;
+    margin: 2px 0px;
+}
+
+.cohortImportDiv {
+    padding: 10px 19px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    outline: 0;
+}
+
+.cohortImportModalTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.cohortPageClosing{
+    height: 30px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .cohortPageClosing p{
+    color: white;
+    background-color: #6c7f42;
+    border-radius: 50%;
+    padding: 3px 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: solid underline #6c7f42;
+  }
+
+  .cohortPageClosing p:hover{
+    color: white;
+    background-color: #566634;
+    border-radius: 50%;
+    padding: 3px 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: solid underline #566634;
+  }
+
+  .cohortImportSubmitDiv{
+      display: flex;
+      justify-content: right;
+  }
+
+  #cohortImportSubmitBtn{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    background-color: #6c7f42;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  #cohortImportSubmitBtn:hover{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    background-color: #526132;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+
+  .createnewCohortdropdown{
+    height: 56px;
+    width: 217px;
+    margin: 2px 5px;
+    margin-top: 20px;
+    border: solid 1px #c3c3c3;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(117, 117, 117);
+    font-family: "open sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    appearance: none;
+    // cursor: pointer;
+  }
+
+  select.createnewCohortdropdown {
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      radial-gradient(#ddd 70%, transparent 72%);
+    background-position:
+      calc(100% - 20.4px) calc(1em + 2px),
+      calc(100% - 16.3px) calc(1em + 2px),
+      calc(100% - .5em) .5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.6em 1.5em;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  
+  select.createnewCohortdropdown:focus {
+    background-image:
+      linear-gradient(45deg, white 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, white 50%),
+      radial-gradient(gray 70%, transparent 72%);
+    background-position:
+      calc(100% - 16.3px) 1em,
+      calc(100% - 20.4px) 1em,
+      calc(100% - .5em) .5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.6em 1.5em;
+    background-repeat: no-repeat;
+    border-color: rgb(255, 175, 175);
+    box-shadow: 0px 0px 5px rgb(255, 175, 175);
+    outline: 0;
+  }
+  
+  select.createnewCohortdropdown:hover{
+    border-color: rgb(255, 175, 175);
+    // box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  }
