@@ -10,8 +10,14 @@ const {
  */
  router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('in alum router', req.query.search);
-  let query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id, cohort.cohort_name, cohort.graduation_date,
-   alum.alum_skills FROM alum JOIN cohort on alum.cohort_id = cohort.id`;
+  
+  const { alumSkill = "" } = req.query
+  let query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id,  
+  alum.placed_date,alum.alum_skills, cohort.cohort_name,cohort.graduation_date, count(event_attendance.event_id) as event_count 
+  FROM alum JOIN cohort on alum.cohort_id = cohort.id 
+  FULL JOIN event_attendance on event_attendance.alum_id = alum.id 
+  ${alumSkill && `WHERE '${alumSkill}' = ANY(alum.alum_skills)`}
+  GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name`;
   
    let params = [query];
 
@@ -24,6 +30,28 @@ const {
   }
 
   pool.query(...params)
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get alum', err);
+      res.sendStatus(500)
+    })
+});
+
+
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+
+  const {id} = req.params
+  const query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id,
+  to_json(alum.placed_date) as placed_date,
+  alum.alum_skills, cohort.cohort_name,cohort.graduation_date, count(event_attendance.event_id) as event_count 
+  FROM alum JOIN cohort on alum.cohort_id = cohort.id 
+  FULL JOIN event_attendance on event_attendance.alum_id = alum.id 
+  WHERE alum.id = $1
+  GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name`
+
+  pool.query(query,[id])
     .then( result => {
       res.send(result.rows);
     })
@@ -65,8 +93,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 
   router.put('/skill/:id', rejectUnauthenticated, (req, res) => {
-    console.log(req.params, req.body);
-    const id = req.params.id
+
+    const { id } = req.params
     const skills = req.body
     const queryText =  `UPDATE alum SET alum_skills = $1 WHERE id = $2;`
     pool.query(queryText,[ skills , id ]).then(()=>
@@ -78,6 +106,63 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     )
   });
 
+  router.put('/placed/:id', rejectUnauthenticated, (req, res) => {
+    const { id } = req.params
+    const {placedStatus} = req.body
+    const queryText =  `UPDATE alum SET alum_placed = $2 WHERE id = $1;`
+    pool.query(queryText,[ id, placedStatus ]).then(()=>
+        res.sendStatus(201)
+    ).catch(err=>{
+        console.log("alum put placed router has error", err)
+        res.sendStatus(500)
+      }
+    )
+  });
+
+  router.put('/placed/date/:id', rejectUnauthenticated, (req, res) => {
+    const { id } = req.params
+    const {placedDate} = req.body
+    const queryText =  `UPDATE alum SET placed_date = $2 WHERE id = $1;`
+    pool.query(queryText,[ id, placedDate ]).then(()=>
+        res.sendStatus(201)
+    ).catch(err=>{
+        console.log("alum put placed router has error", err)
+        res.sendStatus(500)
+      }
+    )
+  });
+
+
+
+
+  router.put('/placed/:id', rejectUnauthenticated, (req, res) => {
+    const { id } = req.params
+    const {placedStatus} = req.body
+    const queryText =  `UPDATE alum SET alum_placed = $2 WHERE id = $1;`
+    pool.query(queryText,[ id, placedStatus ]).then(()=>
+        res.sendStatus(201)
+    ).catch(err=>{
+        console.log("alum put placed router has error", err)
+        res.sendStatus(500)
+      }
+    )
+  });
+
+  router.put('/placed/date/:id', rejectUnauthenticated, (req, res) => {
+    const { id } = req.params
+    const {placedDate} = req.body
+    const queryText =  `UPDATE alum SET placed_date = $2 WHERE id = $1;`
+    pool.query(queryText,[ id, placedDate ]).then(()=>
+        res.sendStatus(201)
+    ).catch(err=>{
+        console.log("alum put placed router has error", err)
+        res.sendStatus(500)
+      }
+    )
+  });
+
+
+  
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const {id} = req.params

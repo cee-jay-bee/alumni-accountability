@@ -24,6 +24,16 @@ function* searchForAlum(action) {
   }
 }
 
+
+function* searchAlumbySkill(action) {
+  try {
+    const response = yield axios.get(`/api/alum?alumSkill=${action.payload}`);
+    yield put({ type: 'SET_SKILL_SEARCH', payload: response.data });
+  } catch (error) {
+    console.log('Alum search skill request failed', error);
+  }
+}
+
 function* createAlum(action) {
   try {
     yield axios.post('/api/alum', action.payload);
@@ -60,6 +70,29 @@ function* deleteAlum(action) {
     console.log('Alum Delete request failed', error);
   }
 }
+function* updateAlumPlaced(action) {
+  try {
+    console.log(action.payload)
+    yield axios.put(`/api/alum/placed/${action.payload.id}`,action.payload);
+    const response = yield axios.get(`/api/alum/${action.payload.id}`);
+    yield put({type : "SET_ONE_ALUM", payload : response.data[0]})
+    yield put({ type: 'FETCH_ALUM' })
+  } catch (error) {
+    console.log('Alum put request failed', error);
+  }
+}
+
+
+function* updateAlumPlacedDate(action) {
+  try {
+    yield axios.put(`/api/alum/placed/date/${action.payload.id}`,action.payload);
+    const response = yield axios.get(`/api/alum/${action.payload.id}`);
+    yield put({type : "SET_ONE_ALUM", payload : response.data[0]})
+    yield put({ type: 'FETCH_ALUM' })
+  } catch (error) {
+    console.log('Alum put placed date request failed', error);
+  }
+}
 
 function* alumSaga() {
   yield takeLatest('FETCH_ALUM', fetchAlum);
@@ -68,6 +101,9 @@ function* alumSaga() {
   yield takeLatest('UPDATE_ALUM', updateAlum);
   yield takeLatest('UPDATE_ALUM_SKILL', updateAlumSkill);
   yield takeLatest('ALUM_SEARCH', searchForAlum);
+  yield takeLatest('ALUM_PLACED', updateAlumPlaced);
+  yield takeLatest('ALUM_PLACED_DATE', updateAlumPlacedDate);
+  yield takeLatest('SEARCH_BY_SKILL', searchAlumbySkill);
 }
 
 export default alumSaga;

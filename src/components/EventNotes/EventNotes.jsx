@@ -190,15 +190,15 @@ function EventNotes(props) {
             style={{
             // transform: 'translate(-50%, -50%)',
             width: '450px',
-            height: '400px',
+            height: '300px',
               }}
           >
-          <h4 className="confirmDelete">Confirm Delete?</h4>
+          <h4 className="confirmnoteDelete">Confirm Delete?</h4>
           <span className='deleteexclamationpoint'><PriorityHighIcon
-            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
-          <div className="deleteeventmodalbtns">
-                <button className="deleteeventbtncancel" onClick={()=>setDeleteOpen(false)}>No</button>
-                <button className="deleteeventbtnconfirm" onClick={()=>deleteNote(deleteID)}>Yes</button>
+            style={{fontSize:"120px", marginLeft:"150px", marginBottom:"5px", marginTop:"0px"}}/> </span> 
+          <div className="deleteeventnotemodalbtns">
+                <button className="deleteeventnotebtncancel" onClick={()=>setDeleteOpen(false)}>No</button>
+                <button className="deleteeventnotebtnconfirm" onClick={()=>deleteNote(deleteID)}>Yes</button>
           </div>
         </Paper>
       </Box> 

@@ -1,8 +1,8 @@
-const eventAttendanceReducer = (state = [], action) => {
+const searchReducer = (state = [], action) => {
     switch (action.type) {
-      case 'SET_EVENT_ATTENDANCE':
+      case 'SET_SKILL_SEARCH':
         return action.payload;
-      case 'UNSET_EVENT_ATTENDANCE':
+      case 'UNSET_SKILL_SEARCH':
         return [];
       default:
         return state;
@@ -11,5 +11,4 @@ const eventAttendanceReducer = (state = [], action) => {
   
   // user will be on the redux state at:
   // state.user
-  export default eventAttendanceReducer;
-  
+  export default searchReducer;

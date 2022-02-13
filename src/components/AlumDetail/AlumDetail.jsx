@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import Typography from '@mui/material/Typography'
+import {Typography,Checkbox,TextField} from '@mui/material'
 import { Link } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
 import AlumSkills from '../AlumSkills/AlumSkills'
@@ -12,24 +12,48 @@ function AlumDetail(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const dispatch = useDispatch()
-  
   const oneAlum = useSelector((store) => store.oneAlum);
-  const oneAlumNotes = useSelector((store) => store.alumNote);
-  console.log(oneAlum)
-  console.log(oneAlumNotes)
+
 
   useEffect(() => {
     dispatch({type : "FETCH_ALUMNOTE", payload : oneAlum.id})
   }, [dispatch])
 
+  const handleCheckbox = (id,placedStatus)=>{
+    const data = {id,placedStatus : !placedStatus}
+    dispatch({type : "ALUM_PLACED", payload : data})
+    
+  }
+
+  const placedDateHandler = (e,id)=> {
+    // setplacedDate(e.target.value)
+    console.log(typeof(e.target.value))
+    const data = {id,placedDate : e.target.value}
+    dispatch({type : "ALUM_PLACED_DATE", payload : data})
+  }
 
   return (
     <div> 
       <h1>{oneAlum.name}</h1>
       <h2>FSE</h2>
       <p>{oneAlum.alum_placed ? "Placed" : "Seeking"}</p>
-      <input type="checkbox" placeholder="placed?" name="placed" id=""/>
+      <p>Events Attended = {oneAlum.event_count}</p>
+      <Typography variant="subtitle">Placed</Typography>
+      <Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} />
+      {oneAlum.alum_placed && 
       <div>
+
+      <input type="date" className="createnewDateInput" autoComplete= "off" 
+      required  onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
+
+      </div>
+      }
+      {oneAlum.alum_placed && oneAlum.placed_date &&
+      <div>
+        <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
+      </div>
+      }
+      <div style={{marginTop:"1rem"}}>
         < AlumSkills />
       </div>
       <div>      
