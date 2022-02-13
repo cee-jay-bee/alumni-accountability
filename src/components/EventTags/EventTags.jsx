@@ -62,7 +62,9 @@ function EventTags() {
       <div className='tagsHeader'>
 
         <div className='eventtagdisplayfield'>
-          <h2> Tag</h2>
+          <div className="eventdetailtitleandreminder">
+            <h2> Tag</h2><p id="eventdisplaydisclaimer">(be sure to save changes after entering / deleting tags!)</p>
+          </div>
           {/* EVENT TAG INPUT */}
           <input className="eventNewTagInput" placeholder="add event tag" type="text" autoComplete= "off" value={eventTag} onKeyUp={onPressEnter} onChange={(event) => setEventTag(event.target.value)}/>
         </div>  
@@ -75,9 +77,9 @@ function EventTags() {
               </p>
             )}    
         </div>
-        <div>
-            <button onClick = { ()=>setopenModal(true)} > Save Changes </button>
-        </div>
+        {/* <div className="eventTagSaveChangesBtn"> */}
+        <button  className="eventTagSaveChangesBtn" onClick = { ()=>setopenModal(true)} > Save Changes </button>
+        {/* </div> */}
       </div>
 
       <Modal
