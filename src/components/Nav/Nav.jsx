@@ -32,13 +32,9 @@ function Nav() {
         {user.id &&(
           <>
             
-              <Link id='home-button' className="navLink" to="/user">
-                Home
-              </Link>
-            
-            {/* <Link id='home-button' className="navLink" to="/user">
+            <Link id='home-button' className="navLink" to="/user">
               Home
-            </Link> */}
+            </Link>
 
             <Link className="navLink" to="/eventpage">
               Event
@@ -55,16 +51,11 @@ function Nav() {
             <Link className="navLink" to="/registration">
               Users
             </Link>
-            
+
             <div>
-            {/* class="searchByAlumdiv" */}
-              {/* <input class="searchbyaluminput" placeholder="search by alum"></input> */}
-              {/* Link is a placeholder for now. Later we might want to use useHistory */}
-              {/* <Link to="/resultpage"> 
-                <button class="searchbyalumbtn">Search alum</button>
-              </Link> */}
               <SearchByAlum/>
             </div>
+            
             <div>
               <SearchBySkill/>
             </div>
@@ -72,6 +63,7 @@ function Nav() {
              {/* Link is a placeholder for now. Later we might want to use useHistory */}
           </>
         )}
+        
       </div>
       {/* <div> */}
       <div className="logoutbtn">

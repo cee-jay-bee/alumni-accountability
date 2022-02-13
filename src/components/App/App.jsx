@@ -174,20 +174,19 @@ function App() {
           <EditEvent/>
         </ProtectedRoute>
 
-        {/*!!!!!! DO NOT DELETE WE NEED THIS FOR LATER!!!!!! */}
-        {/* <ProtectedRoute
+        <ProtectedRoute
           exact
           path="/registration"
           >
-          <RegisterPage/>
-        </ProtectedRoute> */}
-
-          <Route
-            exact
-            path="/registration"
-            >
-            <RegisterPage/>
-          </Route>
+            {user.role !== "admin" ?
+              // If the user is already logged in, 
+              // redirect to the /user page
+              <Redirect to="/user" />
+              :
+              // Otherwise, show the login page
+              <RegisterPage/>
+            }
+        </ProtectedRoute>
 
           <Route
             exact
