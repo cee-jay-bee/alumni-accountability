@@ -213,7 +213,7 @@ function App() {
               <Redirect to="/user" />
               :
               // Otherwise, show the login page
-              <LoginPage />
+              <LandingPage />
             }
           </Route>
 
