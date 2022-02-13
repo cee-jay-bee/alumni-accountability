@@ -4,11 +4,19 @@
 }
 
 .notesHeader{
-    border: 3px solid;
+    // border: 3px solid;
     flex: 5;
     position: relative;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+}
+
+.eventNotestitle{
+  margin: 10px 10px;
+  border: 1px solid black;
 }
 
 .deleteeventnotemodalbtns{
