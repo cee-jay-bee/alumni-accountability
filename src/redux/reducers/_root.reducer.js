@@ -1,3 +1,4 @@
+
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
@@ -14,6 +15,7 @@ import cohort from './cohort.reducer'
 import oneCohort from './oneCohort.reducer';
 import allUser from './allUser.reducer';
 import data from './data.reducer';
+import skillSearch from './search.reducer'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -36,7 +38,8 @@ const rootReducer = combineReducers({
   oneCohort,
   oneAlum,
   allUser,
-  data
+  data,
+  skillSearch
 });
 
 export default rootReducer;
