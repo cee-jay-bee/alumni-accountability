@@ -1,13 +1,18 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.scss';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import UserPage from '../UserPage/UserPage';
 import SearchByAlum from '../SearchByAlum/SearchByAlum'
 
 function Nav() {
+  const [skillName, setskillName] = useState("")
   const user = useSelector((store) => store.user);
+  const dispatch = useDispatch()
+  const onSkillSearch = ()=>{
+    dispatch({ type: 'SEARCH_BY_SKILL',payload : skillName})
+  }
 
   return (
     <div className="nav">
@@ -60,9 +65,11 @@ function Nav() {
               <SearchByAlum/>
             </div>
             <div class="searchBySkilldiv">
-              <input class="searchbyskill" placeholder="search by skill"></input>
+              <input class="searchbyskill" placeholder="search by skill" 
+              onChange={(e)=>setskillName(e.target.value)} />
               <Link to="/resultpage"> 
-                <button class="searchBySkillBtn" to="/resultpage">Search skill</button>
+                <button class="searchBySkillBtn" to="/resultpage" onClick={onSkillSearch}>
+                  Search skill</button>
             </Link>
             </div>
             

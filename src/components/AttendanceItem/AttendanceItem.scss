@@ -1,9 +1,12 @@
-
 .alumAttendedCheckbox {
     width: 25px;
     height: 25px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.alumAttendedCheckbox::after{
+   
 }
 
 

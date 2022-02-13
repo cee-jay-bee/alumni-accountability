@@ -1,18 +1,15 @@
-
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // margin: 0 0 30px;
   background-color: #ffffff;
-  // overflow: ;
-  // padding-left: 20px;
-  // padding-right: 0px;
   margin: 0px -25px;
   box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
   position: fixed;
   top: 0;
   width: 100%;
+  z-index:1; /*Add this*/
+  min-width: 777px;
 }
 
 .nav a {
@@ -118,6 +115,7 @@
   align-content: center;
   justify-content: space-between;
   align-items: baseline;
+  margin-left: 15px;
   border-radius: 20px;
   padding: 5px 10px 0 10px;
   width: 286px;
