@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
-import RegisterForm from '../RegisterForm/RegisterForm';
+import LoginForm from '../LoginForm/LoginForm';
 
 function LandingPage() {
   // const [heading, setHeading] = useState('Welcome');
@@ -52,13 +52,11 @@ function LandingPage() {
           </p>
         </div>
         <div className="grid-col grid-col_4">
-          <RegisterForm />
+          <LoginForm />
 
           <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
+            <h4>Not a Member?</h4>
+            <h4>Email <a href="mailto:christy@primeacademy.io">Christy</a> or <a href="mailto:bellamy@primeacademy.io">Bellamy</a> for Access</h4>
           </center>
         </div>
       </div>
