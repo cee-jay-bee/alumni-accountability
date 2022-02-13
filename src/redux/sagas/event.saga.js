@@ -48,7 +48,6 @@ function* updateEvent(action) {
     console.log(action)
     yield axios.put(`/api/event/${action.payload.id}`, action.payload);
     yield put({ type: 'FETCH_EVENT' })
-    yield put({ type: 'SET_ONE_EVENT', payload: action.payload })
   } catch (error) {
     console.log('Event Update request failed', error);
   }

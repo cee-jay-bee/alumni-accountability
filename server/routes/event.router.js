@@ -83,19 +83,21 @@ router.post('/', rejectUnauthenticated , async (req, res) => {
 
 
 router.put('/:id', rejectUnauthenticated, (req, res) => {
+
   const {id} = req.params
-  const title = req.body.title;
-  const date = req.body.date;
-  const time = req.body.time;
-  const stackType = req.body.stack_type;
-  const description = req.body.description;
+  const title = req.body.eventTitle;
+  const date = req.body.eventDate;
+  const time = req.body.eventTime;
+  const stackType = req.body.eventStackType;
+  const description = req.body.eventDescription;
+  const confirmAttendance = req.body.eventAttendance;
   
   const updateEventQuery =  `UPDATE event
-  SET event_title = $1, event_date = $2, time = $3, stack_type = $4, event_description = $5
-  WHERE id = $6;`
+  SET event_title = $1, event_date = $2, time = $3, stack_type = $4, event_description = $5, confirm_attendance = $6
+  WHERE id = $7;`
 
   // FIRST QUERY UDPATE EVENT
-  pool.query(updateEventQuery, [title, date, time, stackType, description, id])
+  pool.query(updateEventQuery, [title, date, time, stackType, description, confirmAttendance, id])
   .then(() => {
     res.sendStatus(201);
   }).catch(err => {
