@@ -134,10 +134,6 @@ const [eventNote, setEventNote] = useState('');
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       style={{alignItems:'center',
-      // position: 'absolute',
-      // top: '15%',
-      // left: '35%',
-      // transform: 'translate(-50%, -50%)',
       width: '400px',
       height: '400px',
       bgcolor: 'background.paper',
@@ -158,15 +154,6 @@ const [eventNote, setEventNote] = useState('');
               }}
           >
           <EditEvent />
-          {/* <span className='deleteexclamationpoint'><PriorityHighIcon
-            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
-          <div className="deleteeventmodalbtns">
-                <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
-                <button className="deleteeventbtnconfirm" onClick={deleteEvent}>Yes</button>
-                
-          </div> */}
-       
-        
         </Paper>
       </Box> 
     </Modal>

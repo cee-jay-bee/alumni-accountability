@@ -8,3 +8,62 @@
     outline: 0;
   }
  
+
+  .editEventdropdown{
+    height: 56px;
+    width: 217px;
+    margin: 10px 5px;
+    border: solid 1px #c3c3c3;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgb(117, 117, 117);
+    font-family: "open sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    appearance: none;
+  }
+
+  select.editEventdropdown {
+    background-image:
+      linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      radial-gradient(#ddd 70%, transparent 72%);
+    background-position:
+      calc(100% - 20.4px) calc(1em + 2px),
+      calc(100% - 16.3px) calc(1em + 2px),
+      calc(100% - .5em) .5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.6em 1.5em;
+    background-repeat: no-repeat;
+  }
+  
+  select.editEventdropdown:focus {
+    background-image:
+      linear-gradient(45deg, white 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, white 50%),
+      radial-gradient(gray 70%, transparent 72%);
+    background-position:
+      calc(100% - 16.3px) 1em,
+      calc(100% - 20.4px) 1em,
+      calc(100% - .5em) .5em;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.6em 1.5em;
+    background-repeat: no-repeat;
+    border-color: rgb(255, 175, 175);
+    box-shadow: 0px 0px 5px rgb(255, 175, 175);
+    outline: 0;
+  }
+  
+  select.editEventdropdown:hover{
+    border-color: rgb(255, 175, 175);
+    // box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  }
+
+  .editEventSubmitBtn{
+    margin-top: 7px;
+  }
