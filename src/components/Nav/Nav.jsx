@@ -70,7 +70,12 @@ function Nav() {
               <Link to="/resultpage"> 
                 <button class="searchBySkillBtn" to="/resultpage" onClick={onSkillSearch}>
                   Search skill</button>
-            </Link>
+              </Link>
+            </div>
+            <div>
+                <div className="logoutbtn">
+                  <LogOutButton className="navLink" />
+                </div>
             </div>
             
              {/* Link is a placeholder for now. Later we might want to use useHistory */}
@@ -78,9 +83,9 @@ function Nav() {
         )}
       </div>
       {/* <div> */}
-      <div className="logoutbtn">
+      {/* <div className="logoutbtn">
         <LogOutButton className="navLink" />
-      </div>
+      </div> */}
       {/* </div> */}
     </div>
   );
