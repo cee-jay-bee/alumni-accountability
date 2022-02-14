@@ -1,9 +1,10 @@
 .allEventPageMainTitle #allEventPageTitle{
-    font-weight: 200;
+    font-weight: 500;
     text-transform: uppercase;
     font-family: "Open Sans";
-    padding-top: 30px;
+    padding-top: 47px;
     font-size: 21px;
+    color: #818181;
 } //unless we increase the specificity with the class and id this h2 defaults to "bolder" for font weight
  
 // .mainAllEventsDiv{

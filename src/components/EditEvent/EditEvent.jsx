@@ -92,7 +92,7 @@ const [eventTime, setEventTime] = useState('');
               {/* EVENT COHORT TYPE INPUT */}
               <div>
                 {/* <label for="createnewdropdown">cohort type</label> */}
-                <select className="createnewdropdown" value={eventStackType} onChange={( event )=>setEventStackType( event.target.value )}>
+                <select className="editEventdropdown" value={eventStackType} onChange={( event )=>setEventStackType( event.target.value )}>
                   <option value="">cohort type</option>
                   <option value={'FSE'}>FSE</option>
                   <option value={'UX/UI'}>UX/UI</option>
@@ -100,7 +100,7 @@ const [eventTime, setEventTime] = useState('');
                 </select>
               </div>
               {/* SUBMISSION BTN */}
-              <div className="createNewEventBtn">
+              <div className="editEventSubmitBtn">
               {( eventTitle==='' || eventDate==='' || eventTime==='' || eventDescription==='' || eventStackType==='')?
                 <button className="createneweventdisable" variant="outlined" disabled>Submit Changes</button>:
                 <button className="createneweventsubmitbtn" variant="outlined" type="submit" name="submit" value="edit event" onClick={editEvent}>Submit Changes</button>

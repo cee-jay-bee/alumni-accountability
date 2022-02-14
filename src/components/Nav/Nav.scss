@@ -73,8 +73,9 @@
 .navbarContainer{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  width: auto;
+  width: 100%;
 }
 
 /* Search by alum */
@@ -145,5 +146,6 @@
 .logoutbtn{
  flex: none;
  width: 100px;
- padding-right: 15px;
+ margin-left: 50px;
+ margin-right: 10px;
 }
