@@ -80,10 +80,10 @@ const [eventNote, setEventNote] = useState('');
             <GroupAddOutlinedIcon id="attendancetitleBtn"
             style={{fontSize:"40px", "left": "60%" }}
             /> </Link>
-            <span><EditOutlinedIcon 
+            <span><EditOutlinedIcon id="attendancetitleBtn"
             onClick={handleClickOpen2}
             style={{fontSize:"40px", "left": "80%", 'margin-right': '15px', 'cursor':'pointer'}}/> </span> 
-            <span><DeleteOutlineOutlinedIcon
+            <span><DeleteOutlineOutlinedIcon id="attendancetitleBtn"
             onClick={handleClickOpen}
             style={{fontSize:"40px", "left": "90%" , 'cursor':'pointer'}}/> </span> 
         </div>
