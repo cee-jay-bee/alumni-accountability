@@ -163,10 +163,11 @@ const {
 
 router.get('/data', rejectUnauthenticated, (req, res) => {
   // GET route code here
-  const query = `SELECT COUNT("event_attendance".id), alum_name, DATE_PART('day', NOW() - cohort.graduation_date) 
+  const query = `SELECT COUNT("event_attendance".id), alum_name, (alum.placed_date - cohort.graduation_date) AS placement_time 
   FROM alum LEFT JOIN event_attendance ON event_attendance.alum_id = alum.id
   JOIN cohort ON cohort.id=alum.cohort_id
-  GROUP BY alum.alum_name, cohort.graduation_date;`;
+  WHERE alum.alum_placed = true
+  GROUP BY alum.alum_name, cohort.graduation_date, alum.placed_date;`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);
