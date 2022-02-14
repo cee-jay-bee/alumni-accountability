@@ -141,13 +141,19 @@ const [eventNote, setEventNote] = useState('');
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       style={{alignItems:'center',
-      position: 'absolute',
-      top: '15%',
-      left: '35%',
+      // position: 'absolute',
+      // top: '15%',
+      // left: '35%',
       // transform: 'translate(-50%, -50%)',
       width: '400px',
       height: '400px',
-      bgcolor: 'background.paper'
+      bgcolor: 'background.paper',
+      position: 'flexible',
+      top: '15%',
+      left: '0',
+      marginLeft: '26%',
+      marginRight: '50px',
+      outline: 'none'
     }}
     >
       <Box>
