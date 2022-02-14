@@ -59,7 +59,6 @@
 
 #attendanceDeleteEvent:hover{
     color: rgb(78, 78, 78);
-    background-color: orangered;
 }
 
 #attendanceEditEvent{
@@ -68,6 +67,10 @@
     top: 20px;
     left: -59px;
     font-size: 35px;
+}
+
+#attendanceEditEvent:hover{
+    color: rgb(78, 78, 78);
 }
 
 #attendanceTableMain {
