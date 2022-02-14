@@ -1,71 +1,3 @@
-/* 
-.eventNotestitle{
-  margin: 10px 10px;
-  border: 1px solid black;
-}
-
-.deleteeventnotemodalbtns{
-  justify-content: center;
-  align-items: center;
-  margin-left: 150px;
-  margin-top: 5px;
-
-}
-
-.deleteeventnotebtnconfirm{
-  background: transparent;
-  border: 1px solid rgb(32, 113, 116);
-  color: rgb(32, 113, 116);
-  background: transparent;
-  border: 1px solid rgb(32, 113, 116);
-  padding: 10px;
-  border-radius: 5px;
-  font-size: larger;
-  margin-left: 40px;
-}
-.deleteeventnotebtncancel{
-  background: transparent;
-  border: 1px solid red;
-  color: red;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: larger;
-  margin-bottom: 10px;
-}
-.confirmnoteDelete{
-  text-align: center;
-  padding-top: 30px;
-  font-size: 30px;
-  margin-bottom: 10px;
-  top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html
-  }
-
-  .notesmodalsavechangebtn{
-    background: transparent;
-    border: 1px solid rgb(32, 113, 116);
-    color: rgb(32, 113, 116);
-    background: transparent;
-    border: 1px solid rgb(32, 113, 116);
-    padding: 10px;
-    border-radius: 5px;
-    font-size: larger;
-    margin-left: 240px;
-   
-  }
-
-  .editNoteModalDescription{
-    margin-left: 10%;
-    font-size: 20px;
-    }
-
-    .editNoteModalOGstamp{
-      text-align: center;
-      font-size: 30px;
-      padding-top: 60px;
-      }
-
- */
-
 .notestitleandInput{
   margin: 5px 12px;
     // border: 1px solid black;
@@ -207,7 +139,6 @@
   align-content: center;
   margin: 0px 0px;
   height: auto;
-  align-items: center;
 }
 
 #eventdateid{
@@ -226,7 +157,7 @@
   width: 60%;
   // border: 1px solid;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   display: flex;
   flex-wrap: wrap;
 }
