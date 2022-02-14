@@ -226,27 +226,6 @@ function EventNotes(props) {
                     <DeleteOutlineOutlinedIcon style={{position:"static", fontSize: "30px"}} onClick={()=>{setDeleteID(onenote.id);setDeleteOpen(true)}} />
                 </div>
             </div>
-            // <Grid container key={onenote.id} justifyContent = "space-evenly">
-
-            //   <Grid item>
-            //     <Typography paragraph> {onenote.event_note_date.split("T")[0]} </Typography>
-            //   </Grid>
-            //   {/* <Grid item>
-            //     <Typography paragraph> {onenote.event_note_date.split("T")[1].split(".")[0]} </Typography>
-            //   </Grid> */}
-            //   <Grid item>
-            //     <Typography paragraph> {onenote.event_note_entry} </Typography>
-            //   </Grid>
-         
-            //   <Grid item>
-            //   <EditOutlinedIcon style={{position:"static"}} onClick = {()=>{setOneNote(onenote);setOpen(true)}}/>
-            //   </Grid>
-            //   <Grid item>
-            //   <DeleteOutlineOutlinedIcon style={{position:"static"}} 
-            //   onClick={()=>{setDeleteID(onenote.id);setDeleteOpen(true)}} />
-            //   </Grid>
-             
-            // </Grid>
             )}
 
         </div>
