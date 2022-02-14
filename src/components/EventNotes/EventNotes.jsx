@@ -204,12 +204,13 @@ function EventNotes(props) {
     <>
     <div>
       <div className='notesHeader'>
-
-        <h2 className='eventNotestitle'> Notes</h2>
-
-        <div className='eventnotedisplayfield'>
-          <input className="eventNewTagInput" placeholder="add event tag" type="text" autoComplete= "off" value={eventNotes} onKeyUp={onPressEnter} onChange={(event) => setEventNotes(event.target.value)}/>
+        <div className="notestitleandInput">
+            <h2 className='eventNotestitle'> Notes</h2>
+            {/* <div className='eventnotedisplayfield'> */}
+            <input className="eventNewNoteInput" placeholder="add event note" type="text" autoComplete= "off" value={eventNotes} onKeyUp={onPressEnter} onChange={(event) => setEventNotes(event.target.value)}/>
+            {/* </div> */}
         </div>
+
         <div className='eventnotedisplayarea'>
         
           {eventNote.map((onenote)=>
