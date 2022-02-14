@@ -63,7 +63,7 @@ function EventTags() {
 
         <div className='eventtagdisplayfield'>
           <div className="eventdetailtitleandreminder">
-            <h2> Tag</h2><p id="eventdisplaydisclaimer">(be sure to save changes after entering / deleting tags!)</p>
+            <h2 id="tagtitleh2"> Tag</h2><p id="eventdisplaydisclaimer">(be sure to save changes after entering / deleting tags!)</p>
           </div>
           {/* EVENT TAG INPUT */}
           <input className="eventNewTagInput" placeholder="add event tag" type="text" autoComplete= "off" value={eventTag} onKeyUp={onPressEnter} onChange={(event) => setEventTag(event.target.value)}/>

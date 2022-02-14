@@ -212,29 +212,41 @@ function EventNotes(props) {
         </div>
 
         <div className='eventnotedisplayarea'>
+          
         
           {eventNote.map((onenote)=>
-            <Grid container key={onenote.id} justifyContent = "space-evenly">
+            <div className="eventnoterow">
+                <div className="eventnotedatetime">
+                    <h4 id="eventdateid"> {onenote.event_note_date.split("T")[0]} </h4>
+                    <h4 id="eventtimeid"> {onenote.event_note_date.split("T")[1].split(".")[0]} </h4>
+                </div>
+                <h4 className="eventnotedisplay">{onenote.event_note_entry}</h4>
+                <div className="eventactionbtns">
+                    <EditOutlinedIcon style={{position:"static", fontSize: "30px"}} onClick = {()=>{setOneNote(onenote);setOpen(true)}}/>
+                    <DeleteOutlineOutlinedIcon style={{position:"static", fontSize: "30px"}} onClick={()=>{setDeleteID(onenote.id);setDeleteOpen(true)}} />
+                </div>
+            </div>
+            // <Grid container key={onenote.id} justifyContent = "space-evenly">
 
-              <Grid item>
-                <Typography paragraph> {onenote.event_note_date.split("T")[0]} </Typography>
-              </Grid>
-              {/* <Grid item>
-                <Typography paragraph> {onenote.event_note_date.split("T")[1].split(".")[0]} </Typography>
-              </Grid> */}
-              <Grid item>
-                <Typography paragraph> {onenote.event_note_entry} </Typography>
-              </Grid>
+            //   <Grid item>
+            //     <Typography paragraph> {onenote.event_note_date.split("T")[0]} </Typography>
+            //   </Grid>
+            //   {/* <Grid item>
+            //     <Typography paragraph> {onenote.event_note_date.split("T")[1].split(".")[0]} </Typography>
+            //   </Grid> */}
+            //   <Grid item>
+            //     <Typography paragraph> {onenote.event_note_entry} </Typography>
+            //   </Grid>
          
-              <Grid item>
-              <EditOutlinedIcon style={{position:"static"}} onClick = {()=>{setOneNote(onenote);setOpen(true)}}/>
-              </Grid>
-              <Grid item>
-              <DeleteOutlineOutlinedIcon style={{position:"static"}} 
-              onClick={()=>{setDeleteID(onenote.id);setDeleteOpen(true)}} />
-              </Grid>
+            //   <Grid item>
+            //   <EditOutlinedIcon style={{position:"static"}} onClick = {()=>{setOneNote(onenote);setOpen(true)}}/>
+            //   </Grid>
+            //   <Grid item>
+            //   <DeleteOutlineOutlinedIcon style={{position:"static"}} 
+            //   onClick={()=>{setDeleteID(onenote.id);setDeleteOpen(true)}} />
+            //   </Grid>
              
-            </Grid>
+            // </Grid>
             )}
 
         </div>
