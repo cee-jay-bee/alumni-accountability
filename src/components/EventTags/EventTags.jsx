@@ -101,15 +101,15 @@ function EventTags() {
             style={{
             // transform: 'translate(-50%, -50%)',
             width: '450px',
-            maxheight: '400px',
+            maxheight: '300px',
               }}
             >
-            <h4 className="confirmDelete">Confirm Changes?</h4>
+            <h4 className="confirmtagDelete">Confirm Changes?</h4>
             <span className='deleteexclamationpoint'><PriorityHighIcon
-              style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
-            <div className="deleteeventmodalbtns">
-                  <button className="deleteeventbtncancel" onClick={()=>setopenModal(false)}>No</button>
-                  <button className="deleteeventbtnconfirm" onClick={saveNewTags}>Yes</button>
+              style={{fontSize:"120px", marginLeft:"150px", marginBottom:"5px", marginTop:"0px"}}/> </span> 
+            <div className="deleteeventtagmodalbtns">
+                  <button className="deleteeventtagbtncancel" onClick={()=>setopenModal(false)}>No</button>
+                  <button className="deleteeventtagbtnconfirm" onClick={saveNewTags}>Yes</button>
             </div>
         </Paper>
       </Box> 

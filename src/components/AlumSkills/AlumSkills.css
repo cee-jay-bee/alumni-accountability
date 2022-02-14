@@ -1,0 +1,35 @@
+.deleteeventtagmodalbtns{
+    /* justify-content: center;
+    align-items: center; */
+    margin-left: 150px;
+    margin-top: 5px;
+   
+   }
+   
+   .deleteeventtagbtnconfirm{
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    color: rgb(32, 113, 116);
+    background: transparent;
+    border: 1px solid rgb(32, 113, 116);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+    margin-left: 40px;
+   }
+   .deleteeventtagbtncancel{
+    background: transparent;
+    border: 1px solid red;
+    color: red;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: larger;
+    margin-bottom: 10px;
+   }
+   .confirmtagDelete{
+    text-align: center;
+    padding-top: 30px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
+    }
