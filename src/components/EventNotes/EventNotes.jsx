@@ -107,6 +107,7 @@ import MuiAlert from '@mui/material/Alert';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import './EventNotes.scss'
 
 
@@ -239,40 +240,34 @@ function EventNotes(props) {
       </div>
     </Modal>
 
-   <Modal
+    <div className="deleteEventModalDiv">
+      <Modal
       open={deleteOpen}
       onClose={handleClickOpen}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       style={{alignItems:'center',
       position: 'flexible',
-      top: '15%',
+      top: '20%',
       left: '35%',
-      // transform: 'translate(-50%, -50%)',
-      width: '400px',
-      height: '400px',
       bgcolor: 'background.paper'
     }}
     >
-      <Box>
-        <Paper
-            style={{
-            // transform: 'translate(-50%, -50%)',
-            width: '450px',
-            height: '300px',
-              }}
-          >
-          <h4 className="confirmnoteDelete">Confirm Delete?</h4>
-          <span className='deleteexclamationpoint'><PriorityHighIcon
-            style={{fontSize:"120px", marginLeft:"150px", marginBottom:"5px", marginTop:"0px"}}/> </span> 
-          <div className="deleteeventnotemodalbtns">
-                <button className="deleteeventnotebtncancel" onClick={()=>setDeleteOpen(false)}>No</button>
-                <button className="deleteeventnotebtnconfirm" onClick={()=>deleteNote(deleteID)}>Yes</button>
+      <div className="eventDeleteModal">
+          <div className="eventDeleteModalCardHeader">
+              <h3 className="confirmDelete">Confirm Delete?</h3>
           </div>
-        </Paper>
-      </Box> 
+          <span className='deleteexclamationpoint'>
+            <ReportGmailerrorredIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/>
+          </span> 
+          <div className="deleteeventmodalbtns">
+                <button className="deleteeventbtncancel" onClick={()=>setDeleteOpen(false)}>No</button>
+                <button className="deleteeventbtnconfirm" onClick={()=>deleteNote(deleteID)}>Yes</button>  
+          </div>
+      </div>
     </Modal>
-
+  </div>
    </>
   );
 }
