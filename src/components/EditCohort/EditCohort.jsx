@@ -28,8 +28,7 @@ const editEvent = (event) => {
   payload: {
     id: oneCohort.id,
     cohort_name: cohortName,
-    cohort_graduation_date: cohortGradDate,
-    cohort_type: cohortType,
+    graduation_date: cohortGradDate
     },
   });
   handleClickOpen();
@@ -41,8 +40,8 @@ const [cohortName, setCohortName] = useState('');
 //COHORT GRAD DATE HOOK
 const [cohortGradDate, setCohortGradDate] = useState('');
  
-//COHORT STACK TYPE HOOK
-   const [cohortType, setCohortType] = useState('');
+// //COHORT STACK TYPE HOOK
+//    const [cohortType, setCohortType] = useState('');
 
 
 return (
@@ -66,12 +65,12 @@ return (
             {/* EDIT COHORT TYPE INPUT */}
             <div>
               {/* <label for="createnewdropdown">cohort type</label> */}
-              <select className="editCohortdropdown" value={cohortType} onChange={( event )=>setCohortType( event.target.value )}>
+              {/* <select className="editCohortdropdown" value={cohortType} onChange={( event )=>setCohortType( event.target.value )}>
                 <option value="">cohort type</option>
                 <option value={'FSE'}>FSE</option>
                 <option value={'UX/UI'}>UX/UI</option>
                 <option value={'FSE and UX/UI'}>FSE and UX/UI</option>
-              </select>
+              </select> */}
             </div>
             {/* SUBMISSION BTN */}
             <div className="editCohortSubmissionBtn">

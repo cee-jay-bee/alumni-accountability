@@ -100,7 +100,7 @@ function CohortDetail(props) {
         )}  
         
       </div>
-      <div cohortDetailDeleteModalDiv>
+      <div cohortdetaildeletemodaldiv>
         <Modal
         open={open}
         onClose={handleClickOpen}
@@ -136,7 +136,7 @@ function CohortDetail(props) {
         </Box> 
       </Modal>
     </div>
-    <div cohortDetailEditModalDiv>
+    <div cohortdetaileditmodaldiv>
       <Modal
       open={open2}
       onClose={handleClickOpen2}

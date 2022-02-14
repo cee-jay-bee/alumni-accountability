@@ -31,7 +31,8 @@
 }
 
 .attendanceNameDate > h3{
-    font-weight: 300;
+    font-weight: 500;
+    color: #818181;
 }
 
 .attendancestackType{
@@ -58,7 +59,7 @@
 
 #attendanceDeleteEvent:hover{
     color: rgb(78, 78, 78);
-    background-color: orangered;
+    cursor: pointer;
 }
 
 #attendanceEditEvent{
@@ -67,6 +68,11 @@
     top: 20px;
     left: -59px;
     font-size: 35px;
+}
+
+#attendanceEditEvent:hover{
+    color: rgb(78, 78, 78);
+    cursor: pointer;
 }
 
 #attendanceTableMain {
@@ -103,18 +109,21 @@
     // border: 1px solid red;
 }
 
-.attendanceTableCol2 {
+#attendanceTableCol2 {
     width: 40%;
+    color: white;
     // border: 1px solid green;
 }
 
-.attendanceTableCol3 {
+#attendanceTableCol3 {
     width: 35%;
+    color: white;
     // border: 1px solid blue;
 }
 
-.attendanceTableCol4 {
+#attendanceTableCol4 {
     width: 25%;
+    color: white;
     // border: 1px solid orangered;
 }
 

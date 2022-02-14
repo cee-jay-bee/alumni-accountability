@@ -6,6 +6,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import { Link } from 'react-router-dom';
 import EditEvent from '../EditEvent/EditEvent';
 import EventTags from '../EventTags/EventTags';
@@ -79,10 +80,10 @@ const [eventNote, setEventNote] = useState('');
             <GroupAddOutlinedIcon id="attendancetitleBtn"
             style={{fontSize:"40px", "left": "60%" }}
             /> </Link>
-            <span><EditOutlinedIcon 
+            <span><EditOutlinedIcon id="attendancetitleBtn"
             onClick={handleClickOpen2}
             style={{fontSize:"40px", "left": "80%", 'margin-right': '15px', 'cursor':'pointer'}}/> </span> 
-            <span><DeleteOutlineOutlinedIcon
+            <span><DeleteOutlineOutlinedIcon id="attendancetitleBtn"
             onClick={handleClickOpen}
             style={{fontSize:"40px", "left": "90%" , 'cursor':'pointer'}}/> </span> 
         </div>
@@ -98,40 +99,32 @@ const [eventNote, setEventNote] = useState('');
       <div className='eventDetailNotes'>      
         < EventNotes />
       </div>
-    <div deleteEventModalDiv>
+    <div className="deleteEventModalDiv">
       <Modal
       open={open}
       onClose={handleClickOpen}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       style={{alignItems:'center',
-      position: 'absolute',
-      top: '15%',
+      position: 'flexible',
+      top: '20%',
       left: '35%',
-      // transform: 'translate(-50%, -50%)',
-      width: '400px',
-      height: '400px',
       bgcolor: 'background.paper'
     }}
     >
-      <Box>
-        <Paper
-            style={{
-            // transform: 'translate(-50%, -50%)',
-            width: '450px',
-            height: '400px',
-              }}
-          >
-          <h4 className="confirmDelete">Confirm Delete?</h4>
-          <span className='deleteexclamationpoint'><PriorityHighIcon
-            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
+      <div className="eventDeleteModal">
+          <div className="eventDeleteModalCardHeader">
+              <h3 className="confirmDelete">Confirm Delete?</h3>
+          </div>
+          <span className='deleteexclamationpoint'>
+            <ReportGmailerrorredIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/>
+          </span> 
           <div className="deleteeventmodalbtns">
                 <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
-                <button className="deleteeventbtnconfirm" onClick={deleteEvent}>Yes</button>
-                
+                <button className="deleteeventbtnconfirm" onClick={deleteEvent}>Yes</button>  
           </div>
-        </Paper>
-      </Box> 
+      </div>
     </Modal>
   </div>
   <div editEventModalDiv>
@@ -141,13 +134,15 @@ const [eventNote, setEventNote] = useState('');
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       style={{alignItems:'center',
-      position: 'absolute',
-      top: '15%',
-      left: '35%',
-      // transform: 'translate(-50%, -50%)',
       width: '400px',
       height: '400px',
-      bgcolor: 'background.paper'
+      bgcolor: 'background.paper',
+      position: 'flexible',
+      top: '15%',
+      left: '0',
+      marginLeft: '26%',
+      marginRight: '50px',
+      outline: 'none'
     }}
     >
       <Box>
@@ -159,15 +154,6 @@ const [eventNote, setEventNote] = useState('');
               }}
           >
           <EditEvent />
-          {/* <span className='deleteexclamationpoint'><PriorityHighIcon
-            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
-          <div className="deleteeventmodalbtns">
-                <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
-                <button className="deleteeventbtnconfirm" onClick={deleteEvent}>Yes</button>
-                
-          </div> */}
-       
-        
         </Paper>
       </Box> 
     </Modal>

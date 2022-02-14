@@ -3,6 +3,8 @@ import {useSelector} from 'react-redux';
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import './CohortDetailItem.scss';
 import { Link } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -14,11 +16,30 @@ function CohortDetailItem(props) {
   const oneCohort = useSelector((store) => store.oneCohort);
   const alumNote = useSelector((store) => store.alumNote);
   const alum = useSelector((store) => store.alum )
+  const oneAlum = useSelector((store) => store.oneAlum )
+  const history = useHistory();
+  const dispatch = useDispatch();
+  
   
   useEffect(() => {
-    // console.log (oneCohort);
-    // console.log (props.alum);
+    dispatch({ type: 'FETCH_ALUM'});
   }, []);
+
+  const setOneAlum = () => {
+    dispatch({
+      type: 'SET_ONE_ALUM',
+      payload: {
+        id: props.alum.id,
+        alum_name: props.alum.alum_name,
+        alum_placed: props.alum.alum_placed,
+        alum_seeking: props.alum.alum_seeking,
+        cohort_id: props.alum.cohort_id,
+        alum_skills: props.alum.alum_skills,
+        placed_date: props.alum.placed_date
+      }
+    })
+    history.push("/alumdetail");
+  }
   
   
   if (props.alum.cohort_id == oneCohort.id){
@@ -29,18 +50,16 @@ function CohortDetailItem(props) {
           :
           <div className='cohortDetailTableRow2Col1'><input type='checkbox' id='alumPlaced' className='alumPlacedCheckbox' value='placed'/></div>
           } 
-          <Link to="/alumdetail">
-          <div className='cohortDetailTableRow2Col2'>{props.alum.alum_name}</div>
-          </Link>
+          <div className='cohortDetailTableRow2Col2' onClick={setOneAlum}>{props.alum.alum_name}</div>
           <div class='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</div>
           <div class='cohortDetailTableRow2Col4'>{props.alum.graduation_date.split("T")[0]}</div>
       <div>
-      {alumNote.alum_id == props.alum.id ?
+      {props.alum.id==alumNote.alum_id  ?
         <Link to="/alumnote"> 
         <div class='cohortDetailTableRow2Col5'><StickyNote2Icon className='cohortDetailNoteIcon' style={{fontSize:"35px", "left": "93%", "top": "50%" }}/></div>
         </Link>
         :
-        <p></p>}
+        <p>Null</p>}
       </div>
       </div>
           );

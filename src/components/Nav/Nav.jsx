@@ -55,6 +55,7 @@ function Nav() {
             <div>
               <SearchByAlum/>
             </div>
+
             
             <div>
               <SearchBySkill/>
@@ -66,9 +67,9 @@ function Nav() {
         
       </div>
       {/* <div> */}
-      <div className="logoutbtn">
+      {/* <div className="logoutbtn">
         <LogOutButton className="navLink" />
-      </div>
+      </div> */}
       {/* </div> */}
     </div>
   );

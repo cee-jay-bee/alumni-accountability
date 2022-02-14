@@ -65,9 +65,9 @@ function Attendance(props) {
         <div id='attendanceTableMain'>
           <div className='attendanceTableRow'>
             <div className='attendanceTableCol1'></div>
-            <h3 className='attendanceTableCol2'>Name</h3>
-            <h3 className='attendanceTableCol3'>Cohort</h3>
-            <h3 className='attendanceTableCol4'>Graduation Date</h3>
+            <h3 id='attendanceTableCol2'>Name</h3>
+            <h3 id='attendanceTableCol3'>Cohort</h3>
+            <h3 id='attendanceTableCol4'>Graduation Date</h3>
           </div>
           {alum.map(alum => 
               (<AttendanceItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
