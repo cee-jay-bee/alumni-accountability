@@ -238,3 +238,84 @@
   justify-content: center;
   align-items: center;
 }
+
+
+/*--------------------------------*/
+
+.editnotemodal{
+  background-color: white;
+  border-radius: 10px;
+  width: 450px;
+  height: 350px;
+  padding: 10px 19px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.noteEditModalCardHeader{
+  text-align: center;
+  margin-bottom: 30px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.eventNoteEdit{
+  border: solid 1px #c3c3c3;
+  resize: none;
+  margin: 1px 5px;
+  padding: 10px 10px;
+  border-radius: 4px;
+  font-family: "open sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.eventNoteEdit:focus{
+  border-color: rgb(255, 175, 175);
+  box-shadow: 0px 0px 5px rgb(255, 175, 175);
+  outline: 0;
+}
+
+.eventNoteEdit:hover{
+  border-color: rgb(255, 175, 175);
+  outline: 0;
+}
+
+.editnotemodalbtnsdiv{
+  display: flex;
+  margin-right: 6px;
+  justify-content: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.editeventnoteupdatebtn{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100px;
+    background-color: #6c7f42;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+}
+
+.editeventnoteupdatebtn:hover{
+  border: none;
+  height: 56px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100px;
+  background-color: #526132;
+  color: white;
+  font-family: 'open sans';
+  font-weight: 500;
+}

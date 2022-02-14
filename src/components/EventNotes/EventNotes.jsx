@@ -114,18 +114,6 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name EventNotes with the name for the new component.
@@ -227,37 +215,37 @@ function EventNotes(props) {
                 </div>
             </div>
             )}
-
         </div>
       </div>
     </div>
      <Modal
      open={open}
      onClose={handleClose}
-   >
-     <Box sx={style}>
-       <Typography variant="h6" component="h2">
-         Edit the Event Note
-       </Typography>
-       <TextField
-          label="Note"
-          multiline
-          rows={4}
-          value={oneNote.event_note_entry}
-          onChange={(e)=>{setOneNote({...oneNote, event_note_entry : e.target.value})}}
-        />
-        <Button onClick={updateNote}>
-          Update Changes
-        </Button>
-     </Box>
-   </Modal>
+     style={{
+      alignItems:'center',
+      position: 'flexible',
+      top: '20%',
+      left: '35%',
+     }}
+    >
+      <div className="editnotemodal">
+        <div className="noteEditModalCardHeader">
+            <h3 className="confirmDelete">Editing Event Note</h3>
+        </div>
+        <textarea className="eventNoteEdit" placeholder="edit event note" type="text" autoComplete= "off" multiline wrap="soft" maxLength="250" rows={6} value={oneNote.event_note_entry} onKeyUp={onPressEnter} onChange={(e)=>{setOneNote({...oneNote, event_note_entry : e.target.value})}}/>
+        <div className="editnotemodalbtnsdiv">  
+            <button className="editeventnoteupdatebtn" onClick={updateNote}>Update changes</button>
+        </div>
+      </div>
+    </Modal>
+
    <Modal
       open={deleteOpen}
       onClose={handleClickOpen}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       style={{alignItems:'center',
-      position: 'absolute',
+      position: 'flexible',
       top: '15%',
       left: '35%',
       // transform: 'translate(-50%, -50%)',

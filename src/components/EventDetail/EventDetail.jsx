@@ -107,7 +107,7 @@ const [eventNote, setEventNote] = useState('');
       aria-describedby="modal-modal-description"
       style={{alignItems:'center',
       position: 'absolute',
-      top: '15%',
+      top: '20%',
       left: '35%',
       bgcolor: 'background.paper'
     }}
