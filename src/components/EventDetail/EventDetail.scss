@@ -100,80 +100,121 @@
   margin-bottom: 10px;
 }
 
+//* MODAL STYLING *//
+
+.eventDeleteModal{
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px 19px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 350px;
+}
+
+.eventDeleteModalCardHeader{
+  text-align: center;
+  margin-bottom: 30px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
 .confirmDelete{
     text-align: center;
-    padding-top: 60px;
-    font-size: 30px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 300;
+    height: 30px;
+    margin: 0px 0px;
+    letter-spacing: 1.5px;
     /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
     }
 
-.eventDetailCloseModal{
-    background-color: rgb(23, 126, 137);
-    color: white;
-    border-radius: 30px;
-    width: 30px;
-    padding-bottom: 5px;
-    height: auto;
-    text-align: center;
-    align-items: right;
-    position: relative;
-    top: 55px;
-    left: 740px;
-    font-weight: 100;
-    font-size: 20px;
+  .deleteexclamationpoint{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 20px;
+    color:#707070;
   }
 
-  .eventDetailCloseModal:hover{
-    background-color: black;
-  }
+// .eventDetailCloseModal{
+//     background-color: rgb(23, 126, 137);
+//     color: white;
+//     border-radius: 30px;
+//     width: 30px;
+//     padding-bottom: 5px;
+//     height: auto;
+//     text-align: center;
+//     align-items: right;
+//     position: relative;
+//     top: 55px;
+//     left: 740px;
+//     font-weight: 100;
+//     font-size: 20px;
+//   }
+
+  // .eventDetailCloseModal:hover{
+  //   background-color: black;
+  // }
 
   .deleteeventmodalbtns{
-    /* justify-content: center;
-    align-items: center; */
-    margin-left: 150px;
-    margin-top: 150px;
-    position: relative;
-    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 150px;
+    margin-top: 50px;
   }
+
   .deleteeventbtncancel{
-    background: transparent;
-    border: 1px solid red;
-    color: red;
-    padding: 10px;
+    border: none;
+    height: 56px;
     border-radius: 5px;
-    font-size: larger;
+    font-size: 16px;
+    width: 100px;
+    border: 1px #707070 solid;
+    color: #707070;
+    font-family: 'open sans';
+    font-weight: 500;
+    // background-color: #fafff0;
   }
+
 .deleteeventbtncancel:hover {
-  transition: 400ms ease-in-out;
-  background: #eb0606;
-  color: white;
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100px;
+    background-color: #707070;;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
 }
-.deleteeventbtncancel span{
-    color: rgb(67, 49, 146);
-    font-size: 18px;
-    font-weight: 100;
-  }
+
 
   .deleteeventbtnconfirm{
-    background: transparent;
-    border: 1px solid rgb(32, 113, 116);
-    color: rgb(32, 113, 116);
-    background: transparent;
-    border: 1px solid rgb(32, 113, 116);
-    padding: 10px;
+    border: none;
+    height: 56px;
     border-radius: 5px;
-    font-size: larger;
-    margin-left: 40px;
-  }
-
-  .deleteeventbtnconfirm:hover {
-    transition: 400ms ease-in-out;
-    background: rgb(32, 113, 116);
+    font-size: 16px;
+    width: 100px;
+    background-color: #6c7f42;
     color: white;
+    font-family: 'open sans';
+    font-weight: 500;
   }
-
-  .deleteeventbtnconfirm span{
-    color: rgb(67, 49, 146);
-    font-size: 18px;
-    font-weight: 100;
+  .deleteeventbtnconfirm:hover{
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100px;
+    background-color: #526132;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
   }
