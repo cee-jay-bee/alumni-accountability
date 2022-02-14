@@ -25,7 +25,7 @@ function CreateNewEvent(props) {
   const dispatch = useDispatch();
   // const history = useHistory();
   const addNewEvent = (event) => {
-        dispatch({
+      dispatch({
         type: 'CREATE_EVENT',
         payload: {
           eventTitle: eventTitle,
@@ -35,15 +35,15 @@ function CreateNewEvent(props) {
           eventStackType: eventStackType,
           eventTag: eventTag
           },
-    });
-      handleClickOpen();
-      setEventTitle('');
-      setEventDate('');
-      setEventStackType('');
-      setEventDescription('');
-      setEventTime('');
-      setEventTag('');
-      };
+      });
+    handleClickOpen();
+    setEventTitle('');
+    setEventDate('');
+    setEventStackType('');
+    setEventDescription('');
+    setEventTime('');
+    setEventTag('');
+  };
 
   //EVENT TITLE HOOK
   const [eventTitle, setEventTitle] = useState('');

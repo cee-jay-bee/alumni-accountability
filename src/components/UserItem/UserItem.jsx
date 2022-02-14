@@ -12,26 +12,25 @@ function UserItem(props) {
   // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const history = useHistory();
-  const [checked, setChecked] = useState(false);
-
-  let eventCompareDate = new Date();
-  let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
-  let twoDigitDate = eventCompareDate.getDate() + "";
-  if (twoDigitDate.length == 1){
-    twoDigitDate = "0" + twoDigitDate;
-  }
-  let alumGraduationDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear(); 
+  const [checked, setChecked] = useState(false); 
 
   const valueChange = () => {
     setChecked(!checked);
     return checked;
   }
 
+  const deleteUser = () => {
+    dispatch({
+      type: 'DELETE_USER',
+      payload: props.user.id
+    })
+  }
+
     return (
-        <tr >
+        <tr>
           <td className='userName' >{props.user.firstname} {props.user.lastname}</td>
-          <td class='userStatus' >{props.user.role}</td>
-          <td class='userDelete' >Delete</td>
+          <td className='userStatus' >{props.user.role}</td>
+          <td className='userDelete' value={props.user.id} onClick={deleteUser} >Delete</td>
         </tr>
     );
 }

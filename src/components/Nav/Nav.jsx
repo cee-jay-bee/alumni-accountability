@@ -4,7 +4,8 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.scss';
 import { useSelector,useDispatch } from 'react-redux';
 import UserPage from '../UserPage/UserPage';
-import SearchByAlum from '../SearchByAlum/SearchByAlum'
+import SearchByAlum from '../SearchByAlum/SearchByAlum';
+import SearchBySkill from '../SearchBySkill/SearchBySkill';
 
 function Nav() {
   const [skillName, setskillName] = useState("")
@@ -31,13 +32,9 @@ function Nav() {
         {user.id &&(
           <>
             
-              <Link id='home-button' className="navLink" to="/user">
-                Home
-              </Link>
-            
-            {/* <Link id='home-button' className="navLink" to="/user">
+            <Link id='home-button' className="navLink" to="/user">
               Home
-            </Link> */}
+            </Link>
 
             <Link className="navLink" to="/eventpage">
               Event
@@ -54,33 +51,20 @@ function Nav() {
             <Link className="navLink" to="/registration">
               Users
             </Link>
-            
+
             <div>
-            {/* class="searchByAlumdiv" */}
-              {/* <input class="searchbyaluminput" placeholder="search by alum"></input> */}
-              {/* Link is a placeholder for now. Later we might want to use useHistory */}
-              {/* <Link to="/resultpage"> 
-                <button class="searchbyalumbtn">Search alum</button>
-              </Link> */}
               <SearchByAlum/>
             </div>
-            <div class="searchBySkilldiv">
-              <input class="searchbyskill" placeholder="search by skill" 
-              onChange={(e)=>setskillName(e.target.value)} />
-              <Link to="/resultpage"> 
-                <button class="searchBySkillBtn" to="/resultpage" onClick={onSkillSearch}>
-                  Search skill</button>
-              </Link>
-            </div>
+
+            
             <div>
-                <div className="logoutbtn">
-                  <LogOutButton className="navLink" />
-                </div>
+              <SearchBySkill/>
             </div>
             
              {/* Link is a placeholder for now. Later we might want to use useHistory */}
           </>
         )}
+        
       </div>
       {/* <div> */}
       {/* <div className="logoutbtn">

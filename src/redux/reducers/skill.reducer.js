@@ -1,9 +1,9 @@
-const skillReducer = (state = {}, action) => {
+const skillReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_SKILL':
       return action.payload;
     case 'UNSET_SKILL':
-      return {};
+      return [];
     default:
       return state;
   }

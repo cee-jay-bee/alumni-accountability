@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -7,12 +8,13 @@ function RegisterForm() {
   const [firstname, setfirstname] = useState('');
   const [lastname, setlastname] = useState('');
   const [email, setemail] = useState('');
+  const [usertype, setusertype] = useState('user');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const registerUser = (event) => {
     event.preventDefault();
-
     dispatch({
       type: 'REGISTER',
       payload: {
@@ -20,7 +22,8 @@ function RegisterForm() {
         password: password,
         email: email,
         firstname: firstname,
-        lastname: lastname
+        lastname: lastname,
+        usertype: usertype
       },
     });
   }; // end registerUser
@@ -92,6 +95,18 @@ function RegisterForm() {
             onChange={(event) => setemail(event.target.value)}
           />
         </label>
+      </div>
+      <div>
+        <p>Select User Type:</p>
+        <div>
+          <input type="radio" id="user" name="status" value="user" onClick={(event) => setusertype(event.target.value)} />
+          <label htmlFor="user">User</label>
+        </div>
+
+        <div>
+          <input type="radio" id="admin" name="status" value="admin" onClick={(event) => setusertype(event.target.value)} />
+          <label htmlFor="admin">Admin</label>
+        </div>
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
