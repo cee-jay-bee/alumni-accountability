@@ -9,7 +9,6 @@ const nodemailer = require("nodemailer");
 const { getImageListItemBarUtilityClass } = require('@mui/material');
 const { config } = require('dotenv');
 const router = express.Router();
-
 const {google} = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
@@ -26,16 +25,12 @@ const gconfig = {
 oauth2Client.setCredentials({
   refresh_token: '1//04OHdWvEZNnxKCgYIARAAGAQSNwF-L9IrmKR-T42mutiUhGZ8_sdnzsqyRDPnLNxe5wLQDrePo3mj3k8aH9do2S0fP1vlY8DbOzo'
 });
-
 const accessToken = oauth2Client.getAccessToken();
-
-
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
   res.send(req.user);
 });
-
 router.get('/username', (req, res) => {
   console.log(req.query);
   const queryText = `SELECT * FROM "user" WHERE "email"='${req.query.email}'`;
@@ -81,7 +76,6 @@ router.get('/username', (req, res) => {
     });
     res.sendStatus(201);
 })
-
 router.put('/password', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
@@ -117,7 +111,6 @@ router.post('/register', rejectUnauthenticated, (req, res, next) => {
       res.sendStatus(500);
     });
 });
-
 router.get('/all', rejectUnauthenticated, (req, res) => {
   
   const query = `SELECT * FROM "user"`;
@@ -130,7 +123,6 @@ router.get('/all', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
     })
 });
-
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // DELETE route for user
   const id = req.params.id;
@@ -144,7 +136,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
     })
 });
-
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful
@@ -152,13 +143,10 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
   res.sendStatus(200);
 });
-
 // clear all server session information about this user
 router.post('/logout', (req, res) => {
   // Use passport's built-in method to log out the user
   req.logout();
   res.sendStatus(200);
 });
-
 module.exports = router;
-
