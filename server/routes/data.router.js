@@ -14,6 +14,7 @@ router.get('/overall', rejectUnauthenticated, (req, res) => {
   const query = `SELECT COUNT(event_attendance.alum_id) AS total_attendance, event_date
   FROM "event"
   FULL JOIN event_attendance ON event_attendance.event_id = event.id
+  WHERE "event".event_date > now() - interval '6 months'
   GROUP BY "event".event_date
   ORDER BY "event".event_date;`;
   pool.query(query)

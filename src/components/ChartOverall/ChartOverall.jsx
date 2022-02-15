@@ -26,7 +26,7 @@ function OverallChart(props) {
       
     datasets: [
       {
-        label: "First dataset",
+        label: "Total Attendance",
         data: data,
         fill: true,
         backgroundColor: [
