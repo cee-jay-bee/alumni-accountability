@@ -17,6 +17,8 @@ function Nav() {
 
   return (
     <div className="nav">
+      {user.id &&(
+          <>
       <div className="navbarContainer">
         <Link to="/home">
           <h2 className="nav-title">Prime Solo Project</h2>
@@ -29,8 +31,8 @@ function Nav() {
           </Link>
         } */}
         {/* If a user is logged in, show these links */}
-        {user.id &&(
-          <>
+        {/* {user.id &&(
+          <> */}
             
             <Link id='home-button' className="navLink" to="/user">
               Home
@@ -67,8 +69,8 @@ function Nav() {
             </div>
             
              {/* Link is a placeholder for now. Later we might want to use useHistory */}
-          </>
-        )}
+          {/* </>
+        )} */}
         
       </div>
       {/* <div> */}
@@ -76,6 +78,8 @@ function Nav() {
         <LogOutButton className="navLink" />
       </div> */}
       {/* </div> */}
+      </>
+      )}
     </div>
   );
 }
