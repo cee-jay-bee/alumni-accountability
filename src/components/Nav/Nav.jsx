@@ -21,7 +21,8 @@ function Nav() {
           <>
       <div className="navbarContainer">
         <Link to="/home">
-          <h2 className="nav-title">Prime Solo Project</h2>
+          <img id="navLogoPic"src="../images/PPriumniLogo.png" alt="priumni logo" />
+          {/* <h2 className="nav-title">Prime Solo Project</h2> */}
         </Link>
         {/* If no user is logged in, show these links
         {user.id === null &&
