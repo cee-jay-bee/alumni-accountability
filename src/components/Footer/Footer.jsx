@@ -16,7 +16,7 @@ function Footer() {
     <div>
       {user.id &&(
       <>
-           <h2>&copy; Prime Digital Academy</h2>
+           <footer>&copy; Prime Digital Academy</footer>
       </>
       )}
     </div>

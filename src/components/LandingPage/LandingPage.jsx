@@ -16,11 +16,12 @@ function LandingPage() {
   return (
     <div className="landingPageMainDiv">
       <div className="landingpagecontent">
+            <img id="landingPagePic"src="../images/PriumniLogo.png" alt="" />
             <div className="landingPageLoginFormContainer">
               <LoginForm />
-              <center>
+              <center className="landingMemberEmail">
                 <h4>Not a Member?</h4>
-                <h4>Email <a href="mailto:christy@primeacademy.io">Christy</a> or <a href="mailto:bellamy@primeacademy.io">Bellamy</a> for Access</h4>
+                <h4>Email <a href="mailto:christy@primeacademy.io" style={{color: 'white'}}>Christy</a> or <a href="mailto:bellamy@primeacademy.io" style={{color: 'white'}}>Bellamy</a> for Access</h4>
               </center>
           </div>
       </div>

@@ -92,16 +92,29 @@ Grid
   padding-bottom: 30px;
   bottom: 0px;
   left: -30px;
-  background-color:  rgb(255, 175, 175);
+  // background-color:  rgb(255, 195, 195);
+  background-color: rgb(145, 159, 115);
   overflow-y: hidden;
+  border: 1px solid;
 }
 
 .landingpagecontent{
-  margin-right: 80px;
-  margin-top: 4%;
+  // margin-right: 80px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid;
+  width: 190vh;
+  height: 90vh;
   // margin-bottom: 5%;
 }
 
-.landingPageTitleContainer{
-  // margin-top: 10%;
+.landingMemberEmail{
+  color: white;
+}
+
+#landingPagePic{
+  height: 300px;
+  margin-top: 70px;
 }
