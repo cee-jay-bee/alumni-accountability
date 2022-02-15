@@ -33,8 +33,16 @@ function AttendanceChart(props) {
     datasets: [
       {
         label: 'Number of Attendees',
-        backgroundColor: 'rgba(75,192,192,1)',
-        borderColor: 'rgba(0,0,0,1)',
+        backgroundColor: [
+          'rgba(108, 127, 66, 0.2)',
+          'rgba(218, 149, 149, 0.2)',
+          'rgba(111, 111, 140, 0.2)'
+        ],
+        borderColor: [
+          'rgb(108, 127, 66)',
+          'rgb(218, 149, 149)',
+          'rgb(111, 111, 140)'
+        ],
         borderWidth: 2,
         data: data
       }
