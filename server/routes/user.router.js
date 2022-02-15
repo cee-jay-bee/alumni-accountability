@@ -13,18 +13,18 @@ const router = express.Router();
 const {google} = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
-  '650563796542-r9t62jarb07gvm5aif5ggd6vf4pm1drv.apps.googleusercontent.com',
-  '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',
+  '650563796542-mfmld5rme6dvfeeskc4tvfj77rp8a0qb.apps.googleusercontent.com',
+  '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',
   "https://developers.google.com/oauthplayground"
 );
 const gconfig = {
   mailUser: 'priumni.devs@gmail.com',
-  clientId: '650563796542-r9t62jarb07gvm5aif5ggd6vf4pm1drv.apps.googleusercontent.com',
-  clientSecret: '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',
-  refreshToken: '1//044u4_ahSxEroCgYIARAAGAQSNwF-L9Ir_g9HblFmN25WbNSvJ0oqNLnXMwsTXH_3_ypWs-xtzlyj-zR8YblUeL4z2MtEn5z7tB0'
+  clientId: '650563796542-mfmld5rme6dvfeeskc4tvfj77rp8a0qb.apps.googleusercontent.com',
+  clientSecret: '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',
+  refreshToken: '1//04OHdWvEZNnxKCgYIARAAGAQSNwF-L9IrmKR-T42mutiUhGZ8_sdnzsqyRDPnLNxe5wLQDrePo3mj3k8aH9do2S0fP1vlY8DbOzo'
 }
 oauth2Client.setCredentials({
-  refresh_token: '1//044u4_ahSxEroCgYIARAAGAQSNwF-L9Ir_g9HblFmN25WbNSvJ0oqNLnXMwsTXH_3_ypWs-xtzlyj-zR8YblUeL4z2MtEn5z7tB0'
+  refresh_token: '1//04OHdWvEZNnxKCgYIARAAGAQSNwF-L9IrmKR-T42mutiUhGZ8_sdnzsqyRDPnLNxe5wLQDrePo3mj3k8aH9do2S0fP1vlY8DbOzo'
 });
 
 const accessToken = oauth2Client.getAccessToken();
