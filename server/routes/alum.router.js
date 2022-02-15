@@ -139,7 +139,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   FROM alum JOIN cohort on alum.cohort_id = cohort.id 
   FULL JOIN event_attendance on event_attendance.alum_id = alum.id 
   ${alumSkill && `WHERE '${alumSkill}' = ANY(alum.alum_skills)`}
-  GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name`;
+  GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name
+  ORDER BY alum.alum_name ASC`;
   
    let params = [query];
 
@@ -180,7 +181,7 @@ router.get('/data', rejectUnauthenticated, (req, res) => {
 
 router.get('/skill', rejectUnauthenticated, (req, res) => {
   // GET route code here
-  const query = `SELECT DISTINCT UNNEST(alum_skills) AS skills from alum`;
+  const query = `SELECT DISTINCT UNNEST(alum_skills) AS skills from alum ORDER BY skills ASC;`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);
