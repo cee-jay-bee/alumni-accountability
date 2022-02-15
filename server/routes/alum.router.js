@@ -139,7 +139,8 @@ const {
   FROM alum JOIN cohort on alum.cohort_id = cohort.id 
   FULL JOIN event_attendance on event_attendance.alum_id = alum.id 
   ${alumSkill && `WHERE '${alumSkill}' = ANY(alum.alum_skills)`}
-  GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name`;
+  GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name
+  ORDER BY alum.alum_name`;
   
    let params = [query];
 
