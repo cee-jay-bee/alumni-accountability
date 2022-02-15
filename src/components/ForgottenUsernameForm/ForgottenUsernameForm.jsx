@@ -55,7 +55,7 @@ function ForgottenUsernameForm() {
                 history.push('/login');
               }}
             >
-              Login
+              Return to Login
             </button>
             <br />
             <button
