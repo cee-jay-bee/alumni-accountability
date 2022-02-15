@@ -43,10 +43,11 @@ function* emailUsername(action) {
     // If a user is logged in, this will return their information
     // from the server session (req.user)
     const response = yield axios.get(`/api/user/username`, {params: action.payload});
+    
+    if (response.data === 'Created'){
+      alert('Username Emailed! Message may have gone to Spam Folder.');
+    }
 
-    // now that the session has given us a user object
-    // with an id and username set the client-side user object to let
-    // the client-side code know the user is logged in
   } catch (error) {
     console.log('User get request failed', error);
   }
@@ -55,6 +56,10 @@ function* emailUsername(action) {
 function* resetPassword(action) {
   try {
     const response = yield axios.put('/api/user/password', action.payload);
+
+    if (response.data === 'Created'){
+      alert('Password Updated! Please Login with your new Password.');
+    }
 
   } catch (error) {
     console.log('User get request failed', error);
