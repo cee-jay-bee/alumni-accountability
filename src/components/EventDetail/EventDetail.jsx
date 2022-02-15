@@ -13,6 +13,8 @@ import EventTags from '../EventTags/EventTags';
 import EventNotes from '../EventNotes/EventNotes';
 import {useHistory} from 'react-router-dom';
 import Attendance from '../AttendanceItem/AttendanceItem';
+import dateChange from '../Functions/dateChange';
+import milTime from '../Functions/milTime';
 //SCSS IMPORT
 import './EventDetail.scss';
 
@@ -66,7 +68,8 @@ const [eventNote, setEventNote] = useState('');
         <div className='eventDetailCol1'>
           <div className="eventDetailTitleDate">
             <h2 id="eventDetailTitle">{oneEvent.title}</h2> 
-            <p id="eventDetailDate">{oneEvent.date}</p>
+            <p id="eventDetailDate">{dateChange(oneEvent.date)}</p><br/>
+            <p id="eventDetailDate">{milTime(oneEvent.time)}</p>
           </div>
           <div className="eventDetailStackType">
             {(oneEvent.stack_type === 'FSE') ?
