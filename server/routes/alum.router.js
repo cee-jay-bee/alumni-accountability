@@ -217,8 +217,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 router.post('/', rejectUnauthenticated, (req, res) => {
     const { name, cohortId } = req.body
-    const queryText = `INSERT INTO "alum" (alum_name, alum_placed, alum_seeking, cohort_id, alum_skills) VALUES ($1 , $2, $3, $4, $5)`
-    pool.query(queryText,[ name, false, false, cohortId, []]).then(()=>
+    const queryText = `INSERT INTO "alum" (alum_name, alum_placed, alum_seeking, cohort_id) VALUES ($1 , $2, $3, $4)`
+    pool.query(queryText,[ name, false, false, cohortId]).then(()=>
         res.sendStatus(201)
     ).catch(err=>{
         console.log("alum post router has error", err)
