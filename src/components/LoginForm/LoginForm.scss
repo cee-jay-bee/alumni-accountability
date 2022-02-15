@@ -1,0 +1,84 @@
+.loginFormDiv{
+    width: 400px;
+    height: 420px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    padding: 5px 20px;
+    border: 1px solid;
+}
+
+#logintitle{
+    font-weight: 600;
+    font-size: 35px;
+    color: rgb(134, 134, 134);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#loginFormUserNameInput{
+  height: 54px;
+  width: 250px;
+  border: solid 1px #c3c3c3;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(98, 98, 98);
+  // font-family: 'open sans';
+  font-size: 16px;
+  font-weight: 500;
+  // margin-right: 30px;
+  font-family: "open sans", sans-serif;
+}
+
+#loginFormUserNameInput:focus{
+    border-color: rgb(255, 175, 175);
+    box-shadow: 0px 0px 5px rgb(255, 175, 175);
+    outline: 0;
+  }
+  
+  #loginFormUserNameInput:hover{
+    border-color: rgb(255, 175, 175);
+    outline: 0;
+  }
+
+  .loginFormalert{
+      font-size: 12px;
+      border: 1px solid;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      display: flex;
+      background-color: #b87c7c;
+      color: white;
+  }
+
+#loginformSubmitBtnDiv{
+    display: flex;
+    justify-content: center;
+}
+
+#loginFormSubmitBtn{
+    margin-top: 20px;
+    border: none;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 150px;
+    background-color: #6c7f42;
+    color: white;
+    font-family: 'open sans';
+    font-weight: 500;
+  }
+
+#loginFormSubmitBtn:hover{
+  border: none;
+  height: 56px;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 150px;
+  background-color: #526132;
+  color: white;
+  font-family: 'open sans';
+  font-weight: 500;cursor: pointer;
+}
