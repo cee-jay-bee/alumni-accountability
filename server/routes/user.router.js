@@ -12,18 +12,13 @@ const router = express.Router();
 const {google} = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(
-  '650563796542-mfmld5rme6dvfeeskc4tvfj77rp8a0qb.apps.googleusercontent.com',
-  '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',
+  process.env.CID,
+  process.env.CSECRET,
   "https://developers.google.com/oauthplayground"
 );
-const gconfig = {
-  mailUser: 'priumni.devs@gmail.com',
-  clientId: '650563796542-mfmld5rme6dvfeeskc4tvfj77rp8a0qb.apps.googleusercontent.com',
-  clientSecret: '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',
-  refreshToken: '1//04OHdWvEZNnxKCgYIARAAGAQSNwF-L9IrmKR-T42mutiUhGZ8_sdnzsqyRDPnLNxe5wLQDrePo3mj3k8aH9do2S0fP1vlY8DbOzo'
-}
+
 oauth2Client.setCredentials({
-  refresh_token: '1//04OHdWvEZNnxKCgYIARAAGAQSNwF-L9IrmKR-T42mutiUhGZ8_sdnzsqyRDPnLNxe5wLQDrePo3mj3k8aH9do2S0fP1vlY8DbOzo'
+  refresh_token: process.env.CREFRESH
 });
 const accessToken = oauth2Client.getAccessToken();
 // Handles Ajax request for user information if user is authenticated
@@ -33,7 +28,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 router.get('/username', (req, res) => {
   console.log(req.query);
-  const queryText = `SELECT * FROM "user" WHERE "email"='${req.query.email}'`;
+  const queryText = `SELECT * FROM "user" WHERE "email_address"='${req.query.email}'`;
   pool
     .query(queryText)
     .then(
@@ -49,10 +44,10 @@ router.get('/username', (req, res) => {
           secure: true, // true for 465, false for other ports
           auth: {
             type: 'OAuth2',
-            user: gconfig.mailUser, // generated ethereal user
-            clientId: gconfig.clientId,
-            clientSecret: gconfig.clientSecret,
-            refreshToken: gconfig.refreshToken,
+            user: process.env.EMAIL_USER, // generated ethereal user
+            clientId: process.env.CID,
+            clientSecret: process.env.CSECRET,
+            refreshToken: process.env.CREFRESH,
             accessToken: accessToken
           },
         });
