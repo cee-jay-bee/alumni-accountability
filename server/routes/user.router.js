@@ -58,7 +58,15 @@ router.get('/username', (req, res) => {
           to: `${req.query.email}`, // list of receivers
           subject: "Priumni Username Request", // Subject line
           text: "Priumni Username Request", // plain text body
-          html: `<b>Username is:</b> ${result.rows[0].username}`, // html body
+          html: `<img src="cid:unique@cid" /> <br />This is your username for the Priumni App:<br />
+          <b>${result.rows[0].username}</b> <br />
+          If you have also forgotten your password, you will need your username to reset.`,
+          attachments: [{
+            filename: 'cheers-bottle.gif',
+            path: 'public/Images/cheers-bottle.gif',
+            cid: 'unique@cid'
+          }]
+         // html body
         });
       
         console.log("Message sent: %s", info.messageId);
