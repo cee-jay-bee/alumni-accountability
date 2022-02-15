@@ -53,6 +53,16 @@ function* updateEvent(action) {
   }
 }
 
+function* changeAttendance(action) {
+  try {
+    console.log(action)
+    yield axios.put(`/api/event/attendance/${action.payload}`, action.payload);
+    yield put({ type: 'FETCH_EVENT' })
+  } catch (error) {
+    console.log('Event Update request failed', error);
+  }
+}
+
 
 function* eventSaga() {
   yield takeLatest('FETCH_EVENT', fetchEvent);
@@ -60,6 +70,7 @@ function* eventSaga() {
   yield takeLatest('DELETE_EVENT', deleteEvent);
   yield takeLatest('UPDATE_EVENT', updateEvent);
   yield takeLatest('FETCH_ALL_EVENT', fetchAllEvent);
+  yield takeLatest('CHANGE_ATTENDANCE_STATUS', changeAttendance);
 }
 
 export default eventSaga;

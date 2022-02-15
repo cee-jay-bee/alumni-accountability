@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
   // POST route code here
   const eventAttendance = req.body.attendance;
   const eventID = req.body.event;
-  
+
   const queryText = `INSERT INTO "event_attendance" (alum_id, event_id) VALUES ($1 , $2)`
   pool.query(queryText,[eventAttendance, eventID]).then(()=>
     res.sendStatus(201)

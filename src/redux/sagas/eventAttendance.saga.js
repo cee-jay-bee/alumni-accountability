@@ -18,7 +18,7 @@ function* createEventAttendance(action) {
     for (let i = 0; i < action.payload.attendance.length; i++) {
       const response = axios.post(`/api/eventAttendance`, {attendance: action.payload.attendance[i], event: action.payload.event});
     }
-    
+    yield put({ type: 'CHANGE_ATTENDANCE_STATUS', payload: action.payload.event});
     yield put({ type: 'FETCH_EVENT_ATTENDANCE' });
     yield put({ type: 'FETCH_ALUM' });
   } catch (error) {
