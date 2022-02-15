@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './LandingPage.css';
+import './LandingPage.scss';
 
 // CUSTOM COMPONENTS
 import LoginForm from '../LoginForm/LoginForm';
@@ -15,15 +15,14 @@ function LandingPage() {
 
   return (
     <div className="landingPageMainDiv">
-      <center className="landingPageTitleContainer">
-        <h2>Alumni Accountability</h2>
-      </center>
-        <div className="landingPageLoginFormContainer">
-          <LoginForm />
-          <center>
-            <h4>Not a Member?</h4>
-            <h4>Email <a href="mailto:christy@primeacademy.io">Christy</a> or <a href="mailto:bellamy@primeacademy.io">Bellamy</a> for Access</h4>
-          </center>
+      <div className="landingpagecontent">
+            <div className="landingPageLoginFormContainer">
+              <LoginForm />
+              <center>
+                <h4>Not a Member?</h4>
+                <h4>Email <a href="mailto:christy@primeacademy.io">Christy</a> or <a href="mailto:bellamy@primeacademy.io">Bellamy</a> for Access</h4>
+              </center>
+          </div>
       </div>
     </div>
   );
