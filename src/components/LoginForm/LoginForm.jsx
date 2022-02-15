@@ -72,26 +72,28 @@ function LoginForm() {
         <div id="loginformSubmitBtnDiv">
           <input id="loginFormSubmitBtn" type="submit" name="submit" value="Log In" />
         </div>
-        <center>
+        <center id="loginFormrestForgetBtnsDiv">
           <button
+              className="loginFormRestForgetBtns"
+              type="button"
+              // className="btn btn_asLink"
+              onClick={() => {
+                history.push('/username');
+              }}
+        >
+          Forgot Username
+        </button>
+        <br/>
+        <button
+            className="loginFormRestForgetBtns"
             type="button"
-            className="btn btn_asLink"
+            // className="btn btn_asLink"
             onClick={() => {
               history.push('/resetpassword');
             }}
           >
             Reset Password
           </button>
-          <br />
-          <button
-          type="button"
-          className="btn btn_asLink"
-          onClick={() => {
-            history.push('/username');
-          }}
-        >
-          Forgot Username?
-        </button>
         </center>
       </form>
       

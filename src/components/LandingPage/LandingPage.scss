@@ -83,17 +83,22 @@ Grid
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  border: 1px solid;
   align-content: center;
   height: 100%;
   width: 100%;
+  padding-left: 10px;
+  padding-right: 40px;
+  position: fixed;
+  padding-bottom: 30px;
+  bottom: 0px;
+  left: -30px;
   background-color:  rgb(255, 175, 175);
+  overflow-y: hidden;
 }
 
 .landingpagecontent{
   margin-right: 80px;
   margin-top: 4%;
-  border: 1px solid;
   // margin-bottom: 5%;
 }
 
