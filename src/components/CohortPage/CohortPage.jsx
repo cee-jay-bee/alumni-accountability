@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal } from '@mui/material';
 import CohortImport from '../CohortImport/CohortImport';
 import './CohortPage.scss'
+import dateChange from '../Functions/dateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -46,14 +47,6 @@ function CohortPage(props) {
 
                   {cohort.map(cohort => {
 
-                    let cohortCompareDate = new Date(cohort.graduation_date);
-                    let twoDigitMonth = cohortCompareDate.getMonth() + 1 + "";
-                    let twoDigitDate = cohortCompareDate.getDate() + "";
-                    if (twoDigitDate.length == 1){
-                      twoDigitDate = "0" + twoDigitDate;
-                    }
-                    let cohortDate = twoDigitMonth + "/" + twoDigitDate + "/" + cohortCompareDate.getFullYear();
-
                     const setOneCohort = () => {
                       dispatch({
                         type: 'SET_ONE_COHORT',
@@ -70,7 +63,7 @@ function CohortPage(props) {
                       
                       <div className="cohortItem" onClick={setOneCohort}>
 
-                        <p class="cohortDateStyling" className="cohortDate">{cohortDate}</p>
+                        <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
                           
                         {/* {(event.stack_type === 'FSE') ?
                           <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
