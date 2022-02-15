@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import AttendanceChart from '../AttendanceChart/AttendanceChart';
 import PlacedChart from '../PlacedChart/PlacedChart';
+import ChartOverall from '../ChartOverall/ChartOverall';
 import './DataPage.scss';
 
 // Basic functional component structure for React with default state
@@ -20,6 +21,8 @@ function DataPage(props) {
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENT'});
     dispatch({ type: 'PLACEMENT_DATA'});
+    dispatch({ type: 'OVERALL_DATA'});
+
   }, []);
 
   const displayChart = () => {
@@ -51,6 +54,12 @@ function DataPage(props) {
       <div className="rightSideChartDiv">
         <div className="placedChartDiv">
           <PlacedChart redraw={true} />
+        </div>
+      </div>
+
+      <div className="bottomChartDiv">
+        <div className="overallChartDiv">
+          <ChartOverall redraw={true} />
         </div>
       </div>
     </div>
