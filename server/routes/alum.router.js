@@ -130,7 +130,7 @@ const {
 /**
  * GET route template
  */
- router.get('/', rejectUnauthenticated, (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('in alum router', req.query.search);
   
   const { alumSkill = "" } = req.query
@@ -178,6 +178,19 @@ router.get('/data', rejectUnauthenticated, (req, res) => {
     })
 });
 
+router.get('/skill', rejectUnauthenticated, (req, res) => {
+  // GET route code here
+  const query = `SELECT DISTINCT UNNEST(alum_skills) AS skills from alum`;
+  pool.query(query)
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get skills', err);
+      res.sendStatus(500)
+    })
+});
+
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
 
@@ -203,8 +216,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 
 router.post('/', rejectUnauthenticated, (req, res) => {
     const { name, cohortId } = req.body
-    const queryText = `INSERT INTO "alum" (alum_name, alum_placed, alum_seeking, cohort_id) VALUES ($1 , $2, $3, $4)`
-    pool.query(queryText,[ name, false, false, cohortId]).then(()=>
+    const queryText = `INSERT INTO "alum" (alum_name, alum_placed, alum_seeking, cohort_id, alum_skills) VALUES ($1 , $2, $3, $4, $5)`
+    pool.query(queryText,[ name, false, false, cohortId, []]).then(()=>
         res.sendStatus(201)
     ).catch(err=>{
         console.log("alum post router has error", err)
@@ -221,7 +234,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     const queryText =  `UPDATE alum
     SET alum_name = $1, alum_placed = $2, alum_seeking = $3, cohort_id = $4
     WHERE id = $5;`
-    pool.query(queryText,[ name, placed, seeking, cohortId,id]).then(()=>
+    pool.query(queryText,[ name, placed, seeking, cohortId, id]).then(()=>
         res.sendStatus(201)
     ).catch(err=>{
         console.log("alum put router has error", err)
@@ -232,7 +245,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 
   router.put('/skill/:id', rejectUnauthenticated, (req, res) => {
-
+    
     const { id } = req.params
     const skills = req.body
     const queryText =  `UPDATE alum SET alum_skills = $1 WHERE id = $2;`

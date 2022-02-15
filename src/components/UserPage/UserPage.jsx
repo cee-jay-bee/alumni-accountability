@@ -19,6 +19,7 @@ function UserPage() {
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENT'});
     dispatch({ type: 'FETCH_ALUM'});
+    dispatch({ type: 'FETCH_SKILL'});
   }, []);
 
   const goToEvents = () => {
