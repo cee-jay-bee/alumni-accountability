@@ -5,7 +5,22 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/:id', (req, res) => {
+ router.get('/:id', (req, res) => {
+  // GET route code here
+  console.log(req.params);
+  const query = `SELECT * from "event_attendance"
+  WHERE "event_id" = ${req.params.id}`;
+  pool.query(query)
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get attendance', err);
+      res.sendStatus(500)
+    })
+});
+
+router.get('/data/:id', (req, res) => {
   // GET route code here
   const query = `SELECT COUNT(cohort.cohort_name), cohort.cohort_name from "alum" 
   JOIN "event_attendance" on "event_attendance".alum_id = alum.id
@@ -36,6 +51,21 @@ router.post('/', (req, res) => {
     res.sendStatus(201)
     ).catch(err=>{
       console.log("event attendance post router has error", err)
+      res.sendStatus(500)
+  }
+  )
+});
+
+router.delete('/:id', (req, res) => {
+  // DELETE route code here
+  console.log(req.params);
+  const eventID = req.params.id;
+
+  const queryText = `DELETE FROM "event_attendance" WHERE event_id = $1`
+  pool.query(queryText,[eventID]).then(()=>
+    res.sendStatus(201)
+    ).catch(err=>{
+      console.log("event attendance delete router has error", err)
       res.sendStatus(500)
   }
   )

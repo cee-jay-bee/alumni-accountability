@@ -23,7 +23,7 @@ function DataPage(props) {
   }, []);
 
   const displayChart = () => {
-    dispatch({ type: 'FETCH_EVENT_ATTENDANCE', payload: eventID});
+    dispatch({ type: 'FETCH_EVENT_ATTENDANCE_DATA', payload: eventID});
     
     for (let i=0; i<event.length; i++){
       if(event[i].id == eventID){

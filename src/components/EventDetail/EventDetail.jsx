@@ -27,7 +27,10 @@ function EventDetail(props) {
   const event = useSelector((store) => store.event);
   const history = useHistory();
   
-
+  useEffect(() => {
+    dispatch({ type: 'FETCH_EVENT_ATTENDANCE', payload: oneEvent.id});
+  }, []);
+  
   //HANLDE POP-UP MODAL
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
