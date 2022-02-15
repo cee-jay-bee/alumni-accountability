@@ -50,9 +50,13 @@ function Nav() {
               Data
             </Link>
 
-            <Link className="navLink" to="/registration">
-              Users
-            </Link>
+            {user.role==="admin" &&(
+              <>
+                <Link className="navLink" to="/registration">
+                  Users
+                </Link>
+              </>
+              )}
 
             <div>
               <SearchByAlum/>
