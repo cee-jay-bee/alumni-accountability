@@ -26,16 +26,16 @@ function ForgottenUsernameForm() {
   return (
 
     <div>
-      <form className="loginFormDiv" onSubmit={recoverUsername}>
-            <h2 id="logintitle">Forgotten Username</h2>
+      <form className="forgotUserFormDiv" onSubmit={recoverUsername}>
+            <h2 id="forgotUsertitle">Forgotten Username</h2>
             {errors.registrationMessage && (
               <h3 className="alert" role="alert">
                 {errors.registrationMessage}
               </h3>
             )}
-          <div>
+          <div id="forgotUsernameInputDiv">
               <input
-                id="loginFormUserNameInput"
+                id="forgotUserNameInput"
                 placeholder="what is your account email?"
                 type="text"
                 name="email"
@@ -44,13 +44,13 @@ function ForgottenUsernameForm() {
                 onChange={(event) => setEmail(event.target.value)}
               />
           </div>
-          <div id="loginformSubmitBtnDiv">
-            <input id="loginFormSubmitBtn" type="submit" name="submit" value="Email Username" />
+          <div id="forgotUserSubmitBtnDiv">
+            <input id="forgotUserSubmitBtn" type="submit" name="submit" value="Email Username" />
           </div>
-          <center id="loginFormrestForgetBtnsDiv">
+          <center id="forgotLoginResetDiv">
             <button
-              type="loginFormRestForgetBtns"
-              className="btn btn_asLink"
+              type="button"
+              className="forgotLoginResetBtns"
               onClick={() => {
                 history.push('/login');
               }}
@@ -60,7 +60,7 @@ function ForgottenUsernameForm() {
             <br />
             <button
               type="button"
-              className="loginFormRestForgetBtns"
+              className="forgotLoginResetBtns"
               onClick={() => {
                 history.push('/resetpassword');
               }}
