@@ -51,9 +51,10 @@
     box-shadow: 0px 0px 5px gray;
     display: flex;
     border-radius: 10px;
-    // background: white;
-    background-image: url('../UserPage/events-bw.png');
-    background-size: cover;
+    background-color: #919f73;
+    color: white;
+    // background-image: url('../UserPage/events-bw.png');
+    // background-size: cover;
     transition: background-image 150ms ease-in-out;
 
     h1{
@@ -63,12 +64,11 @@
 }
 
 .mainDivHomePageCol1:hover{
-    background: #cecca7;
+    background: #919f73;
     color: rgb(68, 68, 68);
     background-image: url('../UserPage/events-color.png');
     background-size: cover;
     transition: background-image 150ms ease-in-out;
-    background-size: cover;
     // background-image: url('./Images/event-bg-bw.png');
     
 }
@@ -81,8 +81,9 @@
     align-content: center;
     display: flex;
     border-radius: 10px;
-    background: white;
-    background-image: url('../UserPage/cohort-bw.png');
+    background: #919f73;
+    color: white;
+    // background-image: url('../UserPage/cohort-bw.png');
     background-size: cover;
     box-shadow: 0px 0px 5px gray;
     cursor: pointer;
