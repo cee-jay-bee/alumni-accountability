@@ -45,8 +45,9 @@ function* deleteEvent(action) {
 
 function* updateEvent(action) {
   try {
-    console.log(action)
-    yield axios.put(`/api/event/${action.payload.id}`, action.payload);
+    const response = yield axios.put(`/api/event/${action.payload.id}`, action.payload);
+    const data = {...response.data[0],title : response.data[0].event_title, date : response.data[0].event_date, description : response.data[0].event_description}
+    yield put({ type: 'SET_ONE_EVENT' , payload : data})    
     yield put({ type: 'FETCH_EVENT' })
   } catch (error) {
     console.log('Event Update request failed', error);

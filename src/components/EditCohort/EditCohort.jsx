@@ -27,21 +27,21 @@ const editEvent = (event) => {
   type: 'UPDATE_COHORT',
   payload: {
     id: oneCohort.id,
-    cohort_name: cohortName,
-    graduation_date: cohortGradDate
+    cohortName,
+    cohortGradDate,
+    cohortType
     },
   });
-  handleClickOpen();
+  props.setOpen2(false)
 };
 
 //COHORT NAME HOOK
-const [cohortName, setCohortName] = useState('');
+const [cohortName, setCohortName] = useState(oneCohort.cohort_name);
 
 //COHORT GRAD DATE HOOK
-const [cohortGradDate, setCohortGradDate] = useState('');
- 
+const [cohortGradDate, setCohortGradDate] = useState(oneCohort.graduation_date.split("T")[0]);
 // //COHORT STACK TYPE HOOK
-//    const [cohortType, setCohortType] = useState('');
+   const [cohortType, setCohortType] = useState(oneCohort.cohort_type);
 
 
 return (
@@ -64,13 +64,13 @@ return (
         <div className="editCohortFormandBtn">
             {/* EDIT COHORT TYPE INPUT */}
             <div>
-              {/* <label for="createnewdropdown">cohort type</label> */}
-              {/* <select className="editCohortdropdown" value={cohortType} onChange={( event )=>setCohortType( event.target.value )}>
+              <label for="createnewdropdown">cohort type</label>
+              <select className="editCohortdropdown" value={cohortType} onChange={( event )=>setCohortType( event.target.value )}>
                 <option value="">cohort type</option>
                 <option value={'FSE'}>FSE</option>
                 <option value={'UX/UI'}>UX/UI</option>
                 <option value={'FSE and UX/UI'}>FSE and UX/UI</option>
-              </select> */}
+              </select>
             </div>
             {/* SUBMISSION BTN */}
             <div className="editCohortSubmissionBtn">

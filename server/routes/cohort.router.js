@@ -61,14 +61,15 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 router.put('/:id', rejectUnauthenticated,(req, res) => {
 
     
-    const { name, graduationDate } = req.body
+    const { cohortName, cohortGradDate, cohortType } = req.body
     const { id } = req.params
 
     const queryText =  `UPDATE cohort
-    SET cohort_name = $1, graduation_date = $2
-    WHERE id = $3;`
+    SET cohort_name = $1, graduation_date = $2, cohort_type = $3
+    WHERE id = $4 RETURNING *;`
 
-    pool.query(queryText,[name,graduationDate,id]).then(()=>res.sendStatus(200))
+    pool.query(queryText,[cohortName,cohortGradDate,cohortType,id])
+    .then((response)=>res.send(response.rows).status(200))
     .catch(err=>{
         console.log('updating cohort error',err)
         res.sendStatus(500)

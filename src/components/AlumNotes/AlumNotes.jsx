@@ -145,6 +145,7 @@ function AlumNotes(props) {
    </Modal>
    <Modal
       open={deleteOpen}
+      onClose={()=>setDeleteOpen(!deleteOpen)}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       style={{alignItems:'center',
