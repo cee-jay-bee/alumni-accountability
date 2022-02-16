@@ -1,4 +1,4 @@
-const milTime = (time) => { // your input
+const gmtMilTime = (time) => { // your input
 
     time = time.split(':'); // convert to array
 
@@ -8,6 +8,9 @@ const milTime = (time) => { // your input
 
     // calculate
     let timeValue;
+    if (hours < 0) {
+      hours += 24;
+    }
 
     if (hours > 0 && hours <= 12) {
       timeValue= "" + hours;
@@ -15,8 +18,8 @@ const milTime = (time) => { // your input
       timeValue= "" + (hours - 12);
     } else if (hours == 0) {
       timeValue= "12";
-    }
-  
+    } 
+
     timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;  // get minutes
     timeValue += (hours >= 12) ? " P.M." : " A.M.";  // get AM/PM
 
@@ -24,4 +27,4 @@ const milTime = (time) => { // your input
     return timeValue;
   }
 
-export default milTime;
+export default gmtMilTime;
