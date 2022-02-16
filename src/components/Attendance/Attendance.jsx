@@ -82,10 +82,10 @@ function Attendance(props) {
               }
               </div>
           </div>
-          <div className="attendanceIcons">
+          {/* <div className="attendanceIcons">
               <DeleteOutlineOutlinedIcon id="attendanceDeleteEvent"/>
               <EditOutlinedIcon id="attendanceEditEvent"/>
-          </div>
+          </div> */}
         </div>
         <div id='attendanceTableMain'>
           <div className='attendanceTableRow'>
