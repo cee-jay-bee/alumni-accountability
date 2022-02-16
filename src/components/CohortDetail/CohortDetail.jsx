@@ -122,25 +122,6 @@ function CohortDetail(props) {
         </div>
       </Modal>
     </div>
-    {/* </div> */}
-    {/* <div className="cohortdetaildeletemodaldiv">
-      <Modal
-      open={open2}
-      onClose={handleClickOpen2}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      style={{alignItems:'center',
-      position: 'absolute',
-      top: '15%',
-      left: '35%',
-      // transform: 'translate(-50%, -50%)',
-      width: '400px',
-      height: '400px',
-      bgcolor: 'background.paper'
-    }}
-    >
-    </Modal>
-    </div> */}
     </div>
   );
 }
