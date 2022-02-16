@@ -153,7 +153,8 @@ function* updateAlumSkill(action) {
   console.log(action.payload);
   try {
     yield axios.put(`/api/alum/skill/${action.payload.id}`, action.payload.skills);
-    yield put({ type: 'FETCH_ALUM' })
+    yield put({ type: 'FETCH_ALUM' });
+    yield put({ type: 'FETCH_SKILL'});
   } catch (error) {
     console.log('Alum put request failed', error);
   }
