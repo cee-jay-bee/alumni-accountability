@@ -78,12 +78,6 @@ function SearchBySkill() {
         }),
   }
 
-  const onPressEnter = (event)=>{
-    console.log(alum);
-    // if (event.keyCode === 13) {
-    //   skillSearchFunction(event);
-    // }
-  }
 
   const skillSearchFunction = (event) => {
     console.log('skill search is --------------->', event);
@@ -109,7 +103,6 @@ function SearchBySkill() {
             placeholder= "Search Skill..."
             styles={customStyles}
             openMenuOnClick={false}
-            onKeyUp={onPressEnter}
 
             components={{DropdownIndicator}}
         />

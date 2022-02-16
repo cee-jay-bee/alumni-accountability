@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
@@ -15,6 +15,7 @@ function UserPage() {
   const event = useSelector((store) => store.event);
   const dispatch = useDispatch();
   const history= useHistory();
+  const [falseAttendance, setFalseAttendance] = useState([]);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENT'});
@@ -29,6 +30,7 @@ function UserPage() {
   const goToCohorts = () => {
     history.push("/cohortpage");
   }
+
 
   let today = new Date();
 
@@ -53,11 +55,15 @@ function UserPage() {
           <div className="mainDivHomePageCol3">
             <h2 id="mainPageCol3Header">Events requiring attendance</h2>
             <div className="mainPageContainer">
-            {event.map(event => {
-
-              let eventCompareDate = new Date(event.event_date); 
-
-              if(event.confirm_attendance === false && eventCompareDate <= today) {
+            {/* { (falseAttendance.length === 0) ? 
+              <div>
+                <img src="/Images/beachChair-bw.png" />
+                <h2 id="mainPageCol3Header">All Caught Up!</h2>
+              </div> :  */}
+              {event.map(event => {
+                let eventCompareDate = new Date(event.event_date); 
+                if(event.confirm_attendance === false && eventCompareDate <= today){
+                
                 const setOneEvent = () => {
                   dispatch({
                     type: 'SET_ONE_EVENT',
@@ -72,6 +78,7 @@ function UserPage() {
                   })
                   history.push("/eventdetail");
                 }
+
                 return (
                 
                   <div className="mainPageEventItem" onClick={setOneEvent}>
@@ -99,7 +106,7 @@ function UserPage() {
                   </div>
                 )
               }
-            })}
+              })}
             </div>
           </div>
           {/* <LogOutButton className="btn" /> */}

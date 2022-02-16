@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import AttendanceChart from '../ChartAttendance/ChartAttendance';
 import PlacedChart from '../ChartPlaced/ChartPlaced';
 import ChartOverall from '../ChartOverall/ChartOverall';
+import PiePlaced from '../ChartPiePlaced/ChartPiePlaced';
 import './DataPage.scss';
 
 function DataPage(props) {
@@ -17,6 +18,7 @@ function DataPage(props) {
     dispatch({ type: 'FETCH_EVENT'});
     dispatch({ type: 'PLACEMENT_DATA'});
     dispatch({ type: 'OVERALL_DATA'});
+    dispatch({ type: 'FETCH_ALUM'});
 
   }, []);
 
@@ -52,9 +54,15 @@ function DataPage(props) {
         </div>
       </div>
 
-      <div className="bottomChartDiv">
+      <div className="bottomLeftChartDiv">
         <div className="overallChartDiv">
           <ChartOverall redraw={true} />
+        </div>
+      </div>
+
+      <div className="bottomRightChartDiv">
+        <div className="piePlacedChartDiv">
+          <PiePlaced redraw={true} />
         </div>
       </div>
     </div>
