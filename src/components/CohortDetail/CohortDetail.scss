@@ -21,6 +21,8 @@
     flex-direction: row;
     width: 100%;
     justify-content: flex-start;
+    align-content: center;
+    align-items: center;
     // margin-left: 10%;
 }
 
@@ -29,8 +31,18 @@
     flex-direction: column;
     font-size: 17px;
 }
-.cohortDetailCohortNameDate > h2{
-    font-weight: 300;
+.cohortDetailCohortNameDate > h3{
+    font-weight: 500;
+    color: #818181;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+#graduationDetailDate{
+    font-size: 15px;
+    font-weight: lighter;
+    margin-top: 0px;
+    text-transform: uppercase;
 }
 
 .cohortdetailstackType{
@@ -49,26 +61,26 @@
     position: relative;
     font-size: 35px;
     top: 20px;
-    left: 34px;
+    left: -7px;
     color: rgb(112, 112, 112);
     // border: orangered 1px solid;
 }
 
 #cohortDetailDeleteEvent:hover{
     color: rgb(78, 78, 78);
-    background-color: orangered;
+    cursor: pointer;
 }
 
 #cohortDetailEditEvent{
     color: rgb(112, 112, 112);
     position: relative;
     top: 20px;
-    left: -59px;
+    left: -31px;
     font-size: 35px;
 }
 #cohortDetailEditEvent:hover{
     color: rgb(78, 78, 78);
-    background-color: orangered;
+    cursor: pointer;
 }
 
 #cohortDetailTableMain{

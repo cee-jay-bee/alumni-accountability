@@ -58,8 +58,8 @@ function CohortDetail(props) {
             {/* <p>{JSON.stringify(oneCohort)}</p> */}
             {/* <p>{JSON.stringify(alum)}</p> */}
             <div className="cohortDetailCohortNameDate">
-                <h2>{oneCohort.cohort_name}</h2>
-                <h2>{dateChange(oneCohort.graduation_date)}</h2>
+                <h3>{oneCohort.cohort_name}</h3>
+                <p id="graduationDetailDate">Graduation date: {dateChange(oneCohort.graduation_date)}</p>
             </div>
             <div className="cohortdetailstackType">
               {(oneCohort.stack_type === 'FSE') ?
