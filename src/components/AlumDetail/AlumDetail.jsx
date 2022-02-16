@@ -37,11 +37,13 @@ function AlumDetail(props) {
   return (
     <main className="alumDetailMainDiv">
          <div className='alumDetailCol1'>
-            <div className="alumDetailTitleDate">   
-              <h2 id="eventDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
-            </div>
-            <div className="eventDetailStackType">
-              <p>FSE</p>
+           <div className="alumDetailTitleandStack">
+                <div className="alumDetailTitleDiv">   
+                  <h2 id="alumDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
+                </div>
+                <div className="eventDetailStackType">
+                  <p>FSE</p>
+                </div>
             </div>
             <div className="tobePlacedOrNotToBePlaced">
                 <p>{oneAlum.alum_placed ? "Placed" : "Seeking"}</p>
