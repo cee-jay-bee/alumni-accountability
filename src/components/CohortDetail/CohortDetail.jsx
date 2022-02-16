@@ -12,6 +12,7 @@ import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import EditCohort from '../EditCohort/EditCohort';
 import {useHistory} from 'react-router-dom';
 import dateChange from '../Functions/dateChange';
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -58,8 +59,8 @@ function CohortDetail(props) {
             {/* <p>{JSON.stringify(oneCohort)}</p> */}
             {/* <p>{JSON.stringify(alum)}</p> */}
             <div className="cohortDetailCohortNameDate">
-                <h2>{oneCohort.cohort_name}</h2>
-                <h2>{dateChange(oneCohort.graduation_date)}</h2>
+                <h3>{oneCohort.cohort_name}</h3>
+                <p id="graduationDetailDate">Graduation date: {dateChange(oneCohort.graduation_date)}</p>
             </div>
             <div className="cohortdetailstackType">
               {(oneCohort.stack_type === 'FSE') ?
@@ -81,10 +82,10 @@ function CohortDetail(props) {
       </div>
       <div id='cohortDetailTableMain'>
         <div className='cohortDetailTableRow'>
-          <h3 className='cohortDetailTableCol1'>Placed</h3>
-          <h3 className='cohortDetailTableCol2'>Name</h3>
-          <h3 className='cohortDetailTableCol3'>Cohort</h3>
-          <h3 className='cohortDetailTableCol4'>Graduation Date</h3>
+          <h3 id='cohortDetailTableCol1'>Placed</h3>
+          <h3 id='cohortDetailTableCol2'>Name</h3>
+          <h3 id='cohortDetailTableCol3'>Cohort</h3>
+          <h3 id='cohortDetailTableCol4'>Graduation Date</h3>
           
         </div> 
         {alum.map(alum => 
@@ -92,71 +93,53 @@ function CohortDetail(props) {
         )}  
         
       </div>
-      <div cohortdetaildeletemodaldiv>
+      {/* <div className="cohortdetaildeletemodaldiv"> */}
+      <div className="deleteEventModalDiv">
         <Modal
         open={open}
         onClose={handleClickOpen}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         style={{alignItems:'center',
-        position: 'absolute',
-        top: '15%',
-        eft: '35%',
-        // transform: 'translate(-50%, -50%)',
-        width: '400px',
-        height: '400px',
-        bgcolor: 'background.paper'
-        }}
+                position: 'flexible',
+                top: '20%',
+                left: '35%',
+                bgcolor: 'background.paper'
+          }}
         >
-        <Box>
-          <Paper
-            style={{
-            // transform: 'translate(-50%, -50%)',
-            width: '450px',
-            height: '400px',
-              }}
-            >
-            <h4 className="confirmDelete">Confirm Delete?</h4>
-            <span className='deleteexclamationpoint'><PriorityHighIcon
-            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
-            <div className="deleteeventmodalbtns">
+        <div className="eventDeleteModal">
+          <div className="eventDeleteModalCardHeader">
+              <h3 className="confirmDelete">Confirm Delete?</h3>
+          </div>
+          <span className='deleteexclamationpoint'>
+            <ReportGmailerrorredIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/>
+          </span> 
+          <div className="deleteeventmodalbtns">
                 <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
-                <button className="deleteeventbtnconfirm" onClick={deleteCohort}>Yes</button>
-                
-            </div>
-          </Paper>
-        </Box> 
+                <button className="deleteeventbtnconfirm" onClick={deleteCohort}>Yes</button>  
+          </div>
+        </div>
       </Modal>
     </div>
     <div cohortdetaileditmodaldiv>
       <Modal
-      open={open2}
-      onClose={handleClickOpen2}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      style={{alignItems:'center',
-      position: 'absolute',
-      top: '15%',
-      left: '35%',
-      // transform: 'translate(-50%, -50%)',
-      width: '400px',
-      height: '400px',
-      bgcolor: 'background.paper'
-    }}
-    >
-      <Box>
-        <Paper
-            style={{
-            // transform: 'translate(-50%, -50%)',
-            width: '450px',
-            height: '400px',
-              }}
-          >
-          <EditCohort setOpen2 = {setOpen2}/>
-          
-        </Paper>
-      </Box> 
-    </Modal>
+          open={open2}
+          onClose={handleClickOpen2}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          style={{alignItems:'center',
+          position: 'flexible',
+          top: '20%',
+          left: '35%',
+          // transform: 'translate(-50%, -50%)',
+          width: '400px',
+          height: '400px',
+          bgcolor: 'background.paper'
+        }}
+      >
+        <EditCohort setOpen2 = {setOpen2}/>
+      </Modal>
     </div>
     </div>
   );

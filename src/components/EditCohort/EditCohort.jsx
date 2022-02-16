@@ -63,11 +63,9 @@ return (
         <div className="editCohortTitleDateTimeDiv">
           <input type="text" className="editcohorttitleinput" placeholder="cohort name" label="cohort name"  autoComplete= "off" required value={cohortName} onChange={(event) => setCohortName(event.target.value)}/>
           <input type="date" className="editcohortDateInput" autoComplete= "off" required value={cohortGradDate} onChange={(event) => setCohortGradDate(event.target.value)} />
-        </div>
-        <div className="editCohortFormandBtn">
             {/* EDIT COHORT TYPE INPUT */}
             <div>
-              <label for="createnewdropdown">cohort type</label>
+              {/* <label for="createnewdropdown">cohort type</label> */}
               <select className="editCohortdropdown" value={cohortType} onChange={( event )=>setCohortType( event.target.value )}>
                 <option value="">cohort type</option>
                 <option value={'FSE'}>FSE</option>

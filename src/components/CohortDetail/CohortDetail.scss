@@ -21,6 +21,8 @@
     flex-direction: row;
     width: 100%;
     justify-content: flex-start;
+    align-content: center;
+    align-items: center;
     // margin-left: 10%;
 }
 
@@ -29,8 +31,18 @@
     flex-direction: column;
     font-size: 17px;
 }
-.cohortDetailCohortNameDate > h2{
-    font-weight: 300;
+.cohortDetailCohortNameDate > h3{
+    font-weight: 500;
+    color: #818181;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+#graduationDetailDate{
+    font-size: 15px;
+    font-weight: lighter;
+    margin-top: 0px;
+    text-transform: uppercase;
 }
 
 .cohortdetailstackType{
@@ -49,33 +61,33 @@
     position: relative;
     font-size: 35px;
     top: 20px;
-    left: 34px;
+    left: -7px;
     color: rgb(112, 112, 112);
     // border: orangered 1px solid;
 }
 
 #cohortDetailDeleteEvent:hover{
     color: rgb(78, 78, 78);
-    background-color: orangered;
+    cursor: pointer;
 }
 
 #cohortDetailEditEvent{
     color: rgb(112, 112, 112);
     position: relative;
     top: 20px;
-    left: -59px;
+    left: -31px;
     font-size: 35px;
 }
 #cohortDetailEditEvent:hover{
     color: rgb(78, 78, 78);
-    background-color: orangered;
+    cursor: pointer;
 }
 
 #cohortDetailTableMain{
     display: flex;
     height: 62vh;
     flex-direction: column;
-    width: 75%;
+    width: 65%;
     margin-top: 10px;
     background-color: white;
     border-radius: 10px;
@@ -98,31 +110,37 @@
     // overflow: hidden;
 }
 
-.cohortDetailTableCol1 {
+#cohortDetailTableCol1 {
     width: 5%;
-    padding-right: 40px;
+    padding-right: 64px;
+    padding-left: 40px;
     text-align: right;
+    color: white;
+
     // border: 1px solid red;
 }
 
-.cohortDetailTableCol2 {
+#cohortDetailTableCol2 {
     width: 40%;
- 
+    color: white;
     // border: 1px solid green;
 }
 
-.cohortDetailTableCol3 {
+#cohortDetailTableCol3 {
     width: 35%;
+    color: white;
     // border: 1px solid blue;
 }
 
-.cohortDetailTableCol4 {
+#cohortDetailTableCol4 {
     width: 25%;
+    color: white;
     // border: 1px solid orangered;
 }
 
-.cohortDetailTableCol5 {
+#cohortDetailTableCol5 {
     width: 25%;
+    color: white;
     // border: 1px solid orangered;
 }
 

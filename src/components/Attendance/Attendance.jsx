@@ -5,6 +5,7 @@ import {useDispatch} from 'react-redux';
 //IMPORT SCSS
 import './Attendance.scss';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import {useHistory} from 'react-router-dom';
 
@@ -82,10 +83,10 @@ function Attendance(props) {
               }
               </div>
           </div>
-          <div className="attendanceIcons">
+          {/* <div className="attendanceIcons">
               <DeleteOutlineOutlinedIcon id="attendanceDeleteEvent"/>
               <EditOutlinedIcon id="attendanceEditEvent"/>
-          </div>
+          </div> */}
         </div>
         <div id='attendanceTableMain'>
           <div className='attendanceTableRow'>
@@ -99,11 +100,20 @@ function Attendance(props) {
           )}
         </div>
         <div className="attendanceSubmitBtnDiv">
+          <button
+              className="attendanceReturntoEventBtns"
+              type="button"
+              // className="btn btn_asLink"
+              onClick={() => {
+                history.push('/eventdetail');
+              }}
+            > <KeyboardReturnIcon/>
+            Return to event page
+          </button>
         {eventAttendance[0] ?
           <button id="attendancePageSubmitBtn" onClick={updateAttendance} >Update Attendance</button> :
           <button id="attendancePageSubmitBtn" onClick={submitAttendance} >Submit Attendance</button>
-      }
-          
+      } 
         </div>
       </div>
     );
