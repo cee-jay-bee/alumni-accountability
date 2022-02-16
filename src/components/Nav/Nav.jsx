@@ -11,9 +11,6 @@ function Nav() {
   const [skillName, setskillName] = useState("")
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch()
-  const onSkillSearch = ()=>{
-    dispatch({ type: 'SEARCH_BY_SKILL',payload : skillName})
-  }
 
   return (
     <div className="nav">

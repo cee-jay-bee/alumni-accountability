@@ -19,6 +19,7 @@ function UserPage() {
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENT'});
     dispatch({ type: 'FETCH_ALUM'});
+    dispatch({ type: 'FETCH_SKILL'});
   }, []);
 
   const goToEvents = () => {
@@ -51,7 +52,7 @@ function UserPage() {
           </div>
           <div className="mainDivHomePageCol3">
             <h2 id="mainPageCol3Header">Events requiring attendance</h2>
-            <div classname="mainPageContainer">
+            <div className="mainPageContainer">
             {event.map(event => {
 
               let eventCompareDate = new Date(event.event_date); 
@@ -81,17 +82,17 @@ function UserPage() {
                         </div>
                         <div className="mainPageStackTypeDiv">
                           {(event.stack_type === 'FSE') ?
-                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
+                            <p className="mainPageStackTypeDisplay" style={{'backgroundColor': '#919f73'}}>FSE</p> :
                             (event.stack_type === 'UXD') ?
-                            <p class="mainPageStackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
-                            <span><p class="mainPageStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p></span>
+                            <p className="mainPageStackTypeDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> :
+                            <span><p className="mainPageStackTypeDualDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p></span>
                         }
                         </div>
                     </div>
                     <div id="mainpageeventname">
                        {(event.event_title.length > 15) ?
-                       <h2 class="mainPageTitleStyling">{event.event_title.slice(0,20)}...</h2> :
-                       <h2 class="mainPageTitleStyling">{event.event_title}</h2>
+                       <h2 className="mainPageTitleStyling">{event.event_title.slice(0,20)}...</h2> :
+                       <h2 className="mainPageTitleStyling">{event.event_title}</h2>
                        }
                     </div>
 
