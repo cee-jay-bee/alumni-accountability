@@ -33,9 +33,11 @@ import Attendance from '../Attendance/Attendance';
 import DataPage from '../DataPage/DataPage';
 import EventNotes from '../EventNotes/EventNotes';
 import EventTags from '../EventTags/EventTags';
-import ForgottenUsername from '../ForgottenUsername/ForgottenUsername';
-import ResetPassword from '../ResetPassword/ResetPassword';
+import ForgottenUsernameForm from '../ForgottenUsernameForm/ForgottenUsernameForm';
+import ResetPasswordForm from '../ResetPasswordForm/ResetPasswordForm';
 import CohortImport from '../CohortImport/CohortImport'; //DELETE THIS ONCE WE'RE DONE
+import ForgotUserName from '../ForgotUserName/ForgotUserName';
+import ResetPassword from '../ResetPassword/ResetPassword';
 
 function App() {
   const dispatch = useDispatch();
@@ -190,9 +192,16 @@ function App() {
 
           <Route
             exact
+            path="/usernameform"
+            >
+            <ForgottenUsernameForm/>
+          </Route>
+
+          <Route
+            exact
             path="/username"
             >
-            <ForgottenUsername/>
+            <ForgotUserName/>
           </Route>
 
           <Route
@@ -201,6 +210,8 @@ function App() {
             >
             <ResetPassword/>
           </Route>
+
+
 
           <Route
             exact

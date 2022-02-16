@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import UserItem from '../UserItem/UserItem';
 
-import './RegisterPage.css';
+import './RegisterPage.scss';
 
 function RegisterPage() {
   const history = useHistory();

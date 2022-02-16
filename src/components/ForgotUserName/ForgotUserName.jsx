@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import './LandingPage.scss';
+import './ForgotUserName.scss';
 
 // CUSTOM COMPONENTS
-import LoginForm from '../LoginForm/LoginForm';
+import ForgottenUsernameForm from '../ForgottenUsernameForm/ForgottenUsernameForm';
 
-function LandingPage() {
+function ForgotUserName() {
   // const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
 
@@ -18,7 +18,7 @@ function LandingPage() {
       <div className="landingpagecontent">
             <img id="landingPagePic"src="../images/PriumniLogo.png" alt="priumni logo" />
             <div className="landingPageLoginFormContainer">
-              <LoginForm />
+              <ForgottenUsernameForm />
               <center className="landingMemberEmail">
                 <h4>Not a Member?</h4>
                 <h4>Email <a href="mailto:christy@primeacademy.io" style={{color: 'white'}}>Christy</a> or <a href="mailto:bellamy@primeacademy.io" style={{color: 'white'}}>Bellamy</a> for Access</h4>
@@ -29,4 +29,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default ForgotUserName;

@@ -17,9 +17,12 @@ function Nav() {
 
   return (
     <div className="nav">
+      {user.id &&(
+          <>
       <div className="navbarContainer">
         <Link to="/home">
-          <h2 className="nav-title">Prime Solo Project</h2>
+          <img id="navLogoPic"src="../images/PPriumniLogo.png" alt="priumni logo" />
+          {/* <h2 className="nav-title">Prime Solo Project</h2> */}
         </Link>
         {/* If no user is logged in, show these links
         {user.id === null &&
@@ -29,8 +32,8 @@ function Nav() {
           </Link>
         } */}
         {/* If a user is logged in, show these links */}
-        {user.id &&(
-          <>
+        {/* {user.id &&(
+          <> */}
             
             <Link id='home-button' className="navLink" to="/user">
               Home
@@ -48,9 +51,13 @@ function Nav() {
               Data
             </Link>
 
-            <Link className="navLink" to="/registration">
-              Users
-            </Link>
+            {user.role==="admin" &&(
+              <>
+                <Link className="navLink" to="/registration">
+                  Users
+                </Link>
+              </>
+              )}
 
             <div>
               <SearchByAlum/>
@@ -67,8 +74,8 @@ function Nav() {
             </div>
             
              {/* Link is a placeholder for now. Later we might want to use useHistory */}
-          </>
-        )}
+          {/* </>
+        )} */}
         
       </div>
       {/* <div> */}
@@ -76,6 +83,8 @@ function Nav() {
         <LogOutButton className="navLink" />
       </div> */}
       {/* </div> */}
+      </>
+      )}
     </div>
   );
 }
