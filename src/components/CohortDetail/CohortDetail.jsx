@@ -129,7 +129,7 @@ function CohortDetail(props) {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
           style={{alignItems:'center',
-          position: 'absolute',
+          position: 'flexible',
           top: '20%',
           left: '35%',
           // transform: 'translate(-50%, -50%)',
