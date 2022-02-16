@@ -101,6 +101,22 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
   })
 });
 
+router.put('/attendance/:id', rejectUnauthenticated, (req, res) => {
+
+  const {id} = req.params;
+  
+  const updateEventQuery =  `UPDATE event SET confirm_attendance = $1 WHERE id = $2`
+
+  // FIRST QUERY UDPATE EVENT
+  pool.query(updateEventQuery, [true, id])
+  .then(() => {
+    res.sendStatus(201);
+  }).catch(err => {
+    console.log(err);
+    res.sendStatus(500)
+  })
+});
+
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // DELETE route for event

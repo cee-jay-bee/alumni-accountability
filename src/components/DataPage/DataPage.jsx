@@ -1,15 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import AttendanceChart from '../AttendanceChart/AttendanceChart';
-import PlacedChart from '../PlacedChart/PlacedChart';
+import AttendanceChart from '../ChartAttendance/ChartAttendance';
+import PlacedChart from '../ChartPlaced/ChartPlaced';
+import ChartOverall from '../ChartOverall/ChartOverall';
 import './DataPage.scss';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name DataPage with the name for the new component.
 function DataPage(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
   const dispatch = useDispatch();
   const event = useSelector((store) => store.event);
   
@@ -20,6 +16,8 @@ function DataPage(props) {
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENT'});
     dispatch({ type: 'PLACEMENT_DATA'});
+    dispatch({ type: 'OVERALL_DATA'});
+
   }, []);
 
   const displayChart = () => {
@@ -51,6 +49,12 @@ function DataPage(props) {
       <div className="rightSideChartDiv">
         <div className="placedChartDiv">
           <PlacedChart redraw={true} />
+        </div>
+      </div>
+
+      <div className="bottomChartDiv">
+        <div className="overallChartDiv">
+          <ChartOverall redraw={true} />
         </div>
       </div>
     </div>

@@ -8,6 +8,8 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import './EventNotes.scss'
+import gmtMilTime from '../Functions/gmtMilTime';
+import dateChange from '../Functions/dateChange';
 
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -105,8 +107,8 @@ function EventNotes(props) {
           {eventNote.map((onenote)=>
             <div className="eventnoterow">
                 <div className="eventnotedatetime">
-                    <h4 id="eventdateid"> {onenote.event_note_date.split("T")[0]} </h4>
-                    <h4 id="eventtimeid"> {onenote.event_note_date.split("T")[1].split(".")[0]} </h4>
+                    <h4 id="eventdateid"> {dateChange(onenote.event_note_date)} </h4>
+                    <h4 id="eventtimeid"> {gmtMilTime(onenote.event_note_date.split("T")[1].split(".")[0])} </h4>
                 </div>
                 <h4 className="eventnotedisplay">{onenote.event_note_entry}</h4>
                 <div className="eventactionbtns">

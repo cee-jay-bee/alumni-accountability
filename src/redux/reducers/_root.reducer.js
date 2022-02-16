@@ -15,7 +15,8 @@ import cohort from './cohort.reducer'
 import oneCohort from './oneCohort.reducer';
 import allUser from './allUser.reducer';
 import data from './data.reducer';
-import skillSearch from './search.reducer'
+import skillSearch from './search.reducer';
+import overallData from './overallData.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -39,7 +40,8 @@ const rootReducer = combineReducers({
   oneAlum,
   allUser,
   data,
-  skillSearch
+  skillSearch,
+  overallData
 });
 
 export default rootReducer;

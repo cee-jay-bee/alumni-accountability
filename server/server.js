@@ -17,6 +17,7 @@ const skillRouter = require('./routes/skill.router');
 const tagRouter = require('./routes/tag.router');
 const cohortRouter = require('./routes/cohort.router');
 const eventAttendanceRouter = require('./routes/eventAttendance.router');
+const dataRouter = require('./routes/data.router');
 
 
 // Body parser middleware
@@ -40,6 +41,7 @@ app.use('/api/skill', skillRouter);
 app.use('/api/tag', tagRouter);
 app.use('/api/cohort', cohortRouter);
 app.use('/api/eventAttendance', eventAttendanceRouter);
+app.use('/api/data', dataRouter);
 
 // Serve static files
 app.use(express.static('build'));
