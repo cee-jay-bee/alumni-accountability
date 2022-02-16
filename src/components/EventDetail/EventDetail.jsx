@@ -68,7 +68,7 @@ const [eventNote, setEventNote] = useState('');
         <div className='eventDetailCol1'>
           <div className="eventDetailTitleDate">
             <h2 id="eventDetailTitle">{oneEvent.title}</h2> 
-            <p id="eventDetailDate">{dateChange(oneEvent.date)}</p><br/>
+            <p id="eventDetailDate">{dateChange(oneEvent.date)}</p>
             <p id="eventDetailDate">{milTime(oneEvent.time)}</p>
           </div>
           <div className="eventDetailStackType">
