@@ -151,7 +151,7 @@ function CohortDetail(props) {
             height: '400px',
               }}
           >
-          <EditCohort />
+          <EditCohort setOpen2 = {setOpen2}/>
           
         </Paper>
       </Box> 

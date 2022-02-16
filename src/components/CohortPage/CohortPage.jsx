@@ -61,6 +61,7 @@ function CohortPage(props) {
                           id: cohort.id,
                           cohort_name: cohort.cohort_name,
                           graduation_date: cohort.graduation_date,
+                          cohort_type: cohort.cohort_type,
                         }
                       })
                       history.push("/cohortdetail");
@@ -128,4 +129,3 @@ function CohortPage(props) {
 }
 
 export default CohortPage;
-

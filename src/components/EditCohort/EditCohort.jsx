@@ -30,19 +30,21 @@ const editEvent = (event) => {
     cohort_name: cohortName,
     graduation_date: cohortGradDate,
     cohort_type: cohortType
+
     },
   });
-  handleClickOpen();
+  props.setOpen2(false)
 };
 
 //COHORT NAME HOOK
-const [cohortName, setCohortName] = useState('');
+const [cohortName, setCohortName] = useState(oneCohort.cohort_name);
 
 //COHORT GRAD DATE HOOK
 const [cohortGradDate, setCohortGradDate] = useState('');
  
 //COHORT STACK TYPE HOOK
    const [cohortType, setCohortType] = useState('');
+
 
 
 return (
@@ -71,6 +73,7 @@ return (
                 <option value={'FSE'}>FSE</option>
                 <option value={'UXD'}>UXD</option>
                 <option value={'FSE and UXD'}>FSE and UXD</option>
+
               </select>
             </div>
             {/* SUBMISSION BTN */}
