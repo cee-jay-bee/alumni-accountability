@@ -59,7 +59,7 @@ function OverallChart(props) {
               tooltip: {
                 callbacks: {
                   label: function(context) {
-                      return context.dataset.labels[context.dataIndex];
+                    return context.dataset.labels[context.dataIndex] + ': ' + context.dataset.data[context.dataIndex];
                   }
                 }
               }
