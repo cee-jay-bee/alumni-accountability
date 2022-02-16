@@ -53,14 +53,7 @@ function CohortDetailItem(props) {
           <div className='cohortDetailTableRow2Col2' onClick={setOneAlum}>{props.alum.alum_name}</div>
           <div class='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</div>
           <div class='cohortDetailTableRow2Col4'>{props.alum.graduation_date.split("T")[0]}</div>
-      <div>
-      {props.alum.id==alumNote.alum_id  ?
-        <Link to="/alumnote"> 
-        <div class='cohortDetailTableRow2Col5'><StickyNote2Icon className='cohortDetailNoteIcon' style={{fontSize:"35px", "left": "93%", "top": "50%" }}/></div>
-        </Link>
-        :
-        <p>Null</p>}
-      </div>
+     
       </div>
           );
   } else {

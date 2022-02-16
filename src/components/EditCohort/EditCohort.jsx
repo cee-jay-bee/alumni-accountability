@@ -27,9 +27,10 @@ const editEvent = (event) => {
   type: 'UPDATE_COHORT',
   payload: {
     id: oneCohort.id,
-    cohortName,
-    cohortGradDate,
-    cohortType
+    cohort_name: cohortName,
+    graduation_date: cohortGradDate,
+    cohort_type: cohortType
+
     },
   });
   props.setOpen2(false)
@@ -39,9 +40,11 @@ const editEvent = (event) => {
 const [cohortName, setCohortName] = useState(oneCohort.cohort_name);
 
 //COHORT GRAD DATE HOOK
-const [cohortGradDate, setCohortGradDate] = useState(oneCohort.graduation_date.split("T")[0]);
-// //COHORT STACK TYPE HOOK
-   const [cohortType, setCohortType] = useState(oneCohort.cohort_type);
+const [cohortGradDate, setCohortGradDate] = useState('');
+ 
+//COHORT STACK TYPE HOOK
+   const [cohortType, setCohortType] = useState('');
+
 
 
 return (
@@ -68,8 +71,9 @@ return (
               <select className="editCohortdropdown" value={cohortType} onChange={( event )=>setCohortType( event.target.value )}>
                 <option value="">cohort type</option>
                 <option value={'FSE'}>FSE</option>
-                <option value={'UX/UI'}>UX/UI</option>
-                <option value={'FSE and UX/UI'}>FSE and UX/UI</option>
+                <option value={'UXD'}>UXD</option>
+                <option value={'FSE and UXD'}>FSE and UXD</option>
+
               </select>
             </div>
             {/* SUBMISSION BTN */}
