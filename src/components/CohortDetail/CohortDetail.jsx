@@ -63,9 +63,9 @@ function CohortDetail(props) {
             <div className="cohortdetailstackType">
               {(oneCohort.stack_type === 'FSE') ?
                 <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-                  (oneCohort.stack_type === 'UX/UI') ?
-                <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
-                  <span><p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+                  (oneCohort.stack_type === 'UXD') ?
+                <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
+                  <span><p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></span>
               }
             </div>
         </div>   
