@@ -30,6 +30,18 @@ function UserPage() {
     history.push("/cohortpage");
   }
 
+  let falseAttendance = [];
+
+  event.map(event => {
+    let eventCompareDate = new Date(event.event_date); 
+
+    if(event.confirm_attendance === false && eventCompareDate <= today){
+      falseAttendance.push(event);
+    }
+    console.log(falseAttendance);
+  })
+
+
   let today = new Date();
 
   return (
@@ -53,11 +65,15 @@ function UserPage() {
           <div className="mainDivHomePageCol3">
             <h2 id="mainPageCol3Header">Events requiring attendance</h2>
             <div className="mainPageContainer">
-            {event.map(event => {
-
-              let eventCompareDate = new Date(event.event_date); 
-
-              if(event.confirm_attendance === false && eventCompareDate <= today) {
+            
+            {(falseAttendance.length === 0) ? 
+              <div>
+                <img src="/Images/beachChair-bw.png" />
+                <h2 id="mainPageCol3Header">All Caught Up!</h2>
+              </div> : 
+              
+              falseAttendance.map(event => {
+                
                 const setOneEvent = () => {
                   dispatch({
                     type: 'SET_ONE_EVENT',
@@ -72,6 +88,7 @@ function UserPage() {
                   })
                   history.push("/eventdetail");
                 }
+
                 return (
                 
                   <div className="mainPageEventItem" onClick={setOneEvent}>
@@ -99,7 +116,7 @@ function UserPage() {
                   </div>
                 )
               }
-            })}
+              )}
             </div>
           </div>
           {/* <LogOutButton className="btn" /> */}
