@@ -122,6 +122,25 @@ function CohortDetail(props) {
         </div>
       </Modal>
     </div>
+    <div cohortdetaileditmodaldiv>
+      <Modal
+          open={open2}
+          onClose={handleClickOpen2}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          style={{alignItems:'center',
+          position: 'absolute',
+          top: '20%',
+          left: '35%',
+          // transform: 'translate(-50%, -50%)',
+          width: '400px',
+          height: '400px',
+          bgcolor: 'background.paper'
+        }}
+      >
+        <EditCohort setOpen2 = {setOpen2}/>
+      </Modal>
+    </div>
     </div>
   );
 }
