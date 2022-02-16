@@ -20,3 +20,17 @@
     align-items: center;
     align-content: center;
 }
+
+.userRegtitleDiv{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.userRegTitles{
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #818181;
+    font-size: 21px;
+}

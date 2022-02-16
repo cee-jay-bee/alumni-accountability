@@ -17,8 +17,8 @@ function RegisterPage() {
 
   return (
     <div>
-      <div>
-        <h2>Current users</h2>
+      <div class="userRegtitleDiv">
+        <h2 className="userRegTitles">Users and Registration</h2>
       </div>
       <div className='userRegisterPageDiv'>
         <div className="userTableDiv">
