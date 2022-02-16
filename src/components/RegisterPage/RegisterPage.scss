@@ -1,8 +1,10 @@
 .userRegisterPageDiv {
-    display:table;
+    display: flex;
     width:100%;
-    border: 1px solid;
-    
+    border: 1px solid palegreen;
+    justify-content: space-between;
+    align-content: center;
+    align-items: stretch;
 }
 .userTableDiv {
     display:table-cell;
@@ -11,7 +13,10 @@
     border: 1px solid;
 }
 .registerFormDiv {
-    display:table-cell;
-    background-color:#cecca7;
-    width:45%;
+    display: flex;
+    // background-color:#cecca7;
+    // width:45%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
