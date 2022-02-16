@@ -12,6 +12,7 @@ import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import EditCohort from '../EditCohort/EditCohort';
 import {useHistory} from 'react-router-dom';
 import dateChange from '../Functions/dateChange';
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -92,43 +93,37 @@ function CohortDetail(props) {
         )}  
         
       </div>
-      <div cohortdetaildeletemodaldiv>
+      {/* <div className="cohortdetaildeletemodaldiv"> */}
+      <div className="deleteEventModalDiv">
         <Modal
         open={open}
         onClose={handleClickOpen}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         style={{alignItems:'center',
-        position: 'absolute',
-        top: '15%',
-        eft: '35%',
-        // transform: 'translate(-50%, -50%)',
-        width: '400px',
-        height: '400px',
-        bgcolor: 'background.paper'
-        }}
+                position: 'flexible',
+                top: '20%',
+                left: '35%',
+                bgcolor: 'background.paper'
+          }}
         >
-        <Box>
-          <Paper
-            style={{
-            // transform: 'translate(-50%, -50%)',
-            width: '450px',
-            height: '400px',
-              }}
-            >
-            <h4 className="confirmDelete">Confirm Delete?</h4>
-            <span className='deleteexclamationpoint'><PriorityHighIcon
-            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/> </span> 
-            <div className="deleteeventmodalbtns">
+        <div className="eventDeleteModal">
+          <div className="eventDeleteModalCardHeader">
+              <h3 className="confirmDelete">Confirm Delete?</h3>
+          </div>
+          <span className='deleteexclamationpoint'>
+            <ReportGmailerrorredIcon
+            style={{fontSize:"120px", 'top':'150px', 'left':'157px'}}/>
+          </span> 
+          <div className="deleteeventmodalbtns">
                 <button className="deleteeventbtncancel" onClick={handleClickOpen}>No</button>
-                <button className="deleteeventbtnconfirm" onClick={deleteCohort}>Yes</button>
-                
-            </div>
-          </Paper>
-        </Box> 
+                <button className="deleteeventbtnconfirm" onClick={deleteCohort}>Yes</button>  
+          </div>
+        </div>
       </Modal>
     </div>
-    <div cohortdetaileditmodaldiv>
+    {/* </div> */}
+    {/* <div className="cohortdetaildeletemodaldiv">
       <Modal
       open={open2}
       onClose={handleClickOpen2}
@@ -144,20 +139,8 @@ function CohortDetail(props) {
       bgcolor: 'background.paper'
     }}
     >
-      <Box>
-        <Paper
-            style={{
-            // transform: 'translate(-50%, -50%)',
-            width: '450px',
-            height: '400px',
-              }}
-          >
-          <EditCohort setOpen2 = {setOpen2}/>
-          
-        </Paper>
-      </Box> 
     </Modal>
-    </div>
+    </div> */}
     </div>
   );
 }
