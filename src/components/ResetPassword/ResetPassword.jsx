@@ -1,107 +1,32 @@
-import React, {useState} from 'react';
-
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import './ResetPassword.scss';
 
-function ForgottenUsername() {
+// CUSTOM COMPONENTS
+import ResetPasswordForm from '../ResetPasswordForm/ResetPasswordForm'
+
+function ResetPassword() {
+  // const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
-  const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  
-  const errors = useSelector((store) => store.errors);
-  const dispatch = useDispatch();
 
-  const resetPassword = (event) => {
-    event.preventDefault();
-
-    dispatch({
-      type: 'RESET_PASSWORD',
-      payload: {
-        email: email,
-        username: username,
-        password: password
-      },
-    });
-    history.push("/login");
-  }; // end registerUser
+  const onLogin = (event) => {
+    history.push('/login');
+  };
 
   return (
-    <div>
-
-      <div>
-        <h2>Current users</h2>
+    <div className="landingPageMainDiv">
+      <div className="landingpagecontent">
+            <img id="landingPagePic"src="../images/PriumniLogo.png" alt="priumni logo" />
+            <div className="landingPageLoginFormContainer">
+              <ResetPasswordForm />
+              <center className="landingMemberEmail">
+                <h4>Not a Member?</h4>
+                <h4>Email <a href="mailto:christy@primeacademy.io" style={{color: 'white'}}>Christy</a> or <a href="mailto:bellamy@primeacademy.io" style={{color: 'white'}}>Bellamy</a> for Access</h4>
+              </center>
+          </div>
       </div>
-      <form className="formPanel" onSubmit={resetPassword}>
-        <h2>Reset Password</h2>
-        {errors.registrationMessage && (
-          <h3 className="alert" role="alert">
-            {errors.registrationMessage}
-          </h3>
-        )}
-      <div>
-        <label htmlFor="email">
-          Email:
-          <input
-            type="text"
-            name="email"
-            value={email}
-            required
-            onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          New Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Reset Password" />
-      </div>
-      <center>
-        <button
-          type="button"
-          className="btn btn_asLink"
-          onClick={() => {
-            history.push('/login');
-          }}
-        >
-          Login
-        </button>
-        <br />
-        <button
-          type="button"
-          className="btn btn_asLink"
-          onClick={() => {
-            history.push('/username');
-          }}
-        >
-          Forgot Username?
-        </button>
-      </center>
-    </form>
     </div>
   );
 }
 
-export default ForgottenUsername;
+export default ResetPassword;

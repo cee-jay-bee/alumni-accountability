@@ -64,11 +64,12 @@
 }
 
 .mainDivHomePageCol1:hover{
-    background: #919f73;
-    color: rgb(68, 68, 68);
-    background-image: url('../UserPage/events-color.png');
-    background-size: cover;
-    transition: background-image 150ms ease-in-out;
+    cursor: pointer;
+    // background: #919f73;
+    // color: rgb(68, 68, 68);
+    // background-image: url('../UserPage/events-color.png');
+    // background-size: cover;
+    // transition: background-image 150ms ease-in-out;
     // background-image: url('./Images/event-bg-bw.png');
     
 }
@@ -96,10 +97,11 @@
 }
 
 .mainDivHomePageCol2:hover{
-    background: #cecca7;
-    // color: white;
-    background-image: url('../UserPage/cohort-color.png');
-    background-size: cover;
+    cursor: pointer;
+    // background: #cecca7;
+    // // color: white;
+    // // background-image: url('../UserPage/cohort-color.png');
+    // background-size: cover;
 }
 
 .mainDivHomePageCol3 {
