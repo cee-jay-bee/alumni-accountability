@@ -11,11 +11,11 @@ const axios = require('axios');
  */
 router.get('/overall', rejectUnauthenticated, (req, res) => {
   console.log('in data router');
-  const query = `SELECT COUNT(event_attendance.alum_id) AS total_attendance, event_date
+  const query = `SELECT COUNT(event_attendance.alum_id) AS total_attendance, event_date, event_title
   FROM "event"
   FULL JOIN event_attendance ON event_attendance.event_id = event.id
   WHERE "event".event_date > now() - interval '6 months'
-  GROUP BY "event".event_date
+  GROUP BY "event".event_date, "event".event_title
   ORDER BY "event".event_date;`;
   pool.query(query)
     .then( result => {

@@ -6,7 +6,6 @@
 }
 
 .chartContainer{
-    border: 3px solid #fff;
     padding: 20px;
 }
 
@@ -20,6 +19,20 @@
 .leftSideChartDiv {
     width: 40%;
     float: left;
+    padding: 20px;
+    
+}
+
+.bottomRightChartDiv {
+    width: 40%;
+    float: right;
+    padding: 20px;
+    margin-right: 10px;
+    
+}
+.bottomLeftChartDiv {
+    width: 40%;
+    // float: left;
     padding: 20px;
     
 }

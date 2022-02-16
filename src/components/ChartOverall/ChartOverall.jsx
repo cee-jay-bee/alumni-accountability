@@ -9,16 +9,14 @@ function OverallChart(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
   const overallData = useSelector((store) => store.overallData);
-  
+  let data = [];
   let labels = [];
+  let toolTipLabel = [];
   for ( let i = 0; i < overallData.length; i++) {
     let date = dateChange(overallData[i].event_date);
     labels.push(date);
-  }
-
-  let data = [];
-  for ( let i = 0; i <overallData.length; i++) {
     data.push(overallData[i].total_attendance);
+    toolTipLabel.push(overallData[i].event_title);
   }
 
   const state = {
@@ -30,12 +28,13 @@ function OverallChart(props) {
         data: data,
         fill: true,
         backgroundColor: [
-          'rgba(108, 127, 66, 0.2)'
+          'rgba(111, 111, 140, 0.2)'
         ],
         borderColor: [
-          'rgb(108, 127, 66)'
+          'rgb(111, 111, 140)'
         ],
         borderWidth: 2,
+        labels: toolTipLabel
       },
     ]
   }
@@ -56,6 +55,13 @@ function OverallChart(props) {
               legend:{
                 display:false,
                 position:'right'
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                      return context.dataset.labels[context.dataIndex];
+                  }
+                }
               }
             }
           }}
