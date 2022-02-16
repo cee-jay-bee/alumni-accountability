@@ -21,28 +21,32 @@
     font-family: 'Open Sans';
     font-weight: lighter;
     text-decoration: none;
-    border: 1px solid;
 }
 
 .eventDetailCol1 p{
     display: inline-flex;
     align-items: center;
-    border: 1px solid;
+    margin: 0px 0px;
 }
 
 .eventDetailTitleDate{
-  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 10px;
 }
 
 #eventDetailTitle{
   font-weight: 500;
   text-transform: uppercase;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
   color: #818181;
 }
 
 #eventDetailDate{
   margin-top: 0px;
+  margin-bottom: -15px;
 }
 
 .eventDetailStackType{
