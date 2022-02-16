@@ -38,7 +38,9 @@ function RegisterForm() {
   return (
     <div>
     <form className="regFormDiv" onSubmit={registerUser}>
-      <h2 id="logintitle">Register User</h2>
+      <div id="regFormtitleh2Div">
+        <h2 id="regFormtitleh2">Register new User</h2>
+      </div>
       {errors.registrationMessage && (
         <h3 className="loginFormalert" role="alert">
           {errors.registrationMessage}

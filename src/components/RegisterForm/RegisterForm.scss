@@ -13,6 +13,25 @@
     padding-bottom: 20px
 }
 
+#regFormtitleh2Div{
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-content: flex-start;
+    text-align: left;
+    width: 100%;
+}
+
+#regFormtitleh2{
+    font-weight: 600;
+    font-size: 30px;
+    color: rgb(134, 134, 134);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    text-align: left;
+}
+
 #regFormUserPWDiv{
     display: flex;
     flex-direction: row;
