@@ -28,6 +28,11 @@ function RegisterForm() {
         usertype: usertype
       },
     });
+    setUsername('');
+    setPassword('');
+    setfirstname('');
+    setlastname('');
+    setemail('');
   }; // end registerUser
 
   return (
@@ -60,48 +65,51 @@ function RegisterForm() {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-          <input
-            type="text"
-            id="loginFormUserNameInput"
-            placeholder="first name"
-            name="firstname"
-            value={firstname}
-            required
-            onChange={(event) => setfirstname(event.target.value)}
-          />
-          <input
-            placeholder="last name"
-            id="loginFormUserNameInput"
-            type="text"
-            name="lastname"
-            value={lastname}
-            required
-            onChange={(event) => setlastname(event.target.value)}
-          />
-          <input
-            type="text"
-            id="loginFormUserNameInput"
-            placeholder="email"
-            name="email"
-            value={email}
-            required
-            onChange={(event) => setemail(event.target.value)}
-          />
-      </div>
-      <div>
-        <p>Select User Type:</p>
-        <div>
-          <input type="radio" id="user" name="status" value="user" onClick={(event) => setusertype(event.target.value)} />
-          <label htmlFor="user">User</label>
+          <div id="regFormUserPWDiv">
+            <input
+              type="text"
+              id="loginFormUserNameInput"
+              placeholder="first name"
+              name="firstname"
+              value={firstname}
+              required
+              onChange={(event) => setfirstname(event.target.value)}
+            />
+            <input
+              placeholder="last name"
+              id="loginFormUserNameInput"
+              type="text"
+              name="lastname"
+              value={lastname}
+              required
+              onChange={(event) => setlastname(event.target.value)}
+            />
+          </div>
+          <div id="regFormUserERDiv">
+            <input
+              type="text"
+              id="loginFormUserNameInput"
+              placeholder="email"
+              name="email"
+              value={email}
+              required
+              onChange={(event) => setemail(event.target.value)}
+            />
+            <div id="regUseremailRadioDiv">
+                <div>
+                  <p id="regUserUserTypeTitle">Select User Type:</p>
+                </div>
+                <div>
+                  <input type="radio" id="user" name="status" value="user" onClick={(event) => setusertype(event.target.value)} />
+                  <label htmlFor="user">User</label>
+                  <input type="radio" id="admin" name="status" value="admin" onClick={(event) => setusertype(event.target.value)} />
+                  <label htmlFor="admin">Admin</label>
+                </div>
+            </div>
+          </div>
         </div>
-
-        <div>
-          <input type="radio" id="admin" name="status" value="admin" onClick={(event) => setusertype(event.target.value)} />
-          <label htmlFor="admin">Admin</label>
-        </div>
-      </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input id="loginFormSubmitBtn" type="submit" name="submit" value="Register" />
       </div>
     </form>
   </div>

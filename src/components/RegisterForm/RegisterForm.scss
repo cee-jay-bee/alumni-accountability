@@ -9,13 +9,35 @@
     margin: 0px 10px;
     border-radius: 10px;
     box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    padding-bottom: 20px
 }
 
-.regFormUserPWDiv{
+#regFormUserPWDiv{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     align-content: center;
-    border: 1px solid;
+}
+
+#regFormUserERDiv{
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+    // align-content: center;
+    align-items: center;
+}
+
+#regUseremailRadioDiv{
+    height: 54px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 18px;
+}
+
+#regUserUserTypeTitle{
+    margin-top: 0px;
+    margin-bottom: 3px;
 }
