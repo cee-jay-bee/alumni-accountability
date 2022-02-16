@@ -35,7 +35,8 @@ function CohortDetailItem(props) {
         alum_seeking: props.alum.alum_seeking,
         cohort_id: props.alum.cohort_id,
         alum_skills: props.alum.alum_skills,
-        placed_date: props.alum.placed_date
+        placed_date: props.alum.placed_date,
+        event_count : props.alum.event_count
       }
     })
     history.push("/alumdetail");

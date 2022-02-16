@@ -62,6 +62,20 @@ function EventDetail(props) {
 //NOTES HOOK
 const [eventNote, setEventNote] = useState('');
 
+const checkStackType = ()=> {
+  switch (oneEvent.stack_type) {
+    case "FSE":
+    return <div><p class="eventDetailStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p></div>
+    case 'UXD':
+    return  <div><p class="eventDetailStackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p></div>
+    case 'FSE and UXD':
+    return <div><p class="eventDetailStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="eventDetailStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></div>;
+    default:
+      return null;
+  }
+}
+
+
   return (
     <main className="eventDetailMainDiv">
       <div className='eventDetailHeader'>
@@ -72,12 +86,13 @@ const [eventNote, setEventNote] = useState('');
             <p id="eventDetailDate">{milTime(oneEvent.time)}</p>
           </div>
           <div className="eventDetailStackType">
-            {(oneEvent.stack_type === 'FSE') ?
+            {checkStackType()}
+            {/* {(oneEvent.stack_type === 'FSE') ?
               <p className="eventDetailStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
               (oneEvent.stack_type === 'UXD') ?
               <p className="eventDetailStackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
               <span> <p className="eventDetailStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p className="eventDetailStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p> </span>
-            }
+            } */}
           </div>
         </div>
         

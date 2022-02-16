@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 import {  Modal, Box, Paper} from '@mui/material';
 import { useDispatch } from 'react-redux';
+import dateChange from '../Functions/dateChange';
 import './EditCohort.scss';
 
 // Basic functional component structure for React with default state
@@ -27,10 +28,9 @@ const editEvent = (event) => {
   type: 'UPDATE_COHORT',
   payload: {
     id: oneCohort.id,
-    cohort_name: cohortName,
-    graduation_date: cohortGradDate,
-    cohort_type: cohortType
-
+    cohortName,
+    cohortGradDate,
+    cohortType
     },
   });
   props.setOpen2(false)
@@ -40,11 +40,9 @@ const editEvent = (event) => {
 const [cohortName, setCohortName] = useState(oneCohort.cohort_name);
 
 //COHORT GRAD DATE HOOK
-const [cohortGradDate, setCohortGradDate] = useState('');
- 
-//COHORT STACK TYPE HOOK
-   const [cohortType, setCohortType] = useState('');
-
+const [cohortGradDate, setCohortGradDate] = useState(oneCohort.graduation_date.split("T")[0]);
+// //COHORT STACK TYPE HOOK
+   const [cohortType, setCohortType] = useState(oneCohort.cohort_type);
 
 
 return (
@@ -71,7 +69,6 @@ return (
                 <option value={'FSE'}>FSE</option>
                 <option value={'UXD'}>UXD</option>
                 <option value={'FSE and UXD'}>FSE and UXD</option>
-
               </select>
             </div>
             {/* SUBMISSION BTN */}

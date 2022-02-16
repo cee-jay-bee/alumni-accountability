@@ -51,6 +51,19 @@ function CohortDetail(props) {
     history.push("/cohortpage")
   }
 
+  const checkCohortType = ()=> {
+    switch (oneCohort.cohort_type) {
+      case "FSE":
+      return <div><p class="cohortdetailstackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p></div>
+      case 'UXD':
+      return  <div><p class="cohortdetailstackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p></div>
+      case 'FSE and UXD':
+      return <div><p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></div>;
+      default:
+        return null;
+    }
+  }
+
 
   return (
     <div className='mainCohortDetailDiv'> 
@@ -63,12 +76,7 @@ function CohortDetail(props) {
                 <p id="graduationDetailDate">Graduation date: {dateChange(oneCohort.graduation_date)}</p>
             </div>
             <div className="cohortdetailstackType">
-              {(oneCohort.stack_type === 'FSE') ?
-                <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-                  (oneCohort.stack_type === 'UXD') ?
-                <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
-                  <span><p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></span>
-              }
+            {checkCohortType()}
             </div>
         </div>   
         <div className='cohortDetailIcons'>
