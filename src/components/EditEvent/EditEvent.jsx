@@ -95,8 +95,8 @@ const [eventTime, setEventTime] = useState('');
                 <select className="editEventdropdown" value={eventStackType} onChange={( event )=>setEventStackType( event.target.value )}>
                   <option value="">cohort type</option>
                   <option value={'FSE'}>FSE</option>
-                  <option value={'UX/UI'}>UX/UI</option>
-                  <option value={'FSE and UX/UI'}>FSE and UX/UI</option>
+                  <option value={'UXD'}>UXD</option>
+                  <option value={'FSE and UXD'}>FSE and UXD</option>
                 </select>
               </div>
               {/* SUBMISSION BTN */}
