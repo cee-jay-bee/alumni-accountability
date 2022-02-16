@@ -1,16 +1,16 @@
 .userRegisterPageDiv {
     display: flex;
     width:100%;
-    border: 1px solid palegreen;
+    // border: 1px solid palegreen;
     justify-content: space-between;
     align-content: center;
-    align-items: stretch;
+    //      
 }
 .userTableDiv {
     display:table-cell;
     background-color:#cecca7;
     width:45%;
-    border: 1px solid;
+    // border: 1px solid;
 }
 .registerFormDiv {
     display: flex;
@@ -19,4 +19,67 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+}
+
+.userRegtitleDiv{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 30px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.userRegTitles{
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #818181;
+    font-size: 21px;
+    padding-left: 8px;
+}
+
+#userDisplayTableMain{
+    display: flex;
+    height: 60.6vh;
+    flex-direction: column;
+    width: 45%;
+    margin-left: 10px;
+    // margin-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    overflow-y: scroll;
+    gap: 4px;
+}
+
+#userDisplayRow{
+    background-color: #6f6f8c;
+    display: flex;
+    // justify-content: space-between;
+    font-size: 13px;
+    padding: 10px 0px;
+}
+
+.userTableCol1{
+    // width: 10%;
+    // padding-right: 40px;
+    // text-align: center;
+}
+
+#userTableCol2{
+    width: 50%;
+    color: white;
+    padding-left: 10%;
+}
+
+#userTableCol3{
+    width: 40%;
+    color: white;
+}
+
+#userTableCol4{
+    width: 30%;
+    color: white;
+    text-align: left;
+    // padding-right: 40px;
 }

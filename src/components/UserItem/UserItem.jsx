@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
-import './UserItem.css';
+import './UserItem.scss';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+//ICON IMPORTS
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+//SCSS IMPORT
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -27,11 +30,14 @@ function UserItem(props) {
   }
 
     return (
-        <tr>
-          <td className='userName' >{props.user.firstname} {props.user.lastname}</td>
-          <td className='userStatus' >{props.user.role}</td>
-          <td className='userDelete' value={props.user.id} onClick={deleteUser} >Delete</td>
-        </tr>
+        <div className="reUserCushionMainRow">
+          {/* <div id="reUserCushionDiv"></div> */}
+          <div className='reguseruserName' >{props.user.firstname} {props.user.lastname}</div>
+          <div className='reguseruserStatus' >{props.user.role}</div>
+          <div className='reguseruserDelete'>
+              <DeleteOutlineOutlinedIcon id="reUserDeleteIcon" value={props.user.id} onClick={deleteUser}/>
+          </div>
+        </div>
     );
 }
 
