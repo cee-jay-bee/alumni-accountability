@@ -3,6 +3,9 @@ import {useSelector} from 'react-redux';
 import './UserItem.scss';
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+//ICON IMPORTS
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+//SCSS IMPORT
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -31,7 +34,9 @@ function UserItem(props) {
           {/* <div id="reUserCushionDiv"></div> */}
           <div className='reguseruserName' >{props.user.firstname} {props.user.lastname}</div>
           <div className='reguseruserStatus' >{props.user.role}</div>
-          <div className='reguseruserDelete' value={props.user.id} onClick={deleteUser} >Delete</div>
+          <div className='reguseruserDelete'>
+              <DeleteOutlineOutlinedIcon id="reUserDeleteIcon" value={props.user.id} onClick={deleteUser}/>
+          </div>
         </div>
     );
 }
