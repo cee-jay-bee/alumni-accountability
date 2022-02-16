@@ -1,0 +1,212 @@
+.tobePlacedOrNotToBePlaced{
+    border: 1px solid;
+}
+
+.alumDetailMainDiv{
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.alumDetailCol1{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+  
+  .alumDetailTitleDate{
+    // display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 7px;
+    border: 1px solid;
+    align-items: center;
+  }
+  
+  #eventDetailTitle{
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: #818181;
+    margin-left: 9px;
+  }
+  
+  #eventDetailDate{
+    margin-top: 0px;
+    margin-bottom: -15px;
+    margin-left: 12px;
+  }
+  
+  .eventDetailStackType{
+    // border: 1px solid;
+    margin-left: 25px;
+  }
+  
+  .eventDetailStackTypeDisplay{
+      background: black;
+      color: white;
+      border-radius: 50%;
+      width: 49px;
+      padding: 15px 0;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
+      display: inline-block;
+  }
+  
+  .eventDetailStackTypeDualDisplay{
+      background: black;
+      color: white;
+      border-radius: 50%;
+      width: 49px;
+      padding: 15px 0;
+      height: auto;
+      justify-content: center;
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
+      display: inline-block;
+      align-items: center;
+  }
+  .eventDetailCol2{
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      color:#707070;
+      align-items: center;
+      // cursor: pointer;
+  }
+  
+  #attendancetitleBtn{
+    color:#707070;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  #attendancetitleBtn:hover{
+    color: rgb(78, 78, 78);
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  
+  .eventDetailDescription{
+    display: flex;
+    border-radius: 5px;
+    padding: 0px 10px;
+    background: white;
+    // min-height: 30px;
+    margin-left: 9px;
+    margin-right: 9px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    margin-bottom: 10px;
+  }
+  
+  //* MODAL STYLING *//
+  
+  .eventDeleteModal{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 19px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+  }
+  
+  .eventDeleteModalCardHeader{
+    text-align: center;
+    margin-bottom: 30px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  
+  .confirmDelete{
+      text-align: center;
+      font-size: 25px;
+      text-transform: uppercase;
+      font-weight: 300;
+      height: 30px;
+      margin: 0px 0px;
+      letter-spacing: 1.5px;
+      /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
+      }
+  
+    .deleteexclamationpoint{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      margin-top: 20px;
+      color:#707070;
+    }
+  
+    .deleteeventmodalbtns{
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      gap: 150px;
+      margin-top: 50px;
+    }
+  
+    .deleteeventbtncancel{
+      border: none;
+      height: 56px;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100px;
+      border: 1px #707070 solid;
+      color: #707070;
+      font-family: 'open sans';
+      font-weight: 500;
+      // background-color: #fafff0;
+    }
+  
+  .deleteeventbtncancel:hover {
+      border: none;
+      height: 56px;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100px;
+      background-color: #707070;;
+      color: white;
+      font-family: 'open sans';
+      font-weight: 500;
+  }
+  
+  
+    .deleteeventbtnconfirm{
+      border: none;
+      height: 56px;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100px;
+      background-color: #6c7f42;
+      color: white;
+      font-family: 'open sans';
+      font-weight: 500;
+    }
+    .deleteeventbtnconfirm:hover{
+      border: none;
+      height: 56px;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100px;
+      background-color: #526132;
+      color: white;
+      font-family: 'open sans';
+      font-weight: 500;
+    }
+  
