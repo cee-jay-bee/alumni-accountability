@@ -87,7 +87,7 @@
     display: flex;
     height: 62vh;
     flex-direction: column;
-    width: 75%;
+    width: 65%;
     margin-top: 10px;
     background-color: white;
     border-radius: 10px;
@@ -110,31 +110,37 @@
     // overflow: hidden;
 }
 
-.cohortDetailTableCol1 {
+#cohortDetailTableCol1 {
     width: 5%;
-    padding-right: 40px;
+    padding-right: 64px;
+    padding-left: 40px;
     text-align: right;
+    color: white;
+
     // border: 1px solid red;
 }
 
-.cohortDetailTableCol2 {
+#cohortDetailTableCol2 {
     width: 40%;
- 
+    color: white;
     // border: 1px solid green;
 }
 
-.cohortDetailTableCol3 {
+#cohortDetailTableCol3 {
     width: 35%;
+    color: white;
     // border: 1px solid blue;
 }
 
-.cohortDetailTableCol4 {
+#cohortDetailTableCol4 {
     width: 25%;
+    color: white;
     // border: 1px solid orangered;
 }
 
-.cohortDetailTableCol5 {
+#cohortDetailTableCol5 {
     width: 25%;
+    color: white;
     // border: 1px solid orangered;
 }
 

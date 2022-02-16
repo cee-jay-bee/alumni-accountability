@@ -81,10 +81,10 @@ function CohortDetail(props) {
       </div>
       <div id='cohortDetailTableMain'>
         <div className='cohortDetailTableRow'>
-          <h3 className='cohortDetailTableCol1'>Placed</h3>
-          <h3 className='cohortDetailTableCol2'>Name</h3>
-          <h3 className='cohortDetailTableCol3'>Cohort</h3>
-          <h3 className='cohortDetailTableCol4'>Graduation Date</h3>
+          <h3 id='cohortDetailTableCol1'>Placed</h3>
+          <h3 id='cohortDetailTableCol2'>Name</h3>
+          <h3 id='cohortDetailTableCol3'>Cohort</h3>
+          <h3 id='cohortDetailTableCol4'>Graduation Date</h3>
           
         </div> 
         {alum.map(alum => 
