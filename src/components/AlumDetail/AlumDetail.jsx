@@ -45,8 +45,10 @@ function AlumDetail(props) {
                   <p>FSE</p>
                 </div>
             </div>
+            <div className="graddateAndPlaced">
+                <p id="alumDetailGraddate">Graduation date: mm/dd/yyyy</p> <p>{oneAlum.alum_placed ? "Placed" : "Seeking"}</p>
+            </div>
             <div className="tobePlacedOrNotToBePlaced">
-                <p>{oneAlum.alum_placed ? "Placed" : "Seeking"}</p>
                 <p>Events Attended = {oneAlum.event_count}</p>
                 <Typography variant="subtitle">Placed</Typography>
                 <Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} />
