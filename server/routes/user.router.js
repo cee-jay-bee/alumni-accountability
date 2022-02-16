@@ -68,13 +68,13 @@ router.get('/username', (req, res) => {
       
         console.log("Message sent: %s", info.messageId);
         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-      
+        res.sendStatus(201);
       }
     ).catch((err) => {
       console.log('Username email failed: ', err);
       res.sendStatus(500);
     });
-    res.sendStatus(201);
+    
 })
 router.put('/password', (req, res, next) => {
   const username = req.body.username;
