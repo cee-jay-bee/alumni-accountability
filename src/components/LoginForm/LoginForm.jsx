@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './LoginForm.scss';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -29,60 +30,70 @@ function LoginForm() {
 
   return (
     <div>
-      <form className="formPanel" onSubmit={login}>
-        <h2>Login</h2>
+      <form className="loginFormDiv" onSubmit={login}>
+        <h2 id="logintitle">Login</h2>
         {errors.loginMessage && (
-          <h3 className="alert" role="alert">
+          <h3 className="loginFormalert" role="alert">
             {errors.loginMessage}
           </h3>
         )}
         <div>
-          <label htmlFor="username">
-            Username:
+          {/* <label htmlFor="username">
+            Username: */}
+            <center>
             <input
+              id="loginFormUserNameInput"
+              placeholder="username"
               type="text"
               name="username"
               required
               value={username}
               onChange={(event) => setUsername(event.target.value)}
             />
-          </label>
+            </center>
+          {/* </label> */}
         </div>
         <div>
-          <label htmlFor="password">
-            Password:
+          <center>
+          {/* <label htmlFor="password"> */}
+            {/* Password: */}
             <input
+              id="loginFormUserNameInput"
+              placeholder="password"
               type="password"
               name="password"
               required
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-          </label>
+          </center>
+          {/* </label> */}
         </div>
-        <div>
-          <input className="btn" type="submit" name="submit" value="Log In" />
+        <div id="loginformSubmitBtnDiv">
+          <input id="loginFormSubmitBtn" type="submit" name="submit" value="Log In" />
         </div>
-        <center>
+        <center id="loginFormrestForgetBtnsDiv">
           <button
+              className="loginFormRestForgetBtns"
+              type="button"
+              // className="btn btn_asLink"
+              onClick={() => {
+                history.push('/username');
+              }}
+        >
+          Forgot Username
+        </button>
+        <br/>
+        <button
+            className="loginFormRestForgetBtns"
             type="button"
-            className="btn btn_asLink"
+            // className="btn btn_asLink"
             onClick={() => {
               history.push('/resetpassword');
             }}
           >
             Reset Password
           </button>
-          <br />
-          <button
-          type="button"
-          className="btn btn_asLink"
-          onClick={() => {
-            history.push('/username');
-          }}
-        >
-          Forgot Username?
-        </button>
         </center>
       </form>
       

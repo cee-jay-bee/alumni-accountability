@@ -20,7 +20,7 @@ function CohortDetail(props) {
   // a default value of 'Functional Component'
   const store = useSelector((store) => store);
   const oneCohort = useSelector((store) =>  store.oneCohort);
-  const [alumPlacement, setAlumPlacement] = useState([]);
+  
   const alum = useSelector((store) => store.alum);
   const oneAlum = useSelector((store) => store.oneAlum);
   const dispatch = useDispatch();
@@ -49,15 +49,6 @@ function CohortDetail(props) {
     history.push("/cohortpage")
   }
 
-  const handleCheckboxChange = (id) => {
-    console.log('checkbox changed:', id);
-
-    alumPlacement.includes(id) ? alumPlacement.splice(alumPlacement.indexOf(id), 1) 
-    : setAlumPlacement([...alumPlacement, id]);
-    
-  }
-
- 
 
   return (
     <div className='mainCohortDetailDiv'> 
@@ -67,14 +58,14 @@ function CohortDetail(props) {
             {/* <p>{JSON.stringify(alum)}</p> */}
             <div className="cohortDetailCohortNameDate">
                 <h2>{oneCohort.cohort_name}</h2>
-                <h2>{oneCohort.graduation_date}</h2>
+                <h2>{oneCohort.graduation_date.split("T")[0]}</h2>
             </div>
             <div className="cohortdetailstackType">
               {(oneCohort.stack_type === 'FSE') ?
                 <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-                  (oneCohort.stack_type === 'UX/UI') ?
-                <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
-                  <span><p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+                  (oneCohort.stack_type === 'UXD') ?
+                <p class="cohortdetailstackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
+                  <span><p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="cohortdetailstackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></span>
               }
             </div>
         </div>   
@@ -93,10 +84,10 @@ function CohortDetail(props) {
           <h3 className='cohortDetailTableCol2'>Name</h3>
           <h3 className='cohortDetailTableCol3'>Cohort</h3>
           <h3 className='cohortDetailTableCol4'>Graduation Date</h3>
-          <h3 className='cohortDetailTableCol5'>Notes</h3>
+          
         </div> 
         {alum.map(alum => 
-            (<CohortDetailItem key={alum.id} alum={alum} handleCheckboxChange={handleCheckboxChange}/>) 
+            (<CohortDetailItem key={alum.id} alum={alum} />) 
         )}  
         
       </div>
@@ -160,7 +151,7 @@ function CohortDetail(props) {
             height: '400px',
               }}
           >
-          <EditCohort />
+          <EditCohort setOpen2 = {setOpen2}/>
           
         </Paper>
       </Box> 

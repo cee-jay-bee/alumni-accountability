@@ -22,8 +22,10 @@ function* createCohort(action) {
 
 function* updateCohort(action) {
   try {
-    yield axios.put(`/api/cohort/${action.payload.id}`, action.payload);
+    const response = yield axios.put(`/api/cohort/${action.payload.id}`, action.payload);
     yield put({ type: 'FETCH_COHORT' })
+    yield put({ type: 'FETCH_ALUM' })   
+    yield put({ type: 'SET_ONE_COHORT', payload : response.data[0]})
   } catch (error) {
     console.log('Cohort put request failed', error);
   }

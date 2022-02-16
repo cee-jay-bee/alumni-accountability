@@ -16,6 +16,7 @@ CREATE TABLE "user" (
 CREATE TABLE "cohort" (
     "id" SERIAL PRIMARY KEY,
     "cohort_name" VARCHAR (80) NOT NULL,
+    "cohort_type" VARCHAR (80) NOT NULL,
     "graduation_date" date NOT NULL
 );
 
@@ -24,8 +25,10 @@ CREATE TABLE "alum" (
     "id" SERIAL PRIMARY KEY,
     "alum_name" VARCHAR (80) NOT NULL,
     "alum_placed" boolean DEFAULT 'false',
+    "placed_date" date, 
     "alum_seeking" boolean DEFAULT 'false',
     "cohort_id" bigint NOT NULL,
+    "alum_skills" text [],
     FOREIGN KEY ("cohort_id") REFERENCES "cohort"(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -82,8 +85,8 @@ CREATE TABLE "event_attendance" (
 
 
 
-INSERT INTO "user" (username, password, firstname, lastname , role)
-VALUES ('jenny', 'password', 'jenny', 'cahill', 'admin');
+INSERT INTO "user" (username, password, firstname, lastname , role, email_address)
+VALUES ('cjbee', 'cjbee', 'CJ', 'Barnes', 'admin', 'cristopher.barnes@gmail.com');
 
 
 INSERT INTO "cohort" (cohort_name, graduation_date)

@@ -78,3 +78,53 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+
+.landingPageMainDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-content: center;
+  height: 100%;
+  width: 100%;
+  // padding-left: 10px;
+  padding-right: 40px;
+  position: fixed;
+  padding-bottom: 30px;
+  bottom: 0px;
+  left: -30px;
+  // background-color:  rgb(255, 195, 195);
+  background-color: rgb(145, 159, 115);
+  overflow-y: hidden;
+}
+
+.landingpagecontent{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 190vh;
+  height: 90vh;
+  align-items: center;
+  // border: 1px solid blue;
+  padding-left: 30px;
+}
+
+.landingPageLoginFormContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 60px;
+}
+
+
+.landingMemberEmail{
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+#landingPagePic{
+  height: 350px;
+  margin-left: 12%;
+}

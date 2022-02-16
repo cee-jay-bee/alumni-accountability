@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+//IMPORT SCSS
+import './RegisterForm.scss';
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -29,72 +31,62 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+    <div>
+    <form className="regFormDiv" onSubmit={registerUser}>
+      <h2 id="logintitle">Register User</h2>
       {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
+        <h3 className="loginFormalert" role="alert">
           {errors.registrationMessage}
         </h3>
       )}
       <div>
-        <label htmlFor="username">
-          Username:
+        <div id="regFormUserPWDiv">
+            <input
+              id="loginFormUserNameInput"
+              type="text"
+              placeholder="username"
+              name="username"
+              value={username}
+              required
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <input
+              id="loginFormUserNameInput"
+              placeholder="password"
+              type="password"
+              name="password"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </div>
           <input
             type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="firstname">
-          Firstname:
-          <input
-            type="text"
+            id="loginFormUserNameInput"
+            placeholder="first name"
             name="firstname"
             value={firstname}
             required
             onChange={(event) => setfirstname(event.target.value)}
           />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="lastname">
-          Lastname:
           <input
+            placeholder="last name"
+            id="loginFormUserNameInput"
             type="text"
             name="lastname"
             value={lastname}
             required
             onChange={(event) => setlastname(event.target.value)}
           />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="email">
-          Email:
           <input
             type="text"
+            id="loginFormUserNameInput"
+            placeholder="email"
             name="email"
             value={email}
             required
             onChange={(event) => setemail(event.target.value)}
           />
-        </label>
       </div>
       <div>
         <p>Select User Type:</p>
@@ -112,6 +104,7 @@ function RegisterForm() {
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
     </form>
+  </div>
   );
 }
 

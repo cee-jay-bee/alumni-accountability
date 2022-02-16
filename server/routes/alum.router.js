@@ -141,6 +141,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   ${alumSkill && `WHERE '${alumSkill}' = ANY(alum.alum_skills)`}
   GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name
   ORDER BY alum.alum_name ASC`;
+
   
    let params = [query];
 
@@ -161,6 +162,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
     })
 });
+
 
 router.get('/data', rejectUnauthenticated, (req, res) => {
   // GET route code here
