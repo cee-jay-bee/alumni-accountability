@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Papa from 'papaparse';
 import './CohortImport.scss';
 import {useDispatch} from 'react-redux';
@@ -15,6 +15,7 @@ function CohortImport(props) {
   const store = useSelector((store) => store);
   const dispatch = useDispatch();
   const [cohortType, setCohortType] = useState('');
+  const history = useHistory();
 
   const upload = (event) => {
     let file = event.target[0].files[0];
@@ -40,7 +41,8 @@ function CohortImport(props) {
               payload: {
                 csvData: inputData,
                 cohortType: cohortType}
-              })
+              });
+    props.handleClickOpen();
   }
 
   return (
@@ -71,7 +73,7 @@ function CohortImport(props) {
       </select>
       <br />
       <div className="cohortImportSubmitDiv">
-        <input type="submit" id="cohortImportSubmitBtn" />
+          <input type="submit" id="cohortImportSubmitBtn" />
       </div>
       </form>
     </div>

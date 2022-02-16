@@ -28,11 +28,24 @@ function CohortPage(props) {
   };
   // END HANDLE POP-UP MODAL
 
+  let fseArray = [];
+  let uxdArray = [];
+
+  for( let i = 0; i<cohort.length; i++ ){
+
+    if( cohort[i].cohort_type === 'FSE'){
+      fseArray.push(cohort[i]);
+    } else if (cohort[i].cohort_type === 'UXD') {
+      uxdArray.push(cohort[i]);
+    }
+  }
+
   return (
-    <div> 
+    <div>
+    {/* EVENTS REQUIRING ATTENDANCE */}
         <div class="titleDiv">
           <div class="titleCol1">
-            <h2 className="cohortPageTitles">Cohorts</h2>
+            <h2 className="eventPageTitles">Full Stack Engineering Cohorts</h2>
           </div>
           <div class="titleCol2">
             {/* <Link to="/allcohort">
@@ -40,13 +53,15 @@ function CohortPage(props) {
             </Link> */}
           </div>
         </div>
-        <div class="cohortpagerow">
+        <div class="eventpagerow">
           <div class="col1">
-              <main>
-                <div class="cohortContainer">
+            <main>
+              <div class="eventContainer">
 
-                  {cohort.map(cohort => {
-
+                {fseArray.length === 0 ? 
+                  <div className="noEventDiv"><h2 id="noEventDivId">No Full Stack Cohorts Uploaded Yet.</h2></div> :
+                  fseArray.map(cohort => {
+            
                     const setOneCohort = () => {
                       dispatch({
                         type: 'SET_ONE_COHORT',
@@ -59,11 +74,9 @@ function CohortPage(props) {
                       })
                       history.push("/cohortdetail");
                     }
-
                     return (
                       
                       <div className="cohortItem" onClick={setOneCohort}>
-
                         <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
                           
                         {/* {(event.stack_type === 'FSE') ?
@@ -75,15 +88,56 @@ function CohortPage(props) {
 
                         <div className="cohortTitle"> 
                             <h3 class="cohortCardStyling">{cohort.cohort_name}</h3>
-
                         </div>
                       </div>
-              )
-            })
-        }
-        </div>
-          </main>
-        </div>
+                    )
+                  })
+                }
+              </div>
+              <div class="titleCol1">
+                <h2 className="eventPageTitles">User Experience Design Cohorts</h2>
+              </div>
+              <div class="eventContainer">
+
+                {uxdArray.length === 0 ? 
+                  <div className="noEventDiv"><h2 id="noEventDivId">No User Experience Cohorts Uploaded Yet.</h2></div> :
+                  uxdArray.map(cohort => {
+            
+                    const setOneCohort = () => {
+                      dispatch({
+                        type: 'SET_ONE_COHORT',
+                        payload: {
+                          id: cohort.id,
+                          cohort_name: cohort.cohort_name,
+                          graduation_date: cohort.graduation_date,
+                          cohort_type: cohort.cohort_type,
+                        }
+                      })
+                      history.push("/cohortdetail");
+                    }
+                    return (
+                      
+                      <div className="cohortItem" onClick={setOneCohort}>
+                        <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
+                          
+                        {/* {(event.stack_type === 'FSE') ?
+                          <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
+                          (event.stack_type === 'UX/UI') ?
+                          <p class="stackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
+                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
+                        } */}
+
+                        <div className="cohortTitle"> 
+                            <h3 class="cohortCardStyling">{cohort.cohort_name}</h3>
+                        </div>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            </main>
+          </div>
+
           <div class="col2" id="createNewCohortDiv" valign="center" onClick={handleClickOpen}>
           <h2 id="createNewCohortTitle" >Upload New Cohort</h2>
           {/* <h2 id="newEventPlusIcon">+</h2> */}
@@ -113,7 +167,7 @@ function CohortPage(props) {
           <Box>
             {/* Clicking the x will close out of the modal */}
             {/* <h3 className="cohortPageCloseModal" onClick={handleClickOpen}>x</h3>  */}
-            <CohortImport/>  
+            <CohortImport handleClickOpen={handleClickOpen}/>  
           </Box> 
         </Modal>
       </div>

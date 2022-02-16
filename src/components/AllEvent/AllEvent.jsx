@@ -41,7 +41,7 @@ function AllEvent(props) {
   return (
     <div classname="mainAllEventsDiv">
       <div className="allEventPageMainTitle">
-        <h2 id="allEventPageTitle">Events from {event[0].event_date.split('T')[0]} to foreveer</h2>
+        <h2 id="allEventPageTitle">Events from {dateChange(event[0].event_date)} to foreveer</h2>
       </div>
       <main class="allEventContainer">
         {event.map(event => { 
