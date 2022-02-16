@@ -46,7 +46,8 @@ function AlumDetail(props) {
                 </div>
             </div>
             <div className="graddateAndPlaced">
-                <p id="alumDetailGraddate">Graduation date: mm/dd/yyyy</p> <p>{oneAlum.alum_placed ? "Placed" : "Seeking"}</p>
+                <p>Graduation date: mm/dd/yyyy</p> 
+                <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p>
             </div>
             <div className="tobePlacedOrNotToBePlaced">
                 <p>Events Attended = {oneAlum.event_count}</p>
