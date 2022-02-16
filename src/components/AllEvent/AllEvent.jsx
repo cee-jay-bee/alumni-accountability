@@ -69,9 +69,9 @@ function AllEvent(props) {
                 
               {(event.stack_type === 'FSE') ?
                 <p class="allStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-                (event.stack_type === 'UX/UI') ?
-                <p class="allStackTypeDisplay" style={{'background-color': 'rgb(218, 149, 149)'}}>UX/UI</p> :
-                <span><p class="allStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="allStackTypeDualDisplay" style={{'background-color': 'rgb(218, 149, 149)'}}>UX/UI</p></span>
+                (event.stack_type === 'UXD') ?
+                <p class="allStackTypeDisplay" style={{'background-color': 'rgb(218, 149, 149)'}}>UXD</p> :
+                <span><p class="allStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="allStackTypeDualDisplay" style={{'background-color': 'rgb(218, 149, 149)'}}>UXD</p></span>
               }
               <div class="allEventTitle">
                 {(event.event_title.length > 15) ?
