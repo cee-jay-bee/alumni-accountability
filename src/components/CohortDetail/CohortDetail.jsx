@@ -11,6 +11,7 @@ import { Modal, Box, Paper} from '@mui/material';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import EditCohort from '../EditCohort/EditCohort';
 import {useHistory} from 'react-router-dom';
+import dateChange from '../Functions/dateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -58,7 +59,7 @@ function CohortDetail(props) {
             {/* <p>{JSON.stringify(alum)}</p> */}
             <div className="cohortDetailCohortNameDate">
                 <h2>{oneCohort.cohort_name}</h2>
-                <h2>{oneCohort.graduation_date.split("T")[0]}</h2>
+                <h2>{dateChange(oneCohort.graduation_date)}</h2>
             </div>
             <div className="cohortdetailstackType">
               {(oneCohort.stack_type === 'FSE') ?
