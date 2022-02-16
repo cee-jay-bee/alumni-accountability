@@ -28,7 +28,7 @@ function UserItem(props) {
 
     return (
         <div className="reUserCushionMainRow">
-          <div id="reUserCushionDiv"></div>
+          {/* <div id="reUserCushionDiv"></div> */}
           <div className='reguseruserName' >{props.user.firstname} {props.user.lastname}</div>
           <div className='reguseruserStatus' >{props.user.role}</div>
           <div className='reguseruserDelete' value={props.user.id} onClick={deleteUser} >Delete</div>

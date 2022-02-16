@@ -23,8 +23,8 @@ function RegisterPage() {
       <div className='userRegisterPageDiv'>
           <div id='userDisplayTableMain'>
               <div id='userDisplayRow'>
-                <div className='userTableCol1'></div>
-                <h3 id='userTableCol2'>Name</h3>
+                {/* <div className='userTableCol1'></div> */}
+                <h3 id='userTableCol2'>Current users</h3>
                 <h3 id='userTableCol3'>Status</h3>
                 <h3 id='userTableCol4'>Delete</h3>
               </div>

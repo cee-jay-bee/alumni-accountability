@@ -38,16 +38,6 @@
 }
 
 #userDisplayTableMain{
-    // background-color: white;
-    // border-radius: 10px;
-    // box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
-    // display: flex;
-    // flex-direction: column;
-    // width: 45%;
-    // margin-left: 10px;
-    // overflow-y: scroll;
-    // height: 450px;
-
     display: flex;
     height: 60.6vh;
     flex-direction: column;
@@ -64,7 +54,7 @@
 #userDisplayRow{
     background-color: #6f6f8c;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     font-size: 13px;
     padding: 10px 0px;
 }
@@ -76,17 +66,19 @@
 }
 
 #userTableCol2{
-    width: 20%;
+    width: 50%;
     color: white;
-    // padding-left: 10%;
+    padding-left: 10%;
 }
 
 #userTableCol3{
-    width: 20%;
+    width: 40%;
     color: white;
 }
 
 #userTableCol4{
-    width: 20%;
+    width: 30%;
     color: white;
+    text-align: left;
+    // padding-right: 40px;
 }
