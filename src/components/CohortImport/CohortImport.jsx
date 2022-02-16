@@ -57,7 +57,7 @@ function CohortImport(props) {
             </div>
       </div>
    
-      <form onSubmit={()=>{upload(event)}}>
+      <form onSubmit={(event)=>{upload(event)}}>
    
       <label class="cohortFiles">
         <input type="file" id="cohortFiles" accept=".csv" name="addCohort" aria-label="File browser example" multiple/>
