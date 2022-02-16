@@ -16,7 +16,7 @@ function LandingPage() {
   return (
     <div className="landingPageMainDiv">
       <div className="landingpagecontent">
-            <img id="landingPagePic"src="../images/PriumniLogo.png" alt="priumni logo" />
+            <img id="landingPagePic"src="../Images/PriumniLogo.png" alt="priumni logo" />
             <div className="landingPageLoginFormContainer">
               <LoginForm />
               <center className="landingMemberEmail">
