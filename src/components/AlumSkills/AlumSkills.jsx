@@ -58,41 +58,9 @@ function AlumSkills(props) {
           </p>
         )}
     </div>
-    <button className="eventTagSaveChangesBtn" onClick = { ()=>setopenModal(true)} > Save Changes </button>
+    <button className="eventTagSaveChangesBtn" onClick={saveNewSkill}> Save Changes </button>
           
     </div>
-    <Modal
-      open={openModal}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      style={{alignItems:'center',
-      position: 'absolute',
-      top: '15%',
-      left: '35%',
-      // transform: 'translate(-50%, -50%)',
-      width: '400px',
-      height: '400px',
-      bgcolor: 'background.paper'
-    }}
-    >
-      <Box>
-        <Paper
-            style={{
-            // transform: 'translate(-50%, -50%)',
-            width: '450px',
-            height: '300px',
-              }}
-          >
-          <h4 className="confirmtagDelete">Confirm Changes?</h4>
-          <span className='deletetagexclamationpoint'><PriorityHighIcon
-            style={{fontSize:"120px", marginLeft:"150px", marginBottom:"5px", marginTop:"0px"}}/> </span> 
-          <div className="deleteeventtagmodalbtns">
-                <button className="deleteeventtagbtncancel" onClick={()=>setopenModal(false)}>No</button>
-                <button className="deleteeventtagbtnconfirm" onClick={saveNewSkill}>Yes</button>
-          </div>
-        </Paper>
-      </Box> 
-    </Modal>
   </main>
   );
 }

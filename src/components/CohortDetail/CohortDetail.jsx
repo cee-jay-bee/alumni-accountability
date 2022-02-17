@@ -13,6 +13,7 @@ import EditCohort from '../EditCohort/EditCohort';
 import {useHistory} from 'react-router-dom';
 import dateChange from '../Functions/dateChange';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -149,6 +150,18 @@ function CohortDetail(props) {
         <EditCohort setOpen2 = {setOpen2}/>
       </Modal>
     </div>
+    <div className="attendanceSubmitBtnDiv">
+          <button
+              className="attendanceReturntoEventBtns"
+              type="button"
+              // className="btn btn_asLink"
+              onClick={() => {
+                history.push('/cohortpage');
+              }}
+            > <KeyboardReturnIcon/>
+            Return to all cohorts
+          </button>
+        </div>
     </div>
   );
 }
