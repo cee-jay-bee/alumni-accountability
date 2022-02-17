@@ -94,13 +94,20 @@
     // padding-right: 24px;
     // padding-left:8px;
     cursor: pointer;
+    transition: all 0.5s;
+
+    #eventactioncardtitle{
+        border-bottom: 1px solid white;
+        box-shadow: 0px 9px 3px -9px rgb(255, 255, 255);
+        transition: all 0.5s;
+    }
 
     #eventactionitemsUP{
         padding-bottom: 10px;
         text-align: left;
         margin-top: -4px;
-        border-bottom: 1px solid white;
-        box-shadow: 0px 9px 3px -9px rgb(255, 255, 255);
+        // border-bottom: 1px solid white;
+        // box-shadow: 0px 9px 3px -9px rgb(255, 255, 255);
         color: white;
         font-size: 20px;
         transition: all 0.5s;

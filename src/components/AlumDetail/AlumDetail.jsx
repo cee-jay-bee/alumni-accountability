@@ -38,17 +38,25 @@ function AlumDetail(props) {
     <main className="alumDetailMainDiv">
          <div className='alumDetailCol1'>
            <div className="alumDetailTitleandStack">
-             <div className="alumDetailTitleDiv">
-                <div>   
-                  <h2 id="alumDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
+                <div className="alumDetailTitleDiv">
+                    <div>   
+                      <h2 id="alumDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
+                    </div>
+                    <div className="eventDetailStackType">
+                      <p>FSE</p>
+                    </div>
                 </div>
-                <div className="eventDetailStackType">
-                  <p>FSE</p>
+                <div id="placedbookmarkandDate">
+                    {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed": "Seeking"}</p> */}
+                    {(oneAlum.alum_placed )?
+                        <p id="alumDetailseekingMargin" 
+                            style={{'border-bottom': '30px solid #434169', 'border-top':'30px solid #434169', 'border-left':'30px solid transparent'
+                            }}>Placed</p>:
+                        <p  id="alumDetailseekingMargin" style={{'border-bottom': '30px solid #da9595', 'border-top':'30px solid #da9595', 'border-left':'30px solid transparent'}}>Seeking</p>
+                      }
                 </div>
-              </div>
-                <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p>
-            </div>
-            <div className="graddateAndPlaced">
+           </div>
+           <div className="graddateAndPlaced">
                 <p>Graduation date: mm/dd/yyyy</p> <br/>
                 <p id="eventsAttendedId">Events Attended = {oneAlum.event_count}</p>
                 {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p> */}
