@@ -50,29 +50,71 @@
     align-content: center;
     box-shadow: 0px 0px 5px gray;
     display: flex;
+    flex-direction: column;
     border-radius: 10px;
     background-color: #919f73;
     color: white;
     // background-image: url('../UserPage/events-bw.png');
     // background-size: cover;
-    transition: background-image 150ms ease-in-out;
+    transition: all 0.5s;
 
     h1{
-        font-size: 2.5em;
+        font-size: 70px;
         font-weight: 400;
     }
 }
 
-.mainDivHomePageCol1:hover{
-    cursor: pointer;
-    // background: #919f73;
-    // color: rgb(68, 68, 68);
-    // background-image: url('../UserPage/events-color.png');
-    // background-size: cover;
-    // transition: background-image 150ms ease-in-out;
-    // background-image: url('./Images/event-bg-bw.png');
-    
+#eventactionitemsUP{
+    padding-bottom: 10px;
+    text-align: left;
+    margin-top: -4px;
+    border-bottom: 1px solid #919f73;
+    color: #919f73;
+    font-size: 1px;
+    transition: all 0.5s;
 }
+
+// .mainDivHomePageCol1{
+//         cursor: pointer;
+//         display: inline-block;
+//         position: relative;
+//         transition: 0.5s;
+// }
+
+// .mainDivHomePageCol1:after {
+//     content: '»';
+//     position: absolute;
+//     opacity: 0;  
+//     top: 14px;
+//     right: -20px;
+//     transition: 0.5s;
+//   }
+  
+  .mainDivHomePageCol1:hover{
+    // padding-right: 24px;
+    // padding-left:8px;
+    cursor: pointer;
+
+    #eventactionitemsUP{
+        padding-bottom: 10px;
+        text-align: left;
+        margin-top: -4px;
+        border-bottom: 1px solid white;
+        box-shadow: 0px 9px 3px -9px rgb(255, 255, 255);
+        color: white;
+        font-size: 20px;
+        transition: all 0.5s;
+    }
+  }
+  
+//   .mainDivHomePageCol1:hover:after {
+//     opacity: 1;
+//     right: 10px;
+//   }
+
+// .mainDivHomePageCol1:hover{
+//     cursor: pointer;
+// }
 
 .mainDivHomePageCol2 {
     width: 100%;
