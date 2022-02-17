@@ -58,6 +58,7 @@ function PiePlacedChart(props) {
         <Pie
           data={state}
           options={{
+            responsive: true,
             plugins: {
               title:{
                 display:true,
@@ -68,12 +69,6 @@ function PiePlacedChart(props) {
               legend:{
                 display:false,
                 position:'right'
-              }
-            },
-            scales: {
-              y: {
-                min: 0,
-                max: 16
               }
             },
             indexAxis: 'y',

@@ -14,7 +14,7 @@ function OverallChart(props) {
   let toolTipLabel = [];
   for ( let i = 0; i < overallData.length; i++) {
     let date = dateChange(overallData[i].event_date);
-    labels.push(date);
+    labels.push(date.split('/')[0] + '/' + date.split('/')[1]);
     data.push(overallData[i].total_attendance);
     toolTipLabel.push(overallData[i].event_title);
   }
@@ -41,10 +41,12 @@ function OverallChart(props) {
 
   return (
     <div>
-      <div style={{"position": "relative", "height": "40vh","width":"80vh"}}>
+      <div style={{"position": "relative", "height": "40vh","width":"115vh"}}>
         <Line
           data={state}
           options={{
+            responsive: true,
+            maintainAspectRatio: false,
             plugins: {
               title:{
                 display:true,

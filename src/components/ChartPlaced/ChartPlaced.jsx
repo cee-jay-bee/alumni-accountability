@@ -116,6 +116,7 @@ function PlacedChart(props) {
         <Bar
           data={state}
           options={{
+            responsive: true,
             plugins: {
               title:{
                 display:true,
