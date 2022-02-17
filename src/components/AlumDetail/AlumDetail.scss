@@ -83,9 +83,10 @@
     text-align: right;
     width:100px; 
     height:0; 
-    border-bottom:30px solid rgb(0, 0, 0);;
-    border-top:30px solid rgb(0, 0, 0);;
+    border-bottom:30px solid rgb(0, 0, 0);
+    border-top:30px solid rgb(0, 0, 0);
     border-left:30px solid transparent;
+    box-shadow: 0px 7px 7px -7px rgb(67, 67, 67);
     display: flex;
     justify-content: center;
     align-items: center;
