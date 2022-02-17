@@ -43,36 +43,22 @@ function AlumSkills(props) {
     <div className='tagsHeader'>
 
       <div className='eventtagdisplayfield'>
-      <h2> Skills</h2>
+        <div className="eventdetailtitleandreminder">
+            <h2 id="tagtitleh2"> Skills</h2><p id="eventdisplaydisclaimer">(be sure to save changes after entering / deleting skills!)</p>
+        </div>
       {/* ALUM SKILLS INPUT */}
-      <TextField
-            className="createNewEventTag"
-            style={{ width: '65%', top: '-54px', left: '34%', position: 'relative'}}
-            size='small'
-            label="add alum skill"
-            variant="outlined"
-            autoComplete= "off"
-            type="text"
-            name="alum skill"
-            required
-            value={alumSkill}
-            onKeyUp={onPressEnter}
-            onChange={(event) => setAlumSkill(event.target.value)}
-          />
-          
-        </div>  
+      <input className="eventNewTagInput" placeholder="add skill" type="text" autoComplete= "off" value={alumSkill} onKeyUp={onPressEnter} onChange={(event) => setAlumSkill(event.target.value)}/>
+    </div>  
         
-        <div className='eventtagdisplayarea'>
-            {skillList.map((oneSkill,index)=>
-              <p key={index} className='eventtagdisplay'>
-              {oneSkill} <span><button className='eventtagdeletebtn' 
-              onClick={()=>deleteSkill(index)}> X </button></span></p>
-            )}
-        </div>
-
-        <div>
-          <button onClick = { ()=>setopenModal(true)} > Save Changes </button>
-        </div>
+    <div className='eventtagdisplayarea'>
+        {skillList.map((oneSkill,index)=>
+          <p key={index} className='eventtagdisplay'>
+          {oneSkill} <span><button className='eventtagdeletebtn' 
+          onClick={()=>deleteSkill(index)}> X </button></span>
+          </p>
+        )}
+    </div>
+    <button className="eventTagSaveChangesBtn" onClick = { ()=>setopenModal(true)} > Save Changes </button>
           
     </div>
     <Modal
