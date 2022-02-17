@@ -59,7 +59,7 @@ function CohortPage(props) {
               <div class="eventContainer">
 
                 {fseArray.length === 0 ? 
-                  <div className="noEventDiv"><h2 id="noEventDivId">No Full Stack Cohorts Uploaded Yet.</h2></div> :
+                  <div className="noEventDiv"><h2 id="noEventDivId">No full stack cohorts uploaded yet.</h2></div> :
                   fseArray.map(cohort => {
             
                     const setOneCohort = () => {
@@ -100,7 +100,7 @@ function CohortPage(props) {
               <div class="eventContainer">
 
                 {uxdArray.length === 0 ? 
-                  <div className="noEventDiv"><h2 id="noEventDivId">No User Experience Cohorts Uploaded Yet.</h2></div> :
+                  <div className="noEventDiv"><h2 id="noEventDivId">No user experience cohorts uploaded yet.</h2></div> :
                   uxdArray.map(cohort => {
             
                     const setOneCohort = () => {

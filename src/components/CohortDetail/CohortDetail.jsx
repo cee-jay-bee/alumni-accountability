@@ -161,8 +161,8 @@ function CohortDetail(props) {
             > <KeyboardReturnIcon/>
             Return to all cohorts
           </button>
-        </div>
     </div>
+  </div>
   );
 }
 
