@@ -38,19 +38,22 @@ function AlumDetail(props) {
     <main className="alumDetailMainDiv">
          <div className='alumDetailCol1'>
            <div className="alumDetailTitleandStack">
-                <div className="alumDetailTitleDiv">   
+             <div className="alumDetailTitleDiv">
+                <div>   
                   <h2 id="alumDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
                 </div>
                 <div className="eventDetailStackType">
                   <p>FSE</p>
                 </div>
-            </div>
-            <div className="graddateAndPlaced">
-                <p>Graduation date: mm/dd/yyyy</p> 
+              </div>
                 <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p>
             </div>
+            <div className="graddateAndPlaced">
+                <p>Graduation date: mm/dd/yyyy</p> <br/>
+                <p id="eventsAttendedId">Events Attended = {oneAlum.event_count}</p>
+                {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p> */}
+            </div>
             <div className="tobePlacedOrNotToBePlaced">
-                <p>Events Attended = {oneAlum.event_count}</p>
                 <Typography variant="subtitle">Placed</Typography>
                 <Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} />
                 {oneAlum.alum_placed && 
