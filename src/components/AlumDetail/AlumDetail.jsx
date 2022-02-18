@@ -72,7 +72,7 @@ function AlumDetail(props) {
                 }
                 {oneAlum.alum_placed && oneAlum.placed_date &&
                 <div>
-                  <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
+                  <Typography variant="subtitle">Placed on : {dateChange(oneAlum.placed_date)}</Typography>
                 </div>
                 }
             </div>
