@@ -55,6 +55,7 @@ function AttendanceChart(props) {
         <Bar
           data={state}
           options={{
+            responsive: true,
             plugins: {
               title:{
                 display:true,
