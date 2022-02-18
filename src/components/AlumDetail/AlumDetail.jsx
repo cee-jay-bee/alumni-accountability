@@ -81,6 +81,7 @@ import AlumSkills from '../AlumSkills/AlumSkills'
 import AlumNotes from '../AlumNotes/AlumNotes'
 //IMPORT SCSS 
 import '../AlumDetail/AlumDetail.scss'
+import dateChange from '../Functions/dateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -92,7 +93,7 @@ function AlumDetail(props) {
   const oneAlum = useSelector((store) => store.oneAlum);
 
   useEffect(() => {
-    dispatch({type : "FETCH_ALUMNOTE", payload : oneAlum.id})
+    dispatch({type : "FETCH_ALUMNOTE", payload : oneAlum.id});
   }, [dispatch])
 
   const handleCheckbox = (id,placedStatus)=>{
@@ -131,7 +132,7 @@ function AlumDetail(props) {
                 </div>
            </div>
            <div className="graddateAndPlaced">
-                <p>Graduation date: mm/dd/yyyy</p> <br/>
+                <p>Graduation date: {dateChange(oneAlum.graduation_date)}</p> <br/>
                 <p id="eventsAttendedId">Events Attended = {oneAlum.event_count}</p>
                 {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p> */}
             </div>

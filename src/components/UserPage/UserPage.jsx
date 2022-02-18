@@ -135,12 +135,12 @@ function UserPage() {
   const event = useSelector((store) => store.event);
   const dispatch = useDispatch();
   const history= useHistory();
-  const [falseAttendance, setFalseAttendance] = useState([]);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENT'});
     dispatch({ type: 'FETCH_ALUM'});
     dispatch({ type: 'FETCH_SKILL'});
+    dispatch({ type: 'FETCH_COHORT'});
   }, []);
 
   const goToEvents = () => {
