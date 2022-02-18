@@ -79,6 +79,7 @@ import { Link } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
 import AlumSkills from '../AlumSkills/AlumSkills'
 import AlumNotes from '../AlumNotes/AlumNotes'
+import dateChange from '../Functions/dateChange';
 //IMPORT SCSS 
 import '../AlumDetail/AlumDetail.scss'
 
@@ -92,7 +93,8 @@ function AlumDetail(props) {
   const oneAlum = useSelector((store) => store.oneAlum);
 
   useEffect(() => {
-    dispatch({type : "FETCH_ALUMNOTE", payload : oneAlum.id})
+    dispatch({type : "FETCH_ALUMNOTE", payload : oneAlum.id});
+    console.log(JSON.stringify(oneAlum));
   }, [dispatch])
 
   const handleCheckbox = (id,placedStatus)=>{
@@ -117,7 +119,12 @@ function AlumDetail(props) {
                       <h2 id="alumDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
                     </div>
                     <div className="eventDetailStackType">
-                      <p>FSE</p>
+                    {(oneAlum.cohort_type === 'FSE') ?
+                            <p className="mainPageStackTypeDisplay" style={{'backgroundColor': '#919f73'}}>FSE</p> :
+                            (oneAlum.cohort_type === 'UXD') ?
+                            <p className="mainPageStackTypeDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> :
+                            <span><p className="mainPageStackTypeDualDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p></span>
+                        }
                     </div>
                 </div>
                 <div id="placedbookmarkandDate">
@@ -131,22 +138,21 @@ function AlumDetail(props) {
                 </div>
            </div>
            <div className="graddateAndPlaced">
-                <p>Graduation date: mm/dd/yyyy</p> <br/>
-                <p id="eventsAttendedId">Events Attended = {oneAlum.event_count}</p>
+                <p>Graduation date : {dateChange(oneAlum.graduation_date)}</p> <br/>
+                <p id="eventsAttendedId">Events Attended : {oneAlum.event_count}</p>
                 {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p> */}
             </div>
             <div className="tobePlacedOrNotToBePlaced">
-                <Typography variant="subtitle">Placed</Typography>
-                <Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} />
+                <h2 className="placedTitle">Placed<Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} /></h2>
                 {oneAlum.alum_placed && 
                 <div>
                     <input type="date" className="createnewDateInput" autoComplete= "off" 
-                    required  onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
-                </div>
-                }
+                    required  onChange={(e)=>placedDateHandler(e,oneAlum.id)} />
                 {oneAlum.alum_placed && oneAlum.placed_date &&
-                <div>
-                  <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
+                <div className="placedOnDiv">
+                  <h3 className="placedOnHeader">Placed on: {dateChange(oneAlum.placed_date)}</h3>
+                </div>
+                }  
                 </div>
                 }
             </div>

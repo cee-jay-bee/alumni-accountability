@@ -135,11 +135,11 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   
   const { alumSkill = "" } = req.query
   let query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id,  
-  alum.placed_date,alum.alum_skills, cohort.cohort_name,cohort.graduation_date, count(event_attendance.event_id) as event_count 
+  alum.placed_date,alum.alum_skills, cohort.cohort_name, cohort.cohort_type, cohort.graduation_date, count(event_attendance.event_id) as event_count 
   FROM alum JOIN cohort on alum.cohort_id = cohort.id 
   FULL JOIN event_attendance on event_attendance.alum_id = alum.id 
   ${alumSkill && `WHERE '${alumSkill}' = ANY(alum.alum_skills)`}
-  GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name
+  GROUP BY alum.id, cohort.graduation_date, cohort.cohort_name, cohort.cohort_type
   ORDER BY alum.alum_name ASC`;
 
   

@@ -239,7 +239,6 @@ function CohortPage(props) {
                 {fseArray.length === 0 ? 
                   <div className="noEventDiv"><h2 id="noEventDivId">No full stack cohorts uploaded yet.</h2></div> :
                   fseArray.map(cohort => {
-            
                     const setOneCohort = () => {
                       dispatch({
                         type: 'SET_ONE_COHORT',
@@ -255,14 +254,15 @@ function CohortPage(props) {
                     return (
                       
                       <div className="cohortItem" onClick={setOneCohort}>
+                        <p class="gradDateStyling">Graduation Date:</p>
                         <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
                           
-                        {/* {(event.stack_type === 'FSE') ?
-                          <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
-                          (event.stack_type === 'UX/UI') ?
-                          <p class="stackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
-                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
-                        } */}
+                        {(cohort.cohort_type === 'FSE') ?
+                          <p class="cohortTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
+                          (cohort.cohort_type === 'UX/UI') ?
+                          <p class="cohortTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
+                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+                        }
 
                         <div className="cohortTitle"> 
                             <h3 class="cohortCardStyling">{cohort.cohort_name}</h3>
@@ -298,15 +298,16 @@ function CohortPage(props) {
                       <div className="cohortItem" onClick={setOneCohort}>
                         <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
                           
-                        {/* {(event.stack_type === 'FSE') ?
+                        <div className="cohortTitle"> 
+                            <h3 class="cohortCardStyling">{cohort.cohort_name}</h3>
+
+                          {/* {(cohort.stack_type === 'FSE') ?
                           <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
-                          (event.stack_type === 'UX/UI') ?
+                          (cohort.stack_type === 'UX/UI') ?
                           <p class="stackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
                           <span><p class="stackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
                         } */}
 
-                        <div className="cohortTitle"> 
-                            <h3 class="cohortCardStyling">{cohort.cohort_name}</h3>
                         </div>
                       </div>
                     )

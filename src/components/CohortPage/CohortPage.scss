@@ -32,6 +32,24 @@
     text-decoration: underline rgb(243, 240, 236);
 }
 
+.cohortTypeDisplay{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    width: 49px;
+    padding: 15px 0;
+    margin-top: 11px;
+    height: auto;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    align-items: right;
+    display: inline-block;
+    position: relative;
+    left: 175px;
+    bottom: 70px;
+}
+
 // .stackTypeDisplay{
 //     background: black;
 //     color: white;
@@ -134,8 +152,9 @@ width: 700px;
 
 .cohortCardStyling {
     bottom: 75px;
-    top: -100px;
+    top: -125px;
     position: relative;
+    font-family: 'Open Sans';
 }
 
 .cohortContainer h3 {
@@ -146,6 +165,10 @@ width: 700px;
     margin-top: 0px;
     padding-top: 20px;
     font-size: 15px;
+}
+
+.gradDateStyling {
+    margin-bottom: -15px;
 }
 
 .cohortTimeStyling {

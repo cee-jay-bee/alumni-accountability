@@ -1,10 +1,62 @@
 .tobePlacedOrNotToBePlaced{
-    border: 1px solid;
+    flex: 5;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    margin-bottom: 10px;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-top: 20px;
 
 }
 
+.placedTitle {
+  font-size: 20px;
+  color: #505050;
+  text-transform: uppercase;
+  font-family: 'Open Sans';
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  margin: 9px;
+}
+
+.placedOnHeader {
+  font-size: 16px;
+  color: #505050;
+  font-family: 'Open Sans';
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  margin: 9px;
+  color: white;
+}
+
+.placedOnDiv {
+    display: flex;
+    background-color: #6c7f42;
+    border-radius: 5px;
+    padding: 9px 10px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    display: inline-table;
+    margin: 10px;
+    margin-top: inherit;
+    box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+}
+
 .alumDetailMainDiv{
-    border: 1px solid;
     display: flex;
     flex-direction: column;
 }
@@ -12,7 +64,7 @@
 .alumDetailCol1{
     display: flex;
     flex-direction: column;
-    border: 2px solid red;
+    // border: 2px solid red;
     flex-direction: column;
     width: 100%;
     justify-content: space-between;
@@ -21,9 +73,11 @@
 }
 
 .alumDetailTitleandStack{
+    position: relative;
     display: flex;
     align-items: center;
-    border: 4px solid greenyellow;
+    color: #707070;
+    // border: 4px solid greenyellow;
     justify-content: space-between;
 }
 
@@ -34,7 +88,7 @@
     align-content: center;
     // margin-bottom: 7px;
     align-items: center;
-    border: 6px solid palevioletred;
+    // border: 6px solid palevioletred;
   }
   
   #alumDetailTitle{
@@ -48,7 +102,7 @@
   }
 
   #placedbookmarkandDate{
-    border: 1px solid blue;
+    margin-right: 9px;
   }
 
   .graddateAndPlaced{
