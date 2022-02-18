@@ -45,7 +45,10 @@ function UserPage() {
             </div>
             <div className="mpEventandCohort">
               <div className ="mainDivHomePageCol1" onClick={goToEvents}>
-                <h1>Events</h1>
+                <h1 id="eventactioncardtitle">Events</h1>
+                <p id="eventactionitemsUP">create and edit events</p>
+                <p id="eventactionitemsUP">take and track attendance</p>
+                <p id="eventactionitemsUP">view upcoming events</p>
               </div>
               <div className ="mainDivHomePageCol2" onClick={goToCohorts}>
                 <h1>Cohorts</h1>
