@@ -22,7 +22,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     })
 });
 
-
 router.post('/', rejectUnauthenticated, (req, res) => {
 
     const cohortName = req.body.csvData[0].Cohort;
