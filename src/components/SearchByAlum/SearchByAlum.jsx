@@ -23,6 +23,7 @@ function SearchByAlum() {
         name: alum.alum_name,
         graduation_date: alum.graduation_date,
         cohort_id: alum.cohort_id,
+        placed_date: alum.placed_date,
         alum_placed: alum.alum_placed,
         alum_skills: alum.alum_skills,
         event_count : alum.event_count,

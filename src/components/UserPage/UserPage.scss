@@ -1,3 +1,217 @@
+
+// .homepageHeader{
+//     margin-top: 1em;
+//     font-size: 20px;
+//     margin-bottom: 1em ;
+
+//     h2{
+//         text-align: center;
+//         text-transform: uppercase;
+//         font-weight: 300;
+//     }
+// }
+
+// .mainDivHomePage {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     // height: 50%;
+//     // gap: 2%;
+// }
+
+// .hiUserDiv{
+//     margin-top: 1%;
+//     display: flex;
+//     flex-direction: column;
+//     align-content: stretch;
+//     align-items: stretch;
+//     flex-wrap: nowrap;
+//     width: 70%;
+//     // margin-left: 1%;
+//     border-right: solid 1px #c9c6c6;
+//     box-shadow: 7px 0 7px -9px #888;
+// }
+
+// .mpEventandCohort{
+//     display: flex;
+//     justify-content: space-between;
+//     width: auto;
+//     gap: 3%;
+//     // height: 63vh;
+//     height: 100%;
+//     margin-right: 2.5%;
+//     margin-left: 1%;
+// }
+
+// .mainDivHomePageCol1 {
+//     width: 100%;
+//     text-align: center;
+//     justify-content: center;
+//     align-items: center;
+//     align-content: center;
+//     box-shadow: 0px 0px 5px gray;
+//     display: flex;
+//     border-radius: 10px;
+//     background-color: #919f73;
+//     color: white;
+//     // background-image: url('../UserPage/events-bw.png');
+//     // background-size: cover;
+//     transition: background-image 150ms ease-in-out;
+
+//     h1{
+//         font-size: 2.5em;
+//         font-weight: 400;
+//     }
+// }
+
+// .mainDivHomePageCol1:hover{
+//     cursor: pointer;
+//     // background: #919f73;
+//     // color: rgb(68, 68, 68);
+//     // background-image: url('../UserPage/events-color.png');
+//     // background-size: cover;
+//     // transition: background-image 150ms ease-in-out;
+//     // background-image: url('./Images/event-bg-bw.png');
+    
+// }
+
+// .mainDivHomePageCol2 {
+//     width: 100%;
+//     text-align: center;
+//     justify-content: center;
+//     align-items: center;
+//     align-content: center;
+//     display: flex;
+//     border-radius: 10px;
+//     background: #919f73;
+//     color: white;
+//     // background-image: url('../UserPage/cohort-bw.png');
+//     background-size: cover;
+//     box-shadow: 0px 0px 5px gray;
+//     cursor: pointer;
+//     transition: background-image 150ms ease-in-out;
+
+//     h1{
+//         font-size: 2.5em;
+//         font-weight: 400;
+//     }
+// }
+
+// .mainDivHomePageCol2:hover{
+//     cursor: pointer;
+//     // background: #cecca7;
+//     // // color: white;
+//     // // background-image: url('../UserPage/cohort-color.png');
+//     // background-size: cover;
+// }
+
+// .mainDivHomePageCol3 {
+//     height: 85vh;
+//     width: 27%;
+//     min-width: 50px;
+//     overflow-y: scroll;
+//     overflow-x: hidden;
+//     border-radius: 10px;
+//     margin-left: 1%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+
+//     #mainPageCol3Header{
+//         font-size: 22px;
+//         font-weight: 500;
+//         text-align: center;
+//         margin-top: 2.7em;
+//         text-transform: uppercase;
+//         color: #818181;
+//     }
+// }
+
+// .mainPageContainer{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     flex-wrap: wrap;
+// }
+
+// .mainPageEventItem{
+//     margin: 10px 10px;
+//     cursor: pointer;
+//     background-color: white;
+//     border-radius: 10px;
+//     box-shadow: 0px 0px 5px gray;
+
+//     .mainPageDateTimeStack{
+//         display: flex;
+//         height: 40px;
+//         justify-content: space-between;
+//         margin: 0 10px;
+
+//         .mainPageDateTimeStyling{
+//             display: flex;
+//             flex-direction: row;
+//             text-align: left;
+//             margin-left: 8px;
+//             #maindateallevent{
+//                 margin-right: 10px;
+//                 display: flex;
+//             }
+//         }
+    
+//     .mainPageStackTypeDiv{
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//             justify-content: center;
+//             margin-top: 30px;
+//     }
+//     }
+
+//     #mainpageeventname{
+//         display: flex;
+//         justify-content: flex-start;
+//     }
+
+//     .mainPageTitleStyling{
+//         display: flex;
+//         font-weight: 400;
+//         text-transform: uppercase;
+//         font-size: 16px;
+//         margin-left: 20px;
+//         bottom: 75px;
+//         top: -100px;
+//         // margin-left: 15px;   
+//     }
+// }
+
+// .mainPageStackTypeDisplay{
+//     background: black;
+//     color: white;
+//     border-radius: 50%;
+//     width: 49px;
+//     padding: 15px 0;
+//     // height: auto;
+//     text-align: center;
+//     font-weight: 600;
+//     font-size: .9rem;
+//     align-items: right;
+//     display: inline-block;
+// }
+
+// .mainPageStackTypeDualDisplay{
+//     background: black;
+//     color: white;
+//     border-radius: 50%;
+//     width: 49px;
+//     padding: 15px 0;
+//     // height: auto;
+//     text-align: center;
+//     font-weight: 600;
+//     font-size: .9rem;
+//     display: inline-block;
+//     align-items: right;
+// }
+
 .homepageHeader{
     margin-top: 1em;
     font-size: 20px;
@@ -50,29 +264,78 @@
     align-content: center;
     box-shadow: 0px 0px 5px gray;
     display: flex;
+    flex-direction: column;
     border-radius: 10px;
     background-color: #919f73;
     color: white;
     // background-image: url('../UserPage/events-bw.png');
     // background-size: cover;
-    transition: background-image 150ms ease-in-out;
+    transition: all 0.5s;
 
     h1{
-        font-size: 2.5em;
+        font-size: 70px;
         font-weight: 400;
     }
 }
 
-.mainDivHomePageCol1:hover{
-    cursor: pointer;
-    // background: #919f73;
-    // color: rgb(68, 68, 68);
-    // background-image: url('../UserPage/events-color.png');
-    // background-size: cover;
-    // transition: background-image 150ms ease-in-out;
-    // background-image: url('./Images/event-bg-bw.png');
-    
+#eventactionitemsUP{
+    padding-bottom: 10px;
+    text-align: left;
+    margin-top: -4px;
+    border-bottom: 1px solid #919f73;
+    color: #919f73;
+    font-size: 1px;
+    transition: all 0.5s;
 }
+
+// .mainDivHomePageCol1{
+//         cursor: pointer;
+//         display: inline-block;
+//         position: relative;
+//         transition: 0.5s;
+// }
+
+// .mainDivHomePageCol1:after {
+//     content: '»';
+//     position: absolute;
+//     opacity: 0;  
+//     top: 14px;
+//     right: -20px;
+//     transition: 0.5s;
+//   }
+  
+  .mainDivHomePageCol1:hover{
+    // padding-right: 24px;
+    // padding-left:8px;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    #eventactioncardtitle{
+        border-bottom: 1px solid white;
+        box-shadow: 0px 9px 3px -9px rgb(255, 255, 255);
+        transition: all 0.5s;
+    }
+
+    #eventactionitemsUP{
+        padding-bottom: 10px;
+        text-align: left;
+        margin-top: -4px;
+        // border-bottom: 1px solid white;
+        // box-shadow: 0px 9px 3px -9px rgb(255, 255, 255);
+        color: white;
+        font-size: 20px;
+        transition: all 0.5s;
+    }
+  }
+  
+//   .mainDivHomePageCol1:hover:after {
+//     opacity: 1;
+//     right: 10px;
+//   }
+
+// .mainDivHomePageCol1:hover{
+//     cursor: pointer;
+// }
 
 .mainDivHomePageCol2 {
     width: 100%;
@@ -151,6 +414,7 @@
             flex-direction: row;
             text-align: left;
             margin-left: 8px;
+            font-size: 15px;
             #maindateallevent{
                 margin-right: 10px;
                 display: flex;
