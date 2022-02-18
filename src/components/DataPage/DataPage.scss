@@ -1,41 +1,3 @@
-
-// .chartDiv{
-//     display: flex;
-//     width: 100%;
-//     justify-content: space-between;
-//     padding-top: 75px;
-// }
-
-// .chartContainer{
-//     padding: 20px;
-// }
-
-// .rightSideChartDiv {
-//     width: 40%;
-//     float: right;
-//     padding: 20px;
-//     margin-right: 10px;
-    
-// }
-// .leftSideChartDiv {
-//     width: 40%;
-//     float: left;
-//     padding: 20px;
-    
-// }
-
-// .bottomRightChartDiv {
-//     width: 40%;
-//     float: right;
-//     padding: 20px;
-//     margin-right: 10px;
-    
-// }
-// .bottomLeftChartDiv {
-//     width: 40%;
-//     // float: left;
-//     padding: 20px;
-    
 .chartDiv{
     display: flex;
     width: 100%;
@@ -43,33 +5,33 @@
     padding-top: 75px;
 }
 
-.chartContainer{
-    padding: 20px;
-}
+// .chartContainer{
+//     padding: 20px;
+// }
 
 .rightSideChartDiv {
     width: 45%;
     float: right;
-    padding: 20px;
-    margin-right: 10px;
-    
+    padding: 5px;
+    margin-right: 5px;
 }
+
 .leftSideChartDiv {
     width: 45%;
     float: left;
-    padding: 20px;
+    padding: 5px;
     
 }
 
 .bottomRightChartDiv {
     width: 25%;
     float: right;
-    padding: 20px;
-    margin-right: 10px;
+    padding: 5px;
+    margin-right: 5px;
     
 }
 .bottomLeftChartDiv {
     width: 65%;
     float: left;
-    padding: 20px;
+    padding: 5px;
 }
