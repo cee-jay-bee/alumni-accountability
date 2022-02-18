@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
-import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import './CohortDetailItem.scss';
 import { Link } from 'react-router-dom';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import StarIcon from '@mui/icons-material/Star';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -47,9 +47,9 @@ function CohortDetailItem(props) {
     return (
       <div className='cohortDetailRow2'>
           {props.alum.alum_placed === true?
-          <div className='cohortDetailTableRow2Col1'><input type='checkbox' id='alumPlaced' className='alumPlacedCheckbox' value='placed' checked="checked"/></div>
+          <div className='cohortDetailTableRow2Col1'><StarIcon /> </div>
           :
-          <div className='cohortDetailTableRow2Col1'><input type='checkbox' id='alumPlaced' className='alumPlacedCheckbox' value='placed'/></div>
+          <div className='cohortDetailTableRow2Col1'></div>
           } 
           <div className='cohortDetailTableRow2Col2' onClick={setOneAlum}>{props.alum.alum_name}</div>
           <div class='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</div>
