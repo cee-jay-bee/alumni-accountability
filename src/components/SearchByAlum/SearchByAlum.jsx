@@ -25,6 +25,7 @@ function SearchByAlum() {
         cohort_id: alum.cohort_id,
         alum_placed: alum.alum_placed,
         alum_skills: alum.alum_skills,
+        event_count : alum.event_count,
         value: alum.alum_name,
         label: alum.alum_name
     }

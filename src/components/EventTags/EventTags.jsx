@@ -28,11 +28,11 @@ function EventTags() {
 
 
   const deleteTag= (id) => {
-    console.log('in deleteTag');
-    const newTagList = tag.filter ((onetag,index)=>index !== id)
+    // console.log('in deleteTag');
+    // const newTagList = tag.filter ((onetag,index)=>index !== id)
     dispatch({
       type: 'DELETE_TAG',
-      payload: newTagList
+      payload: id
     })
  
   }
@@ -41,8 +41,8 @@ function EventTags() {
     if (event.keyCode === 13) {
       event.preventDefault();
       dispatch({
-        type: 'ADD_TAG',
-        payload: {tag : eventTag }
+        type: 'POST_TAG',
+        payload: {id : oneEvent.id, eventTag }
       })
       setEventTag("")
     }
@@ -60,25 +60,26 @@ function EventTags() {
   return (
     <main> 
       <div className='tagsHeader'>
-
         <div className='eventtagdisplayfield'>
           <div className="eventdetailtitleandreminder">
-            <h2 id="tagtitleh2"> Tag</h2><p id="eventdisplaydisclaimer">(be sure to save changes after entering / deleting tags!)</p>
+            <h2 id="tagtitleh2"> Tag</h2>
           </div>
           {/* EVENT TAG INPUT */}
-          <input className="eventNewTagInput" placeholder="add event tag" type="text" autoComplete= "off" value={eventTag} onKeyUp={onPressEnter} onChange={(event) => setEventTag(event.target.value)}/>
+          <input className="eventNewTagInput" placeholder="add event tag" type="text" 
+            autoComplete= "off" value={eventTag} onKeyUp={onPressEnter} 
+            onChange={(event) => setEventTag(event.target.value)}/>
         </div>  
           
         <div className='eventtagdisplayarea'>
           {tag.map((onetag,index)=>
               <p key={index} className='eventtagdisplay'>
               {onetag.tag} <span><button className='eventtagdeletebtn' 
-              onClick={()=>deleteTag(index)}> X </button></span>
+              onClick={()=>deleteTag(onetag.id)}> X </button></span>
               </p>
             )}    
         </div>
         {/* <div className="eventTagSaveChangesBtn"> */}
-        <button  className="eventTagSaveChangesBtn" onClick = { ()=>setopenModal(true)} > Save Changes </button>
+        {/* <button  className="eventTagSaveChangesBtn" onClick = { ()=>setopenModal(true)} > Save Changes </button> */}
         {/* </div> */}
       </div>
 

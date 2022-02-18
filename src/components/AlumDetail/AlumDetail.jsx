@@ -47,15 +47,15 @@ function AlumDetail(props) {
             <div>
 
             <input type="date" className="createnewDateInput" autoComplete= "off" 
-            required  onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
+            required value={oneAlum.placed_date} onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
 
             </div>
             }
-            {oneAlum.alum_placed && oneAlum.placed_date &&
+            {/* {oneAlum.alum_placed && oneAlum.placed_date &&
             <div>
               <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
             </div>
-            }
+            } */}
       <div style={{marginTop:"1rem"}}>
         < AlumSkills />
       </div>

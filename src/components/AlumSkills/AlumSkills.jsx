@@ -21,22 +21,23 @@ function AlumSkills(props) {
   const deleteSkill= (id) => {
     const newTagList = skillList.filter ((skill,index)=>index !== id)
     setSkillList([...newTagList])
+    dispatch({
+      type: 'UPDATE_ALUM_SKILL',
+      payload: {id : oneAlum.id, skills :  newTagList}
+    })
   }
   
   const onPressEnter = (event)=>{
     if (event.keyCode === 13) {
       setSkillList([...skillList,event.target.value])
+      dispatch({
+        type: 'UPDATE_ALUM_SKILL',
+        payload: {id : oneAlum.id, skills :  [...oneAlum.alum_skills,event.target.value]}
+      })
       setAlumSkill("")
     }
   }
 
-  const saveNewSkill = () => {
-    dispatch({
-      type: 'UPDATE_ALUM_SKILL',
-      payload: {id : oneAlum.id, skills :  skillList}
-    })
-    setopenModal(false)
-  }
 
   return (
     <main> 
@@ -69,10 +70,6 @@ function AlumSkills(props) {
               onClick={()=>deleteSkill(index)}> X </button></span></p>
             )}
         </div>
-
-        <div>
-          <button onClick = { ()=>setopenModal(true)} > Save Changes </button>
-        </div>
           
     </div>
     <Modal
@@ -102,7 +99,7 @@ function AlumSkills(props) {
             style={{fontSize:"120px", marginLeft:"150px", marginBottom:"5px", marginTop:"0px"}}/> </span> 
           <div className="deleteeventtagmodalbtns">
                 <button className="deleteeventtagbtncancel" onClick={()=>setopenModal(false)}>No</button>
-                <button className="deleteeventtagbtnconfirm" onClick={saveNewSkill}>Yes</button>
+                {/* <button className="deleteeventtagbtnconfirm" onClick={saveNewSkill}>Yes</button> */}
           </div>
         </Paper>
       </Box> 
