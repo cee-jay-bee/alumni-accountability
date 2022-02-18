@@ -98,6 +98,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchAlum() {
   try {
@@ -124,7 +125,8 @@ function* searchForAlum(action) {
 
 function* searchAlumbySkill(action) {
   try {
-    const response = yield axios.get(`/api/alum?alumSkill=${action.payload}`);
+    const params = new URLSearchParams({ alumSkill: action.payload });
+    const response = yield axios.get(`/api/alum?${params.toString()}`);
     yield put({ type: 'SET_SKILL_SEARCH', payload: response.data });
   } catch (error) {
     console.log('Alum search skill request failed', error);
@@ -150,13 +152,14 @@ function* updateAlum(action) {
 }
 
 function* updateAlumSkill(action) {
-  console.log(action.payload);
   try {
     yield axios.put(`/api/alum/skill/${action.payload.id}`, action.payload.skills);
+    const response = yield axios.get(`/api/alum/${action.payload.id}`);
+    yield put({type : "SET_ONE_ALUM", payload : response.data[0]})
     yield put({ type: 'FETCH_ALUM' });
     yield put({ type: 'FETCH_SKILL'});
   } catch (error) {
-    console.log('Alum put request failed', error);
+    console.log('Alum skill put request failed', error);
   }
 }
 

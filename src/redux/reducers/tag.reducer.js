@@ -4,8 +4,6 @@ const tagReducer = (state = [], action) => {
       return action.payload;
     case 'ADD_TAG':
       return [...state,action.payload];
-    case 'DELETE_TAG':
-      return action.payload;
     case 'UNSET_TAG':
       return [];
     default:

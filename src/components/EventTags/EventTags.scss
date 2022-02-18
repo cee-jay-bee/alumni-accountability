@@ -1,3 +1,139 @@
+
+// .tagsHeader{
+//     // border: 3px solid;
+//     flex: 5;
+//     position: relative;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     background-color: white;
+//     border-radius: 5px;
+//     box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+//     margin-bottom: 10px;
+//     margin-left: 9px;
+//     margin-right: 9px;
+// }
+
+// .eventdetailtitleandreminder{
+//     display: flex;
+//     justify-content: center;
+//     align-content: center;
+//     align-items: center;
+//     color: #505050;
+//     font-weight: 500;
+//     text-transform: uppercase;
+// }
+
+// #tagtitleh2{
+//   font-size: 20px;
+// }
+
+// #eventdisplaydisclaimer{
+//     font-style: italic;
+//     font-size: 15px;
+//     margin-left: 10px;
+//     text-transform: lowercase;
+// }
+
+// .eventtagdisplayarea{
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     margin-bottom: 10px;
+// }
+
+// .eventtagdisplay{
+//     display: flex;
+//     background-color: #6f6f8c;;
+//     border-radius: 5px;
+//     padding: 9px 10px;
+//     width: fit-content;
+//     // border-style: solid;
+//     font-size: 13px;
+//     font-weight: 500;
+//     color: rgb(255, 255, 255);
+//     display: inline-table;
+//     margin: 10px;
+//     margin-top: inherit;
+//     box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
+    
+// }
+
+// .eventtagdeletebtn {
+//     // display: flex;
+//     margin-left: 5px;
+//     font-size: 10px;
+//     font-weight: bold;
+//     border: none;
+//     position: inline;
+//     border-radius: 50%;
+//     height: 18px;
+//     align-items: center;
+//     justify-content: center;
+//     align-content: baseline;
+//     color: #6f6f8c;
+//     background-color: white;
+
+// }
+// .eventtagdisplayfield{
+//     margin: 5px 12px;
+//     // border: 1px solid black;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: baseline;
+// }
+
+
+
+// .eventNewTagInput{
+//     height: 30px;
+//     width: 50%;
+//     border: solid 1px #c3c3c3;
+//     border-radius: 4px;
+//     padding-left: 10px;
+//     padding-right: 10px;
+//     color: rgb(98, 98, 98);
+//     font-size: 16px;
+//     font-weight: 500;
+//     font-family: "open sans", sans-serif;
+//   }
+  
+//   .eventNewTagInput:focus{
+//     border-color: rgb(255, 175, 175);
+//     box-shadow: 0px 0px 5px rgb(255, 175, 175);
+//     outline: 0;
+//   }
+  
+//   .eventNewTagInput:hover{
+//     border-color: rgb(255, 175, 175);
+//     outline: 0;
+//   }
+
+
+// .eventTagSaveChangesBtn{
+//   border: none;
+//   height: 56px;
+//   border-radius: 5px;
+//   font-size: 16px;
+//   width: 150px;
+//   background-color: #6c7f42;
+//   color: white;
+//   font-family: 'open sans';
+//   font-weight: 500;
+//   margin-left: 10px;
+//   margin-bottom: 10px;
+// }
+
+// .eventTagSaveChangesBtn:hover{
+//   border: none;
+//   height: 56px;
+//   border-radius: 5px;
+//   font-size: 16px;
+//   width: 150px;
+//   background-color: #526132;
+//   color: white;
+//   font-family: 'open sans';
+//   font-weight: 500;
+
 .tagsHeader{
     // border: 3px solid;
     flex: 5;

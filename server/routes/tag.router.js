@@ -23,18 +23,35 @@ router.get('/:id', async (req, res) => {
 });
 
 
- router.post('/:id', rejectUnauthenticated , async (req, res) => {
+//  router.post('/:id', rejectUnauthenticated , async (req, res) => {
+//   console.log(req.body)
+//   const {id} = req.params
+//   const tagList = req.body
+//   const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
+//   const deleteEventTagQuery = `DELETE FROM "event_tag" WHERE event_id = $1;`
+//   try {
+//     await pool.query(deleteEventTagQuery,[id])
+//     await Promise.all(
+//       tagList.map((tag) => {
+//       return pool.query(insertEventTagQuery, [id, tag])
+//       }))
+//     res.sendStatus(201)
+//   } catch (error) {
+//     console.log('Creating event tag error ', error);
+//       res.sendStatus(500);
+//   }
+// });
+
+
+
+router.post('/:id', rejectUnauthenticated , async (req, res) => {
   console.log(req.body)
   const {id} = req.params
-  const tagList = req.body
+  const {tag} = req.body
+
   const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
-  const deleteEventTagQuery = `DELETE FROM "event_tag" WHERE event_id = $1;`
   try {
-    await pool.query(deleteEventTagQuery,[id])
-    await Promise.all(
-      tagList.map((tag) => {
-      return pool.query(insertEventTagQuery, [id, tag])
-      }))
+    await pool.query(insertEventTagQuery,[id, tag])
     res.sendStatus(201)
   } catch (error) {
     console.log('Creating event tag error ', error);
@@ -43,5 +60,18 @@ router.get('/:id', async (req, res) => {
 });
 
 
+
+router.delete('/:id', rejectUnauthenticated , async (req, res) => {
+
+  const {id} = req.params
+  const deleteEventTagQuery = `DELETE FROM "event_tag" WHERE id = $1 RETURNING event_id`
+  try {
+    const response = await pool.query(deleteEventTagQuery,[id])
+    res.send(response.rows).status(201)
+  } catch (error) {
+    console.log('deleting event tag error ', error);
+      res.sendStatus(500);
+  }
+});
 
 module.exports = router;

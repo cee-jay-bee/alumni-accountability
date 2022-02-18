@@ -26,6 +26,7 @@ function SearchByAlum() {
         placed_date: alum.placed_date,
         alum_placed: alum.alum_placed,
         alum_skills: alum.alum_skills,
+        event_count : alum.event_count,
         value: alum.alum_name,
         label: alum.alum_name
     }
