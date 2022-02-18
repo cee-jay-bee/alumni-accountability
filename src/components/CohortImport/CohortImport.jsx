@@ -43,6 +43,7 @@ function CohortImport(props) {
                 cohortType: cohortType}
               });
     props.handleClickOpen();
+    history.push("/cohortpage");
   }
 
   return (
