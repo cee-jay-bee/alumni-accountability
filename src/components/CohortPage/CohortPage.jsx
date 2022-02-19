@@ -76,13 +76,13 @@ function CohortPage(props) {
                     return (
                       
                       <div className="cohortItem" onClick={setOneCohort}>
-                        <p class="gradDateStyling">Graduation Date:</p>
+                        <p class="gradDateStyling">Graduation Date</p>
                         <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
                           
                         {(cohort.cohort_type === 'FSE') ?
                           <p class="cohortTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-                          (cohort.cohort_type === 'UX/UI') ?
-                          <p class="cohortTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
+                          (cohort.cohort_type === 'UXD') ?
+                          <p class="cohortTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
                           <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
                         }
 
@@ -118,19 +118,18 @@ function CohortPage(props) {
                     return (
                       
                       <div className="cohortItem" onClick={setOneCohort}>
-                        <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
-                          
-                        <div className="cohortTitle"> 
+                          <p class="gradDateStyling">Graduation Date</p>
+                          <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
+                            
+                          {(cohort.cohort_type === 'FSE') ?
+                            <p class="cohortTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
+                            (cohort.cohort_type === 'UXD') ?
+                            <p class="cohortTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
+                            <span><p class="stackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+                          }
+                          <div className="cohortTitle"> 
                             <h3 class="cohortCardStyling">{cohort.cohort_name}</h3>
-
-                          {/* {(cohort.stack_type === 'FSE') ?
-                          <p class="stackTypeDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> :
-                          (cohort.stack_type === 'UX/UI') ?
-                          <p class="stackTypeDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p> :
-                          <span><p class="stackTypeDualDisplay" style={{'background-color': '#66B7AF'}}>FSE</p> <p class="stackTypeDualDisplay" style={{'background-color': '#C893B3'}}>UX/UI</p></span>
-                        } */}
-
-                        </div>
+                          </div>
                       </div>
                     )
                   })
