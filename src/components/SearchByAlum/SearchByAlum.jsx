@@ -28,7 +28,8 @@ function SearchByAlum() {
         alum_skills: alum.alum_skills,
         event_count : alum.event_count,
         value: alum.alum_name,
-        label: alum.alum_name
+        label: alum.alum_name,
+        cohort_type : alum.cohort_type
     }
     })
     
