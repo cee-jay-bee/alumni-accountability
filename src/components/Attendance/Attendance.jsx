@@ -77,9 +77,9 @@ function Attendance(props) {
               <div className="attendancestackType">
               {(oneEvent.stack_type === 'FSE') ?
                 <p class="attendancestackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-                  (oneEvent.stack_type === 'UX/UI') ?
-                <p class="attendancestackTypeDisplay" style={{'background-color': '#da9595'}}>UX/UI</p> :
-                  <span><p class="attendancestackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="attendancestackTypeDualDisplay" style={{'background-color': '#da9595'}}>UX/UI</p></span>
+                  (oneEvent.stack_type === 'UXD') ?
+                <p class="attendancestackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
+                  <span><p class="attendancestackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="attendancestackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></span>
               }
               </div>
           </div>
