@@ -15,8 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   // console.log('in alum router', req.query.search);
   const { alumSkill = "" } = req.query
   let query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id, 
-  to_json(alum.placed_date) as placed_date,alum.alum_skills, cohort.cohort_name,cohort.cohort_type,
-  to_json(cohort.graduation_date) as graduation_date, 
+  to_json(alum.placed_date) as placed_date,alum.alum_skills, cohort.cohort_name,cohort.cohort_type, cohort.graduation_date,
   count(event_attendance.event_id) as event_count 
   FROM alum JOIN cohort on alum.cohort_id = cohort.id 
   FULL JOIN event_attendance on event_attendance.alum_id = alum.id 
@@ -82,8 +81,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
   const {id} = req.params
   const query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id,
   to_json(alum.placed_date) as placed_date,
-  alum.alum_skills, cohort.cohort_name,cohort.cohort_type,
-  to_json(cohort.graduation_date) as graduation_date, 
+  alum.alum_skills, cohort.cohort_name,cohort.cohort_type,cohort.graduation_date,
   count(event_attendance.event_id) as event_count 
   FROM alum JOIN cohort on alum.cohort_id = cohort.id 
   FULL JOIN event_attendance on event_attendance.alum_id = alum.id 

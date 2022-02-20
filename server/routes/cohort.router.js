@@ -10,7 +10,7 @@ const {
  */
 router.get('/', rejectUnauthenticated, (req, res) => {
 
-  const query = `SELECT id, cohort_name, to_json(graduation_date) as graduation_date, cohort_type FROM "cohort"`;
+  const query = `SELECT id, cohort_name, graduation_date, cohort_type FROM "cohort"`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);
