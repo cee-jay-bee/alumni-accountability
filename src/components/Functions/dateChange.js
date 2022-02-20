@@ -6,7 +6,7 @@ const dateChange = (date) => {
     let twoDigitDate = eventCompareDate.getDate() + "";
     console.log('eventCompareDate:', eventCompareDate.getDate());
     console.log(twoDigitDate);
-    if (twoDigitDate.length == 1){
+    if (twoDigitDate.length === 1){
         twoDigitDate = "0" + twoDigitDate;
     }
     let eventDate = twoDigitMonth + "/" + twoDigitDate + "/" + eventCompareDate.getFullYear();

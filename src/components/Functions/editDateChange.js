@@ -6,10 +6,10 @@ const editDateChange = (date) => {
     let twoDigitDate = eventCompareDate.getDate() + "";
     console.log('eventCompareDate:', eventCompareDate.getDate());
     console.log(twoDigitDate);
-    if (twoDigitMonth.length == 1){
+    if (twoDigitMonth.length === 1){
         twoDigitMonth = "0" + twoDigitMonth;
     }
-    if (twoDigitDate.length == 1){
+    if (twoDigitDate.length === 1){
         twoDigitDate = "0" + twoDigitDate;
     }
     let eventDate = eventCompareDate.getFullYear() + "-" + twoDigitMonth + "-" + twoDigitDate

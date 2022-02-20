@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
 import AlumSkills from '../AlumSkills/AlumSkills'
 import AlumNotes from '../AlumNotes/AlumNotes'
-import dateChange from '../Functions/dateChange';
+import cohortDateChange from '../Functions/cohortDateChange';
 //IMPORT SCSS 
 import '../AlumDetail/AlumDetail.scss'
 
@@ -66,7 +66,7 @@ function AlumDetail(props) {
           </div>
         </div>
         <div className="graddateAndPlaced">
-          <p>Graduation date: {dateChange(oneAlum.graduation_date)}</p> <br/>
+          <p>Graduation date: {cohortDateChange(oneAlum.graduation_date)}</p> <br/>
           <p id="eventsAttendedId">Events Attended = {oneAlum.event_count}</p>
           {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p> */}
         </div>
@@ -90,7 +90,7 @@ function AlumDetail(props) {
                   
                   required value={oneAlum.placed_date} onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
 
-                </div>
+                </div> 
 }
           
             {/* {oneAlum.alum_placed && oneAlum.placed_date &&
