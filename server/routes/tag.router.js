@@ -10,7 +10,7 @@ const {
 
 //the id here will be the id of the EVENT whose detail page we are on
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', rejectUnauthenticated, async (req, res) => {
   const {id} = req.params
   const query = `SELECT * FROM "event_tag" WHERE event_id = $1`
   try {

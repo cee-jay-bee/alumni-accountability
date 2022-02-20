@@ -65,6 +65,7 @@ function AlumDetail(props) {
                 <Typography variant="subtitle">Placed</Typography>
                 <Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} />
                 {oneAlum.alum_placed && 
+
             <div>
 
             <input type="date" className="createnewDateInput" autoComplete= "off" 
@@ -77,6 +78,7 @@ function AlumDetail(props) {
               <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
             </div>
             } */}
+
             </div>
         </div>
       <div style={{marginTop:"1rem"}}>

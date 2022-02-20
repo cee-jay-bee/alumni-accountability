@@ -78,7 +78,6 @@ return (
                 <option value="">cohort type</option>
                 <option value={'FSE'}>FSE</option>
                 <option value={'UXD'}>UXD</option>
-                <option value={'FSE and UXD'}>FSE and UXD</option>
               </select>
             </div>
             {/* SUBMISSION BTN */}

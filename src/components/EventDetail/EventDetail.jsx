@@ -26,7 +26,7 @@ function EventDetail(props) {
   // a default value of 'Functional Component'
   const oneEvent = useSelector((store) => store.oneEvent);
   const dispatch = useDispatch();
-  const event = useSelector((store) => store.event);
+  const user = useSelector((store) => store.user);
   const history = useHistory();
   
   useEffect(() => {
@@ -104,9 +104,9 @@ const checkStackType = ()=> {
             <span><EditOutlinedIcon id="attendancetitleBtn"
             onClick={handleClickOpen2}
             style={{fontSize:"40px", "left": "80%", 'margin-right': '15px', 'cursor':'pointer'}}/> </span> 
-            <span><DeleteOutlineOutlinedIcon id="attendancetitleBtn"
+            {user.role !== 'admin' ? <p></p> : <span><DeleteOutlineOutlinedIcon id="attendancetitleBtn"
             onClick={handleClickOpen}
-            style={{fontSize:"40px", "left": "90%" , 'cursor':'pointer'}}/> </span> 
+            style={{fontSize:"40px", "left": "90%" , 'cursor':'pointer'}}/> </span> }
         </div>
       </div>
       
