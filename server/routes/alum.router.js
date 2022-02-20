@@ -14,7 +14,7 @@ const {
 router.get('/', rejectUnauthenticated, (req, res) => {
   // console.log('in alum router', req.query.search);
   const { alumSkill = "" } = req.query
-  let query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id,  
+  let query = `SELECT alum.id, alum.alum_name, alum.alum_placed, alum.alum_seeking, alum.cohort_id, 
   to_json(alum.placed_date) as placed_date,alum.alum_skills, cohort.cohort_name,cohort.cohort_type,
   to_json(cohort.graduation_date) as graduation_date, 
   count(event_attendance.event_id) as event_count 

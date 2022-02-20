@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux'
 import AlumSkills from '../AlumSkills/AlumSkills'
 import AlumNotes from '../AlumNotes/AlumNotes'
+import dateChange from '../Functions/dateChange';
 //IMPORT SCSS 
 import '../AlumDetail/AlumDetail.scss'
-import dateChange from '../Functions/dateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -43,7 +43,16 @@ function AlumDetail(props) {
                       <h2 id="alumDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
                     </div>
                     <div className="eventDetailStackType">
-                      <p>{oneAlum.cohort_type}</p>
+
+                    {(oneAlum.cohort_type === 'FSE') ?
+                            <p className="mainPageStackTypeDisplay" style={{'backgroundColor': '#919f73'}}>FSE</p> :
+                            (oneAlum.cohort_type === 'UXD') ?
+                            <p className="mainPageStackTypeDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> :
+                            <span><p className="mainPageStackTypeDualDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p></span>
+                        }
+
+//                       <p>{oneAlum.cohort_type}</p>
+
                     </div>
                 </div>
                 <div id="placedbookmarkandDate">
@@ -62,22 +71,34 @@ function AlumDetail(props) {
                 {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p> */}
             </div>
             <div className="tobePlacedOrNotToBePlaced">
-                <Typography variant="subtitle">Placed</Typography>
-                <Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} />
+                <h2 className="placedTitle">Placed<Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} /></h2>
                 {oneAlum.alum_placed && 
 
-            <div>
+                <div>
+                    <input type="date" className="createnewDateInput" autoComplete= "off" 
+                    required  onChange={(e)=>placedDateHandler(e,oneAlum.id)} />
+                {oneAlum.alum_placed && oneAlum.placed_date &&
+                <div className="placedOnDiv">
+                  <h3 className="placedOnHeader">Placed on: {dateChange(oneAlum.placed_date)}</h3>
+                </div>
+                }  
+                </div>
+                }
 
-            <input type="date" className="createnewDateInput" autoComplete= "off" 
-            required value={oneAlum.placed_date} onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
 
-            </div>
+//             <div>
+
+//             <input type="date" className="createnewDateInput" autoComplete= "off" 
+//             required value={oneAlum.placed_date} onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
+
+//             </div>
             }
             {/* {oneAlum.alum_placed && oneAlum.placed_date &&
             <div>
               <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
             </div>
             } */}
+
 
             </div>
         </div>

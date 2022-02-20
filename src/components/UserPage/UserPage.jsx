@@ -50,8 +50,11 @@ function UserPage() {
                 <p id="eventactionitemsUP">take and track attendance</p>
                 <p id="eventactionitemsUP">view upcoming events</p>
               </div>
-              <div className ="mainDivHomePageCol2" onClick={goToCohorts}>
-                <h1>Cohorts</h1>
+              <div className ="mainDivHomePageCol1" onClick={goToCohorts}>
+                <h1 id="eventactioncardtitle">Cohorts</h1>
+                <p id="eventactionitemsUP">something something</p>
+                <p id="eventactionitemsUP">more something</p>
+                <p id="eventactionitemsUP">and something</p>
               </div>
             </div>
           </div>

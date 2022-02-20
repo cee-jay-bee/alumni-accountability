@@ -41,6 +41,7 @@ function CohortDetail(props) {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_ALUM'});
+    console.log('alum is...', alum);
   }, []);
 
   const deleteCohort = (event) => {
