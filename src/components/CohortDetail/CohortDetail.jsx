@@ -11,7 +11,7 @@ import { Modal, Box, Paper} from '@mui/material';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import EditCohort from '../EditCohort/EditCohort';
 import {useHistory} from 'react-router-dom';
-import dateChange from '../Functions/dateChange';
+import cohortDateChange from '../Functions/cohortDateChange';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
@@ -75,7 +75,7 @@ function CohortDetail(props) {
             {/* <p>{JSON.stringify(alum)}</p> */}
             <div className="cohortDetailCohortNameDate">
                 <h3>{oneCohort.cohort_name}</h3>
-                <p id="graduationDetailDate">Graduation date: {dateChange(oneCohort.graduation_date)}</p>
+                <p id="graduationDetailDate">Graduation date: {cohortDateChange(oneCohort.graduation_date)}</p>
             </div>
             <div className="cohortdetailstackType">
             {checkCohortType()}
