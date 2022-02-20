@@ -134,7 +134,7 @@ function EventNotes(props) {
         <div className="noteEditModalCardHeader">
             <h3 className="confirmDelete">Editing Event Note</h3>
         </div>
-        <textarea className="eventNoteEdit" placeholder="edit event note" type="text" autoComplete= "off" multiline wrap="soft" maxLength="250" rows={6} value={oneNote.event_note_entry} 
+        <textarea className="eventNoteEdit" placeholder="edit event note" type="text" autoComplete= "off" multiline wrap="soft" maxLength="750" rows={6} value={oneNote.event_note_entry} 
          onChange={(e)=>{setOneNote({...oneNote, event_note_entry : e.target.value})}}/>
         <div className="editnotemodalbtnsdiv">  
             <button className="editeventnoteupdatebtn" onClick={updateNote}>Update changes</button>

@@ -43,7 +43,7 @@ function AlumDetail(props) {
                       <h2 id="alumDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
                     </div>
                     <div className="eventDetailStackType">
-                      <p>FSE</p>
+                      <p>{oneAlum.cohort_type}</p>
                     </div>
                 </div>
                 <div id="placedbookmarkandDate">
@@ -65,16 +65,20 @@ function AlumDetail(props) {
                 <Typography variant="subtitle">Placed</Typography>
                 <Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} />
                 {oneAlum.alum_placed && 
-                <div>
-                    <input type="date" className="createnewDateInput" autoComplete= "off" 
-                    required  onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
-                </div>
-                }
-                {oneAlum.alum_placed && oneAlum.placed_date &&
-                <div>
-                  <Typography variant="subtitle">Placed on : {dateChange(oneAlum.placed_date)}</Typography>
-                </div>
-                }
+
+            <div>
+
+            <input type="date" className="createnewDateInput" autoComplete= "off" 
+            required value={oneAlum.placed_date} onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
+
+            </div>
+            }
+            {/* {oneAlum.alum_placed && oneAlum.placed_date &&
+            <div>
+              <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
+            </div>
+            } */}
+
             </div>
         </div>
       <div style={{marginTop:"1rem"}}>

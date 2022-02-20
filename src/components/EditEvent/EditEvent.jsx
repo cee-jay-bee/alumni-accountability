@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
 import { useDispatch } from 'react-redux';
+import editDateChange from '../Functions/editDateChange'
 //IMPORT CREATE NEW EVENT SCSS
 import './EditEvent.scss'
 
@@ -28,7 +29,7 @@ function EditEvent() {
   useEffect(()=> {
     console.log(oneEvent);
     setEventTitle(oneEvent.title);
-    setEventDate(oneEvent.date.split("T")[0]);
+    setEventDate(editDateChange(oneEvent.date));
     setEventDescription(oneEvent.description);
     setEventTime(oneEvent.time);
     setEventStackType(oneEvent.stack_type);
