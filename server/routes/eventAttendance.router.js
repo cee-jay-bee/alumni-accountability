@@ -1,11 +1,14 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
- router.get('/:id', (req, res) => {
+ router.get('/:id', rejectUnauthenticated, (req, res) => {
   // GET route code here
   console.log(req.params);
   const query = `SELECT * from "event_attendance"
@@ -23,7 +26,7 @@ const router = express.Router();
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   // POST route code here
   const eventAttendance = req.body.attendance;
   const eventID = req.body.event;
@@ -38,7 +41,7 @@ router.post('/', (req, res) => {
   )
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // DELETE route code here
   console.log(req.params);
   const eventID = req.params.id;

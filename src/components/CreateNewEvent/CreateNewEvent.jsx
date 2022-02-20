@@ -83,7 +83,7 @@ function CreateNewEvent(props) {
           </div>
           {/* EVENT DESCRIPTION INPUT */}
           <div className="createNewDescriptionDiv">
-            <textarea type="text" className="createNewEventDescription" placeholder="event description" autoComplete= "off" maxRows={2} rows={7} wrap="soft" maxLength="250" required value={eventDescription} onChange={(event) => setEventDescription(event.target.value)}/>
+            <textarea type="text" className="createNewEventDescription" placeholder="event description" autoComplete= "off" maxRows={2} rows={7} wrap="soft" maxLength="750" required value={eventDescription} onChange={(event) => setEventDescription(event.target.value)}/>
           </div>
           {/* EVENT TAG INPUT */}
           <div className="createNewEventTagDiv">

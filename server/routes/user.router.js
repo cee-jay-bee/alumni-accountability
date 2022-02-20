@@ -26,6 +26,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
   res.send(req.user);
 });
+
 router.get('/username', (req, res) => {
   console.log(req.query);
   const queryText = `SELECT * FROM "user" WHERE "email_address"='${req.query.email}'`;
@@ -79,6 +80,7 @@ router.get('/username', (req, res) => {
     });
     
 })
+
 router.put('/password', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);

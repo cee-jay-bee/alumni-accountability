@@ -43,12 +43,16 @@ function AlumDetail(props) {
                       <h2 id="alumDetailTitle">{oneAlum.name || oneAlum.alum_name}</h2>
                     </div>
                     <div className="eventDetailStackType">
+
                     {(oneAlum.cohort_type === 'FSE') ?
                             <p className="mainPageStackTypeDisplay" style={{'backgroundColor': '#919f73'}}>FSE</p> :
                             (oneAlum.cohort_type === 'UXD') ?
                             <p className="mainPageStackTypeDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> :
                             <span><p className="mainPageStackTypeDualDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p></span>
                         }
+
+//                       <p>{oneAlum.cohort_type}</p>
+
                     </div>
                 </div>
                 <div id="placedbookmarkandDate">
@@ -69,6 +73,7 @@ function AlumDetail(props) {
             <div className="tobePlacedOrNotToBePlaced">
                 <h2 className="placedTitle">Placed<Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} /></h2>
                 {oneAlum.alum_placed && 
+
                 <div>
                     <input type="date" className="createnewDateInput" autoComplete= "off" 
                     required  onChange={(e)=>placedDateHandler(e,oneAlum.id)} />
@@ -79,6 +84,22 @@ function AlumDetail(props) {
                 }  
                 </div>
                 }
+
+
+//             <div>
+
+//             <input type="date" className="createnewDateInput" autoComplete= "off" 
+//             required value={oneAlum.placed_date} onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
+
+//             </div>
+            }
+            {/* {oneAlum.alum_placed && oneAlum.placed_date &&
+            <div>
+              <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
+            </div>
+            } */}
+
+
             </div>
         </div>
       <div style={{marginTop:"1rem"}}>

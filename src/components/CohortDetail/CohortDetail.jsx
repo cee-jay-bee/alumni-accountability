@@ -21,7 +21,7 @@ import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 function CohortDetail(props) {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
+  const user = useSelector((store) => store.user);
   const oneCohort = useSelector((store) =>  store.oneCohort);
   
   const alum = useSelector((store) => store.alum);
@@ -85,9 +85,12 @@ function CohortDetail(props) {
             <EditOutlinedIcon 
             onClick={handleClickOpen2}
             id="cohortDetailEditEvent"/> 
+            {user.role !== 'admin' ? <p></p>
+            :
             <DeleteOutlineOutlinedIcon
             onClick={handleClickOpen}
             id="cohortDetailDeleteEvent"/> 
+          }
         </div>
       </div>
       <div id='cohortDetailTableMain'>
