@@ -8,7 +8,7 @@ const {
  * GET route template
  */
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', rejectUnauthenticated, async (req, res) => {
   const {id} = req.params
   const query = `SELECT * FROM "alum_note" WHERE alum_id = $1`
   try {

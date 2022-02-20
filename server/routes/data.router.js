@@ -27,7 +27,7 @@ router.get('/overall', rejectUnauthenticated, (req, res) => {
     })
 });
 
-router.get('/eventAttendance/:id', (req, res) => {
+router.get('/eventAttendance/:id', rejectUnauthenticated, (req, res) => {
   // GET route code here
   const query = `SELECT COUNT(cohort.cohort_name), cohort.cohort_name from "alum" 
   JOIN "event_attendance" on "event_attendance".alum_id = alum.id
