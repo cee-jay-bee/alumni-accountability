@@ -129,17 +129,10 @@ function PlacedChart(props) {
                 position:'right'
               }
             },
-            scales: {
-              y: {
-                min: 0,
-                max: 16
-              }
-            },
             indexAxis: 'y',
           }}
         />
       </div>
-      {JSON.stringify(props.data)}
     </div>
   );
 }

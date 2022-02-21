@@ -65,6 +65,11 @@ function OverallChart(props) {
                   }
                 }
               }
+            },
+            scales: {
+              y: {
+                min: 0,
+              }
             }
           }}
         />
