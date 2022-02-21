@@ -23,6 +23,19 @@ function UserPage() {
     dispatch({ type: 'FETCH_COHORT'});
   }, []);
 
+  let today2 = new Date();
+
+  let eventAttendanceReminderArray = [];
+
+  for( let i = 0; i<event.length; i++ ){
+    let eventCompareDate = new Date(event[i].event_date);
+
+    if( event[i].confirm_attendance === false && eventCompareDate < today2){
+      eventAttendanceReminderArray.push(event[i]);
+    }
+  }
+  console.log('eventAttendanceReminderArray is:------->', event, eventAttendanceReminderArray);
+
   const goToEvents = () => {
     history.push("/eventpage");
   }
@@ -61,12 +74,10 @@ function UserPage() {
           <div className="mainDivHomePageCol3">
             <h2 id="mainPageCol3Header">Events requiring attendance</h2>
             <div className="mainPageContainer">
-            {/* { (falseAttendance.length === 0) ? 
-              <div>
-                <img src="/Images/beachChair-bw.png" />
-                <h2 id="mainPageCol3Header">All Caught Up!</h2>
-              </div> :  */}
-              {event.map(event => {
+              {eventAttendanceReminderArray.length === 0 ?
+              <div><img id="beachImage" src="/Images/beachChair-bw.png" alt="beach-chair image"/><h2 id="mainPageCol3Headerimg">All Caught Up!</h2></div> : 
+            
+              event.map(event => {
                 let eventCompareDate = new Date(event.event_date); 
                 if(event.confirm_attendance === false && eventCompareDate <= today){
                 
@@ -84,6 +95,7 @@ function UserPage() {
                   })
                   history.push("/eventdetail");
                 }
+              
 
                 return (
                 
@@ -108,16 +120,15 @@ function UserPage() {
                        <h2 className="mainPageTitleStyling">{event.event_title}</h2>
                        }
                     </div>
-
                   </div>
                 )
               }
               })}
             </div>
-          </div>
-          {/* <LogOutButton className="btn" /> */}
+            </div>   
         </main>
       </div>
+      
   );
 }
 
