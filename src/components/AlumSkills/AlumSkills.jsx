@@ -30,9 +30,10 @@ function AlumSkills(props) {
   const onPressEnter = (event)=>{
     if (event.keyCode === 13) {
       setSkillList([...skillList,event.target.value])
+      const newArray = oneAlum.alum_skills ? [...oneAlum.alum_skills] : []
       dispatch({
         type: 'UPDATE_ALUM_SKILL',
-        payload: {id : oneAlum.id, skills :  [...oneAlum.alum_skills,event.target.value]}
+        payload: {id : oneAlum.id, skills :  [...newArray,event.target.value]}
       })
       setAlumSkill("")
     }
