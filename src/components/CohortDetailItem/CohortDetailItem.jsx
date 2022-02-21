@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import StarIcon from '@mui/icons-material/Star';
-import dateChange from '../Functions/dateChange';
+import cohortDateChange from '../Functions/cohortDateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -58,7 +58,7 @@ function CohortDetailItem(props) {
           } 
           <div className='cohortDetailTableRow2Col2' onClick={setOneAlum}>{props.alum.alum_name}</div>
           <div class='cohortDetailTableRow2Col3'>{props.alum.cohort_name}</div>
-          <div class='cohortDetailTableRow2Col4'>{dateChange(props.alum.graduation_date)}</div>
+          <div class='cohortDetailTableRow2Col4'>{cohortDateChange(props.alum.graduation_date)}</div>
      
       </div>
           );
