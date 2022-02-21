@@ -9,7 +9,7 @@ const {
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
-  const query = `SELECT * FROM "event"`;
+  const query = `SELECT * FROM "event" ORDER BY event_date`;
   pool.query(query)
     .then( result => {
       res.send(result.rows);
