@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal } from '@mui/material';
 import CohortImport from '../CohortImport/CohortImport';
 import './CohortPage.scss'
-import dateChange from '../Functions/dateChange';
+import cohortDateChange from '../Functions/cohortDateChange';
 
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
@@ -77,7 +77,7 @@ function CohortPage(props) {
                       
                       <div className="cohortItem" onClick={setOneCohort}>
                         <p class="gradDateStyling">Graduation Date</p>
-                        <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
+                        <p class="cohortDateStyling" className="cohortDate">{cohortDateChange(cohort.graduation_date)}</p>
                           
                         {(cohort.cohort_type === 'FSE') ?
                           <p class="cohortTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
@@ -119,7 +119,7 @@ function CohortPage(props) {
                       
                       <div className="cohortItem" onClick={setOneCohort}>
                           <p class="gradDateStyling">Graduation Date</p>
-                          <p class="cohortDateStyling" className="cohortDate">{dateChange(cohort.graduation_date)}</p>
+                          <p class="cohortDateStyling" className="cohortDate">{cohortDateChange(cohort.graduation_date)}</p>
                             
                           {(cohort.cohort_type === 'FSE') ?
                             <p class="cohortTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
