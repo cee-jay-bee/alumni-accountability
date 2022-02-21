@@ -52,9 +52,9 @@ function UserPage() {
               </div>
               <div className ="mainDivHomePageCol1" onClick={goToCohorts}>
                 <h1 id="eventactioncardtitle">Cohorts</h1>
-                <p id="eventactionitemsUP">something something</p>
-                <p id="eventactionitemsUP">more something</p>
-                <p id="eventactionitemsUP">and something</p>
+                <p id="eventactionitemsUP">import new cohort</p>
+                <p id="eventactionitemsUP">track development skills</p>
+                <p id="eventactionitemsUP">track placement</p>
               </div>
             </div>
           </div>

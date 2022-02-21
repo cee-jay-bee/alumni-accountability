@@ -73,22 +73,6 @@
     font-size: 1px;
     transition: all 0.5s;
 }
-
-// .mainDivHomePageCol1{
-//         cursor: pointer;
-//         display: inline-block;
-//         position: relative;
-//         transition: 0.5s;
-// }
-
-// .mainDivHomePageCol1:after {
-//     content: '»';
-//     position: absolute;
-//     opacity: 0;  
-//     top: 14px;
-//     right: -20px;
-//     transition: 0.5s;
-//   }
   
   .mainDivHomePageCol1:hover{
     // padding-right: 24px;
@@ -106,22 +90,11 @@
         padding-bottom: 10px;
         text-align: left;
         margin-top: -4px;
-        // border-bottom: 1px solid white;
-        // box-shadow: 0px 9px 3px -9px rgb(255, 255, 255);
         color: white;
         font-size: 20px;
         transition: all 0.5s;
     }
   }
-  
-//   .mainDivHomePageCol1:hover:after {
-//     opacity: 1;
-//     right: 10px;
-//   }
-
-// .mainDivHomePageCol1:hover{
-//     cursor: pointer;
-// }
 
 .mainDivHomePageCol2 {
     width: 100%;
@@ -147,10 +120,6 @@
 
 .mainDivHomePageCol2:hover{
     cursor: pointer;
-    // background: #cecca7;
-    // // color: white;
-    // // background-image: url('../UserPage/cohort-color.png');
-    // background-size: cover;
 }
 
 .mainDivHomePageCol3 {
@@ -239,7 +208,6 @@
     border-radius: 50%;
     width: 49px;
     padding: 15px 0;
-    // height: auto;
     text-align: center;
     font-weight: 600;
     font-size: .9rem;
@@ -253,7 +221,6 @@
     border-radius: 50%;
     width: 49px;
     padding: 15px 0;
-    // height: auto;
     text-align: center;
     font-weight: 600;
     font-size: .9rem;
