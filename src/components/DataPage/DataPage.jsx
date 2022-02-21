@@ -26,10 +26,12 @@ function DataPage(props) {
   const data = 
     event.map(event => ({
       label: dateChange(event.event_date),
+      disabled: true,
       children: [
         {
           label: event.event_title,
           value: event.id,
+          disabled: false
         },
       ],
     }
@@ -38,12 +40,6 @@ function DataPage(props) {
   const onChange = (currentNode, selectedNodes) => {
     console.log('onChange::', currentNode, selectedNodes)
     setEventID(currentNode.value);
-  }
-  const onAction = (node, action) => {
-    console.log('onAction::', action, node)
-  }
-  const onNodeToggle = currentNode => {
-    console.log('onNodeToggle::', currentNode)
   }
 
   const displayChart = () => {
@@ -74,7 +70,7 @@ function DataPage(props) {
               {event.map(event => 
                 (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
             </select> */}
-            <DropdownTreeSelect data={data} className='eventOptions' onChange={onChange} onAction={onAction} onNodeToggle={onNodeToggle} />
+            <DropdownTreeSelect mode='radioSelect' data={data} onChange={onChange}  texts={{ placeholder: 'Select Event' }}/>
             <button id="submitChartBtn" onClick={displayChart}>Display Chart</button>
           </div>
         </div>
