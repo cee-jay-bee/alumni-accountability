@@ -70,15 +70,6 @@ function PiePlacedChart(props) {
                 display:false,
                 position:'right'
               },
-              tooltip: {
-                callbacks: {
-                  label: function(context) {
-                    console.log(context);
-                    return (Math.round(context.dataset.data[context.dataIndex] / (context.dataset.data[0] + context.dataset.data[1]) * 100)).toFixed(2) + '%';
-                    
-                  }
-                }
-              }
             },
             indexAxis: 'y',
           }}
