@@ -71,9 +71,8 @@ function AttendanceChart(props) {
             scales: {
               y: {
                 min: 0,
-                max: 16
+                max: 10
               }
-
             }
           }}
         />
