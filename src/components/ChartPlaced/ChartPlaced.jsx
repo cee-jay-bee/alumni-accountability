@@ -129,6 +129,20 @@ function PlacedChart(props) {
                 position:'right'
               }
             },
+            scales: {
+              y: {
+                title: {
+                  display: true,
+                  text: 'Number of Events Attended'
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Average Days to Placement'
+                }
+              }
+            },
             indexAxis: 'y',
           }}
         />

@@ -57,41 +57,45 @@ function DataPage(props) {
   <div>
     <div class="titleDiv">
       <div class="titleCol1">
-        <h2 className="eventPageTitles">Dashboard</h2>
+        <h2 className="eventPageTitles">Data dashboard</h2>
       </div>
     </div>
       <div className="chartContainer">
-        <div className="leftSideChartDiv">
-          <div className="attendanceChartDiv">
-            <AttendanceChart eventID={eventID} eventTitle={eventTitle} redraw={true}/>
-          </div>
-          <div>
-            {/* <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
+        <div className="leftandrightChartDiv">
+            <div className="leftSideChartDiv">
+              <div className="attendanceChartDiv">
+                <AttendanceChart eventID={eventID} eventTitle={eventTitle} redraw={true}/>
+              </div>
+              <div>
+                {/* <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
               {event.map(event => 
                 (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
             </select> */}
-            <DropdownTreeSelect mode='radioSelect' data={data} onChange={onChange}  texts={{ placeholder: 'Select Event' }}/>
+            <DropdownTreeSelect mode='radioSelect' className="eventAttendanceDropdown" data={data} onChange={onChange}  texts={{ placeholder: 'Select Event' }}/>
             <button id="submitChartBtn" onClick={displayChart}>Display Chart</button>
-          </div>
+              </div>
+            </div>
+
+            <div className="rightSideChartDiv">
+              <div className="placedChartDiv">
+                <PlacedChart redraw={true} />
+              </div>
+            </div>
         </div>
 
-        <div className="rightSideChartDiv">
-          <div className="placedChartDiv">
-            <PlacedChart redraw={true} />
-          </div>
-        </div>
+        <div className="leftandrightChartDiv">
+            <div className="bottomLeftChartDiv">
+              <div className="overallChartDiv">
+                <ChartOverall redraw={true} />
+              </div>
+            </div>
 
-        <div className="bottomLeftChartDiv">
-          <div className="overallChartDiv">
-            <ChartOverall redraw={true} />
-          </div>
-        </div>
-
-        <div className="bottomRightChartDiv">
-          <div className="piePlacedChartDiv">
-            <PiePlaced redraw={true} />
-          </div>
-        </div>
+            <div className="bottomRightChartDiv">
+              <div className="piePlacedChartDiv">
+                <PiePlaced redraw={true} />
+              </div>
+        </div>       
+      </div>      
       </div>
   </div>
     );

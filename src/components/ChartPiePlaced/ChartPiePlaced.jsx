@@ -69,7 +69,7 @@ function PiePlacedChart(props) {
               legend:{
                 display:false,
                 position:'right'
-              }
+              },
             },
             indexAxis: 'y',
           }}

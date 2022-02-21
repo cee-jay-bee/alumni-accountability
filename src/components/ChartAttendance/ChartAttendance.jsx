@@ -72,6 +72,9 @@ function AttendanceChart(props) {
               y: {
                 min: 0,
                 max: 10
+                ticks: {
+                  stepSize: 2
+                }
               }
             }
           }}
