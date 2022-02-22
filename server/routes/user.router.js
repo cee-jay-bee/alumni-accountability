@@ -10,17 +10,7 @@ const { getImageListItemBarUtilityClass } = require('@mui/material');
 const { config } = require('dotenv');
 const router = express.Router();
 const {google} = require("googleapis");
-const OAuth2 = google.auth.OAuth2;
-const oauth2Client = new OAuth2(
-  process.env.CID,
-  process.env.CSECRET,
-  "https://developers.google.com/oauthplayground"
-);
 
-oauth2Client.setCredentials({
-  refresh_token: process.env.CREFRESH
-});
-const accessToken = oauth2Client.getAccessToken();
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
@@ -28,7 +18,20 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/username', (req, res) => {
-  console.log(req.query);
+
+  const OAuth2 = google.auth.OAuth2;
+  const oauth2Client = new OAuth2(
+    process.env.CID,
+    process.env.CSECRET,
+    "https://developers.google.com/oauthplayground"
+  );
+
+  oauth2Client.setCredentials({
+    refresh_token: process.env.CREFRESH
+  });
+
+  const accessToken = oauth2Client.getAccessToken();
+  
   const queryText = `SELECT * FROM "user" WHERE "email_address"='${req.query.email}'`;
   pool
     .query(queryText)
