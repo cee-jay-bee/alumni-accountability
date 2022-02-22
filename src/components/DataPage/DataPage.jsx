@@ -28,7 +28,7 @@ function DataPage(props) {
   let lastSevenDaysEvents = [];
 
   for (let i = 0; i < event.length; i++) {
-    if (new Date(event[i].event_date) >= last && event[i].event_date <= date){
+    if (new Date(event[i].event_date) >= last && new Date(event[i].event_date) <= date){
       lastSevenDaysEvents.push(event[i]);
     }
   }
