@@ -44,6 +44,14 @@ function CreateNewEvent(props) {
     setEventTime('');
     setEventTag('');
   };
+  // SECRET KEY FOR DEMO
+  const neweventSecretKey = ()=> {
+    setEventTitle ('Alum Scrum');
+    setEventDate ('2022-02-23');
+    setEventTime ('09:30');
+    setEventDescription ('Elevator Pitch');
+    setEventTag ('pitches');
+  }
 
   //EVENT TITLE HOOK
   const [eventTitle, setEventTitle] = useState('');
@@ -73,7 +81,7 @@ function CreateNewEvent(props) {
               </div>
             </Link>
             <div className="createNewEventH2div">
-              <h2 id="createNewEvenrH">Let's Create a New Event!</h2>
+              <h2 id="createNewEvenrH" onClick={neweventSecretKey}>Let's Create a New Event!</h2>
             </div>
           </div>
           <div className="createNewEventTitleDateTimeDiv">
