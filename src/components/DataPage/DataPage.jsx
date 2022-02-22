@@ -58,6 +58,7 @@ function DataPage(props) {
               </div>
               <div>
                 <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
+                <option value="none" selected disabled hidden>Select an Event</option>
               {lastSevenDaysEvents.map(event => 
                 (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
             </select>
