@@ -6,8 +6,7 @@ import ChartOverall from '../ChartOverall/ChartOverall';
 import PiePlaced from '../ChartPiePlaced/ChartPiePlaced';
 import './DataPage.scss';
 import dateChange from '../Functions/dateChange';
-import DropdownTreeSelect from 'react-dropdown-tree-select';
-import 'react-dropdown-tree-select/dist/styles.css'
+
 
 
 function DataPage(props) {
@@ -29,7 +28,7 @@ function DataPage(props) {
   let lastSevenDaysEvents = [];
 
   for (let i = 0; i < event.length; i++) {
-    if (new Date(event[i].event_date) >= last){
+    if (new Date(event[i].event_date) >= last && event[i].event_date <= date){
       lastSevenDaysEvents.push(event[i]);
     }
   }
