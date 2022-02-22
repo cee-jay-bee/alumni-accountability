@@ -6,7 +6,8 @@ import ChartOverall from '../ChartOverall/ChartOverall';
 import PiePlaced from '../ChartPiePlaced/ChartPiePlaced';
 import './DataPage.scss';
 import dateChange from '../Functions/dateChange';
-
+import DropdownTreeSelect from 'react-dropdown-tree-select';
+import 'react-dropdown-tree-select/dist/styles.css'
 
 
 function DataPage(props) {
@@ -22,10 +23,15 @@ function DataPage(props) {
     dispatch({ type: 'FETCH_ALUM'});
   }, []);
 
-  
-  const onChange = (currentNode, selectedNodes) => {
-    console.log('onChange::', currentNode, selectedNodes)
-    setEventID(currentNode.value);
+  var days = 7; // Days you want to subtract
+  var date = new Date();
+  var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+  let lastSevenDaysEvents = [];
+
+  for (let i = 0; i < event.length; i++) {
+    if (new Date(event[i].event_date) >= last){
+      lastSevenDaysEvents.push(event[i]);
+    }
   }
 
   const displayChart = () => {
@@ -38,7 +44,6 @@ function DataPage(props) {
     }
   }
 
-  
  return (
   <div>
     <div class="titleDiv">
@@ -52,11 +57,11 @@ function DataPage(props) {
               <div className="attendanceChartDiv">
                 <AttendanceChart eventID={eventID} eventTitle={eventTitle} redraw={true}/>
               </div>
-              <div className="dataPageDropDownBtnDiv">
+              <div>
                 <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
-                  {event.map(event => 
-                  (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
-                </select>
+              {lastSevenDaysEvents.map(event => 
+                (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
+            </select>
             <button id="submitChartBtn" onClick={displayChart}>Display Chart</button>
               </div>
             </div>
