@@ -34,7 +34,6 @@ function UserPage() {
       eventAttendanceReminderArray.push(event[i]);
     }
   }
-  console.log('eventAttendanceReminderArray is:------->', event, eventAttendanceReminderArray);
 
   const goToEvents = () => {
     history.push("/eventpage");
