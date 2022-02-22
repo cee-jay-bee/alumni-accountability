@@ -6,8 +6,7 @@ import ChartOverall from '../ChartOverall/ChartOverall';
 import PiePlaced from '../ChartPiePlaced/ChartPiePlaced';
 import './DataPage.scss';
 import dateChange from '../Functions/dateChange';
-import DropdownTreeSelect from 'react-dropdown-tree-select';
-import 'react-dropdown-tree-select/dist/styles.css'
+
 
 
 function DataPage(props) {
@@ -23,19 +22,6 @@ function DataPage(props) {
     dispatch({ type: 'FETCH_ALUM'});
   }, []);
 
-  const data = 
-    event.map(event => ({
-      label: dateChange(event.event_date),
-      disabled: true,
-      children: [
-        {
-          label: event.event_title,
-          value: event.id,
-          disabled: false
-        },
-      ],
-    }
-  ))
   
   const onChange = (currentNode, selectedNodes) => {
     console.log('onChange::', currentNode, selectedNodes)
@@ -66,12 +52,11 @@ function DataPage(props) {
               <div className="attendanceChartDiv">
                 <AttendanceChart eventID={eventID} eventTitle={eventTitle} redraw={true}/>
               </div>
-              <div>
-                {/* <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
-              {event.map(event => 
-                (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
-            </select> */}
-            <DropdownTreeSelect mode='radioSelect' className="eventAttendanceDropdown" data={data} onChange={onChange}  texts={{ placeholder: 'Select Event' }}/>
+              <div className="dataPageDropDownBtnDiv">
+                <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
+                  {event.map(event => 
+                  (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
+                </select>
             <button id="submitChartBtn" onClick={displayChart}>Display Chart</button>
               </div>
             </div>

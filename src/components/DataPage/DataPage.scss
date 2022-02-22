@@ -60,9 +60,10 @@
 
 .eventAttendanceDropdown{
     height: 40px;
-    width: 217px;
+    width: 300px;
     margin: 2px 5px;
     border: solid 1px #c3c3c3;
+    margin-left: 27px;
     border-radius: 4px;
     padding-left: 10px;
     padding-right: 10px;
@@ -124,4 +125,32 @@ border: none;
   color: white;
   font-family: 'open sans';
   font-weight: 500;
+}
+
+.dataPageDropDownBtnDiv{
+  display: flex;
+  gap: 10px;
+}
+
+.react-dropdown-tree-select .dropdown .dropdown-trigger {
+  padding: 4px;
+  height: 30px;
+  margin-left: 27px;
+  line-height: 20px;
+  // max-height: 200px;
+  display: inline-block;
+  overflow: auto;
+  border-radius: 5px;
+  border: 1px solid #b9b9b9;
+}
+
+.react-dropdown-tree-select .dropdown .dropdown-trigger:focus {
+    border-color: rgb(255, 175, 175);
+    box-shadow: 0px 0px 5px rgb(255, 175, 175);
+    outline: 0;
+}
+
+.react-dropdown-tree-select .dropdown .dropdown-trigger:hover {
+    border-color: rgb(255, 175, 175);
+    box-shadow: 0px 0px 5px rgb(255, 175, 175);
 }
