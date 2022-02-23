@@ -22,6 +22,7 @@ function DataPage(props) {
     dispatch({ type: 'FETCH_ALUM'});
   }, []);
 
+
   // handle how many days of events you want to show
   let days = 30; // Days you want to subtract
   let date = new Date();

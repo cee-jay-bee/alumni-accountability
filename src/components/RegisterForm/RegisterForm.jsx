@@ -33,11 +33,20 @@ function RegisterForm() {
     setemail('');
   }; // end registerUser
 
+  // SECRET KEY FOR DEMO
+  const newUserSecretKey = ()=> {
+    setUsername('CJBarnes');
+    setPassword('1234');
+    setfirstname('CJ');
+    setlastname('Barnes');
+    setemail('cjbarnes@email.com');
+  }
+
   return (
     <div>
     <form className="regFormDiv" onSubmit={registerUser}>
       <div id="regFormtitleh2Div">
-        <h2 id="regFormtitleh2">Register new User</h2>
+        <h2 id="regFormtitleh2" onClick={newUserSecretKey}>Register new User</h2>
       </div>
       {errors.registrationMessage && (
         <h3 className="loginFormalert" role="alert">
