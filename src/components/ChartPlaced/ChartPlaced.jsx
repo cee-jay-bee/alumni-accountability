@@ -1,20 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import { Link } from 'react-router-dom';
-import {Bar, Chart, Pie} from 'react-chartjs-2';
-import {Chart as ChartJS} from 'chart.js/auto';
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+import React from 'react';
+import {useSelector} from 'react-redux';
+import {Bar} from 'react-chartjs-2';
+
+
 function PlacedChart(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
   
   const placementData = useSelector((store) => store.data);
-  
-
   let data = [];
 
+  // parsing data from reducer
   const parseData = () => {
     let firstArr = [];
     let secondArr = [];
@@ -25,7 +19,6 @@ function PlacedChart(props) {
     
     
     for (let i = 0; i < placementData.length; i++ ) {
-      console.log(parseInt(placementData[i].count));
       if(0 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 2) {
         firstArr.push(placementData[i].placement_time);
       } else if(3 <= Number(placementData[i].count) &&  Number(placementData[i].count) <= 4) {
@@ -40,8 +33,6 @@ function PlacedChart(props) {
         sixthArr.push(placementData[i].placement_time);
       }
     }
-
-    console.log('arrays:', firstArr, secondArr, thirdArr, fourthArr, fifthArr);
 
     if (firstArr.length === 0) {
       data.push(0);
@@ -81,6 +72,7 @@ function PlacedChart(props) {
     return data;
   }
 
+  // defining state of chart
   const state = {
     labels: [
       '0-2',

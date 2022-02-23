@@ -64,7 +64,6 @@
 }
 
 .createnewtitleinput{
-  // height: 56px;
   width: 194.5px;
   border: solid 1px #c3c3c3;
   border-radius: 4px;
@@ -148,8 +147,6 @@
   resize: none;
   margin: 2px 5px;
   padding: 10px 10px;
-  // padding-left: 10px;
-  // padding-right: 10px;
 
   border-radius: 4px;
   font-family: "open sans", sans-serif;
@@ -183,10 +180,8 @@
   padding-left: 10px;
   padding-right: 10px;
   color: rgb(98, 98, 98);
-  // font-family: 'open sans';
   font-size: 16px;
   font-weight: 500;
-  // margin-right: 30px;
   font-family: "open sans", sans-serif;
 }
 
@@ -261,7 +256,6 @@ select.createnewdropdown:focus {
 
 select.createnewdropdown:hover{
   border-color: rgb(255, 175, 175);
-  // box-shadow: 0px 0px 5px rgb(255, 175, 175);
 }
 
 .createNewEventBtn{
@@ -323,7 +317,6 @@ margin: 2px 5px;
     font-size: 50px;
     font-weight: 300; 
     margin: 40px 0 0 0;
-  /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
   }
 
   .beerscheers{

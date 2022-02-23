@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import AttendanceChart from '../ChartAttendance/ChartAttendance';
 import PlacedChart from '../ChartPlaced/ChartPlaced';
@@ -22,17 +22,19 @@ function DataPage(props) {
     dispatch({ type: 'FETCH_ALUM'});
   }, []);
 
-  var days = 7; // Days you want to subtract
-  var date = new Date();
-  var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-  let lastSevenDaysEvents = [];
+  // handle how many days of events you want to show
+  let days = 30; // Days you want to subtract
+  let date = new Date();
+  let last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+  let lastMonthsEvents = [];
 
   for (let i = 0; i < event.length; i++) {
     if (new Date(event[i].event_date) >= last && new Date(event[i].event_date) <= date){
-      lastSevenDaysEvents.push(event[i]);
+      lastMonthsEvents.push(event[i]);
     }
   }
 
+  // handles display chart button click
   const displayChart = () => {
     dispatch({ type: 'FETCH_EVENT_ATTENDANCE_DATA', payload: eventID});
     
@@ -52,40 +54,40 @@ function DataPage(props) {
     </div>
       <div className="chartContainer">
         <div className="leftandrightChartDiv">
-            <div className="leftSideChartDiv">
-              <div className="attendanceChartDiv">
-                <AttendanceChart eventID={eventID} eventTitle={eventTitle} redraw={true}/>
-              </div>
-              <div>
-                <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
+          <div className="leftSideChartDiv">
+            <div className="attendanceChartDiv">
+              <AttendanceChart eventID={eventID} eventTitle={eventTitle} redraw={true}/>
+            </div>
+            <div>
+              <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
               {lastSevenDaysEvents.map(event => 
                 (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
-            </select>
-            <button id="submitChartBtn" onClick={displayChart}>Display Chart</button>
-              </div>
+              </select>
+              <button id="submitChartBtn" onClick={displayChart}>Display Chart</button>
             </div>
+          </div>
 
-            <div className="rightSideChartDiv">
-              <div className="placedChartDiv">
-                <PlacedChart redraw={true} />
-              </div>
+          <div className="rightSideChartDiv">
+            <div className="placedChartDiv">
+              <PlacedChart redraw={true} />
             </div>
-        </div>
+          </div>
+      </div>
 
-        <div className="leftandrightChartDiv">
-            <div className="bottomLeftChartDiv">
-              <div className="overallChartDiv">
-                <ChartOverall redraw={true} />
-              </div>
+      <div className="leftandrightChartDiv">
+          <div className="bottomLeftChartDiv">
+            <div className="overallChartDiv">
+              <ChartOverall redraw={true} />
             </div>
+          </div>
 
-            <div className="bottomRightChartDiv">
-              <div className="piePlacedChartDiv">
-                <PiePlaced redraw={true} />
-              </div>
+          <div className="bottomRightChartDiv">
+            <div className="piePlacedChartDiv">
+              <PiePlaced redraw={true} />
+            </div>
         </div>       
       </div>      
-      </div>
+    </div>
   </div>
     );
 }

@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
+import { Modal } from '@mui/material';
 import { useDispatch } from 'react-redux';
 //IMPORT CREATE NEW EVENT CSS
 import './CreateNewEvent.scss'
 
-
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name EventPage with the name for the new component.
 function CreateNewEvent(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
 
     //HANLDE POP-UP MODAL
     const [open, setOpen] = React.useState(false);
@@ -23,7 +15,8 @@ function CreateNewEvent(props) {
     // END HANDLE POP-UP MODAL
 
   const dispatch = useDispatch();
-  // const history = useHistory();
+  
+  // handle add new event click
   const addNewEvent = (event) => {
       dispatch({
         type: 'CREATE_EVENT',
@@ -118,11 +111,9 @@ function CreateNewEvent(props) {
           position: 'absolute',
           top: '15%',
           left: '34%',
-          // transform: 'translate(-50%, -50%)',
           width: '470px',
           height: '400px',
           bgcolor: 'background.paper'
-          // boxShadow: 24,
           }}
           >
             <div className="mainCheersDiv">

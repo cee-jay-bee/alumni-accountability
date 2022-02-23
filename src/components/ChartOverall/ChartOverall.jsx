@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import {Line} from 'react-chartjs-2';
 import dateChange from '../Functions/dateChange';
 // Basic functional component structure for React with default state
 // value setup. When making a new component be sure to replace the
 // component name TemplateFunction with the name for the new component.
 function OverallChart(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
   const overallData = useSelector((store) => store.overallData);
+  
+  // creating data, labels, and tooltiplabels from overall data information
   let data = [];
   let labels = [];
   let toolTipLabel = [];
@@ -19,6 +19,7 @@ function OverallChart(props) {
     toolTipLabel.push(overallData[i].event_title);
   }
 
+  //defining state of chart
   const state = {
     labels: labels,
       
