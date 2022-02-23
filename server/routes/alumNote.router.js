@@ -4,10 +4,8 @@ const router = express.Router();
 const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
-/**
- * GET route template
- */
 
+// alumNote get route
 router.get('/:id', rejectUnauthenticated, async (req, res) => {
   const {id} = req.params
   const query = `SELECT * FROM "alum_note" WHERE alum_id = $1`
@@ -18,9 +16,10 @@ router.get('/:id', rejectUnauthenticated, async (req, res) => {
     console.log('Get alum note error ', error);
       res.sendStatus(500);
   }
-});
+}); // end alumNote get route
 
- router.post('/', rejectUnauthenticated , async (req, res) => {
+// alumNote post route
+router.post('/', rejectUnauthenticated , async (req, res) => {
 
   const {note, id} = req.body
   const insertEventNoteQuery = `INSERT INTO "alum_note" ("alum_id", "alum_note_entry", "alum_note_reminder","alum_note_date") 
@@ -32,24 +31,26 @@ router.get('/:id', rejectUnauthenticated, async (req, res) => {
     console.log('Creating alum note error ', error);
       res.sendStatus(500);
   }
-});
+}); // end alumNote post route
 
+// alumNote update route
 router.put('/:id', rejectUnauthenticated , async (req, res) => {
-
-  try {
+  
     const {id} = req.params
     const {alum_note_entry} = req.body
     const updateEventNotesQuery =  `UPDATE alum_note
     SET alum_note_entry = $1, alum_note_reminder = $2
     WHERE id = $3 RETURNING alum_id;`
-    const response = await pool.query(updateEventNotesQuery, [alum_note_entry,false,id])
+  try {
+    const response = await pool.query(updateEventNotesQuery, [alum_note_entry, false, id])
     res.send(response.rows).status(201)
   } catch (error) {
     console.log('Update alum note error ', error);
       res.sendStatus(500);
   }
-});
+}); // end alumNote update route
 
+// alum Note delete route
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
   const {id} = req.params
@@ -62,6 +63,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       console.log('ERROR: Delete alum note', err);
       res.sendStatus(500)
     })
-});
+}); // end alumNote delete route
 
 module.exports = router;

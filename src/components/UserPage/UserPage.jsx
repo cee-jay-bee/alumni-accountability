@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
+import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 //IMPORT CSS
 import './UserPage.scss';
@@ -10,7 +9,7 @@ import dateChange from '../Functions/dateChange';
 
 
 function UserPage() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
+  
   const user = useSelector((store) => store.user);
   const event = useSelector((store) => store.event);
   const dispatch = useDispatch();
@@ -23,28 +22,27 @@ function UserPage() {
     dispatch({ type: 'FETCH_COHORT'});
   }, []);
 
-  let today2 = new Date();
-
+  let today = new Date();
   let eventAttendanceReminderArray = [];
 
+  // sets events that need to show up in the reminder section on the DOM based on attendance and date
   for( let i = 0; i<event.length; i++ ){
     let eventCompareDate = new Date(event[i].event_date);
 
-    if( event[i].confirm_attendance === false && eventCompareDate < today2){
+    if( event[i].confirm_attendance === false && eventCompareDate < today){
       eventAttendanceReminderArray.push(event[i]);
     }
   }
 
+  // sends to event page
   const goToEvents = () => {
     history.push("/eventpage");
   }
 
+  //sends to cohort page
   const goToCohorts = () => {
     history.push("/cohortpage");
   }
-
-
-  let today = new Date();
 
   return (
       <div>
@@ -131,5 +129,4 @@ function UserPage() {
   );
 }
 
-// this allows us to use <App /> in index.js
 export default UserPage;

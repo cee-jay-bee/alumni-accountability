@@ -1,21 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import { Link } from 'react-router-dom';
-import {Bar, Chart, Pie} from 'react-chartjs-2';
-import {Chart as ChartJS} from 'chart.js/auto';
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+import React from 'react';
+import {useSelector} from 'react-redux';
+import {Pie} from 'react-chartjs-2';
+
+
 function PiePlacedChart(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
   
   const alum = useSelector((store) => store.alum);
   
+  // parseData function from alum store
   const parseData = () => {
     let countPlaced = 0;
     let countNotPlaced = 0;
 
+    // counting alums that are placed and not placed
     alum.map(alum => {
       if (alum.alum_placed === true) {
         countPlaced++;
@@ -27,6 +24,7 @@ function PiePlacedChart(props) {
     return [countPlaced, countNotPlaced];
   }
 
+  //defining state of chart
   const state = {
     labels: [
       'Placed',

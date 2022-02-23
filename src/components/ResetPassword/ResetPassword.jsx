@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import './ResetPassword.scss';
-
 // CUSTOM COMPONENTS
 import ResetPasswordForm from '../ResetPasswordForm/ResetPasswordForm'
 
 function ResetPassword() {
-  // const [heading, setHeading] = useState('Welcome');
-  const history = useHistory();
-
-  const onLogin = (event) => {
-    history.push('/login');
-  };
 
   return (
     <div className="landingPageMainDiv">

@@ -4,10 +4,8 @@ const router = express.Router();
 const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
-/**
- * GET route template
- */
 
+// event note get route
 router.get('/:id', rejectUnauthenticated, async (req, res) => {
   const {id} = req.params
   const query = `SELECT * FROM "event_note" WHERE event_id = $1`
@@ -18,10 +16,11 @@ router.get('/:id', rejectUnauthenticated, async (req, res) => {
     console.log('Get event note error ', error);
       res.sendStatus(500);
   }
-});
+});// end event note get route
 
- router.post('/', rejectUnauthenticated , async (req, res) => {
-   console.log(req.body)
+// event note post route
+router.post('/', rejectUnauthenticated , async (req, res) => {
+
   const {note,id} = req.body
   const insertEventNoteQuery = `INSERT INTO "event_note" ("event_id", "event_note_entry") 
   VALUES  ($1, $2) RETURNING event_id;` 
@@ -32,8 +31,9 @@ router.get('/:id', rejectUnauthenticated, async (req, res) => {
     console.log('Creating event note error ', error);
       res.sendStatus(500);
   }
-});
+});// event note post route
 
+// event note update route
 router.put('/:id', rejectUnauthenticated , async (req, res) => {
 
   try {
@@ -48,8 +48,9 @@ router.put('/:id', rejectUnauthenticated , async (req, res) => {
     console.log('Update event note error ', error);
       res.sendStatus(500);
   }
-});
+}); // end event note update route
 
+// event note delete route
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
   const {id} = req.params
@@ -62,6 +63,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       console.log('ERROR: Delete event note', err);
       res.sendStatus(500)
     })
-});
+}); // end event note delete route
 
 module.exports = router;

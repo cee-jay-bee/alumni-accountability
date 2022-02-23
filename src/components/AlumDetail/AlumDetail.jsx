@@ -1,6 +1,5 @@
-import React, { useState,useEffect } from 'react';
-import {Typography,Checkbox,TextField} from '@mui/material'
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import {Checkbox} from '@mui/material'
 import {useSelector,useDispatch} from 'react-redux'
 import AlumSkills from '../AlumSkills/AlumSkills'
 import AlumNotes from '../AlumNotes/AlumNotes'
@@ -8,12 +7,9 @@ import dateChange from '../Functions/dateChange';
 //IMPORT SCSS 
 import '../AlumDetail/AlumDetail.scss'
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name AlumDetail with the name for the new component.
+
 function AlumDetail(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  
   const dispatch = useDispatch()
   const oneAlum = useSelector((store) => store.oneAlum);
 
@@ -21,15 +17,14 @@ function AlumDetail(props) {
     dispatch({type : "FETCH_ALUMNOTE", payload : oneAlum.id});
   }, [dispatch])
 
+  // handling changes to placed checkbox
   const handleCheckbox = (id,placedStatus)=>{
     const data = {id,placedStatus : !placedStatus}
     dispatch({type : "ALUM_PLACED", payload : data})
-    
   }
 
+  // handling placed date changes
   const placedDateHandler = (e,id)=> {
-    // setplacedDate(e.target.value)
-    console.log(typeof(e.target.value))
     const data = {id,placedDate : e.target.value}
     dispatch({type : "ALUM_PLACED_DATE", payload : data})
   }
@@ -51,12 +46,9 @@ function AlumDetail(props) {
               <span><p className="mainPageStackTypeDualDisplay" style={{'backgroundColor': '#da9595'}}>UXD</p> <p class="mainPageStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p></span>
               }
 
-              {/* <p>{oneAlum.cohort_type}</p> */}
-
             </div>
           </div>
           <div id="placedbookmarkandDate">
-            {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed": "Seeking"}</p> */}
             {(oneAlum.alum_placed )?
               <p id="alumDetailseekingMargin" 
               style={{'border-bottom': '30px solid #434169', 'border-top':'30px solid #434169', 'border-left':'30px solid transparent'
@@ -68,41 +60,17 @@ function AlumDetail(props) {
         <div className="graddateAndPlaced">
           <p>Graduation date: {dateChange(oneAlum.graduation_date)}</p> <br/>
           <p id="eventsAttendedId">Events Attended = {oneAlum.event_count}</p>
-          {/* <p id="alumDetailseekingMargin">{oneAlum.alum_placed ? "Placed" : "Seeking"}</p> */}
         </div>
         <div className="tobePlacedOrNotToBePlaced">
           <h2 className="placedTitle">Placed<Checkbox  checked={oneAlum.alum_placed} onChange={()=>handleCheckbox(oneAlum.id,oneAlum.alum_placed)} /></h2>
           {oneAlum.alum_placed && 
-          // <div>
-          //   <input type="date" className="createnewDateInput" autoComplete= "off" required  onChange={(e)=>placedDateHandler(e,oneAlum.id)} />
-          //     {/* {oneAlum.alum_placed && oneAlum.placed_date &&
-          //       <div className="placedOnDiv">
-          //         <h3 className="placedOnHeader">Placed on: {dateChange(oneAlum.placed_date)}</h3>
-          //       </div>
-          //     }   */}
-          // </div>
-                
-
-
-                <div>
-
-                  <input type="date" className="createnewDateInput" autoComplete= "off" 
-                  
-                  required value={oneAlum.placed_date} onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
-
-                </div> 
-}
-          
-            {/* {oneAlum.alum_placed && oneAlum.placed_date &&
             <div>
-              <Typography variant="subtitle">Placed on : {oneAlum.placed_date.split("T")[0]}</Typography>
-            </div>
-            } } */}
-        
-
-
+              <input type="date" className="createnewDateInput" autoComplete= "off" 
+              required value={oneAlum.placed_date} onChange={(e)=>placedDateHandler(e,oneAlum.id)} />  
+            </div> 
+          }
+        </div>
       </div>
-    </div>
     <div style={{marginTop:"1rem"}}>
       < AlumSkills />
     </div>

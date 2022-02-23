@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// worker Saga: will be fired on "FETCH_COHORT" actions
 function* fetchCohort() {
   try {
     const response = yield axios.get(`/api/cohort`);
@@ -11,6 +11,7 @@ function* fetchCohort() {
   }
 }
 
+// worker Saga: will be fired on "CREATE_COHORT" actions
 function* createCohort(action) {
   try {
     yield axios.post('/api/cohort', action.payload);
@@ -20,6 +21,7 @@ function* createCohort(action) {
   }
 }
 
+// worker Saga: will be fired on "UPDATE_COHORT" actions
 function* updateCohort(action) {
   try {
     const response = yield axios.put(`/api/cohort/${action.payload.id}`, action.payload);
@@ -31,6 +33,7 @@ function* updateCohort(action) {
   }
 }
 
+// worker Saga: will be fired on "DELETE_COHORT" actions
 function* deleteCohort(action) {
   try {
     yield axios.delete(`/api/cohort/${action.payload}`);

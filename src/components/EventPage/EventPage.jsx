@@ -3,18 +3,14 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 //MATERIAL UI IMPORTS
-import { Box, Container, TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal } from '@mui/material';
+import { Box, Modal } from '@mui/material';
 import CreateNewEvent from '../CreateNewEvent/CreateNewEvent';
 import './EventPage.scss';
 import milTime from '../Functions/milTime';
 import dateChange from '../Functions/dateChange';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name EventPage with the name for the new component.
 function EventPage(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  
   const dispatch = useDispatch();
   const event = useSelector((store) => store.event);
   const history = useHistory();
@@ -24,10 +20,10 @@ function EventPage(props) {
   }, []);
 
   let today = new Date();
-
   let eventAttendanceArray = [];
   let upcomingAttendanceArray = [];
 
+  // split events into previous events and upcoming events to display on DOM
   for( let i = 0; i<event.length; i++ ){
     let eventCompareDate = new Date(event[i].event_date);
 
@@ -37,14 +33,13 @@ function EventPage(props) {
       upcomingAttendanceArray.push(event[i]);
     }
   }
-  console.log(event, eventAttendanceArray);
 
   //HANLDE POP-UP MODAL
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
     setOpen(!open);
   };
-// END HANDLE POP-UP MODAL
+  // END HANDLE POP-UP MODAL
 
   return (
     <div>
@@ -186,7 +181,6 @@ function EventPage(props) {
         </div>
           <div class="col2" id="createNewEventDiv" valign="center" onClick={handleClickOpen}>
           <h2 id="createNewEventTitle" >Create New Event</h2>
-          {/* <h2 id="newEventPlusIcon">+</h2> */}
         </div>
         </div>
     
@@ -200,7 +194,6 @@ function EventPage(props) {
         aria-describedby="modal-modal-description"
         style={{alignItems:'center',
         justifyContent:'center', 
-        // width: '50%',
         position: 'flexible',
         top: '15%',
         left: '0',
@@ -210,8 +203,6 @@ function EventPage(props) {
       }}
         >
           <Box>
-            {/* Clicking the x will close out of the modal */}
-            {/* <h3 className="eventPageCloseModalx" onClick={handleClickOpen}>x</h3>  */}
             <CreateNewEvent/>  
           </Box> 
         </Modal>

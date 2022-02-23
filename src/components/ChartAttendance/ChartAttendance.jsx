@@ -1,32 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import { Link } from 'react-router-dom';
-import {Bar, Chart, Pie} from 'react-chartjs-2';
-import {Chart as ChartJS} from 'chart.js/auto';
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+import React from 'react';
+import {useSelector} from 'react-redux';
+import {Bar} from 'react-chartjs-2';
+
+
 function AttendanceChart(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-  const store = useSelector((store) => store);
-  const [heading, setHeading] = useState('Functional Component');
-
-  const dispatch = useDispatch();
+  
   const eventAttendance = useSelector((store) => store.eventAttendance);
-  const event = useSelector((store) => store.event);
 
-
+  // set labels  and data for chart
   let labels = [];
-  for ( let i = 0; i < eventAttendance.length; i++) {
-    labels.push(eventAttendance[i].cohort_name);
-  }
-
   let data = [];
   for ( let i = 0; i < eventAttendance.length; i++) {
+    labels.push(eventAttendance[i].cohort_name);
     data.push(eventAttendance[i].count);
   }
   
+  // defining chart state
   const state = {
     labels: labels,
       

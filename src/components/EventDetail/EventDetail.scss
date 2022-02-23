@@ -12,7 +12,6 @@
     row-gap: 1px;
     display: inline-flex;
     flex-wrap: wrap;
-    /* height: 200px; */
     align-content: center;
     align-items: center;
     text-align: left;
@@ -30,8 +29,6 @@
 }
 
 .eventDetailTitleDate{
-  // display: flex;
-  // flex-direction: column;
   justify-content: center;
   align-content: center;
   margin-bottom: 7px;
@@ -52,7 +49,6 @@
 }
 
 .eventDetailStackType{
-  // border: 1px solid;
   margin-left: 25px;
 }
 
@@ -91,7 +87,6 @@
     justify-content: flex-end;
     color:#707070;
     align-items: center;
-    // cursor: pointer;
 }
 
 #attendancetitleBtn{
@@ -111,7 +106,6 @@
   border-radius: 5px;
   padding: 0px 10px;
   background: white;
-  // min-height: 30px;
   margin-left: 9px;
   margin-right: 9px;
   box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
@@ -148,7 +142,6 @@
     height: 30px;
     margin: 0px 0px;
     letter-spacing: 1.5px;
-    /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
     }
 
   .deleteexclamationpoint{
@@ -178,7 +171,6 @@
     color: #707070;
     font-family: 'open sans';
     font-weight: 500;
-    // background-color: #fafff0;
   }
 
 .deleteeventbtncancel:hover {

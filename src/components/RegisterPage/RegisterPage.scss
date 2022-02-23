@@ -1,21 +1,16 @@
 .userRegisterPageDiv {
     display: flex;
     width:100%;
-    // border: 1px solid palegreen;
     justify-content: space-between;
-    align-content: center;
-    //      
+    align-content: center;   
 }
 .userTableDiv {
     display:table-cell;
     background-color:#cecca7;
     width:45%;
-    // border: 1px solid;
 }
 .registerFormDiv {
     display: flex;
-    // background-color:#cecca7;
-    // width:45%;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -44,7 +39,6 @@
     flex-direction: column;
     width: 45%;
     margin-left: 10px;
-    // margin-top: 10px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
@@ -55,15 +49,8 @@
 #userDisplayRow{
     background-color: #6f6f8c;
     display: flex;
-    // justify-content: space-between;
     font-size: 13px;
     padding: 10px 0px;
-}
-
-.userTableCol1{
-    // width: 10%;
-    // padding-right: 40px;
-    // text-align: center;
 }
 
 #userTableCol2{
@@ -81,5 +68,4 @@
     width: 30%;
     color: white;
     text-align: left;
-    // padding-right: 40px;
 }

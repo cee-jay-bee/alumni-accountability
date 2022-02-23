@@ -1,11 +1,9 @@
 const editDateChange = (date) => {
 
-    console.log(date);
     let eventCompareDate = new Date(date);
     let twoDigitMonth = eventCompareDate.getMonth() + 1 + "";
     let twoDigitDate = eventCompareDate.getDate() + "";
-    console.log('eventCompareDate:', eventCompareDate.getDate());
-    console.log(twoDigitDate);
+    
     if (twoDigitMonth.length === 1){
         twoDigitMonth = "0" + twoDigitMonth;
     }

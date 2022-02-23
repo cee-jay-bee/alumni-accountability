@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+// worker Saga: will be fired on "FETCH_EVENTNOTE" actions
 function* fetchEventNote(action) {
   try {
     const response = yield axios.get(`/api/eventNote/${action.payload}`);  
@@ -10,6 +11,7 @@ function* fetchEventNote(action) {
   } 
 }
 
+// worker Saga: will be fired on "CREATE_EVENTNOTE" actions
 function* createEventNote(action) {
   try {
     const response = yield axios.post(`/api/eventNote`, action.payload);
@@ -19,6 +21,7 @@ function* createEventNote(action) {
   }
 }
 
+// worker Saga: will be fired on "UPDATE_EVENTNOTE" actions
 function* updateEventNote(action) {
   try {
     const response = yield axios.put(`/api/eventNote/${action.payload.id}`, action.payload);
@@ -28,6 +31,7 @@ function* updateEventNote(action) {
   }
 }
 
+// worker Saga: will be fired on "DELETE_EVENTNOTE" actions
 function* deleteEventNote(action) {
   try {
     const response = yield axios.delete(`/api/eventNote/${action.payload}`);
@@ -41,8 +45,6 @@ function* eventNoteSaga() {
   yield takeLatest('CREATE_EVENTNOTE', createEventNote);
   yield takeLatest('UPDATE_EVENTNOTE', updateEventNote);
   yield takeLatest('DELETE_EVENTNOTE', deleteEventNote);
-
-  
 }
 
 export default eventNoteSaga;

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+// worker Saga: will be fired on "FETCH_EVENT" actions
 function* fetchEvent(action) {
   try {
     const response = yield axios.get(`/api/event`);
@@ -11,15 +12,17 @@ function* fetchEvent(action) {
   }
 }
 
+// worker Saga: will be fired on "FETCH_ALL_EVENT" actions
 function* fetchAllEvent(action) {
   try {
     const response = yield axios.get(`/api/event/all`);
     yield put({ type: 'SET_EVENT', payload: response.data });
   } catch (error) {
-    console.log('Event get request failed', error);
+    console.log('ALL Event get request failed', error);
   }
 }
 
+// worker Saga: will be fired on "CREATE_EVENT" actions
 function* createEvent(action) {
   try {
     
@@ -30,8 +33,7 @@ function* createEvent(action) {
   }
 }
 
-
-
+// worker Saga: will be fired on "DELETE_EVENT" actions
 function* deleteEvent(action) {
   try {
 
@@ -42,7 +44,7 @@ function* deleteEvent(action) {
   }
 }
 
-
+// worker Saga: will be fired on "UPDATE_EVENT" actions
 function* updateEvent(action) {
   try {
     const response = yield axios.put(`/api/event/${action.payload.id}`, action.payload);
@@ -54,13 +56,14 @@ function* updateEvent(action) {
   }
 }
 
+// worker Saga: will be fired on "CHANGE_ATTENDANCE_STATUS" actions
 function* changeAttendance(action) {
   try {
     console.log(action)
     yield axios.put(`/api/event/attendance/${action.payload}`, action.payload);
     yield put({ type: 'FETCH_EVENT' })
   } catch (error) {
-    console.log('Event Update request failed', error);
+    console.log('Event Update Attendance request failed', error);
   }
 }
 

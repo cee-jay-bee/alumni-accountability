@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// worker Saga: will be fired on "FETCH_SKILL" actions
 function* fetchSkill() {
   try {
     const response = yield axios.get(`/api/alum/skill`);

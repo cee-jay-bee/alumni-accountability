@@ -1,7 +1,6 @@
 
 .titleCol1 {
     text-align: left;
-    // display: inline-block;
     font-size: 14px;
     text-transform: capitalize;
     font-family: 'Open Sans';
@@ -27,7 +26,6 @@
 
 #allCohorts{
     color: rgb(73, 73, 73);
-    // text-decoration: none;
     background-color:rgb(243, 240, 236);;
     text-decoration: underline rgb(243, 240, 236);
 }
@@ -50,40 +48,6 @@
     bottom: 70px;
 }
 
-// .stackTypeDisplay{
-//     background: black;
-//     color: white;
-//     border-radius: 50%;
-//     width: 49px;
-//     padding: 15px 0;
-//     height: auto;
-//     text-align: center;
-//     font-weight: 700;
-//     font-size: 12px;
-//     align-items: right;
-//     display: inline-block;
-//     position: relative;
-//     left: 175px;
-//     bottom: 70px;
-// }
-
-// .stackTypeDualDisplay{
-//     background: black;
-//     color: white;
-//     border-radius: 50%;
-//     width: 49px;
-//     padding: 15px 0;
-//     height: auto;
-//     text-align: center;
-//     font-weight: 700;
-//     font-size: 12px;
-//     display: inline-block;
-//     align-items: right;
-//     position: relative;
-//     left: 120px;
-//     bottom: 70px;
-// }
-
 #createNewCohortDiv {
     max-width: 20%;
     display: flex;
@@ -93,7 +57,6 @@
     justify-content: center;
     background-color: rgb(0 0 0 / 10%);
     color: #686868;
-    // flex-basis: auto;
 }
 
 .cohortpagerow {
@@ -101,11 +64,9 @@
     flex-direction: row;
     justify-content: space-between; 
     gap: 30px;
-    // flex: none;
 }
 
 .col2 {
-    // padding-top: 200px;
     flex-grow: 1;
     text-align: center;
 }
@@ -117,9 +78,9 @@
   }
   
 .css-79ws1d-MuiModal-root{
-justify-content: center;
-align-items: center;
-width: 700px;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
 }
 
 .cohortPageCloseModal{
@@ -177,9 +138,6 @@ width: 700px;
 }
 
 #createNewCohortTitle {
-    // display: inline;
-    // vertical-align: middle;
-    // line-height: normal;
     font-family: 'Open Sans';
     font-weight: 700;
     color: rgb(102, 102, 102);
@@ -188,7 +146,6 @@ width: 700px;
 .cohortContainer {
     padding: 5.5px 2px;
     max-width: 70em;
-    // height: 280px;
     flex-flow: row;
     flex-direction: row;
     gap: 10px;
@@ -211,7 +168,6 @@ width: 700px;
     background-color: white;
     padding-left: 10px;
     padding-right: 10px;
-    // box-shadow: 0px 0px 3px rgb(167, 167, 167);
     box-shadow: 0 2px 4px 1px rgb(0 0 0 / 20%);
     cursor: pointer;
 } 
@@ -221,11 +177,6 @@ width: 700px;
     font-size: 28px;
 }
 
-// .cohortDescription{
-//     text-transform: none;
-//     font-size: 15px;
-//     flex: wrap;
-// }
 
 .titleDiv {
     display: flex;

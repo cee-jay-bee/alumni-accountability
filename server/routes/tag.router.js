@@ -4,12 +4,10 @@ const router = express.Router();
 const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
-/**
- * GET route template
- */
 
-//the id here will be the id of the EVENT whose detail page we are on
 
+// event tag get route
+// the id here will be the id of the EVENT whose detail page we are on
 router.get('/:id', rejectUnauthenticated, async (req, res) => {
   const {id} = req.params
   const query = `SELECT * FROM "event_tag" WHERE event_id = $1`
@@ -20,32 +18,11 @@ router.get('/:id', rejectUnauthenticated, async (req, res) => {
     console.log('Get event tag error ', error);
       res.sendStatus(500);
   }
-});
+});// end event tag get route
 
-
-//  router.post('/:id', rejectUnauthenticated , async (req, res) => {
-//   console.log(req.body)
-//   const {id} = req.params
-//   const tagList = req.body
-//   const insertEventTagQuery = `INSERT INTO "event_tag" ("event_id", "tag") VALUES  ($1, $2);`
-//   const deleteEventTagQuery = `DELETE FROM "event_tag" WHERE event_id = $1;`
-//   try {
-//     await pool.query(deleteEventTagQuery,[id])
-//     await Promise.all(
-//       tagList.map((tag) => {
-//       return pool.query(insertEventTagQuery, [id, tag])
-//       }))
-//     res.sendStatus(201)
-//   } catch (error) {
-//     console.log('Creating event tag error ', error);
-//       res.sendStatus(500);
-//   }
-// });
-
-
-
+// event tag post route
 router.post('/:id', rejectUnauthenticated , async (req, res) => {
-  console.log(req.body)
+
   const {id} = req.params
   const {tag} = req.body
 
@@ -57,10 +34,9 @@ router.post('/:id', rejectUnauthenticated , async (req, res) => {
     console.log('Creating event tag error ', error);
       res.sendStatus(500);
   }
-});
+}); // end event tag post route
 
-
-
+// event tag delete route
 router.delete('/:id', rejectUnauthenticated , async (req, res) => {
 
   const {id} = req.params
@@ -72,6 +48,6 @@ router.delete('/:id', rejectUnauthenticated , async (req, res) => {
     console.log('deleting event tag error ', error);
       res.sendStatus(500);
   }
-});
+}); // end event tag delete route
 
 module.exports = router;

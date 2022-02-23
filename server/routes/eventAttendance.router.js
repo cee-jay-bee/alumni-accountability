@@ -5,29 +5,25 @@ const {
   rejectUnauthenticated,
 } = require('../modules/authentication-middleware');
 
-/**
- * GET route template
- */
- router.get('/:id', rejectUnauthenticated, (req, res) => {
-  // GET route code here
-  console.log(req.params);
+// event attendance get route
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+
   const query = `SELECT * from "event_attendance"
   WHERE "event_id" = ${req.params.id}`;
-  pool.query(query)
-    .then( result => {
-      res.send(result.rows);
-    })
-    .catch(err => {
-      console.log('ERROR: Get attendance', err);
-      res.sendStatus(500)
-    })
-});
 
-/**
- * POST route template
- */
+  pool.query(query)
+  .then( result => {
+    res.send(result.rows);
+  })
+  .catch(err => {
+    console.log('ERROR: Get attendance', err);
+    res.sendStatus(500)
+  })
+}); // end event attendance get route
+
+//event attendance post route
 router.post('/', rejectUnauthenticated, (req, res) => {
-  // POST route code here
+  
   const eventAttendance = req.body.attendance;
   const eventID = req.body.event;
 
@@ -39,21 +35,21 @@ router.post('/', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
   }
   )
-});
+}); // end event attendance post route
 
+// event attendance delete route
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-  // DELETE route code here
-  console.log(req.params);
+  
   const eventID = req.params.id;
 
   const queryText = `DELETE FROM "event_attendance" WHERE event_id = $1`
   pool.query(queryText,[eventID]).then(()=>
     res.sendStatus(201)
-    ).catch(err=>{
-      console.log("event attendance delete router has error", err)
-      res.sendStatus(500)
+  ).catch(err=>{
+    console.log("event attendance delete router has error", err)
+    res.sendStatus(500)
   }
   )
-});
+});// end event attendance delete route
 
 module.exports = router;
