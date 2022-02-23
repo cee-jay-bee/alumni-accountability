@@ -2,26 +2,25 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {Line} from 'react-chartjs-2';
 import dateChange from '../Functions/dateChange';
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
+import {Chart as ChartJS} from 'chart.js/auto';
+
 function OverallChart(props) {
   const overallData = useSelector((store) => store.overallData);
   
   // creating data, labels, and tooltiplabels from overall data information
   let data = [];
-  let labels = [];
+  let chartLabels = [];
   let toolTipLabel = [];
   for ( let i = 0; i < overallData.length; i++) {
     let date = dateChange(overallData[i].event_date);
-    labels.push(date.split('/')[0] + '/' + date.split('/')[1]);
+    chartLabels.push(date.split('/')[0] + '/' + date.split('/')[1]);
     data.push(overallData[i].total_attendance);
     toolTipLabel.push(overallData[i].event_title);
   }
 
   //defining state of chart
   const state = {
-    labels: labels,
+    labels: chartLabels,
       
     datasets: [
       {
