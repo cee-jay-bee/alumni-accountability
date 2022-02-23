@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import { Modal, Box, Paper} from '@mui/material';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
-import './AlumSkills.css'
 
 
 function AlumSkills(props) {

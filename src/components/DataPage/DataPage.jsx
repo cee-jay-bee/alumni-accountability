@@ -60,7 +60,7 @@ function DataPage(props) {
             </div>
             <div>
               <select className="eventAttendanceDropdown" onChange={( event )=>setEventID(event.target.value)}>
-              {lastSevenDaysEvents.map(event => 
+              {lastMonthsEvents.map(event => 
                 (<option key={event.id} value={event.id} className="eventOptions" >{dateChange(event.event_date) + ' ' + event.event_title}</option>))}
               </select>
               <button id="submitChartBtn" onClick={displayChart}>Display Chart</button>
