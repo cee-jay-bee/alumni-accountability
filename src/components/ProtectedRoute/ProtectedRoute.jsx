@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
 import {useSelector} from 'react-redux';
 
@@ -31,7 +31,7 @@ function ProtectedRoute({ component, children, ...props }) {
         // If the user is logged in, show the protected component
         <ProtectedComponent />
         :
-        // Otherwise, redirect to the Loginpage
+        // Otherwise, redirect to the LandingPage
         <LandingPage />
       }
     </Route>
