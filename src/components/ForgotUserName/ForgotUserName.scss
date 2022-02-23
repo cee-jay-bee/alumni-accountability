@@ -5,10 +5,8 @@ Grid
 .grid {
   display: flex;
   flex: 0 1 auto;
-  /* defaults to 'row' */
   flex-direction: row;
   flex-wrap: wrap;
-  /* defaults to 'flex-start' */
   justify-content: flex-start;
   align-items: flex-start;
 }
@@ -86,13 +84,11 @@ Grid
   align-content: center;
   height: 100%;
   width: 100%;
-  // padding-left: 10px;
   padding-right: 40px;
   position: fixed;
   padding-bottom: 30px;
   bottom: 0px;
   left: -30px;
-  // background-color:  rgb(255, 195, 195);
   background-color: rgb(145, 159, 115);
   overflow-y: hidden;
 }
@@ -105,7 +101,6 @@ Grid
   width: 190vh;
   height: 90vh;
   align-items: center;
-  // border: 1px solid blue;
   padding-left: 30px;
 }
 

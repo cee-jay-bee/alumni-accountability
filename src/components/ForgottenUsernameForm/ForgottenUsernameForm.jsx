@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import './ForgottenUsernameForm.scss'
 
 function ForgottenUsernameForm() {
+  
   const history = useHistory();
   const [email, setEmail] = useState('');
   

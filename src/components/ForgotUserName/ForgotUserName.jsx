@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import './ForgotUserName.scss';
-
 // CUSTOM COMPONENTS
 import ForgottenUsernameForm from '../ForgottenUsernameForm/ForgottenUsernameForm';
 
 function ForgotUserName() {
-  // const [heading, setHeading] = useState('Welcome');
-  const history = useHistory();
-
-  const onLogin = (event) => {
-    history.push('/login');
-  };
 
   return (
     <div className="landingPageMainDiv">

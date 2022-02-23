@@ -5,9 +5,6 @@ import { useDispatch } from 'react-redux';
 import editDateChange from '../Functions/editDateChange';
 import './EditCohort.scss';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name EditCohort with the name for the new component.
 function EditCohort(props) {
   const oneCohort = useSelector((store) =>  store.oneCohort);
   const dispatch = useDispatch();
@@ -25,8 +22,6 @@ function EditCohort(props) {
     });
     props.setOpen2(false)
   };
-
-
 
 //COHORT NAME HOOK
 const [cohortName, setCohortName] = useState(oneCohort.cohort_name);
