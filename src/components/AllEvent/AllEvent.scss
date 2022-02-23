@@ -6,27 +6,19 @@
     font-size: 21px;
     color: #818181;
 } //unless we increase the specificity with the class and id this h2 defaults to "bolder" for font weight
- 
-// .mainAllEventsDiv{
 
-// }
 
  .allEventContainer {
     align-items: flex-start;
-    /* justify-content: space-between; */
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 10px;
-    /* justify-content: space-evenly; */
     gap: 30px;
     max-width: 1400px;
-    /* align-content: center;*/
  }
 
 .allEventItem {
-    /* align-items: center; */
-    // align-self: flex-start;
     justify-content: space-around;
     border: 3px solid transparent;
     height: 235px;
@@ -70,7 +62,6 @@
 
 .allCardStyling h2, h3 {
     text-transform: uppercase;
-    // text-transform: uppercase;
     font-weight: 600;
     color:rgb(80, 80, 80);
 }

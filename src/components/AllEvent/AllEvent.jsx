@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
@@ -7,12 +7,8 @@ import './AllEvent.scss';
 import milTime from '../Functions/milTime';
 import dateChange from '../Functions/dateChange';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name AllEvent with the name for the new component.
 function AllEvent(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  
   const event = useSelector((store) => store.event);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -20,13 +16,8 @@ function AllEvent(props) {
   useEffect(() => {
     dispatch({ type: 'FETCH_ALL_EVENT'});
   }, []);
-
-  const addMonths = (date, months) => {
-    
-    date.setMonth(date.getMonth() + months);
-    return date.toString();
-  }
   
+  // sort events in reducer by date
   const compare = ( a, b ) => {
     if ( a.event_date < b.event_date ){
       return -1;
@@ -41,11 +32,12 @@ function AllEvent(props) {
   return (
     <div classname="mainAllEventsDiv">
       <div className="allEventPageMainTitle">
-        <h2 id="allEventPageTitle">Events from {dateChange(event[0].event_date)} to foreveer</h2>
+        <h2 id="allEventPageTitle">Events from {dateChange(event[0].event_date)} to forever</h2>
       </div>
       <main class="allEventContainer">
         {event.map(event => { 
 
+          //set one event based on clicked event
           const setOneEvent = () => {
             dispatch({
               type: 'SET_ONE_EVENT',

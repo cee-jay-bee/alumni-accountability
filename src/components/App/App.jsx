@@ -7,19 +7,13 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
+import './App.css';
 
 import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-
 import UserPage from '../UserPage/UserPage';
 import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
-import './App.css';
 import ResultPage from '../ResultPage/ResultPage';
 import EventPage from '../EventPage/EventPage';
 import AllEvent from '../AllEvent/AllEvent';
@@ -34,8 +28,7 @@ import DataPage from '../DataPage/DataPage';
 import EventNotes from '../EventNotes/EventNotes';
 import EventTags from '../EventTags/EventTags';
 import ForgottenUsernameForm from '../ForgottenUsernameForm/ForgottenUsernameForm';
-import ResetPasswordForm from '../ResetPasswordForm/ResetPasswordForm';
-import CohortImport from '../CohortImport/CohortImport'; //DELETE THIS ONCE WE'RE DONE
+import CohortImport from '../CohortImport/CohortImport'; 
 import ForgotUserName from '../ForgotUserName/ForgotUserName';
 import ResetPassword from '../ResetPassword/ResetPassword';
 
@@ -55,10 +48,6 @@ function App() {
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
-
-          {/* Visiting localhost:3000/about will show the about page. */}
-      
-
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -85,14 +74,12 @@ function App() {
           <CohortImport/>
         </ProtectedRoute>
 
-
         <ProtectedRoute 
           exact
           path="/cohortpage"
           >
           <CohortPage/>
         </ProtectedRoute>
-
 
         <ProtectedRoute 
           exact
@@ -115,7 +102,6 @@ function App() {
           <EventTags/>
         </ProtectedRoute>
 
-
         <ProtectedRoute 
           exact
           path="/alumdetail"
@@ -123,14 +109,12 @@ function App() {
           <AlumDetail/>
         </ProtectedRoute>
 
-
         <ProtectedRoute 
           exact
           path="/cohortdetail"
           >
           <CohortDetail/>
         </ProtectedRoute>
-
 
         <ProtectedRoute 
           exact
@@ -145,7 +129,6 @@ function App() {
           >
           <Attendance/>
         </ProtectedRoute>
-
 
         <ProtectedRoute 
           exact
@@ -167,7 +150,6 @@ function App() {
           >
           <CreateNewEvent/>
         </ProtectedRoute>
-        
 
         <ProtectedRoute 
           exact
@@ -181,11 +163,11 @@ function App() {
           path="/registration"
           >
             {user.role !== "admin" ?
-              // If the user is already logged in, 
+              // If the user is not an admin, 
               // redirect to the /user page
               <Redirect to="/user" />
               :
-              // Otherwise, show the login page
+              // Otherwise, show the registration page
               <RegisterPage/>
             }
         </ProtectedRoute>
@@ -211,8 +193,6 @@ function App() {
             <ResetPassword/>
           </Route>
 
-
-
           <Route
             exact
             path="/login"
@@ -222,24 +202,10 @@ function App() {
               // redirect to the /user page
               <Redirect to="/user" />
               :
-              // Otherwise, show the login page
+              // Otherwise, show the landing page
               <LandingPage />
             }
           </Route>
-
-          {/* <Route
-            exact
-            path="/registration"
-          >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
-              :
-              // Otherwise, show the registration page
-              <RegisterPage />
-            }
-          </Route> */}
 
           <Route
             exact
@@ -260,7 +226,6 @@ function App() {
             <h1>404</h1>
           </Route>
         </Switch>
-        {/* <Footer /> */}
       </div>
     </Router>
   );
