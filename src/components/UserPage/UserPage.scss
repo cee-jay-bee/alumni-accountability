@@ -14,8 +14,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    // height: 50%;
-    // gap: 2%;
 }
 
 .hiUserDiv{
@@ -26,7 +24,6 @@
     align-items: stretch;
     flex-wrap: nowrap;
     width: 70%;
-    // margin-left: 1%;
     border-right: solid 1px #c9c6c6;
     box-shadow: 7px 0 7px -9px #888;
 }
@@ -36,7 +33,6 @@
     justify-content: space-between;
     width: auto;
     gap: 3%;
-    // height: 63vh;
     height: 100%;
     margin-right: 2.5%;
     margin-left: 1%;
@@ -54,8 +50,6 @@
     border-radius: 10px;
     background-color: #919f73;
     color: white;
-    // background-image: url('../UserPage/events-bw.png');
-    // background-size: cover;
     transition: all 0.5s;
 
     h1{
@@ -75,8 +69,6 @@
 }
   
   .mainDivHomePageCol1:hover{
-    // padding-right: 24px;
-    // padding-left:8px;
     cursor: pointer;
     transition: all 0.5s;
 
@@ -106,7 +98,6 @@
     border-radius: 10px;
     background: #919f73;
     color: white;
-    // background-image: url('../UserPage/cohort-bw.png');
     background-size: cover;
     box-shadow: 0px 0px 5px gray;
     cursor: pointer;
@@ -198,7 +189,6 @@
         margin-left: 20px;
         bottom: 75px;
         top: -100px;
-        // margin-left: 15px;   
     }
 }
 

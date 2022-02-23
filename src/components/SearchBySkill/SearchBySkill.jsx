@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 //IMPORT SCSS
 import './SearchBySkill.scss';
 import Select from 'react-select';
 import SearchIcon from '@mui/icons-material/Search';
 
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
 function SearchBySkill() {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
   const skill= useSelector((store) => store.skill);
   const history = useHistory();
   const [skillSearch, setSkillSearch] = useState('');
   const dispatch = useDispatch();
   
+  // sets values for the skill search list
   const searchList = skill.map(skill => {
-    console.log(skill);
     return {
         value: skill.skills,
         label: skill.skills
@@ -41,7 +37,6 @@ function SearchBySkill() {
           fontSize: 16,
           border: state.isFocused ? 'solid 1px #6c7f42' : 0,
           boxShadow: 'inset 0 0 3px rgb(0 0 0 / 40%)',
-          // boxShadow: state.isFocused ? 0 : 0,
           cursor: 'text',
           borderRadius: '20px'
         }),
@@ -60,7 +55,6 @@ function SearchBySkill() {
         input: styles => ({
           ...styles,
           color: 'black',
-          // paddingLeft: '5px',
           fontFamily: 'Open Sans',
         }),
         //fanned out menu styling
@@ -78,9 +72,8 @@ function SearchBySkill() {
         }),
   }
 
-
+  // performs search by skill chosen from the select
   const skillSearchFunction = (event) => {
-    console.log('skill search is --------------->', event);
     dispatch({
         type: 'SEARCH_BY_SKILL',
         payload: event.value
@@ -91,10 +84,6 @@ function SearchBySkill() {
 
   return (
     <div>
-        {/* <input class="searchbyaluminput" placeholder="search by alum" onChange={(event) => setAlumSearch(event.target.value)}></input>
-        {/* Link is a placeholder for now. Later we might want to use useHistory */}
-
-        {/* <button class="searchbyalumbtn" onClick={alumSearchFunction} >Search alum</button>  */}
         <Select
             className="divSearchSelect"
             value={skillSearch}
@@ -103,7 +92,6 @@ function SearchBySkill() {
             placeholder= "Search Skill..."
             styles={customStyles}
             openMenuOnClick={false}
-
             components={{DropdownIndicator}}
         />
 

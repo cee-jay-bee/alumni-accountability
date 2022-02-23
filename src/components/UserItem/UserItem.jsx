@@ -1,34 +1,22 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
-import './UserItem.scss';
 import {useDispatch} from 'react-redux';
-import {useHistory} from 'react-router-dom';
 import { Modal } from '@mui/material';
 //ICON IMPORTS
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 //SCSS IMPORT
+import './UserItem.scss';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name AllEvent with the name for the new component.
 function UserItem(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
   const dispatch = useDispatch();
-  const history = useHistory();
-  const [checked, setChecked] = useState(false); 
   const [open, setOpen] = useState(false);
   
   const handleClickOpen = () => {
     setOpen(!open);
   };
 
-  const valueChange = () => {
-    setChecked(!checked);
-    return checked;
-  }
-
+  // handles delete user click
   const deleteUser = () => {
     dispatch({
       type: 'DELETE_USER',
@@ -38,7 +26,6 @@ function UserItem(props) {
 
     return (
         <div className="reUserCushionMainRow">
-          {/* <div id="reUserCushionDiv"></div> */}
           <div className='reguseruserName' >{props.user.firstname} {props.user.lastname}</div>
           <div className='reguseruserStatus' >{props.user.role}</div>
           <div className='reguseruserDelete'>

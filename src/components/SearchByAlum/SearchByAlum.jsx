@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 //IMPORT SCSS
 import './SearchByAlum.scss';
 import Select from 'react-select';
 import SearchIcon from '@mui/icons-material/Search';
 
-
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name TemplateFunction with the name for the new component.
 function SearchByAlum() {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
   const alum = useSelector((store) => store.alum);
   const history = useHistory();
   const [alumSearch, setAlumSearch] = useState('');
   const dispatch = useDispatch();
+
+  // set values for React Select search list
   const searchList = alum.map(alum => {
     return {
         id: alum.id,
@@ -48,7 +45,6 @@ function SearchByAlum() {
             fontSize: 16,
             border: state.isFocused ? 'solid 1px #6c7f42' : 0,
             boxShadow: 'inset 0 0 3px rgb(0 0 0 / 40%)',
-            // boxShadow: state.isFocused ? 0 : 0,
             cursor: 'text',
             borderRadius: '20px'
           }),
@@ -67,7 +63,6 @@ function SearchByAlum() {
           input: styles => ({
             ...styles,
             color: 'black',
-            // paddingLeft: '5px',
             fontFamily: 'Open Sans',
           }),
           //fanned out menu styling
@@ -84,9 +79,9 @@ function SearchByAlum() {
             color: 'gray',
           }),
     }
-
+  
+  // handles selection of alum
   const alumSearchFunction = (event) => {
-    console.log('alum search is --------------->', event);
     dispatch({
         type: 'SET_ONE_ALUM',
         payload: event
@@ -97,10 +92,6 @@ function SearchByAlum() {
 
   return (
     <div>
-        {/* <input class="searchbyaluminput" placeholder="search by alum" onChange={(event) => setAlumSearch(event.target.value)}></input>
-        {/* Link is a placeholder for now. Later we might want to use useHistory */}
-
-        {/* <button class="searchbyalumbtn" onClick={alumSearchFunction} >Search alum</button>  */}
         <Select
             className="divSearchSelect"
             value={alumSearch}
@@ -109,7 +100,6 @@ function SearchByAlum() {
             placeholder= "Search Alum..."
             styles={customStyles}
             openMenuOnClick={false}
-
             components={{DropdownIndicator}}
         />
 
