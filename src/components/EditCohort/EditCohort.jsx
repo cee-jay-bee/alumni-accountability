@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
-import {  Modal, Box, Paper} from '@mui/material';
 import { useDispatch } from 'react-redux';
 import editDateChange from '../Functions/editDateChange';
 import './EditCohort.scss';
@@ -11,30 +10,21 @@ import './EditCohort.scss';
 // component name EditCohort with the name for the new component.
 function EditCohort(props) {
   const oneCohort = useSelector((store) =>  store.oneCohort);
+  const dispatch = useDispatch();
 
-  //HANDLE POP-UP MODAL
-  const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-      setOpen(!open);
+  // handles edit event button click
+  const editEvent = (event) => {
+    dispatch({
+    type: 'UPDATE_COHORT',
+    payload: {
+      id: oneCohort.id,
+      cohortName,
+      cohortGradDate,
+      cohortType
+      },
+    });
+    props.setOpen2(false)
   };
-  // END HANDLE POP-UP MODAL
-
-const dispatch = useDispatch();
-// const history = useHistory();
-
-const editEvent = (event) => {
-  console.log ('in edit event');
-  dispatch({
-  type: 'UPDATE_COHORT',
-  payload: {
-    id: oneCohort.id,
-    cohortName,
-    cohortGradDate,
-    cohortType
-    },
-  });
-  props.setOpen2(false)
-};
 
 
 
@@ -43,10 +33,9 @@ const [cohortName, setCohortName] = useState(oneCohort.cohort_name);
 
 //COHORT GRAD DATE HOOK
 const [cohortGradDate, setCohortGradDate] = useState(oneCohort.graduation_date);
+
 // //COHORT STACK TYPE HOOK
-   const [cohortType, setCohortType] = useState(oneCohort.cohort_type);
-
-
+const [cohortType, setCohortType] = useState(oneCohort.cohort_type);
 
 useEffect(() => {
   const newDate = editDateChange(oneCohort.graduation_date)
@@ -73,7 +62,6 @@ return (
           onChange={(event) => setCohortGradDate(event.target.value)} />
             {/* EDIT COHORT TYPE INPUT */}
             <div>
-              {/* <label for="createnewdropdown">cohort type</label> */}
               <select className="editCohortdropdown" value={cohortType} onChange={( event )=>setCohortType( event.target.value )}>
                 <option value="">cohort type</option>
                 <option value={'FSE'}>FSE</option>
@@ -85,8 +73,7 @@ return (
               <button className="editCohortsubmitbtn" variant="outlined" type="submit" name="submit" value="create event" onClick={editEvent}>Edit Cohort</button>
             </div>
         </div>
-    
-  </div>
+    </div>
   );
 }
 

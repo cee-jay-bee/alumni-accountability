@@ -1,61 +1,32 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import { TextField, Button, Grid,Typography, Modal,Box,Paper,Snackbar} from '@mui/material';
-import MuiAlert from '@mui/material/Alert';
+import { Modal } from '@mui/material';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import './EventNotes.scss'
 import gmtMilTime from '../Functions/gmtMilTime';
 import dateChange from '../Functions/dateChange';
 
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name EventNotes with the name for the new component.
 function EventNotes(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  
   const dispatch = useDispatch();
   const eventNote=useSelector((store)=> store.eventNote);
   const oneEvent=useSelector((store)=> store.oneEvent);
-  const [editMode, setEditMode] = useState( false );
   const [deleteID, setDeleteID] = useState("")
   const [deleteOpen, setDeleteOpen] = useState(false)
   const [oneNote, setOneNote] = React.useState({});
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
 
   //EVENT NOTE ENTRY HOOK
   const [eventNotes, setEventNotes] = useState('');
-  //EVENT NOTE DATE HOOK
-  const [eventNoteDate, setEventNoteDate] = useState('');
-  
-  const toggleEditMode = () =>{
-    setEditMode( !editMode );
-  }
-
 
   //HANLDE POP-UP MODAL
-  const [open, setOpen] = React.useState(false);
-  const handleClickOpen = () => {
-      setOpen(!open);
-  };
+  const [open, setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
   // END HANDLE POP-UP MODAL
-
-  //HANLDE POP-UP for SECOND MODAL
-  const [open2, setOpen2] = React.useState(false);
-  const handleClickOpen2 = () => {
-      setOpen2(!open2);
-  };
-  // END HANDLE POP-UP SECOND MODAL
-  
 
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENTNOTE', payload : oneEvent.id });
@@ -72,6 +43,7 @@ function EventNotes(props) {
     }
   }
 
+  // handles update to notes
   const updateNote=()=> {
     dispatch({
       type: 'UPDATE_EVENTNOTE',
@@ -81,6 +53,7 @@ function EventNotes(props) {
     setOneNote({})
   }
 
+  // handles deleting notes
   const deleteNote= (id) => {
 
     dispatch({
@@ -96,9 +69,7 @@ function EventNotes(props) {
       <div className='notesHeader'>
         <div className="notestitleandInput">
             <h2 className='eventNotestitle'> Notes</h2>
-            {/* <div className='eventnotedisplayfield'> */}
             <input className="eventNewNoteInput" placeholder="add event note" type="text" autoComplete= "off" value={eventNotes} onKeyUp={onPressEnter} onChange={(event) => setEventNotes(event.target.value)}/>
-            {/* </div> */}
         </div>
 
         <div className='eventnotedisplayarea'>
@@ -112,8 +83,8 @@ function EventNotes(props) {
                 </div>
                 <h4 className="eventnotedisplay">{onenote.event_note_entry}</h4>
                 <div className="eventactionbtns">
-                    <EditOutlinedIcon style={{position:"static", fontSize: "30px"}} onClick = {()=>{setOneNote(onenote);setOpen(true)}}/>
-                    <DeleteOutlineOutlinedIcon style={{position:"static", fontSize: "30px"}} onClick={()=>{setDeleteID(onenote.id);setDeleteOpen(true)}} />
+                    <EditOutlinedIcon style={{position:"static", fontSize: "30px"}} onClick = {()=>{setOneNote(onenote); setOpen(true)}}/>
+                    <DeleteOutlineOutlinedIcon style={{position:"static", fontSize: "30px"}} onClick={()=>{setDeleteID(onenote.id); setDeleteOpen(true)}} />
                 </div>
             </div>
             )}

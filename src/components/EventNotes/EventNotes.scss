@@ -1,6 +1,5 @@
 .notestitleandInput{
   margin: 5px 12px;
-    // border: 1px solid black;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -54,8 +53,6 @@
 }
 
 .deleteeventnotemodalbtns{
-  /* justify-content: center;
-  align-items: center; */
   margin-left: 150px;
   margin-top: 5px;
 
@@ -66,7 +63,6 @@
   padding-top: 30px;
   font-size: 30px;
   margin-bottom: 10px;
-  /* top: -77px; ----- this doesn't work. Instead, we've had to style the element in the html */
   }
 
   .editNoteModalDescription{
@@ -85,7 +81,6 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  // justify-content: center;
   align-items: center;
 }
 
@@ -130,7 +125,6 @@
 
 .eventnotedisplay{
   width: 60%;
-  // border: 1px solid;
   font-size: 15px;
   font-weight: 400;
   display: flex;

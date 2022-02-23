@@ -1,29 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
-import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
+import { Modal, Box, Paper} from '@mui/material';
 import { useDispatch } from 'react-redux';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined';
-import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import { Link } from 'react-router-dom';
 import EditEvent from '../EditEvent/EditEvent';
 import EventTags from '../EventTags/EventTags';
 import EventNotes from '../EventNotes/EventNotes';
 import {useHistory} from 'react-router-dom';
-import Attendance from '../AttendanceItem/AttendanceItem';
 import dateChange from '../Functions/dateChange';
 import milTime from '../Functions/milTime';
 //SCSS IMPORT
 import './EventDetail.scss';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name EventDetail with the name for the new component.
 function EventDetail(props) {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+
   const oneEvent = useSelector((store) => store.oneEvent);
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
@@ -34,14 +28,14 @@ function EventDetail(props) {
   }, []);
   
   //HANLDE POP-UP MODAL
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleClickOpen = () => {
       setOpen(!open);
   };
   // END HANDLE POP-UP MODAL
 
   //HANLDE POP-UP for SECOND MODAL
-  const [open2, setOpen2] = React.useState(false);
+  const [open2, setOpen2] = useState(false);
   const handleClickOpen2 = () => {
       setOpen2(!open2);
   };
@@ -50,8 +44,8 @@ function EventDetail(props) {
   useEffect(()=> {
   }, [oneEvent]);
 
+  // handle delete event click
   const deleteEvent = (event) => {
-    console.log('inDeleteEvent');
     dispatch({
       type: 'DELETE_EVENT',
       payload: oneEvent.id
@@ -59,21 +53,20 @@ function EventDetail(props) {
     history.push("/eventpage")
   }
 
-//NOTES HOOK
-const [eventNote, setEventNote] = useState('');
 
-const checkStackType = ()=> {
-  switch (oneEvent.stack_type) {
-    case "FSE":
-    return <div><p class="eventDetailStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p></div>
-    case 'UXD':
-    return  <div><p class="eventDetailStackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p></div>
-    case 'FSE and UXD':
-    return <div><p class="eventDetailStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="eventDetailStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></div>;
-    default:
-      return null;
+
+  const checkStackType = ()=> {
+    switch (oneEvent.stack_type) {
+      case "FSE":
+      return <div><p class="eventDetailStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p></div>
+      case 'UXD':
+      return  <div><p class="eventDetailStackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p></div>
+      case 'FSE and UXD':
+      return <div><p class="eventDetailStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p class="eventDetailStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p></div>;
+      default:
+        return null;
+    }
   }
-}
 
 
   return (
@@ -87,12 +80,6 @@ const checkStackType = ()=> {
           </div>
           <div className="eventDetailStackType">
             {checkStackType()}
-            {/* {(oneEvent.stack_type === 'FSE') ?
-              <p className="eventDetailStackTypeDisplay" style={{'background-color': '#919f73'}}>FSE</p> :
-              (oneEvent.stack_type === 'UXD') ?
-              <p className="eventDetailStackTypeDisplay" style={{'background-color': '#da9595'}}>UXD</p> :
-              <span> <p className="eventDetailStackTypeDualDisplay" style={{'background-color': '#919f73'}}>FSE</p> <p className="eventDetailStackTypeDualDisplay" style={{'background-color': '#da9595'}}>UXD</p> </span>
-            } */}
           </div>
         </div>
         
@@ -169,7 +156,6 @@ const checkStackType = ()=> {
       <Box>
         <Paper
             style={{
-            // transform: 'translate(-50%, -50%)',
             width: '450px',
             height: '400px',
               }}
@@ -179,9 +165,7 @@ const checkStackType = ()=> {
       </Box> 
     </Modal>
   </div>
-      
-      
-    </main>
+  </main>
     
     
   );

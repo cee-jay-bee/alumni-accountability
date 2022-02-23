@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {TextField, Modal,Box,Paper} from '@mui/material';
+import {Modal, Box, Paper} from '@mui/material';
 import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 import './EventTags.scss';
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name EventTags with the name for the new component.
 function EventTags() {
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
@@ -26,10 +23,9 @@ function EventTags() {
     dispatch({ type: 'FETCH_TAG', payload : oneEvent.id});
   }, []);
 
-
+  // handles deleting tags
   const deleteTag= (id) => {
-    // console.log('in deleteTag');
-    // const newTagList = tag.filter ((onetag,index)=>index !== id)
+    
     dispatch({
       type: 'DELETE_TAG',
       payload: id
@@ -37,6 +33,7 @@ function EventTags() {
  
   }
   
+  // handles enter press for tag addition
   const onPressEnter = (event)=>{
     if (event.keyCode === 13) {
       event.preventDefault();
@@ -48,6 +45,7 @@ function EventTags() {
     }
   }
 
+  // handles saving tags when added
   const saveNewTags = () => {
     const tagList = tag.map(t=>t.tag)
     dispatch({
@@ -78,9 +76,6 @@ function EventTags() {
               </p>
             )}    
         </div>
-        {/* <div className="eventTagSaveChangesBtn"> */}
-        {/* <button  className="eventTagSaveChangesBtn" onClick = { ()=>setopenModal(true)} > Save Changes </button> */}
-        {/* </div> */}
       </div>
 
       <Modal
@@ -91,7 +86,6 @@ function EventTags() {
         position: 'absolute',
         top: '15%',
         left: '35%',
-        // transform: 'translate(-50%, -50%)',
         width: '400px',
         height: '400px',
         bgcolor: 'background.paper'
@@ -100,7 +94,6 @@ function EventTags() {
       <Box>
         <Paper
             style={{
-            // transform: 'translate(-50%, -50%)',
             width: '450px',
             maxheight: '300px',
               }}

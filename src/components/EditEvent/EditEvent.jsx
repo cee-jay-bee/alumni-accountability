@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { TextField, FormControl, MenuItem, Button, InputLabel, Select, Grid, Card, CardContent, CardActions, Typography, Modal, Box, Paper} from '@mui/material';
+import { Modal} from '@mui/material';
 import { useDispatch } from 'react-redux';
 import editDateChange from '../Functions/editDateChange'
 //IMPORT CREATE NEW EVENT SCSS
 import './EditEvent.scss'
 
 
-// Basic functional component structure for React with default state
-// value setup. When making a new component be sure to replace the
-// component name EventPage with the name for the new component.
+
 function EditEvent() {
-  // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
+  
   const oneEvent = useSelector((store) => store.oneEvent);
-  // const event = useSelector((store) => event);
 
     //HANLDE POP-UP MODAL
     const [open, setOpen] = React.useState(false);
@@ -27,7 +23,6 @@ function EditEvent() {
   const dispatch = useDispatch();
 
   useEffect(()=> {
-    console.log(oneEvent);
     setEventTitle(oneEvent.title);
     setEventDate(editDateChange(oneEvent.date));
     setEventDescription(oneEvent.description);
@@ -35,7 +30,7 @@ function EditEvent() {
     setEventStackType(oneEvent.stack_type);
   }, []);
 
-  // const history = useHistory();
+  // handle edit event click
   const editEvent = (event) => {
         dispatch({
         type: 'UPDATE_EVENT',
@@ -51,20 +46,20 @@ function EditEvent() {
         handleClickOpen();
   };
 
-//EVENT TITLE HOOK
-const [eventTitle, setEventTitle] = useState('');
+  //EVENT TITLE HOOK
+  const [eventTitle, setEventTitle] = useState('');
 
-//EVENT DATE HOOK
-const [eventDate, setEventDate] = useState('');
- 
-//EVENT STACK TYPE HOOK
- const [eventStackType, setEventStackType] = useState('');
+  //EVENT DATE HOOK
+  const [eventDate, setEventDate] = useState('');
+  
+  //EVENT STACK TYPE HOOK
+  const [eventStackType, setEventStackType] = useState('');
 
-//EVENT DESCRIPTION HOOK
-const [eventDescription, setEventDescription] = useState('');
+  //EVENT DESCRIPTION HOOK
+  const [eventDescription, setEventDescription] = useState('');
 
-//EVENT TIME HOOK
-const [eventTime, setEventTime] = useState('');
+  //EVENT TIME HOOK
+  const [eventTime, setEventTime] = useState('');
 
   
   return (
@@ -92,7 +87,6 @@ const [eventTime, setEventTime] = useState('');
           <div className="createnewFormandBtn">
               {/* EVENT COHORT TYPE INPUT */}
               <div>
-                {/* <label for="createnewdropdown">cohort type</label> */}
                 <select className="editEventdropdown" value={eventStackType} onChange={( event )=>setEventStackType( event.target.value )}>
                   <option value="">cohort type</option>
                   <option value={'FSE'}>FSE</option>
@@ -118,11 +112,9 @@ const [eventTime, setEventTime] = useState('');
           position: 'absolute',
           top: '15%',
           left: '34%',
-          // transform: 'translate(-50%, -50%)',
           width: '470px',
           height: '400px',
           bgcolor: 'background.paper'
-          // boxShadow: 24,
           }}
           >
             <div className="mainCheersDiv">
