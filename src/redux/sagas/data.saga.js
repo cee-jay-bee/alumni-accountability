@@ -1,26 +1,28 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// worker Saga: will be fired on "OVERALL_DATA" actions
 function* fetchOverallData() {
   try {
     const response = yield axios.get(`/api/data/overall`);
     yield put({ type: 'SET_OVERALL_DATA', payload: response.data });
   } catch (error) {
-    console.log('Cohort get request failed', error);
+    console.log('OVerall Data get request failed', error);
   }
 }
 
+// worker Saga: will be fired on "PLACEMENT_DATA" actions
 function* placementData() {
   try {
     const response = yield axios.get(`/api/data/placed`);
     yield put({ type: 'SET_DATA', payload: response.data });
   } catch (error) {
 
-    console.log('ALum get request failed', error);
+    console.log('ALUM PLACEMENT get request failed', error);
   }
 }
 
+// worker Saga: will be fired on "FETCH_EVENT_ATTENDANCE_DATA" actions
 function* fetchEventAttendanceData(action) {
 
   try {
@@ -28,7 +30,7 @@ function* fetchEventAttendanceData(action) {
 
     yield put({ type: 'SET_EVENT_ATTENDANCE', payload: response.data });
   } catch (error) {
-    console.log('Event attendace get request failed', error);
+    console.log('Event attendance DATA get request failed', error);
   }
 }
 

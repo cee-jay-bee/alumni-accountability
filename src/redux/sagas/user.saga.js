@@ -24,9 +24,9 @@ function* fetchUser() {
   }
 }
 
+// worker Saga: will be fired on "DELETE_USER" actions
 function* deleteUser(action) {
   try {
-
     yield axios.delete(`/api/user/${action.payload}`);
     yield put({ type: 'FETCH_ALL_USER'});
   } catch (error) {
@@ -34,14 +34,10 @@ function* deleteUser(action) {
   }
 }
 
+// worker Saga: will be fired on "EMAIL_USERNAME" actions
 function* emailUsername(action) {
-  console.log(action.payload);
   try {
 
-    // the config includes credentials which
-    // allow the server session to recognize the user
-    // If a user is logged in, this will return their information
-    // from the server session (req.user)
     const response = yield axios.get(`/api/user/username`, {params: action.payload});
     
     if (response.data === 'Created'){
@@ -53,6 +49,7 @@ function* emailUsername(action) {
   }
 }
 
+// worker Saga: will be fired on "RESET_PASSWORD" actions
 function* resetPassword(action) {
   try {
     const response = yield axios.put('/api/user/password', action.payload);

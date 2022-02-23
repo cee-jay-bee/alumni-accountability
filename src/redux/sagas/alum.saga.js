@@ -2,7 +2,7 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 
-// worker Saga: will be fired on "FETCH_USER" actions
+// worker Saga: will be fired on "FETCH_ALUM" actions
 function* fetchAlum() {
   try {
     const response = yield axios.get(`/api/alum`);
@@ -13,19 +13,19 @@ function* fetchAlum() {
   }
 }
 
+// worker Saga: will be fired on "ALUM_SEARCH" actions
 function* searchForAlum(action) {
-  console.log('-------->in alum saga', action.payload);
   try {
     const response = yield axios.get(`/api/alum?search=${action.payload}`);
     console.log(response.data);
     yield put({ type: 'SET_ALUM', payload: response.data });
   } catch (error) {
 
-    console.log('Alum get request failed', error);
+    console.log('Alum search request failed', error);
   }
 }
 
-
+// worker Saga: will be fired on "SEARCH_BY_SKILL" actions
 function* searchAlumbySkill(action) {
   try {
     const params = new URLSearchParams({ alumSkill: action.payload });
@@ -36,6 +36,7 @@ function* searchAlumbySkill(action) {
   }
 }
 
+// worker Saga: will be fired on "CREATE_ALUM" actions
 function* createAlum(action) {
   try {
     yield axios.post('/api/alum', action.payload);
@@ -45,6 +46,7 @@ function* createAlum(action) {
   }
 }
 
+// worker Saga: will be fired on "UPDATE_ALUM" actions
 function* updateAlum(action) {
   try {
     yield axios.put(`/api/alum/${action.payload.id}`, action.payload);
@@ -54,6 +56,7 @@ function* updateAlum(action) {
   }
 }
 
+// worker Saga: will be fired on "UPDATE_ALUM_SKILL" actions
 function* updateAlumSkill(action) {
   try {
     yield axios.put(`/api/alum/skill/${action.payload.id}`, action.payload.skills);
@@ -66,6 +69,7 @@ function* updateAlumSkill(action) {
   }
 }
 
+// worker Saga: will be fired on "DELETE_ALUM" actions
 function* deleteAlum(action) {
   try {
     yield axios.delete(`/api/alum/${action.payload}`);
@@ -74,6 +78,8 @@ function* deleteAlum(action) {
     console.log('Alum Delete request failed', error);
   }
 }
+
+// worker Saga: will be fired on "ALUM_PLACED" actions
 function* updateAlumPlaced(action) {
   try {
     console.log(action.payload)
@@ -82,11 +88,11 @@ function* updateAlumPlaced(action) {
     yield put({type : "SET_ONE_ALUM", payload : response.data[0]})
     yield put({ type: 'FETCH_ALUM' })
   } catch (error) {
-    console.log('Alum put request failed', error);
+    console.log('Alum placed put request failed', error);
   }
 }
 
-
+// worker Saga: will be fired on "ALUM_PLACED_DATE" actions
 function* updateAlumPlacedDate(action) {
   try {
     yield axios.put(`/api/alum/placed/date/${action.payload.id}`,action.payload);
