@@ -6,8 +6,6 @@ const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool');
 const userStrategy = require('../strategies/user.strategy');
 const nodemailer = require("nodemailer");
-const { getImageListItemBarUtilityClass } = require('@mui/material');
-const { config } = require('dotenv');
 const router = express.Router();
 const {google} = require("googleapis");
 
@@ -17,6 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 
+// username request get route
 router.get('/username', (req, res) => {
 
   const OAuth2 = google.auth.OAuth2;
@@ -37,18 +36,15 @@ router.get('/username', (req, res) => {
     .query(queryText)
     .then(
       async (result) => {
-        // Generate test SMTP service account from ethereal.email
-        // Only needed if you don't have a real mail account for testing
-        // let testAccount = await nodemailer.createTestAccount();
       
-        // create reusable transporter object using the default SMTP transport
+        // create reusable transporter object using the gmail OAuth2 transport
         let transporter = nodemailer.createTransport({
           host: 'smtp.gmail.com',
           port: 465,
-          secure: true, // true for 465, false for other ports
+          secure: true, // true for 465
           auth: {
             type: 'OAuth2',
-            user: process.env.EMAIL_USER, // generated ethereal user
+            user: process.env.EMAIL_USER, // GMAIL USER
             clientId: process.env.CID,
             clientSecret: process.env.CSECRET,
             refreshToken: process.env.CREFRESH,
@@ -81,9 +77,9 @@ router.get('/username', (req, res) => {
       console.log('Username email failed: ', err);
       res.sendStatus(500);
     });
-    
-})
+}) // end username request get route
 
+// update user password route
 router.put('/password', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
@@ -94,10 +90,11 @@ router.put('/password', (req, res, next) => {
     .query(queryText, [password, username, email])
     .then(() => res.sendStatus(201))
     .catch((err) => {
-      console.log('User registration failed: ', err);
+      console.log('User password change failed: ', err);
       res.sendStatus(500);
     });
-});
+}); // end update user password route
+
 // Handles POST request with new user data
 // The only thing different from this and every other post we've seen
 // is that the password gets encrypted before being inserted
@@ -118,7 +115,9 @@ router.post('/register', rejectUnauthenticated, (req, res, next) => {
       console.log('User registration failed: ', err);
       res.sendStatus(500);
     });
-});
+});// end registration of user
+
+// all user get route
 router.get('/all', rejectUnauthenticated, (req, res) => {
   
   const query = `SELECT * FROM "user"`;
@@ -130,7 +129,9 @@ router.get('/all', rejectUnauthenticated, (req, res) => {
       console.log('ERROR: Get User', err);
       res.sendStatus(500)
     })
-});
+});// end all user get route
+
+// user delete route
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // DELETE route for user
   const id = req.params.id;
@@ -143,7 +144,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       console.log('ERROR: Delete user', err);
       res.sendStatus(500)
     })
-});
+}); // end user delete route
+
 // Handles login form authenticate/login POST
 // userStrategy.authenticate('local') is middleware that we run on this route
 // this middleware will run our POST if successful
@@ -151,10 +153,12 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 router.post('/login', userStrategy.authenticate('local'), (req, res) => {
   res.sendStatus(200);
 });
+
 // clear all server session information about this user
 router.post('/logout', (req, res) => {
   // Use passport's built-in method to log out the user
   req.logout();
   res.sendStatus(200);
 });
+
 module.exports = router;
